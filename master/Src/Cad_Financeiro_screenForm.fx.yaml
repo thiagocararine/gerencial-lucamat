@@ -349,7 +349,6 @@ Cad_Financeiro_screenForm As screen:
 
     dtatt_input As datepicker:
         BorderThickness: =5
-        DefaultDate: =Value(Today())
         DisplayMode: =DisplayMode.View
         Font: =Font.'Segoe UI'
         Format: =DateValue(Today())
