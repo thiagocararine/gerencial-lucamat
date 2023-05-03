@@ -82,7 +82,7 @@
             BorderColor: =RGBA(0, 0, 0, 1)
             BorderThickness: =1
             Fill: =RGBA(253, 222, 207, 1)
-            Height: =290
+            Height: =350
             Width: =107.96
             X: =127.76
             Y: =40
@@ -415,7 +415,7 @@
             Text: ="Desp. Pessoal"
             Width: =98.97
             X: =131
-            Y: =258
+            Y: =252
             ZIndex: =25
 
         PagPessoalPDF_PA As text:
@@ -443,7 +443,7 @@
             Size: =9.9
             Width: =98.97
             X: =131
-            Y: =288
+            Y: =282
             ZIndex: =26
 
         Label7_8 As label:
@@ -452,7 +452,7 @@
             Text: ="Transf. / Pix"
             Width: =98.97
             X: =132
-            Y: =198
+            Y: =192
             ZIndex: =27
 
         RetiradaSocioPDF_PA As text:
@@ -481,7 +481,7 @@
             Size: =9.9
             Width: =98.97
             X: =132
-            Y: =229
+            Y: =222
             ZIndex: =28
 
         Label7_9 As label:
@@ -877,14 +877,14 @@
             Size: =9.9
             Text: ="Total Saídas"
             Width: =98.97
-            X: =132.26
-            Y: =334
+            X: =132
+            Y: =392
             ZIndex: =51
 
         TotalSaidaPDF_PA As text:
             Default: |-
                 =Text(
-                    Sum(PagBoletoPDF_PA + PagChequePDF_PA + PagPessoalPDF_PA+ RetiradaSocioPDF_PA),
+                    Sum(PagBoletoPDF_PA + PagChequePDF_PA + PagPessoalPDF_PA+ RetiradaSocioPDF_PA+ RetSocioPDF_PA),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -894,8 +894,8 @@
             PaddingTop: =4.5
             Size: =9.9
             Width: =98.97
-            X: =132.26
-            Y: =366
+            X: =132
+            Y: =424
             ZIndex: =52
 
         Label7_19 As label:
@@ -988,6 +988,43 @@
             Y: =54
             ZIndex: =57
 
+        Label7_84 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Retirada Sócio"
+            Width: =98.97
+            X: =132
+            Y: =312
+            ZIndex: =58
+
+        RetSocioPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Parada Angélica",
+                                tpsaida_fin = "Retirada Sócio"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132
+            Y: =344
+            ZIndex: =59
+
     Button1_1 As button:
         DisabledBorderColor: =RGBA(221, 79, 14, 1)
         Fill: =RGBA(246, 88, 16, 1)
@@ -1069,7 +1106,7 @@
             BorderColor: =RGBA(0, 0, 0, 1)
             BorderThickness: =1
             Fill: =RGBA(253, 222, 207, 1)
-            Height: =290
+            Height: =350
             Width: =107.96
             X: =127.76
             Y: =40
@@ -1866,14 +1903,14 @@
             Size: =9.9
             Text: ="Total Saídas"
             Width: =98.97
-            X: =132.26
-            Y: =334
+            X: =132
+            Y: =392
             ZIndex: =51
 
         TotalSaidaPDF_PIA As text:
             Default: |-
                 =Text(
-                    Sum(PagBoletoPDF_PIA + PagChequePDF_PIA + PagPessoalPDF_PIA+ RetiradaSocioPDF_PIA),
+                    Sum(PagBoletoPDF_PIA + PagChequePDF_PIA + PagPessoalPDF_PIA+ RetiradaSocioPDF_PIA+ RetSocioPDF_PIA),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -1883,8 +1920,8 @@
             PaddingTop: =4.5
             Size: =9.9
             Width: =98.97
-            X: =132.26
-            Y: =366
+            X: =132
+            Y: =424
             ZIndex: =52
 
         Label7_81 As label:
@@ -1976,4 +2013,41 @@
             X: =468.75
             Y: =54
             ZIndex: =57
+
+        Label7_85 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Retirada Sócio"
+            Width: =98.97
+            X: =132
+            Y: =314
+            ZIndex: =58
+
+        RetSocioPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Piabetá",
+                                tpsaida_fin = "Retirada Sócio"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132
+            Y: =346
+            ZIndex: =59
 

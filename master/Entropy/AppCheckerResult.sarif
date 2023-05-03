@@ -10398,6 +10398,102 @@
               "message": {
                 "text": "Ocorreu um erro ao executar a regra app-InefficientDelayLoading."
               }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 13
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Ocorreu um erro ao executar a regra app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 13
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Ocorreu um erro ao executar a regra app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 13
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Ocorreu um erro ao executar a regra app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 13
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Ocorreu um erro ao executar a regra app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 13
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Ocorreu um erro ao executar a regra app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 13
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Ocorreu um erro ao executar a regra app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 13
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Ocorreu um erro ao executar a regra app-InefficientDelayLoading."
+              }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 13
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Ocorreu um erro ao executar a regra app-InefficientDelayLoading."
+              }
             }
           ]
         }
@@ -23850,6 +23946,486 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2.RetSocioPDF_PA.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2.RetSocioPDF_PA.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 18,
+                  "charOffset": 122,
+                  "snippet": {
+                    "text": "Value(dtcompt_fin)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF1",
+                "type": "Financeiro_PDF1.Container2.RetSocioPDF_PA"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Value"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2.RetSocioPDF_PA.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2.RetSocioPDF_PA.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 141,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF1",
+                "type": "Financeiro_PDF1.Container2.RetSocioPDF_PA"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2.RetSocioPDF_PA.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2.RetSocioPDF_PA.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 166,
+                  "snippet": {
+                    "text": "||"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF1",
+                "type": "Financeiro_PDF1.Container2.RetSocioPDF_PA"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 18,
+                  "charOffset": 122,
+                  "snippet": {
+                    "text": "Value(dtcompt_fin)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF1",
+                "type": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Value"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 141,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF1",
+                "type": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 166,
+                  "snippet": {
+                    "text": "||"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF1",
+                "type": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 18,
+                  "charOffset": 122,
+                  "snippet": {
+                    "text": "Value(dtcompt_fin)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF2",
+                "type": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Value"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 141,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF2",
+                "type": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 166,
+                  "snippet": {
+                    "text": "||"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF2",
+                "type": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 18,
+                  "charOffset": 122,
+                  "snippet": {
+                    "text": "Value(dtcompt_fin)"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF2",
+                "type": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Value"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 141,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF2",
+                "type": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 2,
+                  "charOffset": 166,
+                  "snippet": {
+                    "text": "||"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Financeiro_PDF2",
+                "type": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "cad_screen.Input_nome.AccessibleLabel"
                 }
               ],
@@ -36313,6 +36889,126 @@
                 "member": "AccessibleLabel",
                 "module": "ImpressãoRelatorioCompras",
                 "type": "ImpressãoRelatorioCompras.TextInput1_6"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2.RetSocioPDF_PA.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2.RetSocioPDF_PA.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Financeiro_PDF1",
+                "type": "Financeiro_PDF1.Container2.RetSocioPDF_PA"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Financeiro_PDF1",
+                "type": "Financeiro_PDF1.Container2_3.RetSocioPDF_PIA"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Financeiro_PDF2",
+                "type": "Financeiro_PDF2.Container2_1.RetSocioPDF_NC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Financeiro_PDF2",
+                "type": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC"
               }
             }
           ],
