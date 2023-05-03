@@ -12,7 +12,7 @@
         Text: ="Imprimir"
         Visible: =Not(Parent.Printing)
         Width: =96
-        X: =589
+        X: =509
         Y: =13
         ZIndex: =2
 
@@ -216,7 +216,7 @@
         Text: ="Retornar"
         Visible: =Not(Parent.Printing)
         Width: =96
-        X: =479
+        X: =409
         Y: =13
         ZIndex: =4
 
@@ -286,10 +286,10 @@
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Bold
         Height: =51
-        Size: =30
+        Size: =28
         Text: ="Relatório de Compras"
         Underline: =true
-        Width: =421
+        Width: =389
         X: =19
         Y: =1
         ZIndex: =9
@@ -301,8 +301,8 @@
         Size: =12
         Text: =Filtro_DataLanc_inicio_cmp
         Underline: =true
-        Width: =112
-        X: =824
+        Width: =165
+        X: =724
         Y: =17
         ZIndex: =10
 
@@ -313,8 +313,8 @@
         Size: =12
         Text: =Filtro_DataLanc_fim_cmp
         Underline: =true
-        Width: =118
-        X: =978
+        Width: =165
+        X: =936
         Y: =17
         ZIndex: =11
 
@@ -325,7 +325,7 @@
         Size: =12
         Text: ="Até"
         Width: =42
-        X: =936
+        X: =894
         Y: =17
         ZIndex: =12
 
@@ -337,7 +337,7 @@
         Text: |-
             ="Data de Lanç.:"
         Width: =117
-        X: =707
+        X: =607
         Y: =17
         ZIndex: =13
 
