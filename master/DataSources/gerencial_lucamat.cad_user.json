@@ -1,0 +1,26 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2022-12-14T18:13:25.7890000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "cargo_user": "cargo_user",
+      "datacad_user": "datacad_user",
+      "depart_user": "depart_user",
+      "email_user": "email_user",
+      "ID": "ID",
+      "nome_user": "nome_user",
+      "senha_user": "senha_user",
+      "unidade_user": "unidade_user"
+    },
+    "DatasetName": "default",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "gerencial_lucamat.cad_user",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

@@ -1,0 +1,541 @@
+Cad_Financeiro_screenForm As screen:
+
+    Rectangle10 As rectangle:
+        BorderThickness: =10
+        Fill: =RGBA(241, 244, 249, 1)
+        Height: =643
+        Width: =964.49
+        X: =130
+        Y: =50
+        ZIndex: =1
+
+    Rectangle5 As rectangle:
+        BorderColor: =RGBA(153, 207, 236, 1)
+        BorderThickness: =2
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =158
+        Width: =314.9
+        X: =741
+        Y: =412
+        ZIndex: =2
+
+    "'Gravar-button_2' As button":
+        BorderColor: |-
+            =ColorFade(Self.Fill, -19
+            %)
+        Fill: =RGBA(152, 208, 70, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Height: =27
+        OnSelect: |-
+            =If(
+                IsBlank(hist_input),
+                Notify(
+                    "O Campo FILIAL está em branco.",
+                    NotificationType.Error
+                ),
+                If(
+                    IsBlank(tplanc_input),
+                    Notify(
+                        "O Campo TIPO DE LANÇAMENTO está em branco.",
+                        NotificationType.Error
+                    ),
+                    If(
+                        IsBlank(hist_input),
+                        Notify(
+                            "O HISTÓRICO DO LANÇAMENTO está em branco!",
+                            NotificationType.Error
+                        ),
+                        If(
+                            IsBlank(valor_input),
+                            Notify(
+                                "O Campo VALOR está em branco!",
+                                NotificationType.Error
+                            ),
+                            Patch(
+                                'gerencial_lucamat.pagamento_fin',
+                                Defaults('gerencial_lucamat.pagamento_fin'),
+                                {
+                                    ID: Max(
+                                        'gerencial_lucamat.pagamento_fin',
+                                        ID
+                                    ) + 1
+                                },
+                                {dtcompt_fin: dtmov_input.SelectedDate},
+                                {filial_fin: Text(filial_input.Selected.nome_parametro)},
+                                {tplanc_fin: tplanc_input.Selected.nome_parametro},
+                                {tpentr_fin: mventrada_input.Selected.nome_parametro},
+                                {tpsaida_fin: mvsaida_input.Selected.nome_parametro},
+                                {ljemp_fin: ljrec_input.Selected.nome_parametro},
+                                {vlrmov_fin: Value(valor_input.Text)},
+                                {hist_fin: hist_input.Text},
+                                {dtlanc_fin: dtatt_input.SelectedDate},
+                                {useredit_fin: user_input.Text}
+                            );
+                            Reset(dtatt_input);
+                            Reset(ljrec_input);
+                            Reset(mventrada_input);
+                            Reset(mvsaida_input);
+                            Reset(tplanc_input);
+                            Reset(filial_input);
+                            Reset(dtmov_input);
+                            Reset(user_input);
+                            Reset(hist_input);
+                            Reset(valor_input);
+                            Notify(
+                                "As informações foram gravadas com SUCESSO!",
+                                NotificationType.Success
+                            )
+                        )
+                    )
+                )
+            )
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =14.4
+        TabIndex: =8
+        Text: |-
+            ="Gravar
+            "
+        Tooltip: ="Gravar e Salvar as informações!"
+        Width: =134.96
+        X: =911
+        Y: =600
+        ZIndex: =3
+
+    "'Retornar-button_2' As button":
+        BorderColor: |-
+            =ColorFade(Self.Fill, -10
+            
+            %)
+        Fill: =RGBA(255, 191, 0, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Height: =60
+        OnSelect: =Navigate(Financeiro_screenDash);ScreenTransition.Cover
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =14.4
+        TabIndex: =9
+        Text: |-
+            ="Retornar
+            "
+        Tooltip: ="Retorna ao menu anterior."
+        Width: =134.96
+        X: =733
+        Y: =600
+        ZIndex: =4
+
+    "'Cancelar-button_1' As button":
+        BorderColor: |-
+            =ColorFade(Self.Fill, -19
+            %)
+        Fill: =RGBA(255, 0, 0, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Height: =60
+        OnSelect: |-
+            =Reset(dtatt_input);
+            Reset(ljrec_input);
+            Reset(mventrada_input);
+            Reset(mvsaida_input);
+            Reset(tplanc_input);
+            Reset(filial_input);
+            Reset(dtmov_input);
+            Reset(user_input);
+            Reset(hist_input);
+            Reset(valor_input);
+            Navigate(
+                Financeiro_screenDash,
+                ScreenTransition.CoverRight
+            )
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =14.4
+        TabIndex: =10
+        Text: |-
+            ="Cancelar
+            "
+        Tooltip: ="Cancela o lançamento e retorno ao Menu Principal."
+        Width: =134.96
+        X: =554
+        Y: =600
+        ZIndex: =5
+
+    dtmov_lbl As label:
+        Align: =Align.Right
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Text: |-
+            ="Data de Competência:"
+        Width: =161.95
+        X: =164
+        Y: =98
+        ZIndex: =6
+
+    filial_lbl As label:
+        Align: =Align.Right
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Text: |-
+            ="Filial:"
+        Width: =161.95
+        X: =695
+        Y: =105
+        ZIndex: =7
+
+    tplanc_lbl As label:
+        Align: =Align.Right
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Text: |-
+            ="Tipo de Lançamento:"
+        Width: =161.95
+        X: =164
+        Y: =171
+        ZIndex: =8
+
+    mventrada_lbl As label:
+        Align: =Align.Right
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Text: |-
+            ="Tipo de Entrada:"
+        Visible: =If(Text(tplanc_input.Selected.nome_parametro) = "Entrada", true, false)
+        Width: =166.45
+        X: =691
+        Y: =178
+        ZIndex: =9
+
+    mvsaida_lbl As label:
+        Align: =Align.Right
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Text: |-
+            ="Tipo de Saída:"
+        Visible: =If(Text(tplanc_input.Selected.nome_parametro) = "Saída", true, false)
+        Width: =166.45
+        X: =686
+        Y: =248
+        ZIndex: =10
+
+    valor_lbl As label:
+        Align: =Align.Right
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Text: |-
+            ="Valor :"
+        Width: =161.95
+        X: =695
+        Y: =315
+        ZIndex: =11
+
+    ljrec_lbl As label:
+        Align: =Align.Right
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Text: ="Loja Recebedora"
+        Visible: =If(Text(mventrada_input.Selected.nome_parametro) = "Empréstimo", true,If(Text(mvsaida_input.Selected.nome_parametro) = "Empréstimo", true, false ) )
+        Width: =161.95
+        X: =164
+        Y: =315
+        ZIndex: =12
+
+    hist_lbl As label:
+        Align: =Align.Center
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Text: ="Histórico"
+        Width: =161.95
+        X: =164
+        Y: =373
+        ZIndex: =13
+
+    dtatt_lbl As label:
+        Align: =Align.Right
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Text: |-
+            ="Data Lanç.:"
+        Width: =116
+        X: =741
+        Y: =424
+        ZIndex: =14
+
+    user__lbl As label:
+        Align: =Align.Right
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Text: |-
+            ="Usuario Atual:"
+        Width: =116.96
+        X: =741
+        Y: =505
+        ZIndex: =15
+
+    valor_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Font: =Font.'Segoe UI'
+        Format: =TextFormat.Number
+        Height: =30
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =13.5
+        TabIndex: =6
+        Tooltip: ="Adicione o Valor da movimentação financeira."
+        Width: =188.94
+        X: =857
+        Y: =315
+        ZIndex: =16
+
+    hist_input As text:
+        Default: =""
+        EnableSpellCheck: =true
+        Font: =Font.'Segoe UI'
+        Height: =140
+        HintText: ="Preencha com as informações relevantes ao lançamento efetuado."
+        Mode: =TextMode.MultiLine
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =12.6
+        TabIndex: =7
+        Tooltip: ="Preencha com as informações relevantes ao lançamento efetuado."
+        Width: =350.89
+        X: =164
+        Y: =413
+        ZIndex: =17
+
+    user_input As text:
+        BorderThickness: =5
+        Default: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        Height: =30
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =13.5
+        Width: =188.94
+        X: =857
+        Y: =512
+        ZIndex: =18
+
+    dtmov_input As datepicker:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =12
+        TabIndex: =1
+        Width: =188.94
+        X: =326
+        Y: =105
+        ZIndex: =19
+
+    dtatt_input As datepicker:
+        BorderThickness: =5
+        DefaultDate: =Value(Today())
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        Format: =DateValue(Today())
+        Height: =30
+        Size: =13.5
+        Width: =116.96
+        X: =857
+        Y: =431
+        ZIndex: =20
+
+    tplanc_input As combobox:
+        DisplayFields: =["nome_parametro"]
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 9)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =12
+        Width: =188.94
+        X: =326
+        Y: =178
+        ZIndex: =21
+
+    filial_input As combobox:
+        DisplayFields: =["nome_parametro"]
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11
+        Width: =188.94
+        X: =857
+        Y: =105
+        ZIndex: =22
+
+    mventrada_input As combobox:
+        DisplayFields: =["nome_parametro"]
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 10)
+        PaddingBottom: =3
+        PaddingLeft: =3
+        PaddingRight: =3
+        PaddingTop: =3
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11
+        Visible: =If(Text(tplanc_input.Selected.nome_parametro) = "Entrada", true, false)
+        Width: =188.94
+        X: =857
+        Y: =178
+        ZIndex: =23
+
+    mvsaida_input As combobox:
+        DisplayFields: =["nome_parametro"]
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 11)
+        PaddingBottom: =3
+        PaddingLeft: =3
+        PaddingRight: =3
+        PaddingTop: =3
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11
+        Visible: =If(Text(tplanc_input.Selected.nome_parametro) = "Saída", true, false)
+        Width: =188.94
+        X: =857
+        Y: =247
+        ZIndex: =24
+
+    ljrec_input As combobox:
+        DisplayFields: =["nome_parametro"]
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11
+        Visible: =If(Text(mventrada_input.Selected.nome_parametro) = "Empréstimo", true,If(Text(mvsaida_input.Selected.nome_parametro) = "Empréstimo", true, false ) )
+        Width: =188.94
+        X: =326
+        Y: =315
+        ZIndex: =25
+
+    "'Gravar-button_3' As button":
+        BorderColor: |-
+            =ColorFade(Self.Fill, -19
+            %)
+        Fill: =RGBA(152, 208, 70, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Height: =27
+        OnSelect: |-
+            =If(
+                IsBlank(hist_input),
+                Notify(
+                    "O Campo FILIAL está em branco.",
+                    NotificationType.Error
+                ),
+                If(
+                    IsBlank(tplanc_input),
+                    Notify(
+                        "O Campo TIPO DE LANÇAMENTO está em branco.",
+                        NotificationType.Error
+                    ),
+                    If(
+                        IsBlank(hist_input),
+                        Notify(
+                            "O HISTÓRICO DO LANÇAMENTO está em branco!",
+                            NotificationType.Error
+                        ),
+                        If(
+                            IsBlank(valor_input),
+                            Notify(
+                                "O Campo VALOR está em branco!",
+                                NotificationType.Error
+                            ),
+                            Patch(
+                                'gerencial_lucamat.pagamento_fin',
+                                Defaults('gerencial_lucamat.pagamento_fin'),
+                                {
+                                    ID: Max(
+                                        'gerencial_lucamat.pagamento_fin',
+                                        ID
+                                    ) + 1
+                                },
+                                {dtcompt_fin: dtmov_input.SelectedDate},
+                                {filial_fin: Text(filial_input.Selected.nome_parametro)},
+                                {tplanc_fin: tplanc_input.Selected.nome_parametro},
+                                {tpentr_fin: mventrada_input.Selected.nome_parametro},
+                                {tpsaida_fin: mvsaida_input.Selected.nome_parametro},
+                                {ljemp_fin: ljrec_input.Selected.nome_parametro},
+                                {vlrmov_fin: Value(valor_input.Text)},
+                                {hist_fin: hist_input.Text},
+                                {dtlanc_fin: dtatt_input.SelectedDate},
+                                {useredit_fin: user_input.Text}
+                            );
+                            Reset(dtatt_input);
+                            Reset(ljrec_input);
+                            Reset(mventrada_input);
+                            Reset(mvsaida_input);
+                            Reset(tplanc_input);
+                            Reset(filial_input);
+                            Reset(dtmov_input);
+                            Reset(user_input);
+                            Reset(hist_input);
+                            Reset(valor_input);
+                            Notify(
+                                "As informações foram gravadas com SUCESSO!",
+                                NotificationType.Success
+                            );
+                            Navigate(
+                                Cad_Financeiro_screenForm,
+                                ScreenTransition.Fade
+                            )
+                        )
+                    )
+                )
+            )
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =11.7
+        TabIndex: =8
+        Text: |-
+            ="Gravar e Voltar
+            "
+        Tooltip: ="Gravar e Salvar as informações!"
+        Width: =134.96
+        X: =911
+        Y: =633
+        ZIndex: =26
+

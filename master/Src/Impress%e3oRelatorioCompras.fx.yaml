@@ -1,0 +1,366 @@
+"ImpressãoRelatorioCompras As screen.'printableLayout_A4Landscape_ver1.0'":
+    Height: =794
+    Width: =1123
+
+    PrintButton1 As label:
+        Align: =Align.Center
+        BorderThickness: =1
+        Height: =32
+        OnSelect: =Print()
+        Size: =13
+        TabIndex: =0
+        Text: ="Imprimir"
+        Visible: =Not(Parent.Printing)
+        Width: =96
+        X: =589
+        Y: =13
+        ZIndex: =2
+
+    ListCompra_Table_print As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =3
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HeadingSize: =10
+        Height: =688
+        Items: |-
+            =Sort(
+                Filter(
+                    'gerencial_lucamat.compras',
+                    Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                    Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                    fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                    loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro)
+                ),
+                ID,
+                SortOrder.Descending
+            )
+        Size: =9
+        Width: =1079
+        X: =19
+        Y: =57
+        ZIndex: =3
+
+        ID_Column2_2 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.ID
+            Width: =33
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        loja_cmp_Column1_2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Loja da Compra"
+            FieldName: ="loja_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.loja_cmp
+            Width: =111
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        preventr_cmp_Column1_2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Previsão de Entrega"
+            FieldName: ="preventr_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.preventr_cmp
+            Width: =77
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        userlanc_cmp_Column1_2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Usuário"
+            FieldName: ="userlanc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.userlanc_cmp
+            Width: =95
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        valort_cmp_Column1_2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Valor"
+            FieldName: ="valort_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.valort_cmp
+            Width: =88
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        fornec_cmp_Column1_2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Fornecedor"
+            FieldName: ="fornec_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.fornec_cmp
+            Width: =167
+            X: =179
+            Y: =0
+            ZIndex: =7
+
+        formapag_cmp_Column1_2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Forma de Pagamento"
+            FieldName: ="formapag_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.formapag_cmp
+            Width: =126
+            X: =0
+            Y: =0
+            ZIndex: =8
+
+        dtlanc_cmp_Column1_2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data de Lançamento"
+            FieldName: ="dtlanc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =12
+            Text: =ThisItem.dtlanc_cmp
+            Width: =106
+            X: =0
+            Y: =0
+            ZIndex: =9
+
+        dataped_cmp_Column1_2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data Pedido"
+            FieldName: ="dataped_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.dataped_cmp
+            Width: =73
+            X: =0
+            Y: =0
+            ZIndex: =10
+
+        cnpjloja_cmp_Column1_2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CNPJ da Loja"
+            FieldName: ="cnpjloja_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.cnpjloja_cmp
+            Width: =102
+            X: =0
+            Y: =0
+            ZIndex: =11
+
+        cnpjfor_cmp_Column1_2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CNPJ"
+            FieldName: ="cnpjfor_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.cnpjfor_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =12
+
+    BackButton As label:
+        Align: =Align.Center
+        BorderThickness: =1
+        Height: =32
+        OnSelect: =Back(ScreenTransition.CoverRight)
+        Size: =13
+        TabIndex: =0
+        Text: ="Retornar"
+        Visible: =Not(Parent.Printing)
+        Width: =96
+        X: =479
+        Y: =13
+        ZIndex: =4
+
+    Label2_7 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =14
+        Text: |-
+            ="Total em Compras: "
+        Width: =200
+        X: =315
+        Y: =752
+        ZIndex: =5
+
+    Label2_8 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =14
+        Text: |-
+            ="Quantidade de Pedidos: "
+        Width: =233
+        X: =19
+        Y: =752
+        ZIndex: =6
+
+    TextInput1_6 As text:
+        Default: |-
+            =Text(Sum(Filter(
+                    'gerencial_lucamat.compras',
+                    Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                    Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                    fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                    loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro)
+                ),valort_cmp),"$ #,##0.00","pt-BR")
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Courier New'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =16
+        Width: =226
+        X: =515
+        Y: =752
+        ZIndex: =7
+
+    TextInput1_7 As text:
+        Default: |-
+            =CountIf(
+                'gerencial_lucamat.compras',
+                Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro)
+            )
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Courier New'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =16
+        Width: =63
+        X: =252
+        Y: =752
+        ZIndex: =8
+
+    Label2_9 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =51
+        Size: =30
+        Text: ="Relatório de Compras"
+        Underline: =true
+        Width: =421
+        X: =19
+        Y: =1
+        ZIndex: =9
+
+    Label2_10 As label:
+        Font: =Font.'Courier New'
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Size: =12
+        Text: =Filtro_DataLanc_inicio_cmp
+        Underline: =true
+        Width: =112
+        X: =824
+        Y: =17
+        ZIndex: =10
+
+    Label2_11 As label:
+        Font: =Font.'Courier New'
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Size: =12
+        Text: =Filtro_DataLanc_fim_cmp
+        Underline: =true
+        Width: =118
+        X: =978
+        Y: =17
+        ZIndex: =11
+
+    Label2_12 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Size: =12
+        Text: ="Até"
+        Width: =42
+        X: =936
+        Y: =17
+        ZIndex: =12
+
+    Label2_13 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Size: =12
+        Text: |-
+            ="Data de Lanç.:"
+        Width: =117
+        X: =707
+        Y: =17
+        ZIndex: =13
+
+    Label2_14 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =14
+        Text: |-
+            ="Usuário: "
+        Width: =88
+        X: =744
+        Y: =752
+        ZIndex: =14
+
+    Label2_15 As label:
+        Font: =Font.'Courier New'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =14
+        Text: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+        Width: =266
+        X: =832
+        Y: =752
+        ZIndex: =15
+

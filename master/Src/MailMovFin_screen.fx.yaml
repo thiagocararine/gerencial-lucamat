@@ -1,0 +1,293 @@
+"MailMovFin_screen As screen.'tabletLayout_Email_ver3.0'":
+
+    RectQuickActionBar1 As rectangle:
+        Height: =64
+        Width: =Parent.Width
+        ZIndex: =1
+
+    LblAppName1 As label:
+        Height: =64
+        PaddingLeft: =0
+        Text: ="Email"
+        Width: =Parent.Width - Self.X - 64
+        Wrap: =false
+        X: =32
+        ZIndex: =2
+
+    iconMail1 As icon.Send:
+        DisabledFill: =RGBA(240, 240, 240, 0.5)
+        DisplayMode: |-
+            =/*Email must have a subject and recipients to be sent*/
+            If(Len(Trim(TextEmailSubject1.Text)) > 0 && !IsEmpty(MyPeople), DisplayMode.Edit, DisplayMode.Disabled)
+        Icon: =Icon.Send
+        OnSelect: |-
+            =/*Create semicolon separated list of people to email, send the email, reset subject & message fields*/           
+            Set(
+                _emailRecipientString,
+                Concat(
+                    MyPeople,
+                    Mail & ";"
+                )
+            );
+            Office365Outlook.SendEmail(
+                _emailRecipientString,
+                TextEmailSubject1.Text,
+                TextEmailMessage1.Text,
+                {
+                    IsHtml: true,
+                    Importance: "Normal",
+                    Attachments: Table(
+                        {
+                            Name: "Movimento_Parada_e_Piabeta.PDF",
+                            ContentBytes: PDF_PAGE01
+                        },
+                        {
+                            Name: "Movimento_StCruzdaSerra_e_NvCampinas.PDF",
+                            ContentBytes: PDF_PAGE02
+                        }
+                    )
+                }
+            );
+            Reset(TextEmailSubject1);
+            Reset(TextEmailMessage1);
+            Clear(MyPeople)
+        PaddingBottom: =14
+        PaddingLeft: =14
+        PaddingRight: =14
+        PaddingTop: =14
+        Tooltip: ="Enviar mensagem"
+        X: =Parent.Width - Self.Width
+        ZIndex: =3
+
+    LblRecipientCount1 As label:
+        PaddingLeft: =0
+        Size: =13
+        Text: ="*Para (" &CountRows(MyPeople) & ")"
+        Width: =EmailPeopleGallery1.Width
+        Wrap: =false
+        X: =32
+        Y: =RectQuickActionBar1.Height + 15
+        ZIndex: =4
+
+    TextSearchBox1 As text:
+        AccessibleLabel: ="Pesquise pessoas ou adicione um endereço de email. Pelo menos um destinatário é necessário para um envio com êxito."
+        Default: =""
+        HintText: ="Pesquisar pessoas ou adicionar endereço de email"
+        PaddingLeft: =50
+        Width: =Parent.Width - Self.X * 2
+        X: =32
+        Y: =LblRecipientCount1.Y + LblRecipientCount1.Height + 3
+        ZIndex: =5
+
+    SearchIcon1 As icon.Search:
+        Height: =Self.Width
+        Icon: =Icon.Search
+        PaddingBottom: =8
+        PaddingLeft: =8
+        PaddingRight: =8
+        PaddingTop: =8
+        Tooltip: ="Pesquisar"
+        Width: =TextSearchBox1.Height
+        X: =TextSearchBox1.X + 5
+        Y: =TextSearchBox1.Y
+        ZIndex: =6
+
+    AddIcon1 As icon.Add:
+        Height: =TextSearchBox1.Height
+        Icon: =Icon.Add
+        OnSelect: |-
+            =Collect(MyPeople,           
+            {DisplayName: TextSearchBox1.Text, UserPrincipalName: TextSearchBox1.Text, Mail: TextSearchBox1.Text});           
+            Reset(TextSearchBox1)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        TabIndex: =0
+        Tooltip: ="Selecionar para adicionar usuário à coleção"
+        Visible: |-
+            =!IsBlank(TextSearchBox1.Text) &&           
+            
+            /*Is user entry a valid email address*/           
+            IsMatch(TextSearchBox1.Text, Match.Email)           &&
+            
+            Not(Trim(TextSearchBox1.Text) in MyPeople.UserPrincipalName)
+        Width: =70
+        X: =TextSearchBox1.X + TextSearchBox1.Width - Self.Width - 10
+        Y: =TextSearchBox1.Y
+        ZIndex: =7
+
+    EmailPeopleGallery1 As gallery.SelectedUsersTabletGallery:
+        AccessibleLabel: ="Pessoas selecionadas do usuário"
+        Height: |-
+            =/*Height adjusts to number of items in gallery*/
+            Min((Self.TemplateHeight + Self.TemplatePadding * 2) * RoundUp(CountRows(Self.AllItems) / 4, 0), 182)
+        Items: |-
+            =/*Collection of user selected people*/
+            MyPeople
+        Layout: =Layout.Vertical
+        ShowScrollbar: =Self.Height >= 182
+        TemplateSize: =42
+        Width: =Parent.Width - Self.X * 2
+        WrapCount: =4
+        X: =27
+        Y: =TextSearchBox1.Y + TextSearchBox1.Height
+        ZIndex: =8
+
+        Rectangle6 As rectangle:
+            Height: =Parent.TemplateHeight
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            ZIndex: =1
+
+        Title1 As label:
+            FocusedBorderThickness: =2
+            Height: =EmailPeopleGallery1.TemplateHeight
+            OnSelect: =Set(_selectedUser, ThisItem)
+            PaddingLeft: =10
+            Size: =13
+            TabIndex: =If(PeopleBrowseGallery1.Visible, -1, 0)
+            Text: =ThisItem.DisplayName
+            Width: =EmailPeopleGallery1.TemplateWidth - iconRemove1.Width + 10
+            Wrap: =false
+            ZIndex: =2
+
+        iconRemove1 As icon.Cancel:
+            AccessibleLabel: =iconRemove1.Tooltip
+            Color: =Title1.Color
+            Height: =EmailPeopleGallery1.TemplateHeight
+            Icon: =Icon.Cancel
+            OnSelect: =Remove(MyPeople, LookUp(MyPeople, UserPrincipalName = ThisItem.UserPrincipalName))
+            PaddingBottom: =9
+            PaddingLeft: =9
+            PaddingRight: =9
+            PaddingTop: =9
+            TabIndex: =If(PeopleBrowseGallery1.Visible, -1, 0)
+            Tooltip: ="Selecionar para remover usuário da coleção"
+            Width: =Self.Height
+            X: =EmailPeopleGallery1.TemplateWidth - Self.Width
+            ZIndex: =3
+
+    LblEmailSubject1 As label:
+        PaddingLeft: =0
+        Size: =13
+        Text: ="*Assunto"
+        Width: =Parent.Width - Self.X * 2
+        Wrap: =false
+        X: =32
+        Y: =EmailPeopleGallery1.Y + EmailPeopleGallery1.Height + 16
+        ZIndex: =9
+
+    TextEmailSubject1 As text:
+        AccessibleLabel: ="É necessário um assunto para enviar um email."
+        Default: =""
+        HintText: ="Adicionar um assunto"
+        TabIndex: =If(PeopleBrowseGallery1.Visible, -1, 0)
+        Width: =Parent.Width - Self.X * 2
+        X: =32
+        Y: =LblEmailSubject1.Y + LblEmailSubject1.Height + 3
+        ZIndex: =10
+
+    LblEmailMessage1 As label:
+        PaddingLeft: =0
+        Size: =13
+        Text: ="Mensagem"
+        Width: =200
+        Wrap: =false
+        X: =32
+        Y: =TextEmailSubject1.Y + TextEmailSubject1.Height + 16
+        ZIndex: =11
+
+    TextEmailMessage1 As text:
+        AccessibleLabel: ="Adicionar uma mensagem"
+        Default: |-
+            ="Segue anexo ao e-mail toda movimentação financeira efetuada no decorrer do dia.
+            
+            Att, Responsável Financeiro
+            Luca Materiais LTDA.
+            
+            Deus seja Louvado!"
+        Height: =238
+        HintText: ="Adicionar uma mensagem"
+        Mode: =TextMode.MultiLine
+        TabIndex: =If(PeopleBrowseGallery1.Visible, -1, 0)
+        Width: =Parent.Width - Self.X * 2
+        X: =32
+        Y: =LblEmailMessage1.Y + LblEmailMessage1.Height + 3
+        ZIndex: =12
+
+    PeopleBrowseGallery1 As gallery.PeoplePickerGallerySmallTablet:
+        AccessibleLabel: ="Resultados da pesquisa de usuários"
+        BorderThickness: =2
+        Fill: =Parent.Fill
+        Height: =If(Self.Visible, Parent.Height / 2 + 200, 0)
+        Items: |-
+            =/*Only use Office 365 Users operation if user has started searching*/
+            If(!IsBlank(Trim(TextSearchBox1.Text)), 'UsuáriosdoOffice365'.SearchUser({searchTerm: Trim(TextSearchBox1.Text), top: 15}))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =104
+        Visible: =!IsBlank(Trim(TextSearchBox1.Text))
+        Width: =Parent.Width - Self.X * 2
+        X: =32
+        Y: =TextSearchBox1.Y + TextSearchBox1.Height
+        ZIndex: =13
+
+        Rectangle7 As rectangle:
+            BorderColor: =Title2.Color
+            BorderThickness: =If(ThisItem.UserPrincipalName in MyPeople.UserPrincipalName, 4, 0)
+            Fill: =RGBA(0,0,0,0)
+            Height: =Parent.TemplateHeight
+            HoverFill: =RGBA(0,0,0,0)
+            OnSelect: =Select(Title2)
+            Width: =Parent.TemplateWidth
+            ZIndex: =1
+
+        Title2 As label:
+            BorderColor: =Self.Color
+            FocusedBorderThickness: =2
+            OnSelect: |-
+                =/*Select user, clear search contents and if this user hasn't been added to MyPeople collection, add them*/
+                Concurrent(
+                Set(_selectedUser, ThisItem),
+                Reset(TextSearchBox1),
+                If(Not(ThisItem.UserPrincipalName in MyPeople.UserPrincipalName), Collect(MyPeople, ThisItem)))
+            Size: =17
+            TabIndex: =0
+            Text: =ThisItem.DisplayName
+            Width: =PeopleBrowseGallery1.TemplateWidth - 2 * Self.X
+            Wrap: =false
+            X: =16
+            Y: =4
+            ZIndex: =2
+
+        Subtitle1 As label:
+            Color: =ColorFade(Title2.Color, 0.20)
+            FocusedBorderThickness: =2
+            OnSelect: =Select(Title2)
+            Size: =17
+            Text: =ThisItem.UserPrincipalName
+            Width: =PeopleBrowseGallery1.TemplateWidth - 2 * Self.X
+            Wrap: =false
+            X: =Title2.X
+            Y: =Title2.Y + Title2.Height + 3
+            ZIndex: =3
+
+        Separator1 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =4
+
+    Icon1 As icon.Leave:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Leave
+        OnSelect: =Navigate(Financeiro_screenDash,ScreenTransition.CoverRight)
+        PaddingBottom: =14
+        PaddingLeft: =14
+        PaddingRight: =14
+        PaddingTop: =14
+        X: =1094
+        ZIndex: =14
+

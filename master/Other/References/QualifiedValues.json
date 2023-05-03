@@ -1,0 +1,67 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_cr3f1_pagamento_fin_forms",
+      "Namespace": "pagamento_fin (Formulários)",
+      "Values": {
+        "Informações": "6e54ccc0-29ce-4b0a-8fcf-fd2d9c66577a"
+      }
+    },
+    {
+      "Kind": "default.cds_cr3f1_cadastro_usuario_lucamat_forms",
+      "Namespace": "cadastro_user (Formulários)",
+      "Values": {
+        "Informações": "6d8f3250-bc0e-4171-b33c-eb8b0c497c21"
+      }
+    },
+    {
+      "Kind": "default.cds_cr3f1_tplancamento_forms",
+      "Namespace": "TpLançamento (Formulários)",
+      "Values": {
+        "Informações": "c3c4907d-6016-45b0-8d85-ef60dfe2baaa"
+      }
+    },
+    {
+      "Kind": "default.cds_systemuser_forms",
+      "Namespace": "Usuários (Formulários)",
+      "Values": {
+        "Formulário de Bloco de Hierarquia do Usuário": "c68d6c09-d7a7-4959-8d0f-44b8cff9b452",
+        "Formulário de usuário – Negócios": "c2413504-7eb2-4c59-a087-95d819866114",
+        "Informações": "094fb08a-77bb-49e0-b7ea-8dbddfd01294",
+        "Usuário": "c2cd9e55-d4b4-4b55-9951-16ead79643e5",
+        "Usuário do Aplicativo": "d26924ef-4d80-46f7-ab1d-e6ae80a54ce8"
+      }
+    },
+    {
+      "Kind": "default.cds_cr3f1_cadastro_usuario_lucamat_forms",
+      "Namespace": "cadastro_usuario_lucamat (Formulários)",
+      "Values": {
+        "Informações": "6d8f3250-bc0e-4171-b33c-eb8b0c497c21"
+      }
+    },
+    {
+      "Kind": "default.cds_cr3f1_usuario_forms",
+      "Namespace": "Usuario (Formulários)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_activitypointer_forms",
+      "Namespace": "Atividades (Formulários)",
+      "Values": {}
+    },
+    {
+      "Kind": "default.cds_cr3f1_lucamatconfig_forms",
+      "Namespace": "LucaMatConfig (Formulários)",
+      "Values": {
+        "Informações": "5b98ca1f-4d9c-4659-a689-95ed6ce1cae9"
+      }
+    },
+    {
+      "Kind": "default.cds_cr3f1_filial_forms",
+      "Namespace": "Filial_1 (Formulários)",
+      "Values": {
+        "Informações": "26831bc7-bc40-49df-919d-fe47de3a1725"
+      }
+    }
+  ]
+}

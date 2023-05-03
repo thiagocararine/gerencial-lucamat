@@ -1,0 +1,1979 @@
+"Financeiro_PDF1 As screen.'printableLayout_A4Portrait_ver1.0'":
+    Height: =1123
+    ImagePosition: =ImagePosition.Center
+    Width: =794
+
+    Rectangle21 As rectangle:
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =76
+        Width: =138
+        X: =611
+        Y: =10
+        ZIndex: =1
+
+    Label4_1 As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =65
+        Size: =19
+        Text: |-
+            ="Fechamento Diário Financeiro
+            Luca Materiais"
+        Underline: =true
+        Width: =562
+        X: =116
+        Y: =54
+        ZIndex: =2
+
+    Label4_2 As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =37
+        Size: =19
+        Text: |-
+            ="Data:"
+        Width: =74
+        X: =641
+        Y: =10
+        ZIndex: =3
+
+    DataComptPDF01 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =55
+        Italic: =true
+        Size: =17
+        Text: =DataCompt
+        Width: =127
+        X: =617
+        Y: =31
+        ZIndex: =4
+
+    Container2 As groupContainer.manualLayoutContainer:
+        BorderThickness: =3
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =480
+        Width: =690.98
+        X: =52
+        Y: =121
+        ZIndex: =5
+
+        Rectangle9 As rectangle:
+            Fill: =RGBA(255, 0, 0, 1)
+            Height: =42
+            Width: =161.95
+            X: =507.43
+            Y: =403
+            ZIndex: =1
+
+        Rectangle8_2 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Fill: =RGBA(232, 244, 217, 1)
+            Height: =290
+            Width: =215.93
+            X: =241.12
+            Y: =40
+            ZIndex: =3
+
+        Rectangle8_1 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Fill: =RGBA(253, 222, 207, 1)
+            Height: =290
+            Width: =107.96
+            X: =127.76
+            Y: =40
+            ZIndex: =4
+
+        Rectangle8 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Fill: =RGBA(175, 191, 224, 1)
+            Height: =350
+            Width: =116.96
+            X: =2.7
+            Y: =40
+            ZIndex: =5
+
+        Label4 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Size: =16
+            Text: |-
+                ="Parada Angélica
+                "
+            Width: =230
+            X: =230
+            ZIndex: =6
+
+        Label6 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            Size: =11.7
+            Text: ="Entradas"
+            Width: =89.97
+            X: =13.5
+            Y: =40
+            ZIndex: =7
+
+        Label6_1 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Size: =11.7
+            Text: ="Saídas"
+            Width: =89.97
+            X: =137.66
+            Y: =40
+            ZIndex: =8
+
+        Label6_2 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Size: =11.7
+            Text: |-
+                ="Empréstimo 
+                Recebido    /    Efetuado"
+            Width: =188.94
+            X: =254.62
+            Y: =40
+            ZIndex: =9
+
+        Label7 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Dinheiro"
+            Width: =98.97
+            X: =13.5
+            Y: =67
+            ZIndex: =11
+
+        DinheiroPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                tpentr_fin = "Dinheiro",
+                                filial_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =97
+            ZIndex: =12
+
+        Label7_1 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Cartão"
+            Width: =98.97
+            X: =13.5
+            Y: =129
+            ZIndex: =13
+
+        CartãoPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                tpentr_fin = "Cartão",
+                                filial_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =162
+            ZIndex: =14
+
+        Label7_2 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Pix / Depósito"
+            Width: =98.97
+            X: =13.5
+            Y: =192
+            ZIndex: =15
+
+        PixPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                tpentr_fin = "Pix",
+                                filial_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =222
+            ZIndex: =16
+
+        Label7_3 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Boleto"
+            Width: =98.97
+            X: =13.5
+            Y: =252
+            ZIndex: =17
+
+        BoletoPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                tpentr_fin = "Boleto",
+                                filial_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =282
+            ZIndex: =18
+
+        Label7_4 As label:
+            Align: =Align.Center
+            Height: =30
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =4.5
+            Size: =9.9
+            Text: ="Entrada (Sócio)"
+            Width: =98.97
+            X: =13.5
+            Y: =312
+            ZIndex: =19
+
+        EntSocioPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                tpentr_fin = "Entrada (Sócio)",
+                                filial_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =344
+            ZIndex: =20
+
+        Label7_5 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Pag. Boleto"
+            Width: =98.97
+            X: =132.26
+            Y: =67
+            ZIndex: =21
+
+        PagBoletoPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Parada Angélica",
+                                tpsaida_fin = "Boleto"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132.26
+            Y: =97
+            ZIndex: =22
+
+        Label7_6 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Pag. Cheque"
+            Width: =98.97
+            X: =132.26
+            Y: =129
+            ZIndex: =23
+
+        PagChequePDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Parada Angélica",
+                                tpsaida_fin = "Cheque"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132.26
+            Y: =162
+            ZIndex: =24
+
+        Label7_7 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Desp. Pessoal"
+            Width: =98.97
+            X: =131
+            Y: =258
+            ZIndex: =25
+
+        PagPessoalPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Parada Angélica",
+                                tpsaida_fin = "Pagamento de Pessoal (Folha)"|| tpsaida_fin = "Pagamento de Passagem (Rio Card)"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =131
+            Y: =288
+            ZIndex: =26
+
+        Label7_8 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Transf. / Pix"
+            Width: =98.97
+            X: =132
+            Y: =198
+            ZIndex: =27
+
+        RetiradaSocioPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Parada Angélica",
+                                tpsaida_fin = "Transferência Bancária" || tpsaida_fin = "Pix"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Lighter
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132
+            Y: =229
+            ZIndex: =28
+
+        Label7_9 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9
+            Text: ="Nova Campinas"
+            Width: =98.97
+            X: =245.62
+            Y: =82
+            ZIndex: =29
+
+        EmpNCRecPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                filial_fin = "Nova Campinas",
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =245.62
+            Y: =107
+            ZIndex: =30
+
+        Label7_10 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9.9
+            Text: |-
+                ="Piabetá
+                "
+            Width: =98.97
+            X: =245.62
+            Y: =139
+            ZIndex: =31
+
+        EmpPIARecPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                filial_fin = "Piabetá",
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =245.62
+            Y: =167
+            ZIndex: =32
+
+        Label7_11 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9.9
+            Text: ="Santa Cruz"
+            Width: =98.97
+            X: =245.62
+            Y: =197
+            ZIndex: =33
+
+        EmpSCRecPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                filial_fin = "Santa Cruz",
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =245.62
+            Y: =227
+            ZIndex: =34
+
+        Label7_12 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9.9
+            Text: ="MD Santos"
+            Width: =98.97
+            X: =245.62
+            Y: =257
+            ZIndex: =35
+
+        EmpMDRecPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                filial_fin = "Mendes dos Santos",
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =245.62
+            Y: =287
+            ZIndex: =36
+
+        Label7_13 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9
+            Text: ="Nova Campinas"
+            Width: =98.97
+            X: =352.69
+            Y: =83
+            ZIndex: =37
+
+        EmpNCEfetPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Parada Angélica",
+                                ljemp_fin = "Nova Campinas"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =352.69
+            Y: =108
+            ZIndex: =38
+
+        Label7_14 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9.9
+            Text: ="Piabeta"
+            Width: =98.97
+            X: =352.69
+            Y: =140
+            ZIndex: =39
+
+        EmpPIAEfetPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Parada Angélica",
+                                ljemp_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =352.69
+            Y: =168
+            ZIndex: =40
+
+        Label7_15 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9.9
+            Text: ="Santa Cruz"
+            Width: =98.97
+            X: =352.69
+            Y: =198
+            ZIndex: =41
+
+        EmpSCEfetPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Parada Angélica",
+                                ljemp_fin = "Santa Cruz"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =352.69
+            Y: =228
+            ZIndex: =42
+
+        Label7_16 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9.9
+            Text: ="MD Santos"
+            Width: =98.97
+            X: =352.69
+            Y: =258
+            ZIndex: =43
+
+        EmpMDEfetPDF_PA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Parada Angélica",
+                                ljemp_fin = "Mendes dos Santos"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =352.69
+            Y: =288
+            ZIndex: =44
+
+        Label6_4 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =38
+            Size: =12.6
+            Text: ="Histórico do Dia"
+            Width: =136.76
+            X: =507.43
+            Y: =15
+            ZIndex: =45
+
+        Label6_5 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =31
+            Size: =11.7
+            Text: ="Saldo"
+            Width: =50.38
+            X: =513.73
+            Y: =408
+            ZIndex: =47
+
+        TextInput2_17 As text:
+            Default: |-
+                =Text(
+                    Sum(TotalEntradaPDF_PA + TotalEmpRecPDF_PA - TotalSaidaPDF_PA - TotalEmpEfetPDF_PA),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =11
+            Width: =98.97
+            X: =564.12
+            Y: =410
+            ZIndex: =48
+
+        Label7_17 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =4.5
+            Size: =9.9
+            Text: |-
+                ="Total Entradas
+                "
+            Width: =98.97
+            X: =13.5
+            Y: =392
+            ZIndex: =49
+
+        TotalEntradaPDF_PA As text:
+            Default: |-
+                =Text(
+                    Sum(DinheiroPDF_PA + CartãoPDF_PA + PixPDF_PA + BoletoPDF_PA + EntSocioPDF_PA),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =424
+            ZIndex: =50
+
+        Label7_18 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =4.5
+            Size: =9.9
+            Text: ="Total Saídas"
+            Width: =98.97
+            X: =132.26
+            Y: =334
+            ZIndex: =51
+
+        TotalSaidaPDF_PA As text:
+            Default: |-
+                =Text(
+                    Sum(PagBoletoPDF_PA + PagChequePDF_PA + PagPessoalPDF_PA+ RetiradaSocioPDF_PA),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132.26
+            Y: =366
+            ZIndex: =52
+
+        Label7_19 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =53
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =4.5
+            Size: =9.9
+            Text: ="Total de Empréstimo Recebido"
+            Width: =98.97
+            X: =245.62
+            Y: =334
+            ZIndex: =53
+
+        TotalEmpRecPDF_PA As text:
+            Default: |-
+                =Text(
+                    Sum(EmpNCRecPDF_PA + EmpPIARecPDF_PA + EmpSCRecPDF_PA + EmpMDRecPDF_PA),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =245.62
+            Y: =387
+            ZIndex: =54
+
+        Label7_20 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =53
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =4.5
+            Size: =9.9
+            Text: |-
+                ="Total de Empréstimo Efetuado
+                "
+            Width: =98.97
+            X: =352.69
+            Y: =334
+            ZIndex: =55
+
+        TotalEmpEfetPDF_PA As text:
+            Default: |-
+                =Text(
+                    Sum(EmpNCEfetPDF_PA + EmpPIAEfetPDF_PA + EmpSCEfetPDF_PA + EmpMDEfetPDF_PA),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =358.08
+            Y: =387
+            ZIndex: =56
+
+        TextInput4 As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Default: |-
+                =LookUp(
+                    'gerencial_lucamat.movimento_fin',
+                    Value(datacompt_tfin) = DataCompt.SelectedDate || IsBlank(Value(datacompt_tfin) = DataCompt.SelectedDate),
+                    histpa_tfin
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =312
+            Mode: =TextMode.MultiLine
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Size: =10.5
+            Width: =213.23
+            X: =468.75
+            Y: =54
+            ZIndex: =57
+
+    Button1_1 As button:
+        DisabledBorderColor: =RGBA(221, 79, 14, 1)
+        Fill: =RGBA(246, 88, 16, 1)
+        Height: =21
+        HoverFill: =RGBA(251, 188, 159, 1)
+        OnSelect: |-
+            =Set(
+                PDF_PAGE01,
+                PDF(Financeiro_PDF1)
+            )
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =10.8
+        Text: ="Gerar PDF"
+        Visible: =Not(Financeiro_PDF1.Printing)
+        Width: =88.17
+        X: =117.86
+        Y: =10
+        ZIndex: =6
+
+    Button1 As button:
+        Height: =21
+        HoverFill: =RGBA(175, 191, 224, 1)
+        OnSelect: =Print()
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =10.8
+        Text: ="Imprimir"
+        Visible: =Not(Financeiro_PDF1.Printing)
+        Width: =88.17
+        X: =10.8
+        Y: =10
+        ZIndex: =7
+
+    Button1_2 As button:
+        DisabledBorderColor: =RGBA(221, 79, 14, 1)
+        Fill: =RGBA(255, 0, 0, 1)
+        Height: =21
+        HoverFill: =RGBA(251, 188, 159, 1)
+        OnSelect: =Back(ScreenTransition)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =10.8
+        Text: ="Fechar"
+        Visible: =Not(Financeiro_PDF1.Printing)
+        Width: =88.17
+        X: =225.83
+        Y: =10
+        ZIndex: =8
+
+    Container2_3 As groupContainer.manualLayoutContainer:
+        BorderThickness: =3
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =480
+        Width: =690.98
+        X: =52
+        Y: =618
+        ZIndex: =9
+
+        Rectangle9_3 As rectangle:
+            Fill: =RGBA(255, 0, 0, 1)
+            Height: =42
+            Width: =161.95
+            X: =507.43
+            Y: =403
+            ZIndex: =1
+
+        Rectangle8_11 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Fill: =RGBA(232, 244, 217, 1)
+            Height: =290
+            Width: =215.93
+            X: =241.12
+            Y: =40
+            ZIndex: =3
+
+        Rectangle8_10 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Fill: =RGBA(253, 222, 207, 1)
+            Height: =290
+            Width: =107.96
+            X: =127.76
+            Y: =40
+            ZIndex: =4
+
+        Rectangle8_9 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Fill: =RGBA(175, 191, 224, 1)
+            Height: =350
+            Width: =116.96
+            X: =2.7
+            Y: =40
+            ZIndex: =5
+
+        Label4_7 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =36
+            Size: =16
+            Text: |-
+                ="Piabetá
+                "
+            Width: =94.47
+            X: =298.7
+            Y: =3
+            ZIndex: =6
+
+        Label6_16 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =24
+            Size: =11.7
+            Text: ="Entradas"
+            Width: =89.97
+            X: =13.5
+            Y: =40
+            ZIndex: =7
+
+        Label6_17 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Size: =11.7
+            Text: ="Saídas"
+            Width: =89.97
+            X: =137.66
+            Y: =40
+            ZIndex: =8
+
+        Label6_18 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Size: =11.7
+            Text: |-
+                ="Empréstimo 
+                Recebido    /    Efetuado"
+            Width: =188.94
+            X: =254.62
+            Y: =40
+            ZIndex: =9
+
+        Label7_63 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Dinheiro"
+            Width: =98.97
+            X: =13.5
+            Y: =67
+            ZIndex: =11
+
+        DinheiroPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                tpentr_fin = "Dinheiro",
+                                filial_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =97
+            ZIndex: =12
+
+        Label7_67 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Cartão"
+            Width: =98.97
+            X: =13.5
+            Y: =129
+            ZIndex: =13
+
+        CartãoPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                tpentr_fin = "Cartão",
+                                filial_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =162
+            ZIndex: =14
+
+        Label7_71 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Pix / Depósito"
+            Width: =98.97
+            X: =13.5
+            Y: =192
+            ZIndex: =15
+
+        PixPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                tpentr_fin = "Pix",
+                                filial_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =222
+            ZIndex: =16
+
+        Label7_75 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Boleto"
+            Width: =98.97
+            X: =13.5
+            Y: =252
+            ZIndex: =17
+
+        BoletoPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                tpentr_fin = "Boleto",
+                                filial_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =282
+            ZIndex: =18
+
+        Label7_79 As label:
+            Align: =Align.Center
+            Height: =30
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =4.5
+            Size: =9.9
+            Text: ="Entrada (Sócio)"
+            Width: =98.97
+            X: =13.5
+            Y: =312
+            ZIndex: =19
+
+        EntSocioPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                tpentr_fin = "Entrada (Sócio)",
+                                filial_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =344
+            ZIndex: =20
+
+        Label7_64 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Pag. Boleto"
+            Width: =98.97
+            X: =132.26
+            Y: =67
+            ZIndex: =21
+
+        PagBoletoPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Piabetá",
+                                tpsaida_fin = "Boleto"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132.26
+            Y: =97
+            ZIndex: =22
+
+        Label7_68 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Pag. Cheque"
+            Width: =98.97
+            X: =132.26
+            Y: =129
+            ZIndex: =23
+
+        PagChequePDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Piabetá",
+                                tpsaida_fin = "Cheque"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132.26
+            Y: =162
+            ZIndex: =24
+
+        Label7_72 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Transf. / Pix"
+            Width: =98.97
+            X: =132.26
+            Y: =192
+            ZIndex: =25
+
+        PagPessoalPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Piabetá",
+                                tpsaida_fin = "Transferência Bancária" || tpsaida_fin = "Pix"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132.26
+            Y: =222
+            ZIndex: =26
+
+        Label7_76 As label:
+            Height: =30
+            Size: =9.9
+            Text: ="Desp. Pessoal"
+            Width: =98.97
+            X: =132.26
+            Y: =252
+            ZIndex: =27
+
+        RetiradaSocioPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Piabetá",
+                                tpsaida_fin = "Pagamento de Pessoal (Folha)"|| tpsaida_fin = "Pagamento de Passagem (Rio Card)"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            FontWeight: =FontWeight.Lighter
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132.26
+            Y: =283
+            ZIndex: =28
+
+        Label7_65 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9
+            Text: ="Nova Campinas"
+            Width: =98.97
+            X: =245.62
+            Y: =82
+            ZIndex: =29
+
+        EmpNCRecPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                filial_fin = "Nova Campinas",
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =245.62
+            Y: =107
+            ZIndex: =30
+
+        Label7_69 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9
+            Text: |-
+                ="Parada Angélica
+                "
+            Width: =98.97
+            X: =245.62
+            Y: =139
+            ZIndex: =31
+
+        EmpPIARecPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                filial_fin = "Parada Angélica",
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =245.62
+            Y: =167
+            ZIndex: =32
+
+        Label7_73 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9.9
+            Text: ="Santa Cruz"
+            Width: =98.97
+            X: =245.62
+            Y: =197
+            ZIndex: =33
+
+        EmpSCRecPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                filial_fin = "Santa Cruz",
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =245.62
+            Y: =227
+            ZIndex: =34
+
+        Label7_77 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9.9
+            Text: ="MD Santos"
+            Width: =98.97
+            X: =245.62
+            Y: =257
+            ZIndex: =35
+
+        EmpMDRecPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                filial_fin = "Mendes dos Santos",
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =245.62
+            Y: =287
+            ZIndex: =36
+
+        Label7_66 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9
+            Text: ="Nova Campinas"
+            Width: =98.97
+            X: =352.69
+            Y: =83
+            ZIndex: =37
+
+        EmpNCEfetPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Piabetá",
+                                ljemp_fin = "Nova Campinas"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =352.69
+            Y: =108
+            ZIndex: =38
+
+        Label7_70 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9
+            Text: ="Parada Angélica"
+            Width: =98.97
+            X: =352.69
+            Y: =140
+            ZIndex: =39
+
+        EmpPIAEfetPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Piabetá",
+                                ljemp_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =352.69
+            Y: =168
+            ZIndex: =40
+
+        Label7_74 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9.9
+            Text: ="Santa Cruz"
+            Width: =98.97
+            X: =352.69
+            Y: =198
+            ZIndex: =41
+
+        EmpSCEfetPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Piabetá",
+                                ljemp_fin = "Santa Cruz"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =352.69
+            Y: =228
+            ZIndex: =42
+
+        Label7_78 As label:
+            Align: =Align.Center
+            Height: =30
+            Size: =9.9
+            Text: ="MD Santos"
+            Width: =98.97
+            X: =352.69
+            Y: =258
+            ZIndex: =43
+
+        EmpMDEfetPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Piabetá",
+                                ljemp_fin = "Mendes dos Santos"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =352.69
+            Y: =288
+            ZIndex: =44
+
+        Label6_15 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =38
+            Size: =12.6
+            Text: |
+                ="Histórico do Dia"
+            Width: =136.76
+            X: =507.43
+            Y: =15
+            ZIndex: =45
+
+        Label6_19 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =31
+            Size: =11.7
+            Text: ="Saldo"
+            Width: =50.38
+            X: =513.73
+            Y: =408
+            ZIndex: =47
+
+        TextInput2_20 As text:
+            Default: |-
+                =Text(
+                    Sum(TotalEntradaPDF_PIA + TotalEmpRecPDF_PIA - TotalSaidaPDF_PIA - TotalEmpEfetPDF_PIA),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =11
+            Width: =98.97
+            X: =564.12
+            Y: =410
+            ZIndex: =48
+
+        Label7_83 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =4.5
+            Size: =9.9
+            Text: |-
+                ="Total Entradas
+                "
+            Width: =98.97
+            X: =13.5
+            Y: =392
+            ZIndex: =49
+
+        TotalEntradaPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Sum(DinheiroPDF_PIA + CartãoPDF_PIA + PixPDF_PIA + BoletoPDF_PIA + EntSocioPDF_PIA),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =13.5
+            Y: =424
+            ZIndex: =50
+
+        Label7_80 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =4.5
+            Size: =9.9
+            Text: ="Total Saídas"
+            Width: =98.97
+            X: =132.26
+            Y: =334
+            ZIndex: =51
+
+        TotalSaidaPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Sum(PagBoletoPDF_PIA + PagChequePDF_PIA + PagPessoalPDF_PIA+ RetiradaSocioPDF_PIA),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =132.26
+            Y: =366
+            ZIndex: =52
+
+        Label7_81 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =53
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =4.5
+            Size: =9.9
+            Text: ="Total de Empréstimo Recebido"
+            Width: =98.97
+            X: =245.62
+            Y: =334
+            ZIndex: =53
+
+        TotalEmpRecPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Sum(EmpNCRecPDF_PIA + EmpPIARecPDF_PIA + EmpSCRecPDF_PIA + EmpMDRecPDF_PIA),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =245.62
+            Y: =387
+            ZIndex: =54
+
+        Label7_82 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =53
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =4.5
+            Size: =9.9
+            Text: |-
+                ="Total de Empréstimo Efetuado
+                "
+            Width: =98.97
+            X: =352.69
+            Y: =334
+            ZIndex: =55
+
+        TotalEmpEfetPDF_PIA As text:
+            Default: |-
+                =Text(
+                    Sum(EmpNCEfetPDF_PIA + EmpPIAEfetPDF_PIA + EmpSCEfetPDF_PIA + EmpMDEfetPDF_PIA),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =9.9
+            Width: =98.97
+            X: =358.08
+            Y: =387
+            ZIndex: =56
+
+        TextInput4_3 As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Default: |-
+                =LookUp(
+                    'gerencial_lucamat.movimento_fin',
+                    Value(datacompt_tfin) = DataCompt.SelectedDate || IsBlank(Value(datacompt_tfin) = DataCompt.SelectedDate),
+                    histpia_tfin
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =312
+            Mode: =TextMode.MultiLine
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Size: =10.5
+            Width: =213.23
+            X: =468.75
+            Y: =54
+            ZIndex: =57
+

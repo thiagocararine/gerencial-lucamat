@@ -1,0 +1,913 @@
+CadCompras_screenForm As screen:
+    BackgroundImage: =
+
+    Rectangle13 As rectangle:
+        BorderThickness: =7
+        Fill: =RGBA(241, 244, 249, 1)
+        Height: =410
+        Width: =1180
+        X: =28
+        Y: =24
+        ZIndex: =1
+
+    Rectangle14 As rectangle:
+        BorderThickness: =3
+        Fill: =RGBA(202, 202, 202, 1)
+        Height: =168
+        Width: =924
+        X: =120
+        Y: =170
+        ZIndex: =2
+
+    DataCompra_lbl As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Text: ="Data da Compra"
+        Width: =125
+        X: =40
+        Y: =43
+        ZIndex: =3
+
+    Fornecedor_lbl As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =12
+        Text: |-
+            ="Fornecedor:"
+        Width: =105
+        X: =387
+        Y: =43
+        ZIndex: =4
+
+    PrevEntrg_lbl As label:
+        Align: =Align.Right
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: |-
+            ="Previsão de Entrega:"
+        Width: =100
+        X: =526
+        Y: =91
+        ZIndex: =5
+
+    FprmPG_lbl As label:
+        FontWeight: =FontWeight.Semibold
+        Size: =11
+        Text: |-
+            ="Forma de Pagamento:"
+        Width: =95
+        X: =190
+        Y: =91
+        ZIndex: =6
+
+    "'1Parc_lbl' As label":
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Text: |-
+            ="1º Parcela:"
+        Width: =82
+        X: =120
+        Y: =182
+        ZIndex: =7
+
+    "'2Parc_lbl' As label":
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Text: |-
+            ="2º Parcela:"
+        Width: =82
+        X: =470
+        Y: =182
+        ZIndex: =8
+
+    "'3Parc_lbl' As label":
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Text: |-
+            ="3º Parcela:"
+        Width: =82
+        X: =820
+        Y: =182
+        ZIndex: =9
+
+    "'4Parc_lbl' As label":
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Text: |-
+            ="4º Parcela:"
+        Width: =82
+        X: =120
+        Y: =272
+        ZIndex: =10
+
+    "'5Parc_lbl' As label":
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Text: |-
+            ="5º Parcela:"
+        Width: =82
+        X: =470
+        Y: =272
+        ZIndex: =11
+
+    "'6Parc_lbl' As label":
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Text: |-
+            ="6º Parcela:"
+        Width: =82
+        X: =820
+        Y: =272
+        ZIndex: =12
+
+    CNPJ_Loja_lbl As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =11
+        Text: |-
+            ="CNPJ:"
+        Width: =55
+        X: =40
+        Y: =367
+        ZIndex: =13
+
+    Loja_lbl As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =11
+        Text: |-
+            ="Loja:"
+        Width: =50
+        X: =320
+        Y: =367
+        ZIndex: =14
+
+    DataLanc_lbl As label:
+        Align: =Align.Right
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =10
+        Text: ="Data de Lançamento"
+        Width: =92
+        X: =998
+        Y: =349
+        ZIndex: =15
+
+    Valor_lbl As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =11
+        Text: |-
+            ="Valor:"
+        Width: =60
+        X: =786
+        Y: =367
+        ZIndex: =16
+
+    UserLanc_lbl As label:
+        Align: =Align.Right
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =10
+        Text: |-
+            ="Usuário:"
+        Width: =92
+        X: =998
+        Y: =389
+        ZIndex: =17
+
+    CNPJ_Fornc_lbl As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =12
+        Text: |-
+            ="CNPJ:"
+        Width: =55
+        X: =915
+        Y: =43
+        ZIndex: =18
+
+    ID_Reg_lbl As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =12
+        Text: |-
+            ="ID Registro:"
+        Width: =100
+        X: =190
+        Y: =43
+        ZIndex: =19
+
+    DataCompra_Input As datepicker:
+        DateTimeZone: =DateTimeZone.UTC
+        Height: =30
+        Size: =10
+        Width: =125
+        X: =40
+        Y: =95
+        ZIndex: =20
+
+    ID_Reg_Fornecedor_Input As text:
+        Default: =Fornecedor_Input.Selected.ID
+        DisplayMode: =DisplayMode.View
+        Format: =TextFormat.Number
+        Height: =30
+        Size: =12
+        Width: =90
+        X: =290
+        Y: =43
+        ZIndex: =21
+
+    CNPJ_Fornc_Input As text:
+        Default: =Fornecedor_Input.Selected.cnpj_fornc
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Size: =12
+        Width: =200
+        X: =970
+        Y: =43
+        ZIndex: =22
+
+    CNPJ_Loja_Input As text:
+        Default: =Loja_input.Selected.cnpj_loja
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Size: =12
+        Width: =200
+        X: =95
+        Y: =367
+        ZIndex: =23
+
+    Valor_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Size: =12
+        Width: =120
+        X: =844
+        Y: =367
+        ZIndex: =24
+
+    User_input As text:
+        Default: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Size: =10
+        Tooltip: =
+        Width: =114
+        X: =1090
+        Y: =389
+        ZIndex: =25
+
+    vlr_date1 As text:
+        Default: =""
+        Height: =25
+        HintText: ="Insira os dias..."
+        Size: =12
+        Width: =130
+        X: =205
+        Y: =182
+        ZIndex: =26
+
+    vlr_date2 As text:
+        Default: =""
+        Height: =25
+        HintText: ="Insira os dias..."
+        Size: =12
+        Width: =130
+        X: =552
+        Y: =182
+        ZIndex: =27
+
+    vlr_date3 As text:
+        Default: =""
+        Height: =25
+        HintText: ="Insira os dias..."
+        Size: =12
+        Width: =130
+        X: =902
+        Y: =182
+        ZIndex: =28
+
+    vlr_date4 As text:
+        Default: =""
+        Height: =25
+        HintText: ="Insira os dias..."
+        Size: =12
+        Width: =130
+        X: =202
+        Y: =272
+        ZIndex: =29
+
+    vlr_date5 As text:
+        Default: =""
+        Height: =25
+        HintText: ="Insira os dias..."
+        Size: =12
+        Width: =130
+        X: =552
+        Y: =272
+        ZIndex: =30
+
+    vlr_date6 As text:
+        Default: =""
+        Height: =25
+        HintText: ="Insira os dias..."
+        Size: =12
+        Width: =130
+        X: =899
+        Y: =272
+        ZIndex: =31
+
+    LastLanc_Table As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =2
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =247
+        Items: =Sort('gerencial_lucamat.compras',ID,SortOrder.Descending)
+        Width: =1185
+        X: =24
+        Y: =501
+        ZIndex: =32
+
+        ID_Column2 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.ID
+            Width: =57
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        loja_cmp_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Loja da Compra"
+            FieldName: ="loja_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.loja_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        preventr_cmp_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Previsão de Entrega"
+            FieldName: ="preventr_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.preventr_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        userlanc_cmp_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Usuário"
+            FieldName: ="userlanc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.userlanc_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        valort_cmp_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Valor"
+            FieldName: ="valort_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.valort_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        fornec_cmp_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Fornecedor"
+            FieldName: ="fornec_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.fornec_cmp
+            Width: =196
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+        formapag_cmp_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Forma de Pagamento"
+            FieldName: ="formapag_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.formapag_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =8
+
+        dtlanc_cmp_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data de Lançamento"
+            FieldName: ="dtlanc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =12
+            Text: =ThisItem.dtlanc_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =9
+
+        dataped_cmp_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data Pedido"
+            FieldName: ="dataped_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.dataped_cmp
+            Width: =122
+            X: =0
+            Y: =0
+            ZIndex: =10
+
+        cnpjloja_cmp_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CNPJ da Loja"
+            FieldName: ="cnpjloja_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.cnpjloja_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =11
+
+        cnpjfor_cmp_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CNPJ"
+            FieldName: ="cnpjfor_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.cnpjfor_cmp
+            Width: =160
+            X: =0
+            Y: =0
+            ZIndex: =12
+
+    Gravar_Button As button:
+        Fill: =RGBA(127, 178, 57, 1)
+        OnSelect: |-
+            =If(
+                IsBlank(GrupProd_input.Selected.nome_parametro),
+                Notify(
+                    "Por favor, insira o GRUPO DO PRODUTO no campo indicado, antes de Gravar a informação",
+                    NotificationType.Error
+                ),
+                Patch(
+                    'gerencial_lucamat.compras',
+                    Defaults('gerencial_lucamat.compras'),
+                    {
+                        ID: Max(
+                            'gerencial_lucamat.compras',
+                            ID
+                        ) + 1
+                    },
+                    {fornec_cmp: Fornecedor_Input.Selected.nome_fornc},
+                    {regfor_cmp: ID_Reg_Fornecedor_Input.Text},
+                    {cnpjfor_cmp: CNPJ_Fornc_Input.Text},
+                    {dataped_cmp: DataCompra_Input.SelectedDate},
+                    {formapag_cmp: FormPg_Input.Selected.nome_parametro},
+                    {preventr_cmp: PrevEntg_input.Selected.nome_parametro},
+                    {'1venc_cmp': DataVenc1_Input.SelectedDate},
+                    {'2venc_cmp': DataVenc2_Input.SelectedDate},
+                    {'3venc_cmp': DataVenc3_Input.SelectedDate},
+                    {'4venc_cmp': DataVenc4_Input.SelectedDate},
+                    {'5venc_cmp': DataVenc5_Input.SelectedDate},
+                    {'6venc_cmp': DataVenc6_Input.SelectedDate},
+                    //{cnpjloja_cmp: CNPJ_Loja_Input.Text};
+                    {loja_cmp: Loja_input.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1Bnome_parametro'},
+                    {valort_cmp: Valor_input.Text},
+                    {dtlanc_cmp: DataLanc_Input.SelectedDate},
+                    {userlanc_cmp: User_input.Text},
+                    {grupoprd_cmp: GrupProd_input.Selected.nome_parametro}
+                );
+                Reset(Fornecedor_Input);
+                Reset(ID_Reg_Fornecedor_Input);
+                Reset(CNPJ_Fornc_Input);
+                Reset(DataCompra_Input);
+                Reset(FormPg_Input);
+                Reset(PrevEntg_input);
+                Reset(DataVenc1_Input);
+                Reset(DataVenc2_Input);
+                Reset(DataVenc3_Input);
+                Reset(DataVenc4_Input);
+                Reset(DataVenc5_Input);
+                Reset(DataVenc6_Input);
+                Reset(CNPJ_Loja_Input);
+                Reset(Loja_input);
+                Reset(Valor_input);
+                Reset(DataLanc_Input);
+                Reset(User_input);
+                Reset(vlr_date1);
+                Reset(vlr_date2);
+                Reset(vlr_date3);
+                Reset(vlr_date4);
+                Reset(vlr_date5);
+                Reset(vlr_date6);
+                Reset(GrupProd_input);
+                Notify(
+                    "Informações GRAVADAS com Sucesso, no banco de dados!",
+                    NotificationType.Success
+                )
+            )
+        Text: ="Gravar"
+        X: =1044
+        Y: =447
+        ZIndex: =33
+
+    Retornar_Button As button:
+        Fill: =RGBA(255, 191, 0, 1)
+        OnSelect: =Navigate(Compras_screenDash,ScreenTransition.CoverRight)
+        Text: ="Retorna"
+        X: =868
+        Y: =447
+        ZIndex: =34
+
+    Retornar_Button_1 As button:
+        Fill: =RGBA(255, 0, 0, 1)
+        OnSelect: |-
+            =Navigate(Compras_screenDash,ScreenTransition.CoverRight);
+            Reset(Fornecedor_Input);
+            Reset(ID_Reg_Fornecedor_Input);
+            Reset(CNPJ_Fornc_Input);
+            Reset(DataCompra_Input);
+            Reset(FormPg_Input);
+            Reset(PrevEntg_input);
+            Reset(DataVenc1_Input);
+            Reset(DataVenc2_Input);
+            Reset(DataVenc3_Input);
+            Reset(DataVenc4_Input);
+            Reset(DataVenc5_Input);
+            Reset(DataVenc6_Input);
+            Reset(CNPJ_Loja_Input);
+            Reset(Loja_input);
+            Reset(Valor_input);
+            Reset(DataLanc_Input);
+            Reset(User_input);
+            Reset(vlr_date1);
+            Reset(vlr_date2);
+            Reset(vlr_date3);
+            Reset(vlr_date4);
+            Reset(vlr_date5);
+            Reset(vlr_date6);
+        Text: ="Cancelar"
+        X: =692
+        Y: =447
+        ZIndex: =35
+
+    DataVenc1_Input As datepicker:
+        DefaultDate: =If(Value(vlr_date1.Text) >= 1, DateAdd(DataCompra_Input,vlr_date1,TimeUnit.Days), 0)
+        DisplayMode: =DisplayMode.View
+        Height: =25
+        Size: =12
+        Width: =130
+        X: =205
+        Y: =210
+        ZIndex: =36
+
+    DataVenc2_Input As datepicker:
+        DefaultDate: =If(Value(vlr_date2.Text) >= 1, DateAdd(Today(),vlr_date2,TimeUnit.Days), 0)
+        DisplayMode: =DisplayMode.View
+        Height: =25
+        Size: =12
+        Width: =130
+        X: =552
+        Y: =210
+        ZIndex: =37
+
+    DataVenc3_Input As datepicker:
+        DefaultDate: =If(Value(vlr_date3.Text) >= 1, DateAdd(Today(),vlr_date3,TimeUnit.Days), 0)
+        DisplayMode: =DisplayMode.View
+        Height: =25
+        Size: =12
+        Width: =130
+        X: =902
+        Y: =210
+        ZIndex: =38
+
+    DataVenc4_Input As datepicker:
+        DefaultDate: =If(Value(vlr_date4.Text) >= 1, DateAdd(Today(),vlr_date4,TimeUnit.Days), 0)
+        DisplayMode: =DisplayMode.View
+        Height: =25
+        Size: =12
+        Width: =130
+        X: =203
+        Y: =299
+        ZIndex: =39
+
+    DataVenc5_Input As datepicker:
+        DefaultDate: =If(Value(vlr_date5.Text) >= 1, DateAdd(Today(),vlr_date5,TimeUnit.Days), 0)
+        DisplayMode: =DisplayMode.View
+        Height: =25
+        Size: =12
+        Width: =130
+        X: =550
+        Y: =299
+        ZIndex: =40
+
+    DataVenc6_Input As datepicker:
+        DefaultDate: =If(Value(vlr_date6.Text) >= 1, DateAdd(Today(),vlr_date6,TimeUnit.Days), 0)
+        DisplayMode: =DisplayMode.View
+        Height: =25
+        Size: =12
+        Width: =130
+        X: =900
+        Y: =299
+        ZIndex: =41
+
+    DataLanc_Input As datepicker:
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Size: =12
+        Width: =114
+        X: =1090
+        Y: =349
+        ZIndex: =42
+
+    Fornecedor_Input As combobox:
+        DisplayFields: =["nome_fornc"]
+        Height: =30
+        Items: ='gerencial_lucamat.fornecedores'
+        SearchFields: =["nome_fornc"]
+        SearchItems: =Search('gerencial_lucamat.fornecedores',Fornecedor_Input.SearchText,"nome_fornc")
+        SelectMultiple: =false
+        Width: =390
+        X: =495
+        Y: =43
+        ZIndex: =43
+
+    FormPg_Input As dropdown:
+        Height: =30
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 8)
+        Width: =200
+        X: =290
+        Y: =96
+        ZIndex: =44
+
+    PrevEntg_input As dropdown:
+        Default: =""
+        Height: =30
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 6)
+        Tooltip: ="Prazo que a mercadoria será entregue na loja"
+        Width: =200
+        X: =628
+        Y: =96
+        ZIndex: =45
+
+    Loja_input As dropdown:
+        Height: =30
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+        Width: =390
+        X: =372
+        Y: =367
+        ZIndex: =46
+
+    GrupProd_lbl As label:
+        Align: =Align.Right
+        FontWeight: =FontWeight.Semibold
+        Size: =12
+        Text: |-
+            ="Grupo de Produtos:"
+        Width: =95
+        X: =874
+        Y: =91
+        ZIndex: =47
+
+    GrupProd_input As combobox:
+        DisplayFields: =["nome_parametro"]
+        Height: =30
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 7)
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =10
+        Width: =200
+        X: =970
+        Y: =96
+        ZIndex: =48
+
+    Icon2 As icon.Add:
+        BorderThickness: =1
+        FocusedBorderThickness: =50
+        Height: =30
+        Icon: =Icon.Add
+        OnSelect: |-
+            =UpdateContext({GrupoProdutos: true})
+        Tooltip: ="Adicione, Edite ou Delete Grupos de Produtos"
+        Width: =30
+        X: =855
+        Y: =96
+        ZIndex: =49
+
+    GrupoAdd As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =61
+
+        GrupoProd_Retangulo As rectangle:
+            BorderThickness: =5
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =533
+            Visible: =GrupoProdutos
+            Width: =691
+            X: =254
+            Y: =115
+            ZIndex: =50
+
+        Icon3 As icon.Cancel:
+            Height: =40
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({GrupoProdutos: false})
+            Tooltip: ="Fechar"
+            Visible: =GrupoProdutos
+            Width: =40
+            X: =891
+            Y: =125
+            ZIndex: =51
+
+        GrupoTable As dataTable.datatable:
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =2
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =360
+            Items: =Sort(Filter('gerencial_lucamat.parametro',cod_parametro = "Grupo Prod."),nome_parametro,SortOrder.Ascending)
+            Visible: =GrupoProdutos
+            Width: =609
+            X: =297
+            Y: =252
+            ZIndex: =52
+
+            ID_Column4 As dataTableColumn.numberColumn:
+                AutoWidth: =false
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="ID"
+                FieldName: ="ID"
+                FieldVariantName: ="numberColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =1
+                Text: =ThisItem.ID
+                Width: =148
+                X: =0
+                Y: =0
+                ZIndex: =13
+
+            nome_parametro_Column1 As dataTableColumn.textualColumn:
+                AutoWidth: =false
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="Grupo"
+                FieldName: ="nome_parametro"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =2
+                Text: =ThisItem.nome_parametro
+                Width: =453
+                X: =133
+                Y: =6
+                ZIndex: =14
+
+        add_icon_bttn As icon.AddLibrary:
+            Height: =40
+            Icon: =Icon.AddLibrary
+            OnSelect: |
+                =Patch(
+                    'gerencial_lucamat.parametro',
+                    Defaults('gerencial_lucamat.parametro'),
+                    {
+                        ID: Max(
+                            'gerencial_lucamat.parametro',
+                            ID
+                        ) + 1
+                    },
+                    {cod_parametro:cod_param_grupo.Text},
+                    {nome_parametro:grupo_input.Text},
+                    {key_parametro:Value(key_param_Grupos.Text)}
+                );
+                Reset(grupo_input);
+            Tooltip: ="Adicione novo Grupo"
+            Visible: =GrupoProdutos
+            Width: =40
+            X: =297
+            Y: =207
+            ZIndex: =53
+
+        delete_icon_bttn As icon.Erase:
+            Height: =40
+            Icon: =Icon.Erase
+            OnSelect: =Remove('gerencial_lucamat.parametro',GrupoTable.Selected)
+            Tooltip: ="Delete o Grupo selecionado"
+            Visible: =GrupoProdutos
+            Width: =40
+            X: =866
+            Y: =207
+            ZIndex: =55
+
+        edit_icon_bttn As icon.Edit:
+            Height: =40
+            Icon: =Icon.Edit
+            Tooltip: ="Edite um Grupo já selecionado"
+            Visible: =GrupoProdutos
+            Width: =40
+            X: =810
+            Y: =207
+            ZIndex: =56
+
+        grupo_input As text:
+            Default: =
+            HintText: ="Insira o nome do Grupo"
+            Visible: =GrupoProdutos
+            Width: =440
+            X: =351
+            Y: =207
+            ZIndex: =57
+
+        Label3 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            Size: =30
+            Text: ="Cadastro de Grupos"
+            Visible: =GrupoProdutos
+            Width: =515
+            X: =357
+            Y: =130
+            ZIndex: =58
+
+        cod_param_grupo As text:
+            Default: ="Grupo Prod."
+            Height: =35
+            Visible: =false
+            Width: =67
+            X: =290
+            Y: =127
+            ZIndex: =59
+
+        key_param_Grupos As text:
+            Default: ="7"
+            Height: =35
+            Visible: =false
+            Width: =67
+            X: =310
+            Y: =147
+            ZIndex: =60
+

@@ -1,0 +1,28 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2022-12-14T18:13:25.7890000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "datacompt_tfin": "datacompt_tfin",
+      "histnc_tfin": "histnc_tfin",
+      "histpa_tfin": "histpa_tfin",
+      "histpia_tfin": "histpia_tfin",
+      "histsc_tfin": "histsc_tfin",
+      "ID": "ID",
+      "saldonc_tfin": "saldonc_tfin",
+      "saldopa_tfin": "saldopa_tfin",
+      "saldopia_tfin": "saldopia_tfin",
+      "saldosc_tfin": "saldosc_tfin"
+    },
+    "DatasetName": "default",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "gerencial_lucamat.movimento_fin",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

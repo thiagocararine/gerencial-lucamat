@@ -1,0 +1,283 @@
+"room_screen As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    BackgroundImage: =
+    Fill: =RGBA(255, 255, 255, 1)
+    ImagePosition: =ImagePosition.Tile
+
+    Rectangle3 As rectangle:
+        BorderColor: =RGBA(152, 208, 70, 1)
+        BorderStyle: =BorderStyle.Dotted
+        BorderThickness: =10
+        DisplayMode: =DisplayMode.Disabled
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =197
+        Width: =269.01
+        X: =906.01
+        Y: =463
+        ZIndex: =3
+
+    ModuloFinanceiro_bttn As button:
+        BorderColor: =RGBA(175, 191, 224, 1)
+        BorderThickness: =3
+        Color: =RGBA(0, 13, 75, 1)
+        DisplayMode: |-
+            =If(
+                Departamentolbl1.Text = "Tec. Informação",
+                DisplayMode.Edit,
+                If(
+                    Departamentolbl1.Text = "Direção",
+                    DisplayMode.Edit,
+                    If(
+                        Departamentolbl1.Text = "Financeiro",
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                )
+            )
+        Fill: =RGBA(153, 207, 236, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        Height: =120
+        HoverBorderColor: =Self.Fill
+        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), 20%)
+        OnSelect: =Navigate(Financeiro_screenDash,ScreenTransition.CoverRight)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =17.99
+        Text: |-
+            ="Controle Financeiro
+            "
+        Width: =260
+        X: =79.17
+        Y: =182
+        ZIndex: =4
+
+    ModuloPedidos_bttn As button:
+        BorderColor: =RGBA(175, 191, 224, 1)
+        BorderThickness: =3
+        Color: =RGBA(0, 13, 75, 1)
+        DisplayMode: |-
+            =If(
+                Departamentolbl1.Text = "Tec. Informação",
+                DisplayMode.Edit,
+                If(
+                    Departamentolbl1.Text = "Direção",
+                    DisplayMode.Edit,
+                    If(
+                        Departamentolbl1.Text = "Administrativo",
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                )
+            )
+        Fill: =RGBA(153, 207, 236, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        Height: =120
+        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), 20%)
+        OnSelect: =Navigate(Compras_screenDash,ScreenTransition.CoverRight)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =17.99
+        Text: |-
+            ="Controle de Pedidos
+            "
+        Width: =260
+        X: =79.17
+        Y: =354
+        ZIndex: =5
+
+    ModuloCombustivel_bttn As button:
+        BorderColor: =RGBA(175, 191, 224, 1)
+        BorderThickness: =3
+        Color: =RGBA(0, 13, 75, 1)
+        DisplayMode: |-
+            =If(
+                Departamentolbl1.Text = "Tec. Informação",
+                DisplayMode.Edit,
+                If(
+                    Departamentolbl1.Text = "Direção",
+                    DisplayMode.Edit,
+                    If(
+                        Departamentolbl1.Text = "Vendas",
+                        DisplayMode.Edit,
+                        If(
+                            Departamentolbl1.Text = "Financeiro",
+                            DisplayMode.Edit,
+                            If(
+                                Departamentolbl1.Text = "Expedição",
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled
+                            )
+                        )
+                    )
+                )
+            )
+        Fill: =RGBA(153, 207, 236, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        Height: =120
+        HoverBorderColor: =ColorFade(Self.BorderColor, 40%)
+        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), 20%)
+        OnSelect: =
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =17.99
+        Text: |-
+            ="Controle de Combustível
+            "
+        Width: =260
+        X: =79.17
+        Y: =528
+        ZIndex: =6
+
+    MsgBoasVindaslbl As label:
+        DisplayMode: ="UsuarioLogado"
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Bold
+        Height: =58
+        Size: =31.49
+        Text: ="Olá, seja bem vindo!"
+        Width: =399.47
+        X: =62.98
+        Y: =58
+        ZIndex: =7
+
+    NomeUserlbl_room As label:
+        Align: =Align.Right
+        Color: =RGBA(141, 198, 63, 1)
+        DisplayMode: ="UsuarioLogado"
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =51
+        Size: =25.19
+        Text: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+        Width: =334.69
+        X: =98.07
+        Y: =112
+        ZIndex: =8
+
+    Informaçãolbl As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Size: =19.79
+        Text: ="Informações"
+        Underline: =true
+        Width: =269.91
+        X: =906.01
+        Y: =476
+        ZIndex: =9
+
+    Departamentolbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            ="Departamento:
+            "
+        Width: =134.96
+        X: =906.01
+        Y: =556
+        ZIndex: =10
+
+    Unidadelbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            ="Unidade:"
+        Width: =134.96
+        X: =906.01
+        Y: =596
+        ZIndex: =11
+
+    Cargolbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            ="Cargo:"
+        Width: =134.96
+        X: =906.01
+        Y: =516
+        ZIndex: =12
+
+    Cargolbl1 As label:
+        Font: =Font.'Segoe UI'
+        Size: =10.8
+        Text: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),cargo_user)
+        Width: =134.96
+        X: =1040.96
+        Y: =516
+        ZIndex: =13
+
+    Departamentolbl1 As label:
+        Font: =Font.'Segoe UI'
+        Size: =10.8
+        Text: |
+            =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),depart_user)
+        Width: =134.96
+        X: =1040.96
+        Y: =556
+        ZIndex: =14
+
+    Unidadelbl1 As label:
+        Font: =Font.'Segoe UI'
+        Size: =10.8
+        Text: |
+            =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),unidade_user)
+        Width: =134.96
+        Wrap: =false
+        X: =1040.06
+        Y: =596
+        ZIndex: =15
+
+    Icon4 As icon.Settings:
+        Color: =RGBA(56, 96, 178, 1)
+        DisplayMode: |-
+            =If(
+                Departamentolbl1.Text = "Tec. Informação",
+                DisplayMode.Edit,
+                If(
+                    Departamentolbl1.Text = "Direção",
+                    DisplayMode.Edit,
+                    If(
+                        Departamentolbl1.Text = "Administrativo",
+                        DisplayMode.Edit,
+                        If(
+                            Departamentolbl.Text = "Financeiro",
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    )
+                )
+            )
+        Icon: =Icon.Settings
+        OnSelect: =Navigate(Config_Screen,ScreenTransition.CoverRight)
+        X: =1021
+        Y: =46
+        ZIndex: =16
+
+    Exit_bttn As icon.Leave:
+        Color: =RGBA(255, 0, 0, 1)
+        Icon: =Icon.Leave
+        OnSelect: |-
+            =Navigate(login_screen);
+            Reset(login_input);
+            Reset(senha_input)
+        X: =1111
+        Y: =46
+        ZIndex: =17
+

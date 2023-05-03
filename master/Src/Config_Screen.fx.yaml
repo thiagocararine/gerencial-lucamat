@@ -1,0 +1,983 @@
+"Config_Screen As screen.'tabletAutoLayout_SplitScreen_ver1.0'":
+
+    Rectangle19 As rectangle:
+        BorderColor: =RGBA(0, 94, 146, 1)
+        BorderThickness: =5
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =686
+        Width: =657
+        X: =54
+        Y: =42
+        ZIndex: =1
+
+    Voltar_button As button:
+        Font: =Font.'Segoe UI'
+        Height: =51
+        OnSelect: =Navigate(room_screen,ScreenTransition.UnCoverRight)
+        Text: ="Voltar"
+        X: =1035
+        Y: =677
+        ZIndex: =2
+
+    ParamTable As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =3
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Segoe UI'
+        Height: =500
+        Items: =Filter('gerencial_lucamat.parametro',cod_parametro = param_radio_opçoes.Selected.Value)
+        Width: =380
+        X: =309
+        Y: =205
+        ZIndex: =3
+
+        ID_Column6 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.ID
+            Width: =58
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        nome_parametro_Column3 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Parametro Selecionado"
+            FieldName: ="nome_parametro"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.nome_parametro
+            Width: =321
+            X: =475
+            Y: =0
+            ZIndex: =3
+
+    param_radio_opçoes As radio:
+        Font: =Font.'Segoe UI'
+        Height: =500
+        Items: =Distinct('gerencial_lucamat.parametro',cod_parametro)
+        RadioSize: =30
+        Width: =233
+        X: =76
+        Y: =205
+        ZIndex: =4
+
+    parametro_config_input As text:
+        Default: =""
+        Font: =Font.'Segoe UI'
+        Height: =30
+        HintText: ="Insira o nome do Parâmetro aqui..."
+        Width: =300
+        X: =349
+        Y: =163
+        ZIndex: =5
+
+    param_config_input_button As icon.AddLibrary:
+        Height: =30
+        Icon: =Icon.AddLibrary
+        OnSelect: |-
+            =If(
+                IsBlank(parametro_config_input),
+                Notify(
+                    "Não por favor, insira o nome do PARÂMETRO desejado, no campo.",
+                    NotificationType.Error
+                ),
+                Patch(
+                    'gerencial_lucamat.parametro',
+                    Defaults('gerencial_lucamat.parametro'),
+                    {
+                        ID: Max(
+                            'gerencial_lucamat.parametro',
+                            ID
+                        ) + 1
+                    },
+                    {cod_parametro: cod_param_input_config.Text},
+                    {key_parametro: Value(key_param_input_config.Text)},
+                    {nome_parametro: parametro_config_input.Text}
+                );
+                Reset(parametro_config_input);
+                Notify(
+                    "PARÂMETRO cadastrado com sucesso no Banco de Dados!",
+                    NotificationType.Success
+                )
+            )
+        Width: =30
+        X: =309
+        Y: =163
+        ZIndex: =6
+
+    param_config_delete_button As icon.Erase:
+        Height: =30
+        Icon: =Icon.Erase
+        OnSelect: =Remove('gerencial_lucamat.parametro',ParamTable.Selected)
+        Width: =30
+        X: =659
+        Y: =163
+        ZIndex: =7
+
+    cod_param_input_config As text:
+        Default: |-
+            =If(
+                param_radio_opçoes.Selected.Value = "Grupo Prod.",
+                "Grupo Prod.",
+                If(
+                    param_radio_opçoes.Selected.Value = "Banco",
+                    "Banco",
+                    If(
+                        param_radio_opçoes.Selected.Value = "Agência e Conta",
+                        "Agência e Conta",
+                        If(
+                            param_radio_opçoes.Selected.Value = "Unidades",
+                            "Unidades",
+                            If(
+                                param_radio_opçoes.Selected.Value = "Cargos",
+                                "Cargos",
+                                If(
+                                    param_radio_opçoes.Selected.Value = "Tempo de Entrega",
+                                    "Tempo de Entrega",
+                                    If(
+                                        param_radio_opçoes.Selected.Value = "Forma de Pagamento (Compras)",
+                                        "Forma de Pagamento (Compras)",
+                                        If(
+                                            param_radio_opçoes.Selected.Value = "Tipo de Lançamento",
+                                            "Tipo de Lançamento",
+                                            If(
+                                                param_radio_opçoes.Selected.Value = "Tipo de Entrada",
+                                                "Tipo de Entrada",
+                                                If(
+                                                    param_radio_opçoes.Selected.Value = "Tipo de Saída",
+                                                    "Tipo de Saída",
+                                                    If(
+                                                        param_radio_opçoes.Selected.Value = "Status Cheque",
+                                                        "Status Cheque",
+                                                        If(
+                                                            param_radio_opçoes.Selected.Value = "Departamento",
+                                                            "Departamento",
+                                                            0
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        Visible: =false
+        Width: =100
+        X: =25
+        Y: =670
+        ZIndex: =8
+
+    key_param_input_config As text:
+        Default: |-
+            =If(
+                param_radio_opçoes.Selected.Value = "Grupo Prod.",
+                "7",
+                If(
+                    param_radio_opçoes.Selected.Value = "Banco",
+                    "4",
+                    If(
+                        param_radio_opçoes.Selected.Value = "Agência e Conta",
+                        "5",
+                        If(
+                            param_radio_opçoes.Selected.Value = "Unidades",
+                            "1",
+                            If(
+                                param_radio_opçoes.Selected.Value = "Cargos",
+                                "2",
+                                If(
+                                    param_radio_opçoes.Selected.Value = "Tempo de Entrega",
+                                    "6",
+                                    If(
+                                        param_radio_opçoes.Selected.Value = "Forma de Pagamento (Compras)",
+                                        "8",
+                                        If(
+                                            param_radio_opçoes.Selected.Value = "Tipo de Lançamento",
+                                            "9",
+                                            If(
+                                                param_radio_opçoes.Selected.Value = "Tipo de Entrada",
+                                                "10",
+                                                If(
+                                                    param_radio_opçoes.Selected.Value = "Tipo de Saída",
+                                                    "11",
+                                                    If(
+                                                        param_radio_opçoes.Selected.Value = "Status Cheque",
+                                                        "12",
+                                                        If(
+                                                            param_radio_opçoes.Selected.Value = "Departamento",
+                                                            "3",
+                                                            0
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        Visible: =false
+        Width: =100
+        X: =25
+        Y: =710
+        ZIndex: =9
+
+    Titulo_label As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =74
+        Size: =25
+        Text: ="Parâmetros do Sistema Gerencial"
+        Width: =539
+        X: =110
+        Y: =60
+        ZIndex: =10
+
+    Rectangle20 As rectangle:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =2
+        Fill: =RGBA(202, 202, 202, 1)
+        Height: =105
+        Width: =347
+        X: =730
+        Y: =163
+        ZIndex: =11
+
+    Label11 As label:
+        FontWeight: =FontWeight.Bold
+        Height: =105
+        Text: |-
+            ="OBS: Selecione sempre o TIPO de parametro que quer inserir, antes de GRAVAR a informação. Tenha atenção SEMPRE."
+        Width: =336
+        X: =741
+        Y: =163
+        ZIndex: =12
+
+    Label12 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Text: |-
+            ="Tipos de Parametro:"
+        Width: =233
+        X: =76
+        Y: =165
+        ZIndex: =13
+
+    Button2 As button:
+        Height: =50
+        OnSelect: |-
+            =UpdateContext({MenuAddEmpresa:true})
+        Text: ="Cadastro de Filial"
+        X: =1035
+        Y: =600
+        ZIndex: =14
+
+    AddEmpresa As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =48
+
+        "'Cadastro Empresa' As rectangle":
+            BorderColor: =RGBA(77, 77, 77, 1)
+            BorderThickness: =5
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: =608
+            Visible: =MenuAddEmpresa
+            Width: =1042
+            X: =94
+            Y: =60
+            ZIndex: =15
+
+        Título_Empresa As label:
+            Fill: =RGBA(202, 202, 202, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =28
+            Size: =15
+            Text: ="Cadastro de Empresa"
+            Visible: =MenuAddEmpresa
+            Width: =238
+            X: =99
+            Y: =65
+            ZIndex: =16
+
+        Fantasia_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="Nome Fantasia"
+            Visible: =MenuAddEmpresa
+            Width: =135
+            X: =115
+            Y: =110
+            ZIndex: =17
+
+        Razão_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="Razão Social"
+            Visible: =MenuAddEmpresa
+            Width: =114
+            X: =580
+            Y: =110
+            ZIndex: =18
+
+        CNPJ_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+                ="CNPJ
+                "
+            Visible: =MenuAddEmpresa
+            Width: =80
+            X: =115
+            Y: =160
+            ZIndex: =19
+
+        IE_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+                ="Inscrição Estadual
+                "
+            Visible: =MenuAddEmpresa
+            Width: =158
+            X: =520
+            Y: =160
+            ZIndex: =20
+
+        CEP_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+                ="CEP
+                "
+            Visible: =MenuAddEmpresa
+            Width: =44
+            X: =880
+            Y: =160
+            ZIndex: =21
+
+        Endereço_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+                ="Endereço
+                "
+            Visible: =MenuAddEmpresa
+            Width: =97
+            X: =115
+            Y: =210
+            ZIndex: =22
+
+        Numero_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+                ="Nº
+                "
+            Visible: =MenuAddEmpresa
+            Width: =35
+            X: =888
+            Y: =210
+            ZIndex: =23
+
+        Complemento_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+                ="Complemento
+                "
+            Visible: =MenuAddEmpresa
+            Width: =135
+            X: =115
+            Y: =260
+            ZIndex: =24
+
+        Cidade_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="Cidade"
+            Visible: =MenuAddEmpresa
+            Width: =76
+            X: =663
+            Y: =260
+            ZIndex: =25
+
+        UF_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+                ="UF
+                "
+            Visible: =MenuAddEmpresa
+            Width: =33
+            X: =941
+            Y: =260
+            ZIndex: =26
+
+        Telefone_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+                ="Telefone
+                "
+            Visible: =MenuAddEmpresa
+            Width: =97
+            X: =115
+            Y: =310
+            ZIndex: =27
+
+        Email_lbl_Empresa As label:
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+                ="E-mail
+                "
+            Visible: =MenuAddEmpresa
+            Width: =62
+            X: =414
+            Y: =310
+            ZIndex: =28
+
+        fantasia_input_empresa As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira o nome do estabelecimento..."
+            TabIndex: =1
+            Visible: =MenuAddEmpresa
+            X: =250
+            Y: =110
+            ZIndex: =29
+
+        razao_input_empresa As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira a Razão Social..."
+            TabIndex: =2
+            Visible: =MenuAddEmpresa
+            Width: =378
+            X: =694
+            Y: =110
+            ZIndex: =30
+
+        cnpj_input_empresa As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira o CNPJ"
+            TabIndex: =3
+            Visible: =MenuAddEmpresa
+            Width: =287
+            X: =195
+            Y: =160
+            ZIndex: =31
+
+        ie_input_empresa As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Inscrição estadual da empresa..."
+            TabIndex: =4
+            Visible: =MenuAddEmpresa
+            Width: =168
+            X: =677
+            Y: =160
+            ZIndex: =32
+
+        cep_input_empresa As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Coloque o CEP"
+            TabIndex: =5
+            Visible: =MenuAddEmpresa
+            Width: =149
+            X: =925
+            Y: =160
+            ZIndex: =33
+
+        endereco_input_empresa As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira o Endereço completo"
+            TabIndex: =6
+            Visible: =MenuAddEmpresa
+            Width: =655
+            X: =212
+            Y: =210
+            ZIndex: =34
+
+        numero_input_empresa As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira o Número"
+            TabIndex: =7
+            Visible: =MenuAddEmpresa
+            Width: =149
+            X: =925
+            Y: =210
+            ZIndex: =35
+
+        complemento_input_empresa As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira o Complemento do endereço"
+            TabIndex: =8
+            Visible: =MenuAddEmpresa
+            Width: =404
+            X: =250
+            Y: =260
+            ZIndex: =36
+
+        telefone_input_empresa As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="(xx)  xxxxx-xxxx"
+            TabIndex: =11
+            Visible: =MenuAddEmpresa
+            Width: =149
+            X: =211
+            Y: =310
+            ZIndex: =39
+
+        email_input_empresa As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Coloque aqui, o e-mail"
+            TabIndex: =12
+            Visible: =MenuAddEmpresa
+            Width: =254
+            X: =476
+            Y: =310
+            ZIndex: =40
+
+        DataTable1 As dataTable.datatable:
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =2
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Font: =Font.'Segoe UI'
+            Height: =266
+            Items: ='gerencial_lucamat.empresa'
+            Visible: =MenuAddEmpresa
+            Width: =958
+            X: =120
+            Y: =386
+            ZIndex: =41
+
+            cep_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="CEP"
+                FieldName: ="cep_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =8
+                Text: =ThisItem.cep_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =4
+
+            cidade_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="Cidade (Município)"
+                FieldName: ="cidade_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =12
+                Text: =ThisItem.cidade_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =5
+
+            cnpj_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="CNPJ"
+                FieldName: ="cnpj_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =3
+                Text: =ThisItem.cnpj_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =6
+
+            complement_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="Complemento"
+                FieldName: ="complement_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =11
+                Text: =ThisItem.complement_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =7
+
+            email_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="E-mail"
+                FieldName: ="email_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =7
+                Text: =ThisItem.email_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =8
+
+            endereç_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="Endereço"
+                FieldName: ="endereç_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =9
+                Text: =ThisItem.endereç_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =9
+
+            ID_Column7 As dataTableColumn.numberColumn:
+                AutoWidth: =false
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="ID"
+                FieldName: ="ID"
+                FieldVariantName: ="numberColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =1
+                Text: =ThisItem.ID
+                Width: =60
+                X: =0
+                Y: =0
+                ZIndex: =10
+
+            inscest_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="IE"
+                FieldName: ="inscest_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =4
+                Text: =ThisItem.inscest_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =11
+
+            fantasia_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="Nome Fantasia"
+                FieldName: ="fantasia_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =2
+                Text: =ThisItem.fantasia_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =12
+
+            numero_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="Número"
+                FieldName: ="numero_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =10
+                Text: =ThisItem.numero_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =13
+
+            razao_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="Razão Social"
+                FieldName: ="razao_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =5
+                Text: =ThisItem.razao_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =14
+
+            telefone_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="Telefone"
+                FieldName: ="telefone_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =6
+                Text: =ThisItem.telefone_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =15
+
+            uf_filial_Column1 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="UF"
+                FieldName: ="uf_filial"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =13
+                Text: =ThisItem.uf_filial
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =16
+
+        Limpar_Bttn_empresa As button:
+            Fill: =RGBA(255, 191, 0, 1)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverFill: =RGBA(255, 233, 168, 1)
+            Size: =16
+            Text: ="Limpar!"
+            Visible: =MenuAddEmpresa
+            Width: =100
+            X: =864
+            Y: =345
+            ZIndex: =42
+
+        Excluir_Bttn_empresa As button:
+            Fill: =RGBA(255, 0, 0, 1)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverFill: =RGBA(220, 153, 153, 1)
+            Size: =16
+            Text: ="Excluir"
+            Visible: =MenuAddEmpresa
+            Width: =100
+            X: =751
+            Y: =345
+            ZIndex: =43
+
+        Gravar_Bttn_empresa As button:
+            DisabledFill: =RGBA(152, 208, 70, 1)
+            Fill: =RGBA(152, 208, 70, 1)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverFill: =RGBA(209, 232, 178, 1)
+            OnSelect: |-
+                =If(
+                    IsBlank(fantasia_input_empresa),
+                    Notify(
+                        "NOME FANTASIA está em branco, por favor preencha o campo correspondente!",
+                        NotificationType.Error
+                    ),
+                    If(
+                        IsBlank(razao_input_empresa),
+                        Notify(
+                            "RAZÃO SOCIAL está em branco, por favor preencha o campo correspondente!",
+                            NotificationType.Error
+                        ),
+                        If(
+                            IsBlank(cnpj_input_empresa),
+                            Notify(
+                                "CNPJ da EMPRESA está em branco, por favor preencha o campo correspondente!",
+                                NotificationType.Error
+                            ),
+                            If(
+                                IsBlank(ie_input_empresa),
+                                Notify(
+                                    "INSCRIÇÃO ESTADUAL está em branco, por favor preencha o campo correspondente!",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    IsBlank(cep_input_empresa),
+                                    Notify(
+                                        "Campo com nome CEP está em branco, por favor preencha o campo correspondente!",
+                                        NotificationType.Error
+                                    ),
+                                    If(
+                                        IsBlank(endereco_input_empresa),
+                                        Notify(
+                                            "Preencha por favor o ENDEREÇO está em branco, por favor preencha o campo correspondente!",
+                                            NotificationType.Error
+                                        ),
+                                        If(
+                                            IsBlank(numero_input_empresa),
+                                            Notify(
+                                                "o campo NUMERO está em branco, por favor preencha o campo correspondente!",
+                                                NotificationType.Error
+                                            ),
+                                            If(
+                                                IsBlank(complemento_input_empresa),
+                                                Notify(
+                                                    "COMPLEMENTO está em branco, por favor preencha o campo correspondente!",
+                                                    NotificationType.Error
+                                                ),
+                                                If(
+                                                    IsBlank(cidade_input_empresa),
+                                                    Notify(
+                                                        "O campo CIDADE está em branco, por favor preencha o campo correspondente!",
+                                                        NotificationType.Error
+                                                    ),
+                                                    If(
+                                                        IsBlank(uf_input_empresa),
+                                                        Notify(
+                                                            "UF está em branco, por favor preencha o campo correspondente!",
+                                                            NotificationType.Error
+                                                        ),
+                                                        If(
+                                                            IsBlank(telefone_input_empresa),
+                                                            Notify(
+                                                                "Prenecha o campo TELEFONE está em branco, por favor preencha-o!",
+                                                                NotificationType.Error
+                                                            ),
+                                                            If(
+                                                                IsBlank(email_input_empresa),
+                                                                Notify(
+                                                                    "E-MAIL está em branco, por favor preencha o campo correspondente!",
+                                                                    NotificationType.Error
+                                                                ),
+                                                                Patch(
+                                                                    'gerencial_lucamat.empresa',
+                                                                    Defaults('gerencial_lucamat.empresa'),
+                                                                    {
+                                                                        ID: Max(
+                                                                            'gerencial_lucamat.empresa',
+                                                                            ID
+                                                                        ) + 1
+                                                                    },
+                                                                    {fantasia_filial: fantasia_input_empresa.Text},
+                                                                    {razao_filial: razao_input_empresa.Text},
+                                                                    {cnpj_filial: cnpj_input_empresa.Text},
+                                                                    {inscest_filial: ie_input_empresa.Text},
+                                                                    {cep_filial: cep_input_empresa.Text},
+                                                                    {endereç_filial: endereco_input_empresa.Text},
+                                                                    {numero_filial: Value(numero_input_empresa.Text)},
+                                                                    {complement_filial: complemento_input_empresa.Text},
+                                                                    {cidade_filial: cidade_input_empresa.Selected.Município},
+                                                                    {uf_filial: uf_input_empresa.Selected.UF},
+                                                                    {telefone_filial: Value(telefone_input_empresa.Text)},
+                                                                    {email_filial: email_input_empresa.Text}
+                                                                );
+                                                                Reset(fantasia_input_empresa);
+                                                                Reset(razao_input_empresa);
+                                                                Reset(cnpj_input_empresa);
+                                                                Reset(ie_input_empresa);
+                                                                Reset(cep_input_empresa);
+                                                                Reset(endereco_input_empresa);
+                                                                Reset(numero_input_empresa);
+                                                                Reset(complemento_input_empresa);
+                                                                Reset(cidade_input_empresa);
+                                                                Reset(uf_input_empresa);
+                                                                Reset(telefone_input_empresa);
+                                                                Reset(email_input_empresa);
+                                                                Notify(
+                                                                    "As informações da EMPRESA foram gravadas com Sucesso no banco de dados!",
+                                                                    NotificationType.Success
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            Size: =16
+            Text: ="Gravar!"
+            Visible: =MenuAddEmpresa
+            Width: =100
+            X: =974
+            Y: =345
+            ZIndex: =44
+
+        Icon5 As icon.Cancel:
+            Height: =40
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({MenuAddEmpresa:false})
+            Visible: =MenuAddEmpresa
+            Width: =40
+            X: =1085
+            Y: =70
+            ZIndex: =45
+
+        cidade_input_empresa As combobox:
+            DisplayFields: =["Município"]
+            Height: =25
+            Items: ='gerencial_lucamat.padrao'
+            SearchFields: =["Município"]
+            SearchItems: =Search('gerencial_lucamat.padrao',cidade_input_empresa.SearchText,"Município")
+            SelectMultiple: =false
+            Visible: =MenuAddEmpresa
+            Width: =191
+            X: =740
+            Y: =260
+            ZIndex: =46
+
+        uf_input_empresa As dropdown:
+            Height: =25
+            Items: =Filter('gerencial_lucamat.padrao', Município = cidade_input_empresa.Selected.Município)
+            Visible: =MenuAddEmpresa
+            Width: =95
+            X: =974
+            Y: =260
+            ZIndex: =47
+

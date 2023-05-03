@@ -1,0 +1,34 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2023-03-13T16:45:02.1030000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "agenciaconta_chq": "agenciaconta_chq",
+      "banco_chq": "banco_chq",
+      "cnpjemp_chq": "cnpjemp_chq",
+      "cnpjfornec_chq": "cnpjfornec_chq",
+      "descricao_chq": "descricao_chq",
+      "dtbaix_chq": "dtbaix_chq",
+      "dtlanc_chq": "dtlanc_chq",
+      "dtvenc_chq": "dtvenc_chq",
+      "empresa_chq": "empresa_chq",
+      "fornecedor_chq": "fornecedor_chq",
+      "ID": "ID",
+      "numero_chq": "numero_chq",
+      "status_chq": "status_chq",
+      "userbaixa_chq": "userbaixa_chq",
+      "userlanc_chq": "userlanc_chq",
+      "valor_chq": "valor_chq"
+    },
+    "DatasetName": "default",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "gerencial_lucamat.cheques",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

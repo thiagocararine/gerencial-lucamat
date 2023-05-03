@@ -1,0 +1,1190 @@
+Compras_screenDash As screen:
+
+    Rectangle17 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =2
+        Fill: =RGBA(149, 149, 149, 1)
+        Height: =115
+        Width: =483
+        X: =19
+        Y: =640
+        ZIndex: =1
+
+    Rectangle16 As rectangle:
+        BorderColor: =RGBA(118, 0, 0, 1)
+        BorderThickness: =2
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(255, 0, 0, 1)
+        Height: =90
+        Width: =365
+        X: =517
+        Y: =653
+        ZIndex: =2
+
+    Rectangle15 As rectangle:
+        Fill: =RGBA(214, 223, 238, 1)
+        Height: =376
+        Width: =179
+        X: =1034
+        Y: =133
+        ZIndex: =3
+
+    Button3 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Fill: =RGBA(202, 202, 202, 1)
+        Font: =Font.'Segoe UI'
+        Height: =45
+        HoverFill: =RGBA(237, 237, 237, 1)
+        Size: =16
+        Text: ="Cadastar Loja"
+        Width: =150
+        X: =1048
+        Y: =576
+        ZIndex: =4
+
+    Button3_1 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Fill: =RGBA(255, 191, 0, 1)
+        Font: =Font.'Segoe UI'
+        Height: =45
+        HoverFill: =RGBA(253, 222, 207, 1)
+        OnSelect: |-
+            =UpdateContext({MenuFornec: true})
+        Size: =14
+        Text: ="Cadastrar Fornecedor"
+        Width: =150
+        X: =1048
+        Y: =632
+        ZIndex: =5
+
+    Button3_2 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Fill: =RGBA(54, 176, 75, 1)
+        Font: =Font.'Segoe UI'
+        Height: =45
+        HoverFill: =RGBA(187, 221, 140, 1)
+        OnSelect: =Navigate(CadCompras_screenForm,ScreenTransition.Fade)
+        Text: ="Inserir Compra"
+        Width: =150
+        X: =1048
+        Y: =520
+        ZIndex: =6
+
+    Button3_3 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Font: =Font.'Segoe UI'
+        Height: =45
+        OnSelect: =Navigate(room_screen,ScreenTransition.Fade)
+        Size: =16
+        Text: ="Retornar"
+        Width: =150
+        X: =1048
+        Y: =688
+        ZIndex: =7
+
+    Excluir_cmp As button:
+        BorderColor: =ColorFade(Self.Fill, -25%)
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Fill: =RGBA(255, 0, 0, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =75
+        HoverFill: =RGBA(255, 0, 0, 0.53)
+        OnSelect: =Remove('gerencial_lucamat.compras',ListCompra_Table.Selected)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =13
+        Text: ="Excluir Lanç."
+        Width: =85
+        X: =1128
+        Y: =38
+        ZIndex: =8
+
+    Limpar_select_cmp As button:
+        BorderColor: =ColorFade(Self.Fill, -25%)
+        Color: =RGBA(50, 86, 160, 1)
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Fill: =RGBA(215, 223, 240, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =75
+        OnSelect: |
+            =Reset(Filtro_DataLanc_inicio_cmp);
+            Reset(Filtro_DataLanc_fim_cmp);
+            Reset(Filtro_DataPedido_inicio_cmp);
+            Reset(Filtro_DataPedido_fim_cmp);
+            Reset(FiltroFornecedor_cmp);
+            Reset(FiltroLojas_cmp);
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =13
+        Text: ="Limpar Seleção"
+        Width: =85
+        X: =1034
+        Y: =38
+        ZIndex: =9
+
+    FiltroLanc_lbl_cmp1 As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =20
+        Size: =11.7
+        Text: ="Filtro por Lançamento"
+        Width: =270
+        X: =20
+        Y: =11
+        ZIndex: =10
+
+    Filtro_DataLanc_inicio_cmp As datepicker:
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =11.7
+        Width: =130
+        X: =20
+        Y: =34
+        ZIndex: =11
+
+    FiltroLojas_cmp As combobox:
+        DisplayFields: =["nome_parametro"]
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =220
+        X: =554
+        Y: =85
+        ZIndex: =12
+
+    FiltroLoja_lbl As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =14
+        Text: ="Loja Resp. pela Compra"
+        Width: =220
+        X: =554
+        Y: =55
+        ZIndex: =13
+
+    FiltroLanc_lbl_cmp2 As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =20
+        Size: =11.7
+        Text: ="Filtro por Pedido"
+        Width: =270
+        X: =20
+        Y: =67
+        ZIndex: =14
+
+    Filtro_DataPedido_inicio_cmp As datepicker:
+        ContentLanguage: =
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =11.7
+        Width: =130
+        X: =20
+        Y: =90
+        ZIndex: =15
+
+    Filtro_DataLanc_fim_cmp As datepicker:
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =11.7
+        Width: =130
+        X: =160
+        Y: =34
+        ZIndex: =16
+
+    Filtro_DataPedido_fim_cmp As datepicker:
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =11.7
+        Width: =130
+        X: =160
+        Y: =90
+        ZIndex: =17
+
+    FiltroFornecedor_cmp As combobox:
+        DisplayFields: =["nome_fornc"]
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: ='gerencial_lucamat.fornecedores'
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["nome_fornc"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =220
+        X: =316
+        Y: =85
+        ZIndex: =18
+
+    FiltroLoja_lbl_1 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =14
+        Text: ="Fornecedor"
+        Width: =220
+        X: =316
+        Y: =55
+        ZIndex: =19
+
+    ListCompra_Table As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =2
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HeadingFont: =Font.'Segoe UI'
+        Height: =493
+        Items: |-
+            =Sort(
+                Filter(
+                    'gerencial_lucamat.compras',
+                    Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                    Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                    fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                    loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro),
+                    grupoprd_cmp = FiltroGrupo_cmp.Selected.nome_parametro || IsBlank(FiltroGrupo_cmp.Selected.nome_parametro)
+                ),
+                ID,
+                SortOrder.Descending
+            )
+        Size: =11
+        Width: =1003
+        X: =19
+        Y: =142
+        ZIndex: =20
+
+        ID_Column2_1 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.ID
+            Width: =57
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        loja_cmp_Column1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Loja da Compra"
+            FieldName: ="loja_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.loja_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        preventr_cmp_Column1_1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Previsão de Entrega"
+            FieldName: ="preventr_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.preventr_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        userlanc_cmp_Column1_1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Usuário"
+            FieldName: ="userlanc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.userlanc_cmp
+            Width: =143
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        valort_cmp_Column1_1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Valor"
+            FieldName: ="valort_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.valort_cmp
+            Width: =102
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        fornec_cmp_Column1_1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Fornecedor"
+            FieldName: ="fornec_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.fornec_cmp
+            Width: =196
+            X: =179
+            Y: =0
+            ZIndex: =7
+
+        formapag_cmp_Column1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Forma de Pagamento"
+            FieldName: ="formapag_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.formapag_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =8
+
+        dtlanc_cmp_Column1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data de Lançamento"
+            FieldName: ="dtlanc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =13
+            Text: =ThisItem.dtlanc_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =9
+
+        dataped_cmp_Column1_1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data Pedido"
+            FieldName: ="dataped_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.dataped_cmp
+            Width: =122
+            X: =0
+            Y: =0
+            ZIndex: =10
+
+        cnpjloja_cmp_Column1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CNPJ da Loja"
+            FieldName: ="cnpjloja_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =12
+            Text: =ThisItem.cnpjloja_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =11
+
+        cnpjfor_cmp_Column1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CNPJ"
+            FieldName: ="cnpjfor_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.cnpjfor_cmp
+            Width: =160
+            X: =0
+            Y: =0
+            ZIndex: =12
+
+        "'1venc_cmp_Column1' As dataTableColumn.textualColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Parcela 1"
+            FieldName: ="1venc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =14
+            Text: =ThisItem.'1venc_cmp'
+            Width: =125
+            X: =0
+            Y: =0
+            ZIndex: =13
+
+        "'2venc_cmp_Column1' As dataTableColumn.textualColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Parcela 2"
+            FieldName: ="2venc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =15
+            Text: =ThisItem.'2venc_cmp'
+            Width: =125
+            X: =0
+            Y: =0
+            ZIndex: =14
+
+        "'3venc_cmp_Column1' As dataTableColumn.textualColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Parcela 3"
+            FieldName: ="3venc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =16
+            Text: =ThisItem.'3venc_cmp'
+            Width: =125
+            X: =0
+            Y: =0
+            ZIndex: =15
+
+        "'4venc_cmp_Column1' As dataTableColumn.textualColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Parcela 4"
+            FieldName: ="4venc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =17
+            Text: =ThisItem.'4venc_cmp'
+            Width: =125
+            X: =0
+            Y: =0
+            ZIndex: =16
+
+        "'5venc_cmp_Column1' As dataTableColumn.textualColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Parcela 5"
+            FieldName: ="5venc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =18
+            Text: =ThisItem.'5venc_cmp'
+            Width: =125
+            X: =0
+            Y: =0
+            ZIndex: =17
+
+        "'6venc_cmp_Column1' As dataTableColumn.textualColumn":
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Parcela 6"
+            FieldName: ="6venc_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =19
+            Text: =ThisItem.'6venc_cmp'
+            Width: =125
+            X: =0
+            Y: =0
+            ZIndex: =18
+
+        grupoprd_cmp_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Grupo"
+            FieldName: ="grupoprd_cmp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.grupoprd_cmp
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =19
+
+    Parcela1_lbl As label:
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Text: ="1º Parcela"
+        X: =1052
+        Y: =140
+        ZIndex: =21
+
+    Parcela2_lbl As label:
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Text: ="2º Parcela"
+        X: =1052
+        Y: =200
+        ZIndex: =22
+
+    Parcela3_lbl As label:
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Text: ="3º Parcela"
+        X: =1052
+        Y: =260
+        ZIndex: =23
+
+    Parcela4_lbl As label:
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Text: ="4º Parcela"
+        X: =1052
+        Y: =320
+        ZIndex: =24
+
+    Parcela5_lbl As label:
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Text: ="5º Parcela"
+        X: =1052
+        Y: =380
+        ZIndex: =25
+
+    Parcela6_lbl As label:
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Text: ="6º Parcela"
+        X: =1052
+        Y: =440
+        ZIndex: =26
+
+    ParcelaDate1 As text:
+        Default: =If(Text(ListCompra_Table.Selected.'1venc_cmp') = "01/01/1970", "Sem Data" , ListCompra_Table.Selected.'1venc_cmp')
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Width: =150
+        X: =1052
+        Y: =165
+        ZIndex: =27
+
+    ParcelaDate2 As text:
+        Default: =If(Text(ListCompra_Table.Selected.'2venc_cmp') = "01/01/1970", "Sem Data" , ListCompra_Table.Selected.'2venc_cmp')
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Width: =150
+        X: =1052
+        Y: =225
+        ZIndex: =28
+
+    ParcelaDate3 As text:
+        Default: =If(Text(ListCompra_Table.Selected.'3venc_cmp') = "01/01/1970", Text("Sem Data") , ListCompra_Table.Selected.'3venc_cmp')
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Width: =150
+        X: =1052
+        Y: =285
+        ZIndex: =29
+
+    ParcelaDate4 As text:
+        Default: =If(Text(ListCompra_Table.Selected.'4venc_cmp') = "01/01/1970", "Sem Data" , ListCompra_Table.Selected.'4venc_cmp')
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Width: =150
+        X: =1052
+        Y: =345
+        ZIndex: =30
+
+    ParcelaDate5 As text:
+        Default: =If(Text(ListCompra_Table.Selected.'5venc_cmp') = "01/01/1970", "Sem Data" , ListCompra_Table.Selected.'5venc_cmp')
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =14
+        Width: =150
+        X: =1052
+        Y: =405
+        ZIndex: =31
+
+    ParcelaDate6 As text:
+        Default: =If(Text(ListCompra_Table.Selected.'6venc_cmp') = "01/01/1970", "Sem Data" , ListCompra_Table.Selected.'6venc_cmp')
+        Font: =Font.'Segoe UI'
+        Height: =25
+        LineHeight: =
+        Size: =14
+        Width: =150
+        X: =1052
+        Y: =465
+        ZIndex: =32
+
+    Label2 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =30
+        Size: =15
+        Text: ="TOTAL DE COMPRA"
+        Width: =200
+        X: =525
+        Y: =665
+        ZIndex: =33
+
+    Label2_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =30
+        Size: =15
+        Text: ="QNTD PEDIDOS"
+        Width: =200
+        X: =525
+        Y: =705
+        ZIndex: =34
+
+    TextInput1 As text:
+        Default: |-
+            =Text(
+                Sum(
+                    Filter(
+                        'gerencial_lucamat.compras',
+                        Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                        Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                        fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                        loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro)
+                    ),
+                    valort_cmp
+                ),
+                "$ #,##0.00",
+                "pt-BR"
+            )
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =14
+        Width: =150
+        X: =725
+        Y: =665
+        ZIndex: =35
+
+    TextInput1_1 As text:
+        Default: |-
+            =CountIf(
+                'gerencial_lucamat.compras',
+                Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro)
+            )
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =14
+        Width: =150
+        X: =725
+        Y: =705
+        ZIndex: =36
+
+    Label2_2 As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =30
+        Size: =12
+        Text: ="Parada Angélica"
+        Width: =140
+        X: =20
+        Y: =678
+        ZIndex: =37
+
+    TextInput1_2 As text:
+        Default: |-
+            =Text(
+                Sum(
+                    Filter(
+                        'gerencial_lucamat.compras',
+                        Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                        Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                        fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                        loja_cmp = "Parada Angélica"
+                    ),
+                    valort_cmp
+                ),
+                "$ #,##0.00",
+                "pt-BR"
+            )
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =12
+        Width: =120
+        X: =160
+        Y: =678
+        ZIndex: =38
+
+    Label2_3 As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =30
+        Size: =12
+        Text: ="Nova Campinas"
+        Width: =140
+        X: =20
+        Y: =718
+        ZIndex: =39
+
+    TextInput1_3 As text:
+        Default: |-
+            =Text(
+                Sum(
+                    Filter(
+                        'gerencial_lucamat.compras',
+                        Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                        Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                        fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                        loja_cmp = "Nova Campinas"
+                    ),
+                    valort_cmp
+                ),
+                "$ #,##0.00",
+                "pt-BR"
+            )
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =12
+        Width: =120
+        X: =160
+        Y: =718
+        ZIndex: =40
+
+    Label2_4 As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =30
+        Size: =12
+        Text: |-
+            ="Santa Cruz
+            "
+        Width: =97
+        X: =280
+        Y: =678
+        ZIndex: =41
+
+    TextInput1_4 As text:
+        Default: |-
+            =Text(
+                Sum(
+                    Filter(
+                        'gerencial_lucamat.compras',
+                        Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                        Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                        fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                        loja_cmp = "Santa Cruz da Serra"
+                    ),
+                    valort_cmp
+                ),
+                "$ #,##0.00",
+                "pt-BR"
+            )
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =12
+        Width: =120
+        X: =376
+        Y: =678
+        ZIndex: =42
+
+    Label2_5 As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =30
+        Size: =12
+        Text: |-
+            ="Piabetá
+            "
+        Width: =97
+        X: =280
+        Y: =718
+        ZIndex: =43
+
+    TextInput1_5 As text:
+        Default: |-
+            =Text(
+                Sum(
+                    Filter(
+                        'gerencial_lucamat.compras',
+                        Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                        Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                        fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                        loja_cmp = "Piabetá"
+                    ),
+                    valort_cmp
+                ),
+                "$ #,##0.00",
+                "pt-BR"
+            )
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =12
+        Width: =120
+        X: =376
+        Y: =718
+        ZIndex: =44
+
+    Label2_6 As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Size: =20
+        Text: ="Compras por Loja"
+        Underline: =true
+        Width: =350
+        X: =74
+        Y: =635
+        ZIndex: =45
+
+    Impressao_Button As button:
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Fill: =RGBA(255, 255, 0, 1)
+        Font: =Font.'Segoe UI'
+        Height: =88
+        HoverFill: =RGBA(253, 222, 207, 1)
+        OnSelect: =Navigate(ImpressãoRelatorioCompras,ScreenTransition.Fade) 
+        Size: =18
+        Text: ="Imprimir Relação"
+        Width: =140
+        X: =896
+        Y: =651
+        ZIndex: =46
+
+    FiltroGrupo_cmp As combobox:
+        DisplayFields: =["nome_parametro"]
+        DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 7)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =220
+        X: =794
+        Y: =85
+        ZIndex: =47
+
+    FiltroGrupo_lbl As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =14
+        Text: ="Grupo de Produtos"
+        Width: =220
+        X: =794
+        Y: =55
+        ZIndex: =48
+
+    GrupoFornec As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =63
+
+        Rectangle11 As rectangle:
+            BorderThickness: =5
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =440
+            Visible: =MenuFornec
+            Width: =530
+            X: =352
+            Y: =125
+            ZIndex: =49
+
+        Rectangle12 As rectangle:
+            BorderThickness: =1
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =104
+            Visible: =MenuFornec
+            Width: =300
+            X: =465
+            Y: =348
+            ZIndex: =50
+
+        Razao_lbl As label:
+            Align: =Align.Right
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Razão Social:"
+            Visible: =MenuFornec
+            Width: =133
+            X: =388
+            Y: =224
+            ZIndex: =51
+
+        CNPJ_lbl As label:
+            Align: =Align.Right
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="CNPJ:"
+            Visible: =MenuFornec
+            Width: =133
+            X: =388
+            Y: =284
+            ZIndex: =52
+
+        DataCad_lbl As label:
+            Align: =Align.Right
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Data do Cadastro:"
+            Visible: =MenuFornec
+            Width: =142
+            X: =476
+            Y: =358
+            ZIndex: =53
+
+        UserCad_lbl As label:
+            Align: =Align.Right
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Usuário Atual:"
+            Visible: =MenuFornec
+            Width: =142
+            X: =476
+            Y: =398
+            ZIndex: =54
+
+        Gravar_button As button:
+            Fill: =RGBA(127, 178, 57, 1)
+            OnSelect: |
+                =Patch(
+                    'gerencial_lucamat.fornecedores',
+                    Defaults('gerencial_lucamat.fornecedores'),
+                    {
+                        ID: Max(
+                            'gerencial_lucamat.fornecedores',
+                            ID
+                        ) + 1
+                    },
+                    {nome_fornc: RazaoSocial_Input.Text},
+                    {cnpj_fornc: CNPJ_Input_Fornecedor.Text},
+                    {datacad_fornc: Value(DataCard_Input.SelectedDate)},
+                    {usercad_fornc: UserEdit_Input.Text}
+                );
+                Navigate(
+                    Compras_screenDash,
+                    ScreenTransition.Cover
+                );
+                Reset(RazaoSocial_Input);
+                Reset(CNPJ_Input_Fornecedor);
+                Reset(DataCard_Input);
+                Reset(UserEdit_Input);
+            TabIndex: =3
+            Text: ="Gravar"
+            Visible: =MenuFornec
+            Width: =142
+            X: =544
+            Y: =485
+            ZIndex: =56
+
+        RazaoSocial_Input As text:
+            Default: =""
+            HintText: ="Insira o Nome do Fornecedor"
+            TabIndex: =1
+            Visible: =MenuFornec
+            Width: =284
+            X: =527
+            Y: =224
+            ZIndex: =57
+
+        CNPJ_Input_Fornecedor As text:
+            Default: =varCNPJ
+            HintText: ="Insira o CNPJ do Fornecedor"
+            MaxLength: =19
+            OnChange: |-
+                =Set(
+                    Valor,
+                    CNPJ_Input_Fornecedor.Text
+                );
+                Set(
+                    varConfig,
+                    Text(
+                        Mid(
+                            Valor,
+                            1,
+                            1
+                        ) & Mid(
+                            Valor,
+                            2,
+                            1
+                        ) & "." & Mid(
+                            Valor,
+                            3,
+                            1
+                        ) & Mid(
+                            Valor,
+                            4,
+                            1
+                        ) & Mid(
+                            Valor,
+                            5,
+                            1
+                        ) & "." & Mid(
+                            Valor,
+                            6,
+                            1
+                        ) & Mid(
+                            Valor,
+                            7,
+                            1
+                        ) & Mid(
+                            Valor,
+                            8,
+                            1
+                        ) & "/" & Mid(
+                            Valor,
+                            9,
+                            1
+                        ) & Mid(
+                            Valor,
+                            10,
+                            1
+                        ) & Mid(
+                            Valor,
+                            11,
+                            1
+                        ) & Mid(
+                            Valor,
+                            12,
+                            1
+                        ) & "-" & Mid(
+                            Valor,
+                            13,
+                            1
+                        ) & Mid(
+                            Valor,
+                            14,
+                            1
+                        ) & Mid(
+                            Valor,
+                            15,
+                            1
+                        )
+                    )
+                );
+                Set(
+                    varCNPJ,
+                    Text(varConfig)
+                )
+            TabIndex: =2
+            Visible: =MenuFornec
+            Width: =284
+            X: =527
+            Y: =284
+            ZIndex: =58
+
+        DataCard_Input As datepicker:
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            Size: =13
+            Visible: =MenuFornec
+            Width: =133
+            X: =618
+            Y: =363
+            ZIndex: =59
+
+        UserEdit_Input As text:
+            Default: |-
+                =LookUp(
+                    'gerencial_lucamat.cad_user',
+                    email_user = Text(login_input),
+                    nome_user
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            Size: =11
+            Visible: =MenuFornec
+            Width: =133
+            X: =618
+            Y: =403
+            ZIndex: =60
+
+        Titulo_lbl As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Size: =20
+            Text: ="Cadastro de Fornecedor"
+            Visible: =MenuFornec
+            Width: =332
+            X: =423
+            Y: =155
+            ZIndex: =61
+
+        Cancelar_button As icon.Cancel:
+            Height: =40
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({MenuFornec: false});
+                Reset(RazaoSocial_Input);
+                Reset(CNPJ_Input_Fornecedor)
+            Visible: =MenuFornec
+            Width: =40
+            X: =812
+            Y: =136
+            ZIndex: =62
+

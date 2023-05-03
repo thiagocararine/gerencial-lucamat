@@ -1,0 +1,2490 @@
+Financeiro_screenDash As screen:
+
+    Rectangle22 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =2
+        Fill: =RGBA(255, 0, 0, 0.8)
+        Height: =124
+        Width: =210
+        X: =854
+        Y: =515
+        ZIndex: =1
+
+    Label8 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =25
+        Size: =14
+        Text: ="Lançamentos"
+        Width: =190
+        X: =864
+        Y: =520
+        ZIndex: =2
+
+    Label8_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =25
+        Text: ="Total Movimentação"
+        Width: =190
+        X: =865
+        Y: =575
+        ZIndex: =3
+
+    TextInput2 As text:
+        Default: |-
+            =CountIf('gerencial_lucamat.pagamento_fin',
+                    Value(dtlanc_fin) = DataLanc.SelectedDate || IsBlank(DataLanc.SelectedDate),
+                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                    filial_fin = FiltroFilial.Selected.nome_parametro || IsBlank(FiltroFilial.Selected.nome_parametro),
+                    tplanc_fin = FiltroTpLanc.Selected.nome_parametro || IsBlank(FiltroTpLanc.Selected.nome_parametro),
+                    ljemp_fin = FiltroLjEmprest.Selected.nome_parametro || IsBlank(FiltroLjEmprest.Selected.nome_parametro))
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Size: =11
+        Width: =190
+        X: =863
+        Y: =544
+        ZIndex: =4
+
+    TextInput2_1 As text:
+        Default: |-
+            =Text(
+                Sum(
+                    Filter(
+                    'gerencial_lucamat.pagamento_fin',
+                    Value(dtlanc_fin) = DataLanc.SelectedDate || IsBlank(DataLanc.SelectedDate),
+                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                    Text(filial_fin) = Text(FiltroFilial.Selected.nome_parametro) || IsBlank(FiltroFilial.Selected.nome_parametro),
+                    Text(tplanc_fin) = Text(FiltroTpLanc.Selected.nome_parametro) || IsBlank(FiltroTpLanc.Selected.nome_parametro),
+                    Text(ljemp_fin) = Text(FiltroLjEmprest.Selected.nome_parametro) || IsBlank(FiltroLjEmprest.Selected.nome_parametro)
+                ),
+                    vlrmov_fin
+                ),
+                "$ #,##0.00",
+                "pt-BR"
+            )
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Size: =11
+        Width: =190
+        X: =863
+        Y: =599
+        ZIndex: =5
+
+    Excluir As button:
+        BorderColor: =ColorFade(Self.Fill, -25%)
+        Fill: =RGBA(255, 0, 0, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =66
+        HoverFill: =RGBA(255, 0, 0, 0.53)
+        OnSelect: =Remove('gerencial_lucamat.pagamento_fin',TabFiltro.Selected)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =11.7
+        Text: ="Excluir Lanç."
+        Width: =67.48
+        X: =1112.94
+        Y: =19
+        ZIndex: =12
+
+    TabFiltro As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =3
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Segoe UI'
+        HeadingSize: =12
+        Height: =414
+        HoverColor: =RGBA(175, 191, 224, 1)
+        Items: |-
+            =Sort(
+                Filter(
+                    'gerencial_lucamat.pagamento_fin',
+                    Value(dtlanc_fin) = DataLanc.SelectedDate || IsBlank(DataLanc.SelectedDate),
+                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                    filial_fin = FiltroFilial.Selected.nome_parametro || IsBlank(FiltroFilial.Selected.nome_parametro),
+                    tplanc_fin = FiltroTpLanc.Selected.nome_parametro || IsBlank(FiltroTpLanc.Selected.nome_parametro),
+                    ljemp_fin = FiltroLjEmprest.Selected.nome_parametro || IsBlank(FiltroLjEmprest.Selected.nome_parametro)
+                ),
+                ID,
+                SortOrder.Descending
+            )
+        Size: =11
+        Width: =1139.03
+        X: =41.39
+        Y: =93
+        ZIndex: =17
+
+        ID_Column1 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.ID
+            Width: =50.38
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        hist_fin_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Histórico"
+            FieldName: ="hist_fin"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.hist_fin
+            Width: =143.95
+            X: =1096.74
+            Y: =0
+            ZIndex: =2
+
+        filial_fin_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Filial"
+            FieldName: ="filial_fin"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.filial_fin
+            Width: =143.95
+            X: =50.38
+            Y: =0
+            ZIndex: =3
+
+        dtlanc_fin_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data de Lanc."
+            FieldName: ="dtlanc_fin"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.dtlanc_fin
+            Width: =105.27
+            X: =194.34
+            Y: =0
+            ZIndex: =4
+
+        dtcompt_fin_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data Compt."
+            FieldName: ="dtcompt_fin"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.dtcompt_fin
+            Width: =143.95
+            X: =952.79
+            Y: =0
+            ZIndex: =5
+
+        ljemp_fin_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Loja Rec. Empréstimo"
+            FieldName: ="ljemp_fin"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.ljemp_fin
+            Width: =143.95
+            X: =808.84
+            Y: =0
+            ZIndex: =6
+
+        tpentr_fin_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Tp. Entrada"
+            FieldName: ="tpentr_fin"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.tpentr_fin
+            Width: =143.95
+            X: =430.06
+            Y: =0
+            ZIndex: =7
+
+        tplanc_fin_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Tp. Lançamento"
+            FieldName: ="tplanc_fin"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.tplanc_fin
+            Width: =130.46
+            X: =299.6
+            Y: =0
+            ZIndex: =8
+
+        tpsaida_fin_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Tipo Saída"
+            FieldName: ="tpsaida_fin"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.tpsaida_fin
+            Width: =143.95
+            X: =574.01
+            Y: =0
+            ZIndex: =9
+
+        useredit_fin_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Usuáro Edit."
+            FieldName: ="useredit_fin"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.useredit_fin
+            Width: =143.95
+            X: =1240.7
+            Y: =0
+            ZIndex: =10
+
+        vlrmov_fin_Column1 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Valor"
+            FieldName: ="vlrmov_fin"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: |-
+                =Text(Value(ThisItem.vlrmov_fin),"$ #,##0.00","pt-BR")
+            Width: =90.87
+            X: =717.97
+            Y: =0
+            ZIndex: =11
+
+    Filtros As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        FiltroLanc_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11.7
+            Text: ="Data Lançamento"
+            Width: =161.95
+            X: =41.39
+            Y: =19
+            ZIndex: =16
+
+        DataLanc As datepicker:
+            DefaultDate: =
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =11.7
+            Width: =161.95
+            X: =41.39
+            Y: =54
+            ZIndex: =18
+
+        FiltroFilial As combobox:
+            DisplayFields: =["nome_parametro"]
+            Font: =Font.'Segoe UI'
+            Height: =30
+            IsSearchable: =false
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            SearchFields: =["cod_parametro"]
+            SearchItems: =[]
+            SelectMultiple: =false
+            Size: =11.7
+            Width: =179.94
+            X: =385.07
+            Y: =54
+            ZIndex: =19
+
+        FiltroFilial_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11.7
+            Text: ="Filial / Unidade"
+            Width: =179.94
+            X: =385.07
+            Y: =19
+            ZIndex: =20
+
+        FiltroTpLanc As combobox:
+            DisplayFields: =["nome_parametro"]
+            Font: =Font.'Segoe UI'
+            Height: =30
+            IsSearchable: =false
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 9)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            SearchFields: =["nome_parametro"]
+            SearchItems: =[]
+            SelectMultiple: =false
+            Size: =11.7
+            Width: =179.94
+            X: =576.71
+            Y: =54
+            ZIndex: =21
+
+        FiltroTpLanc_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11.7
+            Text: ="Tipo de Lançamento"
+            Width: =179.94
+            X: =576.71
+            Y: =19
+            ZIndex: =22
+
+        FiltroLjEmprest As combobox:
+            DisplayFields: =["nome_parametro"]
+            Font: =Font.'Segoe UI'
+            Height: =30
+            IsSearchable: =false
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            SearchFields: =["nome_parametro"]
+            SearchItems: =[]
+            SelectMultiple: =false
+            Size: =11.7
+            Width: =179.94
+            X: =769.25
+            Y: =54
+            ZIndex: =23
+
+        FiltroLjEmprest_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11.7
+            Text: ="Loja Empréstimo"
+            Width: =179.94
+            X: =769.25
+            Y: =19
+            ZIndex: =24
+
+        FiltroCompt_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11.7
+            Text: ="Data Competência"
+            Width: =161.95
+            X: =214.13
+            Y: =19
+            ZIndex: =25
+
+        DataCompt As datepicker:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =11.7
+            Width: =161.95
+            X: =214.13
+            Y: =54
+            ZIndex: =26
+
+    "'Edit_Pop-up' As button":
+        BorderColor: =ColorFade(Self.Fill, -25%)
+        Color: =RGBA(50, 86, 160, 1)
+        Fill: =RGBA(215, 223, 240, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =66
+        OnSelect: |-
+            =Reset(DataCompt);
+            Reset(DataLanc);
+            Reset(FiltroFilial);
+            Reset(FiltroLjEmprest);
+            Reset(FiltroTpLanc)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =11.7
+        Text: ="Limpar Seleção"
+        Width: =67.48
+        X: =1035.56
+        Y: =19
+        ZIndex: =27
+
+    EditLancamento As button:
+        BorderColor: =ColorFade(Self.Fill, -25%)
+        Color: =RGBA(50, 86, 160, 1)
+        Fill: =RGBA(215, 223, 240, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =66
+        OnSelect: |-
+            =UpdateContext({MenuEdit: true})
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =11.7
+        Text: ="Editar"
+        Width: =67.48
+        X: =959.09
+        Y: =19
+        ZIndex: =35
+
+    user_edit_lbl As label:
+        Height: =35
+        OnSelect: =
+        Size: =11.7
+        Text: ="Usuario"
+        Visible: =MenuEdit
+        Width: =143.95
+        X: =1043.66
+        Y: =420
+        ZIndex: =52
+
+    user_edit As text:
+        Default: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+        DisplayMode: =DisplayMode.View
+        Height: =35
+        OnSelect: =
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        Size: =11.7
+        Visible: =MenuEdit
+        Width: =143.95
+        X: =1043.66
+        Y: =455
+        ZIndex: =53
+
+    dtlanc_edit_lbl As label:
+        Height: =35
+        OnSelect: =
+        Size: =11.7
+        Text: ="Data Lançamento"
+        Visible: =MenuEdit
+        Width: =143.95
+        X: =1043.66
+        Y: =500
+        ZIndex: =54
+
+    dtlanc_edit As datepicker:
+        DefaultDate: =Value(Today())
+        DisplayMode: =DisplayMode.View
+        Height: =35
+        OnSelect: =
+        Size: =11.7
+        TabIndex: =2
+        Visible: =MenuEdit
+        Width: =143.95
+        X: =1043.66
+        Y: =535
+        ZIndex: =55
+
+    filial_edit As combobox:
+        DisplayFields: =["cod_parametro"]
+        Height: =35
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro', key_parametro = 1)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["cod_parametro"]
+        SearchItems: =[]
+        Visible: =MenuEdit
+        Width: =143.95
+        X: =1043.66
+        Y: =120
+        ZIndex: =62
+
+    tplanc_edit As combobox:
+        DisplayFields: =["cod_parametro"]
+        Height: =35
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro', key_parametro = 9)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["cod_parametro"]
+        SearchItems: =[]
+        Visible: =MenuEdit
+        Width: =143.95
+        X: =1043.66
+        Y: =212
+        ZIndex: =63
+
+    tpsaida_edit As combobox:
+        DisplayFields: =["cod_parametro"]
+        Height: =35
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro', key_parametro = 11)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["cod_parametro"]
+        SearchItems: =[]
+        Visible: =MenuEdit
+        Width: =143.95
+        X: =1043.66
+        Y: =301
+        ZIndex: =64
+
+    EditGroup As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =64
+
+        PainelEdit As rectangle:
+            BorderThickness: =2
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =767
+            OnSelect: =
+            Visible: =MenuEdit
+            Width: =374.28
+            X: =854.72
+            Y: =1
+            ZIndex: =36
+
+        CloseEdit As icon.Cancel:
+            AutoDisableOnSelect: =false
+            Height: =40
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({MenuEdit:false});
+            Visible: =MenuEdit
+            Width: =35.99
+            X: =1165.12
+            Y: =26
+            ZIndex: =37
+
+        id_edit_lbl As label:
+            Height: =35
+            OnSelect: =
+            Size: =11.7
+            Text: ="ID"
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =877.21
+            Y: =85
+            ZIndex: =38
+
+        filial_edit_lbl As label:
+            Height: =35
+            OnSelect: =
+            Size: =11.7
+            Text: ="Filial"
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =1043.66
+            Y: =85
+            ZIndex: =39
+
+        dtcompt_edit_lbl As label:
+            Height: =35
+            OnSelect: =
+            Size: =11
+            Text: ="Data Competência"
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =877.21
+            Y: =175
+            ZIndex: =40
+
+        tplanc_edit_lbl As label:
+            Height: =35
+            OnSelect: =
+            Size: =11.7
+            Text: ="Tipo Lançamento"
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =1043.66
+            Y: =175
+            ZIndex: =41
+
+        tpentrada_edit_lbl As label:
+            Height: =35
+            OnSelect: =
+            Size: =11.7
+            Text: ="Tipo Entrada"
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =877.21
+            Y: =260
+            ZIndex: =42
+
+        tpsaida_edit_lbl As label:
+            Height: =35
+            OnSelect: =
+            Size: =11.7
+            Text: ="Tipo Saída"
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =1043.66
+            Y: =260
+            ZIndex: =43
+
+        valor_edit_lbl As label:
+            Height: =35
+            OnSelect: =
+            Size: =11.7
+            Text: ="Valor"
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =1043.66
+            Y: =340
+            ZIndex: =44
+
+        hist_edit_lbl As label:
+            Height: =35
+            OnSelect: =
+            Size: =11.7
+            Text: |-
+                ="Histórico
+                "
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =877.21
+            Y: =340
+            ZIndex: =45
+
+        id_edit As text:
+            Default: =Value(TabFiltro.Selected.ID)
+            DisplayMode: =DisplayMode.View
+            Height: =35
+            OnSelect: =
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =11.7
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =877.21
+            Y: =120
+            ZIndex: =46
+
+        Titulo_edit As label:
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            OnSelect: |-
+                =Reset(id_edit);
+                Reset(filial_edit);
+                Reset(dtcompt_edit);
+                Reset(tplanc_edit);
+                Reset(tpentrada_edit);
+                Reset(tpsaida_edit);
+                Reset(valor_edit);
+                Reset(hist_edit);
+            Size: =17.99
+            Text: ="Edição de Lançamentos"
+            Visible: =MenuEdit
+            Width: =271.71
+            X: =872.72
+            Y: =19
+            ZIndex: =47
+
+        dtcompt_edit As datepicker:
+            DefaultDate: =TabFiltro.Selected.dtcompt_fin
+            Height: =35
+            OnSelect: =
+            Size: =11.7
+            TabIndex: =2
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =877.21
+            Y: =210
+            ZIndex: =48
+
+        valor_edit As text:
+            Default: |-
+                =Text(Value(TabFiltro.Selected.vlrmov_fin),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            Height: =35
+            OnSelect: =
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =11.7
+            TabIndex: =7
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =1043.66
+            Y: =375
+            ZIndex: =49
+
+        hist_edit As text:
+            Default: =TabFiltro.Selected.hist_fin
+            Height: =195
+            Mode: =TextMode.MultiLine
+            OnSelect: =
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =11.7
+            TabIndex: =6
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =877.21
+            Y: =375
+            ZIndex: =50
+
+        Salvar_edit As button:
+            BorderColor: =ColorFade(Self.Fill, -10%)
+            Fill: =RGBA(141, 198, 63, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            Height: =59
+            HoverBorderColor: =ColorFade(Self.Fill, -20%)
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: |-
+                =Patch(
+                    'gerencial_lucamat.pagamento_fin',
+                    LookUp(
+                        'gerencial_lucamat.pagamento_fin',
+                        ID = Value(id_edit.Text)
+                    ),
+                    {
+                        filial_fin: Text(filial_edit.Selected.Value),
+                        dtcompt_fin: dtcompt_edit.SelectedDate,
+                        tplanc_fin: tplanc_edit.Selected.Value,
+                        tpentr_fin: tpentrada_edit.Selected.Value,
+                        tpsaida_fin: tpsaida_edit.Selected.Value,
+                        vlrmov_fin: Value(valor_edit.Text),
+                        hist_fin: hist_edit.Text,
+                        useredit_fin:user_edit.Text,
+                        dtlanc_fin:Value(dtlanc_edit.SelectedDate)
+                    }
+                );
+                Reset(id_edit);
+                Reset(filial_edit);
+                Reset(dtcompt_edit);
+                Reset(tplanc_edit);
+                Reset(tpentrada_edit);
+                Reset(tpsaida_edit);
+                Reset(valor_edit);
+                Reset(hist_edit);
+                Reset(user_edit);
+                Reset(dtlanc_edit);
+                UpdateContext({MenuEdit: false})
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedFill: =Color.White
+            Size: =14.4
+            TabIndex: =8
+            Text: ="Salvar Alterações"
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =977.08
+            Y: =680
+            ZIndex: =51
+
+    tpentrada_edit As combobox:
+        DisplayFields: =["cod_parametro"]
+        Height: =35
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro', key_parametro = 10)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["cod_parametro"]
+        SearchItems: =[]
+        Visible: =MenuEdit        
+        Width: =143.95
+        X: =877.21
+        Y: =301
+        ZIndex: =65
+
+    Botões As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =123
+
+        "'Cheque-button_1' As button":
+            BorderColor: =ColorFade(Self.Fill, -10%)
+            Fill: =RGBA(109, 49, 162, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            Height: =50
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Navigate('Cheque-ScreenView',ScreenTransition.Cover)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =13
+            Text: ="Cheques"
+            Width: =100
+            X: =1080
+            Y: =584
+            ZIndex: =6
+
+        "'GerarRel1-button' As button":
+            BorderColor: =ColorFade(Self.Fill, -10%)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            Height: =50
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Navigate(Financeiro_PDF1);ScreenTransition.UnCover
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =10
+            Text: ="Gerar Relatório pg.1"
+            Width: =100
+            X: =858
+            Y: =643
+            ZIndex: =7
+
+        "'GerarRel2-button' As button":
+            BorderColor: =ColorFade(Self.Fill, -10%)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            Height: =50
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Navigate(Financeiro_PDF2);ScreenTransition.UnCover
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =10
+            Text: ="Gerar Relatório pg.2"
+            Width: =100
+            X: =858
+            Y: =706
+            ZIndex: =8
+
+        "'EnviaMail-button' As button":
+            BorderColor: =ColorFade(Self.Fill, -10%)
+            Fill: =RGBA(179, 179, 179, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            Height: =50
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Navigate(MailMovFin_screen,ScreenTransition.Cover)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =13
+            Text: ="E-mail"
+            Width: =100
+            X: =1080
+            Y: =525
+            ZIndex: =9
+
+        SalvaMovimento As button:
+            Fill: =RGBA(255, 162, 0, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Height: =50
+            HoverFill: =RGBA(255, 191, 0, 0.52)
+            OnSelect: |-
+                =Patch(
+                    'gerencial_lucamat.movimento_fin',
+                    Defaults('gerencial_lucamat.movimento_fin'),
+                    {
+                        ID: Max(
+                            'gerencial_lucamat.movimento_fin',
+                            ID
+                        ) + 1,
+                        histpa_tfin: EditorHistoricoPA.Text,
+                        saldopa_tfin: Value(SomaSaldoPA.Text),
+                        histnc_tfin: EditorHistoricoNC.Text,
+                        saldonc_tfin: Value(SomaSaldoNC.Text),
+                        histsc_tfin: EditorHistoricoSC.Text,
+                        saldosc_tfin: Value(SomaSaldoSC.Text),
+                        histpia_tfin: EditorHistoricoPIA.Text,
+                        saldopia_tfin: Value(SomaSaldoPIA.Text),
+                        datacompt_tfin: DataCompt.SelectedDate
+                        
+                    }
+                );
+                Reset(EditorHistoricoNC);
+                Reset(EditorHistoricoPA);
+                Reset(EditorHistoricoSC);
+                Reset(EditorHistoricoPIA)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =12
+            Text: ="Salvar Movimento"
+            Width: =100
+            X: =969
+            Y: =643
+            ZIndex: =10
+
+        DeletaMovimento As button:
+            Fill: =RGBA(255, 0, 0, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Height: =50
+            HoverFill: =RGBA(255, 0, 0, 0.64)
+            OnSelect: =RemoveIf('gerencial_lucamat.movimento_fin',ID = Max(ID))
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =12
+            Text: ="Deletar Movimento"
+            Width: =100
+            X: =969
+            Y: =706
+            ZIndex: =11
+
+        "'Retornar-button' As button":
+            BorderColor: =ColorFade(Self.Fill, -10%)
+            Fill: =RGBA(255, 238, 0, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            Height: =50
+            HoverFill: =ColorFade(Color.Orange, 40%)
+            OnSelect: |-
+                =Navigate(room_screen);
+                ScreenTransition.Cover;
+                Reset(DataCompt);
+                Reset(DataLanc);
+                Reset(FiltroFilial);
+                Reset(FiltroLjEmprest);
+                Reset(FiltroTpLanc)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =13
+            Text: |-
+                ="Retornar
+                "
+            Width: =100
+            X: =1080
+            Y: =705
+            ZIndex: =14
+
+        "'NovoLanc-button' As button":
+            BorderColor: =ColorFade(Self.Fill, -10%)
+            Fill: =RGBA(152, 208, 70, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            Height: =50
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            OnSelect: =Navigate(Cad_Financeiro_screenForm);ScreenTransition.CoverRight
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =12
+            Text: ="Novo Lançamento"
+            Width: =100
+            X: =1080
+            Y: =644
+            ZIndex: =15
+
+    DetalhadoPARADA As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =145
+
+        Rectangle4 As rectangle:
+            BorderColor: =RGBA(0, 16, 96, 1)
+            BorderThickness: =1
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: =236
+            Width: =170.94
+            X: =35.99
+            Y: =520
+            ZIndex: =13
+
+        PA_Título As label:
+            Align: =Align.Center
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =29
+            Size: =12
+            Text: ="Parada Angélica"
+            Underline: =true
+            Width: =134.96
+            X: =51.28
+            Y: =525
+            ZIndex: =28
+
+        SomaEntrPA As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                filial_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =44.99
+            Y: =574
+            ZIndex: =29
+
+        SomaEntrPA_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: |-
+                ="Entradas
+                "
+            Width: =71.98
+            X: =44.99
+            Y: =550
+            ZIndex: =30
+
+        SomaSaidaPA As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Parada Angélica",
+                                tpsaida_fin <> "Empréstimo"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9.18
+            Width: =76.48
+            X: =44.09
+            Y: =624
+            ZIndex: =31
+
+        SomaSaidaPA_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Saídas"
+            Width: =71.98
+            X: =44.09
+            Y: =599
+            ZIndex: =32
+
+        SomaSaldoPA As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(Sum(SomaEntrPA + SomaEntrPA_EMP - SomaSaidaPA - SomaSaidaPA_EMP)),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =10.8
+            Width: =107.96
+            X: =44.09
+            Y: =672
+            ZIndex: =33
+
+        SaldoPA_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: ="Saldo do Dia"
+            Width: =107.96
+            X: =44.09
+            Y: =650
+            ZIndex: =34
+
+        SomaEntrPA_EMP As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =125.96
+            Y: =574
+            ZIndex: =56
+
+        SomaSaidaPA_EMP As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Parada Angélica"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =125.96
+            Y: =624
+            ZIndex: =57
+
+        SomaEntrPAEMP_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Emp.Recebido"
+            Width: =89.97
+            X: =116.96
+            Y: =550
+            ZIndex: =58
+
+        SomaSaidaPAEMP_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Emp. Efetuado"
+            Width: =89.97
+            X: =116.96
+            Y: =599
+            ZIndex: =59
+
+        SaldoDiaAnterior_PA As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    LookUp(
+                        'gerencial_lucamat.movimento_fin',
+                        ID = Max(
+                            'gerencial_lucamat.movimento_fin',
+                            ID
+                        ),
+                        Value(saldopa_tfin)
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =10.8
+            Width: =107.96
+            X: =44.09
+            Y: =724
+            ZIndex: =60
+
+        SaldoDiaAnteriorPA_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Fechamento
+                "
+            Width: =107.96
+            X: =44.09
+            Y: =699
+            ZIndex: =61
+
+        bttHistoricoPA As icon.Journal:
+            Height: =32
+            Icon: =Icon.Document
+            OnSelect: |-
+                =UpdateContext({HistoricoPA: true})
+            Width: =28.79
+            X: =166.45
+            Y: =663
+            ZIndex: =66
+
+        HistoricoPA As rectangle:
+            BorderColor: =RGBA(56, 96, 178, 1)
+            BorderThickness: =3
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =360
+            Visible: =HistoricoPA
+            Width: =719.77
+            X: =254.62
+            Y: =115
+            ZIndex: =67
+
+        FecharHistoricoPA As icon.Cancel:
+            Height: =42
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({HistoricoPA: false})
+            Visible: =HistoricoPA
+            Width: =37.79
+            X: =915.9
+            Y: =127
+            ZIndex: =68
+
+        TituloHistoricoPA As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            Size: =17.09
+            Text: ="Historico do Dia - Luca Materiais Parada Angélica"
+            Visible: =HistoricoPA
+            Width: =539.82
+            X: =296
+            Y: =135
+            ZIndex: =69
+
+        EditorHistoricoPA As text:
+            Default: =""
+            EnableSpellCheck: =true
+            Height: =205
+            HintText: ="Digite aqui as informações de Parada Angélica..."
+            Mode: =TextMode.MultiLine
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Visible: =HistoricoPA
+            Width: =586.61
+            X: =299.6
+            Y: =215
+            ZIndex: =124
+
+    DetalhadoNOVACAMPINAS As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =146
+
+        Rectangle4_1 As rectangle:
+            BorderColor: =RGBA(0, 16, 96, 1)
+            BorderThickness: =1
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: =236
+            Width: =170.94
+            X: =244.72
+            Y: =520
+            ZIndex: =70
+
+        NC_Título As label:
+            Align: =Align.Center
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =12
+            Text: ="Nova Campinas"
+            Underline: =true
+            Width: =134.96
+            X: =260.02
+            Y: =525
+            ZIndex: =71
+
+        SomaEntrNC As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                filial_fin = "Nova Campinas"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =253.72
+            Y: =574
+            ZIndex: =72
+
+        SomaEntrNC_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: |-
+                ="Entradas
+                "
+            Width: =71.98
+            X: =253.72
+            Y: =550
+            ZIndex: =73
+
+        SomaSaidaNC As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Nova Campinas",
+                                tpsaida_fin <> "Empréstimo"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =252.82
+            Y: =624
+            ZIndex: =74
+
+        SomaSaidaNC_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Saídas"
+            Width: =71.98
+            X: =252.82
+            Y: =599
+            ZIndex: =75
+
+        SomaSaldoNC As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(Sum(SomaEntrNC + SomaEntrNC_EMP - SomaSaidaNC - SomaSaidaNC_EMP)),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =10.8
+            Width: =107.96
+            X: =252.82
+            Y: =672
+            ZIndex: =76
+
+        SaldoNC_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: ="Saldo do Dia"
+            Width: =107.96
+            X: =252.82
+            Y: =650
+            ZIndex: =77
+
+        SomaEntrNC_EMP As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Nova Campinas"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =335.59
+            Y: =574
+            ZIndex: =78
+
+        SomaSaidaNC_EMP As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Nova Campinas"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =335.59
+            Y: =624
+            ZIndex: =79
+
+        SomaEntrNCEMP_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Emp.Recebido"
+            Width: =89.97
+            X: =325.69
+            Y: =550
+            ZIndex: =80
+
+        SomaSaidaNCEMP_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Emp. Efetuado"
+            Width: =89.97
+            X: =325.69
+            Y: =599
+            ZIndex: =81
+
+        SaldoDiaAnterior_NC As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    LookUp(
+                        'gerencial_lucamat.movimento_fin',
+                        ID = Max(
+                            'gerencial_lucamat.movimento_fin',
+                            ID
+                        ),
+                        Value(saldonc_tfin)
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =10.8
+            Width: =107.96
+            X: =252.82
+            Y: =724
+            ZIndex: =82
+
+        SaldoDiaAnteriorNC_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Fechamento
+                "
+            Width: =107.96
+            X: =252.82
+            Y: =699
+            ZIndex: =83
+
+        bttHistoricoNC As icon.Journal:
+            Height: =32
+            Icon: =Icon.Document
+            OnSelect: |-
+                =UpdateContext({HistoricoNC: true})
+            Width: =28.79
+            X: =375.18
+            Y: =663
+            ZIndex: =84
+
+        HistoricoNC As rectangle:
+            BorderColor: =RGBA(56, 96, 178, 1)
+            BorderThickness: =3
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =360
+            Visible: =HistoricoNC
+            Width: =719.77
+            X: =254.62
+            Y: =116
+            ZIndex: =85
+
+        FecharHistoricoNC As icon.Cancel:
+            Height: =42
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({HistoricoNC: false})
+            Visible: =HistoricoNC
+            Width: =37.79
+            X: =915.9
+            Y: =128
+            ZIndex: =86
+
+        TituloHistoricoNC As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            Size: =17.09
+            Text: ="Historico do Dia - Luca Materiais Nova Campinas"
+            Visible: =HistoricoNC
+            Width: =539.82
+            X: =296
+            Y: =136
+            ZIndex: =87
+
+        EditorHistoricoNC As text:
+            Default: =""
+            EnableSpellCheck: =true
+            Height: =205
+            HintText: ="Digite aqui as informações de Nova Campinas..."
+            Mode: =TextMode.MultiLine
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Visible: =HistoricoNC
+            Width: =586.61
+            X: =317.6
+            Y: =235
+            ZIndex: =125
+
+    DetalhadoSANTACRUZ As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =147
+
+        Rectangle4_2 As rectangle:
+            BorderColor: =RGBA(0, 16, 96, 1)
+            BorderThickness: =1
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: =236
+            Width: =170.94
+            X: =457.05
+            Y: =520
+            ZIndex: =88
+
+        SC_Título As label:
+            Align: =Align.Center
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =12
+            Text: ="Santa Cruz"
+            Underline: =true
+            Width: =134.96
+            X: =472.35
+            Y: =525
+            ZIndex: =89
+
+        SomaEntrSC As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                filial_fin = "Santa Cruz"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =466.05
+            Y: =574
+            ZIndex: =90
+
+        SomaEntrSC_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: |-
+                ="Entradas
+                "
+            Width: =71.98
+            X: =466.05
+            Y: =550
+            ZIndex: =91
+
+        SomaSaidaSC As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Santa Cruz",
+                                tpsaida_fin <> "Empréstimo"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =465.15
+            Y: =624
+            ZIndex: =92
+
+        SomaSaidaSC_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Saídas"
+            Width: =71.98
+            X: =465.15
+            Y: =599
+            ZIndex: =93
+
+        SomaSaldoSC As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(Sum(SomaEntrSC + SomaEntrSC_EMP - SomaSaidaSC - SomaSaidaSC_EMP)),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =10.8
+            Width: =107.96
+            X: =465.15
+            Y: =672
+            ZIndex: =94
+
+        SaldoSC_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: ="Saldo do Dia"
+            Width: =107.96
+            X: =465.15
+            Y: =650
+            ZIndex: =95
+
+        SomaEntrSC_EMP As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Santa Cruz"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =547.02
+            Y: =574
+            ZIndex: =96
+
+        SomaSaidaSC_EMP As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Santa Cruz"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =547.02
+            Y: =624
+            ZIndex: =97
+
+        SomaEntrSCEMP_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Emp.Recebido"
+            Width: =89.97
+            X: =538.02
+            Y: =550
+            ZIndex: =98
+
+        SomaSaidaSCEMP_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Emp. Efetuado"
+            Width: =89.97
+            X: =538.02
+            Y: =599
+            ZIndex: =99
+
+        SaldoDiaAnterior_SC As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    LookUp(
+                        'gerencial_lucamat.movimento_fin',
+                        ID = Max(
+                            'gerencial_lucamat.movimento_fin',
+                            ID
+                        ),
+                        Value(saldosc_tfin)
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =10.8
+            Width: =107.96
+            X: =465.15
+            Y: =724
+            ZIndex: =100
+
+        SaldoDiaAnteriorSC_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Fechamento
+                "
+            Width: =107.96
+            X: =465.15
+            Y: =699
+            ZIndex: =101
+
+        bttHistoricoSC As icon.Journal:
+            Height: =32
+            Icon: =Icon.Document
+            OnSelect: |-
+                =UpdateContext({HistoricoSC: true})
+            Width: =28.79
+            X: =587.51
+            Y: =663
+            ZIndex: =102
+
+        HistoricoSC As rectangle:
+            BorderColor: =RGBA(56, 96, 178, 1)
+            BorderThickness: =3
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =360
+            Visible: =HistoricoSC
+            Width: =719.77
+            X: =252.82
+            Y: =116
+            ZIndex: =103
+
+        FecharHistoricoSC As icon.Cancel:
+            Height: =42
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({HistoricoSC: false})
+            Visible: =HistoricoSC
+            Width: =37.79
+            X: =914.1
+            Y: =128
+            ZIndex: =104
+
+        TituloHistoricoSC As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            Size: =17.09
+            Text: ="Historico do Dia - Luca Materiais Santa Cruz"
+            Visible: =HistoricoSC
+            Width: =539.82
+            X: =294.2
+            Y: =136
+            ZIndex: =105
+
+        EditorHistoricoSC As text:
+            Default: =""
+            EnableSpellCheck: =true
+            Height: =205
+            HintText: ="Digite aqui as informações de Santa Cruz..."
+            Mode: =TextMode.MultiLine
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Visible: =HistoricoSC
+            Width: =586.61
+            X: =296
+            Y: =222
+            ZIndex: =126
+
+    DetalhadoPIABETA As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =148
+
+        Rectangle4_3 As rectangle:
+            BorderColor: =RGBA(0, 16, 96, 1)
+            BorderThickness: =1
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: =236
+            Width: =170.94
+            X: =666.68
+            Y: =520
+            ZIndex: =106
+
+        PIA_Título As label:
+            Align: =Align.Center
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =12
+            Text: ="Piabetá"
+            Underline: =true
+            Width: =134.96
+            X: =681.98
+            Y: =525
+            ZIndex: =107
+
+        SomaEntrPIA As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Entrada",
+                                filial_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =675.68
+            Y: =574
+            ZIndex: =108
+
+        SomaEntrPIA_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: |-
+                ="Entradas
+                "
+            Width: =71.98
+            X: =675.68
+            Y: =550
+            ZIndex: =109
+
+        SomaSaidaPIA As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tplanc_fin = "Saída",
+                                filial_fin = "Piabetá",
+                                tpsaida_fin <> "Empréstimo"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =674.78
+            Y: =624
+            ZIndex: =110
+
+        SomaSaidaPIA_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Saídas"
+            Width: =71.98
+            X: =674.78
+            Y: =599
+            ZIndex: =111
+
+        SomaSaldoPIA As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(Sum(SomaEntrPIA + SomaEntrPIA_EMP - SomaSaidaPIA - SomaSaidaPIA_EMP)),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =10.8
+            Width: =107.96
+            X: =674.78
+            Y: =672
+            ZIndex: =112
+
+        SaldoPIA_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: ="Saldo do Dia"
+            Width: =107.96
+            X: =674.78
+            Y: =650
+            ZIndex: =113
+
+        SomaEntrPIA_EMP As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                ljemp_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =756.65
+            Y: =574
+            ZIndex: =114
+
+        SomaSaidaPIA_EMP As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.pagamento_fin',
+                                Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                tpsaida_fin = "Empréstimo",
+                                filial_fin = "Piabetá"
+                            ),
+                            vlrmov_fin
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =9
+            Width: =76.48
+            X: =756.65
+            Y: =624
+            ZIndex: =115
+
+        SomaEntrPIAEMP_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Emp.Recebido"
+            Width: =89.97
+            X: =747.66
+            Y: =550
+            ZIndex: =116
+
+        SomaSaidaPIAEMP_lbl As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: ="Emp. Efetuado"
+            Width: =89.97
+            X: =747.66
+            Y: =599
+            ZIndex: =117
+
+        SaldoDiaAnterior_PIA As text:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =10
+            Default: |-
+                =Text(
+                    LookUp(
+                        'gerencial_lucamat.movimento_fin',
+                        ID = Max(
+                            'gerencial_lucamat.movimento_fin',
+                            ID
+                        ),
+                        Value(saldopia_tfin)
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            DisabledBorderColor: =RGBA(0, 0, 0, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.Arial
+            Format: =TextFormat.Number
+            Height: =25
+            PaddingBottom: =2
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =1.8
+            Size: =10.8
+            Width: =107.96
+            X: =674.78
+            Y: =724
+            ZIndex: =118
+
+        SaldoDiaAnteriorPIA_lbl As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Fechamento
+                "
+            Width: =107.96
+            X: =674.78
+            Y: =699
+            ZIndex: =119
+
+        bttHistoricoPIA As icon.Journal:
+            Height: =32
+            Icon: =Icon.Document
+            OnSelect: |-
+                =UpdateContext({HistoricoPIA: true})
+            Width: =28.79
+            X: =797.14
+            Y: =663
+            ZIndex: =120
+
+        HistoricoPIA As rectangle:
+            BorderColor: =RGBA(56, 96, 178, 1)
+            BorderThickness: =3
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =360
+            Visible: =HistoricoPIA
+            Width: =719.77
+            X: =254.62
+            Y: =115
+            ZIndex: =121
+
+        FecharHistoricoPIA As icon.Cancel:
+            Height: =42
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({HistoricoPIA: false})
+            Visible: =HistoricoPIA
+            Width: =37.79
+            X: =915.9
+            Y: =127
+            ZIndex: =122
+
+        TituloHistoricoPIA As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            Size: =17.09
+            Text: ="Historico do Dia - Luca Materiais Piabetá"
+            Visible: =HistoricoPIA
+            Width: =539.82
+            X: =296
+            Y: =135
+            ZIndex: =123
+
+        EditorHistoricoPIA As text:
+            Default: =""
+            EnableSpellCheck: =true
+            Height: =205
+            HintText: ="Digite aqui as informações de Piabetá..."
+            Mode: =TextMode.MultiLine
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Visible: =HistoricoPIA
+            Width: =586.61
+            X: =296
+            Y: =228
+            ZIndex: =127
+

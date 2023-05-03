@@ -1,0 +1,2264 @@
+"'Cheque-ScreenView' As screen":
+
+    ResetButton_chq_1 As button:
+        DisabledFill: =RGBA(26, 26, 26, 1)
+        Fill: =RGBA(149, 149, 149, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =30
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(215, 223, 240, 1)
+        OnSelect: |-
+            =Reset(Filtro_DataLanc_fim_chq);
+            Reset(Filtro_DataLanc_inicio_chq);
+            Reset(Filtro_DataPagm_fim_chq);
+            Reset(Filtro_DataPagm_inicio_chq);
+            Reset(Filtro_DataVenc_inicio_chq);
+            Reset(Filtro_DataVenc_fim_chq);
+            Reset(FiltroAgCc_chq);
+            Reset(FiltroFornecedor_chq);
+            Reset(FiltroLoja_chq);
+            Reset(FiltroAgCc_chq);
+            Reset(FiltroBanco_chq);
+        PressedFill: =RGBA(26, 26, 26, 1)
+        Size: =14
+        Text: ="Limpar Filtros"
+        Width: =171
+        X: =1028
+        Y: =85
+        ZIndex: =1
+
+    FiltroBanco_chq As combobox:
+        DisplayFields: =["nome_parametro"]
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Banco")
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["nome_parametro"]
+        SearchItems: =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Banco"),FiltroBanco_chq.SearchText,"nome_parametro")
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =190
+        X: =815
+        Y: =36
+        ZIndex: =2
+
+    banco_lbl_chq As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Size: =12
+        Text: ="Banco"
+        Width: =190
+        X: =813
+        Y: =11
+        ZIndex: =3
+
+    FiltroStatus_chq As combobox:
+        DisplayFields: =["Value"]
+        Font: =Font.'Segoe UI'
+        Height: =25
+        IsSearchable: =false
+        Items: =Distinct('gerencial_lucamat.cheques',status_chq)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["Value"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =249
+        X: =544
+        Y: =36
+        ZIndex: =4
+
+    FiltroStatus_lbl As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =20
+        Size: =12
+        Text: ="Status"
+        Width: =247
+        X: =545
+        Y: =11
+        ZIndex: =5
+
+    FiltroAgCc_chq As combobox:
+        DisplayFields: =["nome_parametro"]
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Agência e Conta")
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["nome_parametro"]
+        SearchItems: =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Agência e Conta"),FiltroAgCc_chq.SearchText,"nome_parametro")
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =190
+        X: =814
+        Y: =90
+        ZIndex: =6
+
+    FiltroAgCc_lbl As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Size: =12
+        Text: ="Ag. e Conta Corrent"
+        Width: =190
+        X: =812
+        Y: =65
+        ZIndex: =7
+
+    BaixaButton_chq As button:
+        BorderColor: =ColorFade(Self.Fill, 35%)
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: |-
+            =If(
+                Departamentolbl1.Text = "Tec. Informação",
+                DisplayMode.Edit,
+                If(
+                    Departamentolbl1.Text = "Direção",
+                    DisplayMode.Disabled,
+                    If(
+                        Departamentolbl1.Text = "Administração",
+                        DisplayMode.Disabled,
+                        If(
+                            Departamentolbl1.Text = "Vendas",
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    )
+                )
+            )
+        Fill: =RGBA(50, 86, 160, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =112
+        HoverColor: =RGBA(26, 26, 26, 1)
+        HoverFill: =RGBA(153, 207, 236, 1)
+        OnSelect: |-
+            =Patch(
+                'gerencial_lucamat.cheques',
+                LookUp(
+                    'gerencial_lucamat.cheques',
+                    ID = Value(id_edit_chq.Text)
+                ),
+                {status_chq: "Pago"},
+                {dtbaix_chq: Today()},
+                {
+                    userbaixa_chq: LookUp(
+                        'gerencial_lucamat.cad_user',
+                        email_user = Text(login_input),
+                        nome_user
+                    )
+                }
+            )
+        PressedFill: =
+        Size: =24
+        Text: ="Baixar Cheque!"
+        X: =868
+        Y: =639
+        ZIndex: =8
+
+    BaixaButton_chq_1 As button:
+        BorderColor: =ColorFade(Self.Fill, 35%)
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: |-
+            =If(
+                Departamentolbl1.Text = "Tec. Informação",
+                DisplayMode.Edit,
+                If(
+                    Departamentolbl1.Text = "Direção",
+                    DisplayMode.Disabled,
+                    If(
+                        Departamentolbl1.Text = "Administração",
+                        DisplayMode.Disabled,
+                        If(
+                            Departamentolbl1.Text = "Vendas",
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    )
+                )
+            )
+        Fill: =RGBA(255, 149, 0, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverColor: =RGBA(26, 26, 26, 1)
+        HoverFill: =RGBA(253, 222, 207, 1)
+        OnSelect: |-
+            =Patch(
+                'gerencial_lucamat.cheques',
+                LookUp(
+                    'gerencial_lucamat.cheques',
+                    ID = Value(id_edit_chq.Text)
+                ),
+                {status_chq: "Pagamento em Mãos"},
+                {dtbaix_chq: Today()},
+                {
+                    userbaixa_chq: LookUp(
+                        'gerencial_lucamat.cad_user',
+                        email_user = Text(login_input),
+                        nome_user
+                    )
+                }
+            )
+        PressedFill: =
+        Size: =14
+        Text: ="Cheque Pago por Fora!"
+        X: =698
+        Y: =701
+        ZIndex: =9
+
+    BaixaButton_chq_2 As button:
+        BorderColor: =ColorFade(Self.Fill, 35%)
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: |-
+            =If(
+                Departamentolbl1.Text = "Tec. Informação",
+                DisplayMode.Edit,
+                If(
+                    Departamentolbl1.Text = "Direção",
+                    DisplayMode.Disabled,
+                    If(
+                        Departamentolbl1.Text = "Administração",
+                        DisplayMode.Disabled,
+                        If(
+                            Departamentolbl1.Text = "Vendas",
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    )
+                )
+            )
+        Fill: =RGBA(63, 212, 177, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverColor: =RGBA(26, 26, 26, 1)
+        HoverFill: =RGBA(204, 231, 246, 1)
+        OnSelect: |-
+            =Patch(
+                'gerencial_lucamat.cheques',
+                LookUp(
+                    'gerencial_lucamat.cheques',
+                    ID = Value(id_edit_chq.Text)
+                ),
+                {status_chq: "Reapresentado"},
+                {dtbaix_chq: Today()},
+                {
+                    userbaixa_chq: LookUp(
+                        'gerencial_lucamat.cad_user',
+                        email_user = Text(login_input),
+                        nome_user
+                    )
+                }
+            )
+        PressedFill: =
+        Size: =14
+        Text: ="Cheque Reapresentado!"
+        X: =698
+        Y: =639
+        ZIndex: =10
+
+    DeleteButton_chq As button:
+        DisabledFill: =RGBA(26, 26, 26, 1)
+        Fill: =RGBA(255, 0, 0, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =60
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(203, 102, 102, 1)
+        OnSelect: |-
+            =Remove(
+                'gerencial_lucamat.cheques',
+                ChequeTable.Selected
+            )
+        PressedFill: =RGBA(26, 26, 26, 1)
+        Size: =14
+        Text: ="Excluir!"
+        Width: =80
+        X: =1121
+        Y: =11
+        ZIndex: =11
+
+    EditarButton_chq As button:
+        DisabledFill: =RGBA(26, 26, 26, 1)
+        Fill: =RGBA(102, 182, 227, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =60
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(215, 223, 240, 1)
+        OnSelect: |-
+            =UpdateContext({MenuEdit:true})
+        PressedFill: =RGBA(26, 26, 26, 1)
+        Size: =14
+        Text: ="Editar!"
+        Width: =80
+        X: =1028
+        Y: =11
+        ZIndex: =12
+
+    InserirChequeButton_chq As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(127, 178, 57, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverColor: =RGBA(26, 26, 26, 1)
+        HoverFill: =RGBA(209, 232, 178, 1)
+        OnSelect: |-
+            =UpdateContext({MenuAdd:true})
+        PressedFill: =
+        Text: |-
+            ="Inserir Novo Cheque!
+            "
+        X: =1040
+        Y: =639
+        ZIndex: =13
+
+    RetornoButton_chq As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 0, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        HoverColor: =RGBA(26, 26, 26, 1)
+        HoverFill: =RGBA(253, 222, 207, 1)
+        OnSelect: =Navigate(Financeiro_screenDash,ScreenTransition.UnCover)
+        PressedFill: =
+        Text: |-
+            ="Retornar
+            "
+        X: =1040
+        Y: =701
+        ZIndex: =14
+
+    ChequeTable As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =4
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Segoe UI'
+        Height: =500
+        Items: |-
+            =If(
+                RadioDateFilter.Selected.nome_parametro = "Data de Lançamento",
+                Sort(
+                    Filter(
+                        'gerencial_lucamat.cheques',
+                        Value(dtlanc_chq) >= Filtro_DataLanc_inicio_chq.SelectedDate && Value(dtlanc_chq) <= Filtro_DataLanc_fim_chq.SelectedDate || IsBlank(Filtro_DataLanc_inicio_chq.SelectedDate) && IsBlank(Filtro_DataLanc_fim_chq.SelectedDate),
+                        status_chq = FiltroStatus_chq.Selected.Value || IsBlank(FiltroStatus_chq.Selected.Value),
+                        empresa_chq = FiltroLoja_chq.Selected.fantasia_filial || IsBlank(FiltroLoja_chq.Selected.fantasia_filial),
+                        fornecedor_chq = FiltroFornecedor_chq.Selected.nome_fornc || IsBlank(FiltroFornecedor_chq.Selected.nome_fornc),
+                        agenciaconta_chq = FiltroAgCc_chq.Selected.nome_parametro || IsBlank(FiltroAgCc_chq.Selected.nome_parametro)
+                    ),
+                    ID,
+                    SortOrder.Descending
+                ),
+                If(
+                    RadioDateFilter.Selected.nome_parametro = "Data de Vencimento",
+                    Sort(
+                        Filter(
+                            'gerencial_lucamat.cheques',
+                            Value(dtvenc_chq) >= Filtro_DataVenc_inicio_chq.SelectedDate && Value(dtvenc_chq) <= Filtro_DataVenc_fim_chq.SelectedDate || IsBlank(Filtro_DataVenc_inicio_chq.SelectedDate) && IsBlank(Filtro_DataVenc_fim_chq.SelectedDate),
+                            status_chq = FiltroStatus_chq.Selected.Value || IsBlank(FiltroStatus_chq.Selected.Value),
+                            empresa_chq = FiltroLoja_chq.Selected.fantasia_filial || IsBlank(FiltroLoja_chq.Selected.fantasia_filial),
+                            fornecedor_chq = FiltroFornecedor_chq.Selected.nome_fornc || IsBlank(FiltroFornecedor_chq.Selected.nome_fornc),
+                            agenciaconta_chq = FiltroAgCc_chq.Selected.nome_parametro || IsBlank(FiltroAgCc_chq.Selected.nome_parametro)
+                        ),
+                        ID,
+                        SortOrder.Descending
+                    ),
+                    If(
+                        RadioDateFilter.Selected.nome_parametro = "Data de Lançamento",
+                        Sort(
+                            Filter(
+                                'gerencial_lucamat.cheques',
+                                Value(dtbaix_chq) >= Filtro_DataPagm_inicio_chq.SelectedDate && Value(dtbaix_chq) <= Filtro_DataPagm_fim_chq.SelectedDate || IsBlank(Filtro_DataPagm_inicio_chq.SelectedDate) && IsBlank(Filtro_DataPagm_fim_chq.SelectedDate),
+                                status_chq = FiltroStatus_chq.Selected.Value || IsBlank(FiltroStatus_chq.Selected.Value),
+                                empresa_chq = FiltroLoja_chq.Selected.fantasia_filial || IsBlank(FiltroLoja_chq.Selected.fantasia_filial),
+                                fornecedor_chq = FiltroFornecedor_chq.Selected.nome_fornc || IsBlank(FiltroFornecedor_chq.Selected.nome_fornc),
+                                agenciaconta_chq = FiltroAgCc_chq.Selected.nome_parametro || IsBlank(FiltroAgCc_chq.Selected.nome_parametro)
+                            ),
+                            ID,
+                            SortOrder.Descending
+                        )
+                    )
+                )
+            )
+        Size: =11
+        Width: =1182
+        X: =17
+        Y: =127
+        ZIndex: =15
+
+        agenciaconta_chq_Column2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Ag. e Conta"
+            FieldName: ="agenciaconta_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.agenciaconta_chq
+            Width: =138
+            X: =0
+            Y: =0
+            ZIndex: =15
+
+        banco_chq_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Banco"
+            FieldName: ="banco_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.banco_chq
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =16
+
+        descricao_chq_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Descrição"
+            FieldName: ="descricao_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.descricao_chq
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =17
+
+        dtbaix_chq_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Pagamento"
+            FieldName: ="dtbaix_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =13
+            Text: =ThisItem.dtbaix_chq
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =18
+
+        dtlanc_chq_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Lançamento"
+            FieldName: ="dtlanc_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.dtlanc_chq
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =19
+
+        dtvenc_chq_Column2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Vencimento"
+            FieldName: ="dtvenc_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.dtvenc_chq
+            Width: =160
+            X: =0
+            Y: =0
+            ZIndex: =20
+
+        empresa_chq_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Empresa"
+            FieldName: ="empresa_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.empresa_chq
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =21
+
+        fornecedor_chq_Column2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Fornecedor"
+            FieldName: ="fornecedor_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.fornecedor_chq
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =22
+
+        ID_Column3 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.ID
+            Width: =73
+            X: =0
+            Y: =0
+            ZIndex: =23
+
+        numero_chq_Column2 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Numero"
+            FieldName: ="numero_chq"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.numero_chq
+            Width: =104
+            X: =0
+            Y: =0
+            ZIndex: =24
+
+        status_chq_Column2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Status"
+            FieldName: ="status_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.status_chq
+            Width: =132
+            X: =0
+            Y: =0
+            ZIndex: =25
+
+        userbaixa_chq_Column2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="User PG"
+            FieldName: ="userbaixa_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =14
+            Text: =ThisItem.userbaixa_chq
+            Width: =146
+            X: =0
+            Y: =0
+            ZIndex: =26
+
+        userlanc_chq_Column2 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="User Lanc."
+            FieldName: ="userlanc_chq"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =12
+            Text: =ThisItem.userlanc_chq
+            Width: =144
+            X: =0
+            Y: =0
+            ZIndex: =27
+
+        valor_chq_Column2 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Valor"
+            FieldName: ="valor_chq"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.valor_chq
+            Width: =115
+            X: =0
+            Y: =0
+            ZIndex: =28
+
+    FiltroLanc_lbl_chq As label:
+        Align: =Align.Center
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Lançamento", DisplayMode.Edit, DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =12
+        Text: ="Filtrando por Lançamento"
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Lançamento"
+        Width: =539
+        X: =17
+        Y: =1
+        ZIndex: =16
+
+    Filtro_DataLanc_inicio_chq As datepicker:
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Lançamento", DisplayMode.Edit, DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =11.7
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Lançamento"
+        Width: =150
+        X: =229
+        Y: =36
+        ZIndex: =17
+
+    FiltroLoja_chq As combobox:
+        DisplayFields: =["fantasia_filial"]
+        Font: =Font.'Segoe UI'
+        Height: =25
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.empresa',fantasia_filial)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["fantasia_filial"]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =249
+        X: =544
+        Y: =90
+        ZIndex: =18
+
+    FiltroLoja_lbl_2 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =20
+        Size: =12
+        Text: ="Empresa / Loja"
+        Width: =249
+        X: =544
+        Y: =65
+        ZIndex: =19
+
+    FiltroVenc_lbl_chq As label:
+        Align: =Align.Center
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Vencimento", DisplayMode.Edit,DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =35
+        Size: =12
+        Text: ="Filtro por Vencimeto"
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Vencimento"
+        Width: =533
+        X: =17
+        Y: =1
+        ZIndex: =20
+
+    Filtro_DataVenc_inicio_chq As datepicker:
+        ContentLanguage: =
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Vencimento", DisplayMode.Edit,DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =11.7
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Vencimento"
+        Width: =150
+        X: =229
+        Y: =36
+        ZIndex: =21
+
+    Filtro_DataLanc_fim_chq As datepicker:
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day(30))
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Lançamento", DisplayMode.Edit, DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =11.7
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Lançamento"
+        Width: =150
+        X: =385
+        Y: =36
+        ZIndex: =22
+
+    Filtro_DataVenc_fim_chq As datepicker:
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Vencimento", DisplayMode.Edit,DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =11.7
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Vencimento"
+        Width: =150
+        X: =385
+        Y: =36
+        ZIndex: =23
+
+    FiltroFornecedor_chq As combobox:
+        DisplayFields: =["nome_fornc"]
+        Font: =Font.'Segoe UI'
+        Height: =26
+        Items: ='gerencial_lucamat.fornecedores'
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =["nome_fornc"]
+        SearchItems: =Search('gerencial_lucamat.fornecedores',FiltroFornecedor_chq.SearchText,"nome_fornc")
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =307
+        X: =229
+        Y: =85
+        ZIndex: =24
+
+    FiltroFornec_lbl As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =21
+        Size: =12
+        Text: ="Fornecedor"
+        Width: =307
+        X: =229
+        Y: =65
+        ZIndex: =25
+
+    FiltroPagm_lbl_chq As label:
+        Align: =Align.Center
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Baixa",DisplayMode.Edit,DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =12
+        Text: ="Filtro por Pagamento (Baixa)"
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Baixa"
+        Width: =539
+        X: =17
+        Y: =1
+        ZIndex: =26
+
+    Filtro_DataPagm_inicio_chq As datepicker:
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Baixa",DisplayMode.Edit,DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =11.7
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Baixa"
+        Width: =150
+        X: =229
+        Y: =36
+        ZIndex: =27
+
+    Filtro_DataPagm_fim_chq As datepicker:
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Baixa",DisplayMode.Edit,DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        Height: =25
+        Size: =11.7
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Baixa"
+        Width: =150
+        X: =385
+        Y: =36
+        ZIndex: =28
+
+    AddFornec As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =94
+
+        Rectangle11_1 As rectangle:
+            BorderThickness: =5
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =440
+            Visible: =MenuFornec
+            Width: =530
+            X: =352
+            Y: =125
+            ZIndex: =95
+
+        Rectangle12_1 As rectangle:
+            BorderThickness: =1
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =104
+            Visible: =MenuFornec
+            Width: =300
+            X: =465
+            Y: =348
+            ZIndex: =96
+
+        Razao_lbl_1 As label:
+            Align: =Align.Right
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Razão Social:"
+            Visible: =MenuFornec
+            Width: =133
+            X: =388
+            Y: =224
+            ZIndex: =97
+
+        CNPJ_lbl_1 As label:
+            Align: =Align.Right
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="CNPJ:"
+            Visible: =MenuFornec
+            Width: =133
+            X: =388
+            Y: =284
+            ZIndex: =98
+
+        DataCad_lbl_1 As label:
+            Align: =Align.Right
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Data do Cadastro:"
+            Visible: =MenuFornec
+            Width: =142
+            X: =476
+            Y: =358
+            ZIndex: =99
+
+        UserCad_lbl_1 As label:
+            Align: =Align.Right
+            FontWeight: =FontWeight.Semibold
+            Text: |-
+                ="Usuário Atual:"
+            Visible: =MenuFornec
+            Width: =142
+            X: =476
+            Y: =398
+            ZIndex: =100
+
+        Gravar_button_1 As button:
+            Fill: =RGBA(127, 178, 57, 1)
+            OnSelect: |-
+                =If(
+                    IsBlank(RazaoSocial_Input_1),
+                    Notify(
+                        "O Campo Razão Social está em branco!",
+                        NotificationType.Error
+                    ),
+                    If(
+                        IsBlank(CNPJ_Input_1),
+                        Notify(
+                            "O Campo CNPJ está em branco!",
+                            NotificationType.Error
+                        ),
+                        Patch(
+                            'gerencial_lucamat.fornecedores',
+                            Defaults('gerencial_lucamat.fornecedores'),
+                            {
+                                ID: Max(
+                                    'gerencial_lucamat.fornecedores',
+                                    ID
+                                ) + 1
+                            },
+                            {nome_fornc: RazaoSocial_Input_1.Text},
+                            {cnpj_fornc: Value(CNPJ_Input_1.Text)},
+                            {datacad_fornc: Value(DataCard_Input_1.SelectedDate)},
+                            {usercad_fornc: UserEdit_Input_1.Text}
+                        );
+                        Reset(RazaoSocial_Input_1);
+                        Reset(CNPJ_Input_1);
+                        Reset(DataCard_Input_1);
+                        Reset(UserEdit_Input_1);
+                        Notify(
+                            "As informações de Fornecedores foram salvas com SUCESSO!",
+                            NotificationType.Success
+                        )
+                    )
+                )
+            Text: ="Gravar"
+            Visible: =MenuFornec
+            Width: =142
+            X: =544
+            Y: =485
+            ZIndex: =101
+
+        RazaoSocial_Input_1 As text:
+            Default: =""
+            HintText: ="Insira o Nome do Fornecedor"
+            Visible: =MenuFornec
+            Width: =284
+            X: =527
+            Y: =224
+            ZIndex: =102
+
+        CNPJ_Input_1 As text:
+            Default: =
+            HintText: ="Insira o CNPJ do Fornecedor"
+            OnChange: =
+            Visible: =MenuFornec
+            Width: =284
+            X: =527
+            Y: =284
+            ZIndex: =103
+
+        DataCard_Input_1 As datepicker:
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            Size: =13
+            Visible: =MenuFornec
+            Width: =133
+            X: =618
+            Y: =363
+            ZIndex: =104
+
+        UserEdit_Input_1 As text:
+            Default: |-
+                =LookUp(
+                    'gerencial_lucamat.cad_user',
+                    email_user = Text(login_input),
+                    nome_user
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            Size: =11
+            Visible: =MenuFornec
+            Width: =133
+            X: =618
+            Y: =403
+            ZIndex: =105
+
+        Titulo_lbl_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Size: =20
+            Text: ="Cadastro de Fornecedor"
+            Visible: =MenuFornec
+            Width: =332
+            X: =423
+            Y: =155
+            ZIndex: =106
+
+        Cancelar_button_1 As icon.Cancel:
+            Height: =40
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({MenuFornec: false});
+                Reset(RazaoSocial_Input);
+                Reset(CNPJ_Input_Fornecedor)
+            Visible: =MenuFornec
+            Width: =40
+            X: =821
+            Y: =141
+            ZIndex: =107
+
+    GroupEdit As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =108
+
+        PainelEdit_1 As rectangle:
+            BorderThickness: =2
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =767
+            Visible: =MenuEdit
+            Width: =425
+            X: =803
+            Y: =1
+            ZIndex: =61
+
+        CloseEdit_1 As icon.Cancel:
+            AutoDisableOnSelect: =false
+            Height: =40
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({MenuEdit:false})
+            Visible: =MenuEdit
+            Width: =35.99
+            X: =1164.3999999999999
+            Y: =26
+            ZIndex: =62
+
+        id_edit_chq_lbl As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =38
+            Text: ="ID"
+            Visible: =MenuEdit
+            Width: =85
+            X: =840
+            Y: =84
+            ZIndex: =63
+
+        loja_edit_chq_lbl As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =42
+            Text: ="Loja"
+            Visible: =MenuEdit
+            Width: =247
+            X: =939
+            Y: =77
+            ZIndex: =64
+
+        DataVenc_edit_chq_lbl As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: ="Data Vencimento"
+            Visible: =MenuEdit
+            Width: =160
+            X: =841
+            Y: =169
+            ZIndex: =65
+
+        Banco_edit_chq_lbl As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: ="Banco"
+            Visible: =MenuEdit
+            Width: =170
+            X: =1018
+            Y: =169
+            ZIndex: =66
+
+        valor_edit_chq_lbl As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: ="Valor"
+            Visible: =MenuEdit
+            Width: =160
+            X: =842
+            Y: =255
+            ZIndex: =67
+
+        numero_edit_chq_lbl As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: ="Numero"
+            Visible: =MenuEdit
+            Width: =170
+            X: =1018
+            Y: =340
+            ZIndex: =68
+
+        status_edit_chq_lbl As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: ="Status"
+            Visible: =MenuEdit
+            Width: =170
+            X: =1018
+            Y: =425
+            ZIndex: =69
+
+        descricao_edit_chq_lbl As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: |-
+                ="Descrição/Motivo
+                "
+            Visible: =MenuEdit
+            Width: =160
+            X: =841
+            Y: =340
+            ZIndex: =70
+
+        id_edit_chq As text:
+            Default: =Value(ChequeTable.Selected.ID)
+            Height: =38
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Visible: =MenuEdit
+            Width: =86
+            X: =841
+            Y: =119
+            ZIndex: =71
+
+        Titulo_edit_1 As label:
+            Align: =Align.Center
+            Font: =Font.'Lato Black'
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            Size: =30
+            Text: ="Editar Cheque"
+            Visible: =MenuEdit
+            Width: =303
+            X: =840
+            Y: =19
+            ZIndex: =72
+
+        dtcompt_edit_chq As datepicker:
+            DefaultDate: =ChequeTable.Selected.dtvenc_chq
+            Height: =35
+            Size: =11.7
+            TabIndex: =2
+            Visible: =MenuEdit
+            Width: =160
+            X: =841
+            Y: =204
+            ZIndex: =73
+
+        descricao_edit_chq As text:
+            Default: =ChequeTable.Selected.descricao_chq
+            Height: =124
+            Mode: =TextMode.MultiLine
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            TabIndex: =6
+            Visible: =MenuEdit
+            Width: =160
+            X: =842
+            Y: =375
+            ZIndex: =74
+
+        Salvar_edit_1 As button:
+            BorderColor: =ColorFade(Self.Fill, -10%)
+            Fill: =RGBA(141, 198, 63, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            Height: =65
+            HoverBorderColor: =ColorFade(Self.Fill, -20%)
+            HoverFill: =ColorFade(Self.Fill, -20%)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedFill: =Color.White
+            Size: =14.4
+            TabIndex: =8
+            Text: ="Salvar Alterações"
+            Visible: =MenuEdit
+            Width: =165
+            X: =930
+            Y: =662
+            ZIndex: =75
+
+        valor_edit_chq As text:
+            Default: |-
+                =Text(Value(ChequeTable.Selected.valor_chq),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            Height: =35
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            TabIndex: =6
+            Visible: =MenuEdit
+            Width: =160
+            X: =841
+            Y: =290
+            ZIndex: =76
+
+        numero_edit_chq As text:
+            Default: =ChequeTable.Selected.numero_chq
+            Height: =35
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            TabIndex: =6
+            Visible: =MenuEdit
+            Width: =170
+            X: =1018
+            Y: =375
+            ZIndex: =77
+
+        Banco_edit_chq As text:
+            Default: =
+            Height: =35
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =11
+            TabIndex: =6
+            Visible: =MenuEdit
+            Width: =170
+            X: =1018
+            Y: =204
+            ZIndex: =78
+
+        descricao_edit_chq_lbl_1 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: |-
+                ="Data Baixa/Alt.
+                "
+            Visible: =MenuEdit
+            Width: =140
+            X: =1043
+            Y: =513
+            ZIndex: =79
+
+        user_BaixaAlt_chq As text:
+            Default: =ChequeTable.Selected.userbaixa_chq
+            Height: =35
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =11.7
+            TabIndex: =6
+            Visible: =MenuEdit
+            Width: =169
+            X: =842
+            Y: =547
+            ZIndex: =80
+
+        descricao_edit_chq_lbl_2 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: ="Usuário Baixa/Alt."
+            Visible: =MenuEdit
+            Width: =169
+            X: =842
+            Y: =511
+            ZIndex: =81
+
+        loja_edit_chq As dropdown:
+            Default: =ChequeTable.Selected.empresa_chq
+            Height: =37
+            Items: =Filter('gerencial_lucamat.empresa',fantasia_filial)
+            Visible: =MenuEdit
+            Width: =247
+            X: =939
+            Y: =120
+            ZIndex: =82
+
+        status_edit_chq As dropdown:
+            Default: =ChequeTable.Selected.status_chq
+            Height: =35
+            Items: =Distinct('gerencial_lucamat.cheques',status_chq)
+            Size: =12
+            Visible: =MenuEdit
+            Width: =170
+            X: =1018
+            Y: =462
+            ZIndex: =83
+
+        data_BaixaAlt_chq As datepicker:
+            DefaultDate: =ChequeTable.Selected.dtbaix_chq
+            Height: =35
+            Size: =11.7
+            TabIndex: =2
+            Visible: =MenuEdit
+            Width: =143.95
+            X: =1043
+            Y: =549
+            ZIndex: =84
+
+        AgCc_edit_chq_lbl As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: ="Ag. / Cc"
+            Visible: =MenuEdit
+            Width: =170
+            X: =1018
+            Y: =254
+            ZIndex: =85
+
+        AgCc_edit_chq As text:
+            Default: =
+            Height: =35
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            Size: =11
+            TabIndex: =6
+            Visible: =MenuEdit
+            Width: =170
+            X: =1018
+            Y: =289
+            ZIndex: =86
+
+    AddGroup As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =108
+
+        Rectangle18 As rectangle:
+            BorderColor: =RGBA(0, 16, 96, 1)
+            BorderThickness: =3
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =483
+            Visible: =MenuAdd
+            Width: =856
+            X: =160
+            Y: =120
+            ZIndex: =29
+
+        EmpresaLabel As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Text: |-
+                ="Empresa: "
+            Visible: =MenuAdd
+            Width: =127
+            X: =182
+            Y: =223
+            ZIndex: =30
+
+        CNPJLabel As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            Text: |-
+                ="CNPJ: "
+            Visible: =MenuAdd
+            Width: =65
+            X: =244
+            Y: =264
+            ZIndex: =31
+
+        DescricaoLabel As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: |-
+                ="Descrição:"
+            Visible: =MenuAdd
+            Width: =125
+            X: =182
+            Y: =316
+            ZIndex: =32
+
+        DescricaoInput_chq As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =60
+            HintText: ="Digite aqui a informação sobre a compra"
+            Mode: =TextMode.MultiLine
+            Size: =12
+            Visible: =MenuAdd
+            Width: =247
+            X: =310
+            Y: =316
+            ZIndex: =33
+
+        DataVencLabel As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =35
+            Text: |-
+                ="Data de Vencimento: "
+            Visible: =MenuAdd
+            Width: =124
+            X: =192
+            Y: =390
+            ZIndex: =34
+
+        NumeroLabel As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: |-
+                ="Numero: "
+            Visible: =MenuAdd
+            Width: =75
+            X: =610
+            Y: =398
+            ZIndex: =35
+
+        NumeroChqInput_chq As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =30
+            HintText: ="Numero do Cheque"
+            Size: =12
+            Visible: =MenuAdd
+            Width: =235
+            X: =686
+            Y: =398
+            ZIndex: =36
+
+        ValorLabel As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =50
+            Size: =20
+            Text: |-
+                ="Valor: "
+            Visible: =MenuAdd
+            Width: =123
+            X: =601
+            Y: =449
+            ZIndex: =37
+
+        ValorInput_chq As text:
+            Default: |-
+                =Text(Value(0),"$ #,##0.00","pt-BR")
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =50
+            Size: =22
+            Visible: =MenuAdd
+            Width: =200
+            X: =725
+            Y: =449
+            ZIndex: =38
+
+        UsuarioLancInput_chq As text:
+            Default: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+            Height: =38
+            Size: =11
+            Visible: =false
+            Width: =200
+            X: =337
+            Y: =565
+            ZIndex: =39
+
+        DataVencInput_chq As datepicker:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Visible: =MenuAdd
+            Width: =241
+            X: =316
+            Y: =390
+            ZIndex: =40
+
+        EmpresaInput_chq As dropdown:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Items: =Filter('gerencial_lucamat.empresa',fantasia_filial)
+            Visible: =MenuAdd
+            Width: =247
+            X: =309
+            Y: =223
+            ZIndex: =41
+
+        CNPJInput_chq As text:
+            Default: =EmpresaInput_chq.Selected.cnpj_filial
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =10
+            Visible: =MenuAdd
+            Width: =247
+            X: =307
+            Y: =263
+            ZIndex: =42
+
+        GravarButton_chq As button:
+            Color: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(141, 198, 63, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            HoverFill: =ColorFade(Self.Color, -20%)
+            OnSelect: |-
+                =If(
+                    IsBlank(EmpresaInput_chq),
+                    Notify(
+                        "O Campo EMPRESA está em branco!",
+                        NotificationType.Error
+                    ),
+                    If(
+                        IsBlank(FornecedorInput_chq),
+                        Notify(
+                            "O Campo FORNECEDOR está em branco!",
+                            NotificationType.Error
+                        ),
+                        If(
+                            IsBlank(DescricaoInput_chq),
+                            Notify(
+                                "O Campo DESCRIÇÃO está em branco!",
+                                NotificationType.Error
+                            ),
+                            If(
+                                IsBlank(Banco_input_chq),
+                                Notify(
+                                    "O Campo BANCO está em branco!",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    IsBlank(AgCc_input_chq),
+                                    Notify(
+                                        "O Campo AGENCIA E CONTA está em branco!",
+                                        NotificationType.Error
+                                    ),
+                                    If(
+                                        IsBlank(DataVencInput_chq),
+                                        Notify(
+                                            "O Campo DATA DE VENCIMENTO está em branco!",
+                                            NotificationType.Error
+                                        ),
+                                        If(
+                                            IsBlank(NumeroChqInput_chq),
+                                            Notify(
+                                                "O Campo NUMERO DO CHEQUE está em branco!",
+                                                NotificationType.Error
+                                            ),
+                                            If(
+                                                IsBlank(ValorInput_chq),
+                                                Notify(
+                                                    "O Campo VALOR está em branco!",
+                                                    NotificationType.Error
+                                                ),
+                                                Patch(
+                                                    'gerencial_lucamat.cheques',
+                                                    Defaults('gerencial_lucamat.cheques'),
+                                                    {
+                                                        ID: Max(
+                                                            'gerencial_lucamat.cheques',
+                                                            ID
+                                                        ) + 1
+                                                    },
+                                                    {empresa_chq: EmpresaInput_chq.Selected.fantasia_filial},
+                                                    {cnpjemp_chq: CNPJInput_chq.Text},
+                                                    {descricao_chq: DescricaoInput_chq.Text},
+                                                    {numero_chq: Value(NumeroChqInput_chq.Text)},
+                                                    {dtvenc_chq: DataVencInput_chq.SelectedDate},
+                                                    {valor_chq: Value(ValorInput_chq.Text)},
+                                                    {status_chq: StatusInput_chq.Selected.Value},
+                                                    {dtlanc_chq: DataLancInput_chq.SelectedDate},
+                                                    {userlanc_chq: UsuarioLancInput_chq.Text},
+                                                    {fornecedor_chq: FornecedorInput_chq.Selected.nome_fornc},
+                                                    {cnpjfornec_chq: CNPJFornecInput_chq.Text},
+                                                    {agenciaconta_chq: AgCc_input_chq.Selected.nome_parametro},
+                                                    {banco_chq: Banco_input_chq.Selected.nome_parametro}
+                                                );
+                                                Reset(EmpresaInput_chq);
+                                                Reset(CNPJInput_chq);
+                                                Reset(DescricaoInput_chq);
+                                                Reset(NumeroChqInput_chq);
+                                                Reset(DataVencInput_chq);
+                                                Reset(ValorInput_chq);
+                                                Reset(FornecedorInput_chq);
+                                                Reset(CNPJFornecInput_chq);
+                                                Reset(Banco_input_chq);
+                                                Reset(AgCc_input_chq);
+                                                Notify(
+                                                    "As informações foram gravadas com SUCESSO!",
+                                                    NotificationType.Success
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            Size: =16
+            Text: ="Gravar!"
+            Visible: =MenuAdd
+            Width: =200
+            X: =589
+            Y: =529
+            ZIndex: =43
+
+        StatusLabel As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =23
+            Text: |-
+                ="Status: "
+            Visible: =false
+            Width: =75
+            X: =227
+            Y: =542
+            ZIndex: =44
+
+        Label5 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =25
+            Text: ="Lançamento de Cheque"
+            Visible: =MenuAdd
+            Width: =426
+            X: =402
+            Y: =141
+            ZIndex: =45
+
+        DataLancInput_chq As datepicker:
+            DisplayMode: =DisplayMode.View
+            Height: =38
+            Visible: =false
+            Width: =200
+            X: =337
+            Y: =504
+            ZIndex: =46
+
+        Icon8 As icon.Cancel:
+            FocusedBorderThickness: =0
+            Height: =40
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({MenuAdd:false})
+            Visible: =MenuAdd
+            Width: =40
+            X: =959
+            Y: =136
+            ZIndex: =47
+
+        ResetButton_chq As button:
+            Color: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(255, 191, 0, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            HoverFill: =ColorFade(Self.Color, -20%)
+            OnSelect: |-
+                =Reset(EmpresaInput_chq);
+                Reset(CNPJInput_chq);
+                Reset(DescricaoInput_chq);
+                Reset(NumeroChqInput_chq);
+                Reset(DataVencInput_chq);
+                Reset(ValorInput_chq);
+                Reset(FornecedorInput_chq);
+                Reset(CNPJFornecInput_chq)
+            Size: =16
+            Text: ="Limpar"
+            Visible: =MenuAdd
+            Width: =200
+            X: =366
+            Y: =529
+            ZIndex: =48
+
+        FornecedorLabel As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Text: |-
+                ="Fornecedor: "
+            Visible: =MenuAdd
+            Width: =125
+            X: =559
+            Y: =223
+            ZIndex: =49
+
+        CNPJForncLabel As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Text: |-
+                ="CNPJ: "
+            Visible: =MenuAdd
+            Width: =64
+            X: =622
+            Y: =264
+            ZIndex: =50
+
+        CNPJFornecInput_chq As text:
+            Default: =Text(FornecedorInput_chq.Selected.cnpj_fornc,varCNPJ)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =25
+            OnChange: |-
+                =Set(Valor, CNPJFornecInput_chq.Text); 
+                Set(varConfig, 
+                    Text( 
+                        Mid(Valor,1,1) & 
+                        Mid(Valor,2,1) & 
+                        "." & 
+                        Mid(Valor,3,1) & 
+                        Mid(Valor,4,1) & 
+                        Mid(Valor,5,1) & 
+                        "." &  
+                        Mid(Valor,6,1) & 
+                        Mid(Valor,7,1) & 
+                        Mid(Valor,8,1) & 
+                        "/" & 
+                        Mid(Valor,9,1) & 
+                        Mid(Valor,10,1) & 
+                        Mid(Valor,11,1) & 
+                        Mid(Valor,12,1) &
+                        "-" & 
+                        Mid(Valor,13,1) & 
+                        Mid(Valor,14,1) & 
+                        Mid(Valor,15,1) 
+                        ) 
+                    ); 
+                Set(varCNPJ, Text(varConfig)) 
+            Size: =10
+            Visible: =MenuAdd
+            Width: =234
+            X: =686
+            Y: =264
+            ZIndex: =51
+
+        FornecedorInput_chq As combobox:
+            DisplayFields: =["nome_fornc"]
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Items: ='gerencial_lucamat.fornecedores'
+            SearchFields: =["nome_fornc"]
+            SearchItems: =Search('gerencial_lucamat.fornecedores',FornecedorInput_chq.SearchText,"nome_fornc")
+            SelectMultiple: =false
+            Size: =10
+            Tooltip: ="Localize o Fornecedor"
+            Visible: =MenuAdd
+            Width: =234
+            X: =685
+            Y: =223
+            ZIndex: =52
+
+        AgCc_lbl_chq As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: |-
+                ="Ag/Cc: "
+            Visible: =MenuAdd
+            Width: =74
+            X: =605
+            Y: =349
+            ZIndex: =53
+
+        addAgCc_button_chq As icon.Add:
+            BorderThickness: =2
+            Height: =30
+            Icon: =Icon.Add
+            OnSelect: |-
+                =UpdateContext({MenuAgCc: true})
+            Visible: =MenuAdd
+            Width: =30
+            X: =927
+            Y: =349
+            ZIndex: =54
+
+        addfornec_button_chq As icon.Add:
+            BorderThickness: =2
+            Height: =30
+            Icon: =Icon.Add
+            OnSelect: |-
+                =UpdateContext({MenuFornec: true})
+            Visible: =MenuAdd
+            Width: =30
+            X: =927
+            Y: =222
+            ZIndex: =55
+
+        Banco_lbl_chq As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =11
+            Text: |-
+                ="Banco: "
+            Visible: =MenuAdd
+            Width: =74
+            X: =609
+            Y: =309
+            ZIndex: =56
+
+        addAgCc_button_chq_1 As icon.Add:
+            BorderThickness: =2
+            Height: =30
+            Icon: =Icon.Add
+            OnSelect: |-
+                =UpdateContext({MenuBanco: true})
+            Visible: =MenuAdd
+            Width: =30
+            X: =927
+            Y: =309
+            ZIndex: =57
+
+        StatusInput_chq As dropdown:
+            Default: ="Aberto"
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(0, 0, 0, 0)
+            Font: =Font.'Segoe UI'
+            Height: =23
+            Items: =Distinct('gerencial_lucamat.padrao','Status Cheques')
+            Visible: =false
+            Width: =74
+            X: =302
+            Y: =542
+            ZIndex: =58
+
+        Banco_input_chq As combobox:
+            DisplayFields: =["nome_parametro"]
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Items: |
+                =Filter('gerencial_lucamat.parametro',cod_parametro = "Banco")
+            SearchFields: =["nome_parametro"]
+            SearchItems: |-
+                =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Banco")
+                ,Banco_input_chq.SearchText,"nome_parametro")
+            SelectMultiple: =false
+            Size: =10
+            Tooltip: ="Localize o Fornecedor"
+            Visible: =MenuAdd
+            Width: =234
+            X: =685
+            Y: =309
+            ZIndex: =59
+
+        AgCc_input_chq As combobox:
+            DisplayFields: =["nome_parametro"]
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Items: |
+                =Filter('gerencial_lucamat.parametro',cod_parametro = "Agência e Conta")
+            SearchFields: =["nome_parametro"]
+            SearchItems: |-
+                =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Agência e Conta")
+                ,AgCc_input_chq.SearchText,"nome_parametro")
+            SelectMultiple: =false
+            Size: =10
+            Tooltip: ="Localize o Fornecedor"
+            Visible: =MenuAdd
+            Width: =234
+            X: =684
+            Y: =349
+            ZIndex: =60
+
+    GrupoBanco As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =118
+
+        Rectangle11_3 As rectangle:
+            BorderThickness: =5
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =400
+            Visible: =MenuBanco
+            Width: =469
+            X: =380
+            Y: =147
+            ZIndex: =108
+
+        AgenciaConta_Banco_input As text:
+            Default: =""
+            Height: =30
+            HintText: ="Insira os dados de Agência e Conta corrente"
+            OnChange: =
+            Visible: =MenuBanco
+            Width: =300
+            X: =465
+            Y: =219
+            ZIndex: =109
+
+        codParametro_AgCc_1 As text:
+            Default: ="Banco"
+            HintText: ="Insira o CNPJ do Fornecedor"
+            OnChange: |-
+                =Set(Valor, codParametro_AgCc_1.Text); 
+                Set(varConfig, 
+                    Text( 
+                        Mid(Valor,1,1) & 
+                        Mid(Valor,2,1) & 
+                        "." & 
+                        Mid(Valor,3,1) & 
+                        Mid(Valor,4,1) & 
+                        Mid(Valor,5,1) & 
+                        "." &  
+                        Mid(Valor,6,1) & 
+                        Mid(Valor,7,1) & 
+                        Mid(Valor,8,1) & 
+                        "/" & 
+                        Mid(Valor,9,1) & 
+                        Mid(Valor,10,1) & 
+                        Mid(Valor,11,1) & 
+                        Mid(Valor,12,1) &
+                        "-" & 
+                        Mid(Valor,13,1) & 
+                        Mid(Valor,14,1) & 
+                        Mid(Valor,15,1) 
+                        ) 
+                    ); 
+                Set(varCNPJ, Text(varConfig))
+            Visible: =false
+            Width: =284
+            X: =365
+            Y: =518
+            ZIndex: =110
+
+        Cancelar_button_3 As icon.Cancel:
+            Height: =30
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({MenuBanco: false});
+                Reset(RazaoSocial_Input);
+                Reset(CNPJ_Input_Fornecedor)
+            Visible: =MenuBanco
+            Width: =30
+            X: =798
+            Y: =157
+            ZIndex: =111
+
+        add_icon_banco_bttn As icon.AddLibrary:
+            Height: =30
+            Icon: =Icon.AddLibrary
+            OnSelect: |-
+                =If(
+                    IsBlank(AgenciaConta_Banco_input),
+                    Notify(
+                        "Por Favor insira o nome do BANCO no campo designado",
+                        NotificationType.Error
+                    ),
+                    Patch(
+                        'gerencial_lucamat.parametro',
+                        Defaults('gerencial_lucamat.parametro'),
+                        {
+                            ID: Max(
+                                'gerencial_lucamat.parametro',
+                                ID
+                            ) + 1
+                        },
+                        {cod_parametro: codParametro_AgCc_1.Text},
+                        {nome_parametro: AgenciaConta_Banco_input.Text},
+                        {key_parametro:Value('KeyParametro_ Banco'.Text)}
+                    );
+                    Reset(AgenciaConta_Banco_input);
+                    Notify(
+                        "Informação gravada com sucesso no banco de dados!",
+                        NotificationType.Success
+                    )
+                )
+            Tooltip: ="Adicione novo Grupo"
+            Visible: =MenuBanco
+            Width: =30
+            X: =430
+            Y: =219
+            ZIndex: =112
+
+        delete_icon_banco_bttn As icon.Erase:
+            Height: =30
+            Icon: =Icon.Erase
+            OnSelect: =Remove('gerencial_lucamat.parametro',TabBancoAdd.Selected)
+            Tooltip: ="Delete o Grupo selecionado"
+            Visible: =MenuBanco
+            Width: =30
+            X: =772
+            Y: =219
+            ZIndex: =113
+
+        TabBancoAdd As dataTable.datatable:
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =2
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(227, 234, 243, 1)
+            HeadingSize: =11
+            Height: =262
+            Items: |-
+                =Filter(
+                    'gerencial_lucamat.parametro',
+                    cod_parametro = "Banco"
+                )
+            Size: =11
+            Visible: =MenuBanco
+            Width: =369
+            X: =432
+            Y: =257
+            ZIndex: =114
+
+            ID_Column5_1 As dataTableColumn.numberColumn:
+                AutoWidth: =false
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="ID"
+                FieldName: ="ID"
+                FieldVariantName: ="numberColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =1
+                Text: =ThisItem.ID
+                Width: =66
+                X: =8
+                Y: =0
+                ZIndex: =13
+
+            nome_parametro_Column2_1 As dataTableColumn.textualColumn:
+                AutoWidth: =false
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="Agencia / Conta Corrente"
+                FieldName: ="nome_parametro"
+                FieldVariantName: ="textualColumn"
+                Height: =249
+                LayoutHeight: =Parent.Height
+                Order: =2
+                Text: =ThisItem.nome_parametro
+                Visible: =MenuBanco
+                Width: =293
+                X: =0
+                Y: =-10
+                ZIndex: =14
+
+        Titulo_banco_lbl_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Size: =18
+            Text: ="Inclusão Bancos"
+            Visible: =MenuBanco
+            Width: =344
+            X: =443
+            Y: =163
+            ZIndex: =115
+
+        "'KeyParametro_ Banco' As text":
+            Default: ="4"
+            HintText: ="Insira o CNPJ do Fornecedor"
+            OnChange: |-
+                =Set(Valor, 'KeyParametro_ Banco'.Text); 
+                Set(varConfig, 
+                    Text( 
+                        Mid(Valor,1,1) & 
+                        Mid(Valor,2,1) & 
+                        "." & 
+                        Mid(Valor,3,1) & 
+                        Mid(Valor,4,1) & 
+                        Mid(Valor,5,1) & 
+                        "." &  
+                        Mid(Valor,6,1) & 
+                        Mid(Valor,7,1) & 
+                        Mid(Valor,8,1) & 
+                        "/" & 
+                        Mid(Valor,9,1) & 
+                        Mid(Valor,10,1) & 
+                        Mid(Valor,11,1) & 
+                        Mid(Valor,12,1) &
+                        "-" & 
+                        Mid(Valor,13,1) & 
+                        Mid(Valor,14,1) & 
+                        Mid(Valor,15,1) 
+                        ) 
+                    ); 
+                Set(varCNPJ, Text(varConfig))
+            Visible: =false
+            Width: =284
+            X: =519
+            Y: =505
+            ZIndex: =117
+
+    RadioDateFilter As radio:
+        Font: =Font.'Segoe UI'
+        Height: =84
+        Items: =ShowColumns(Filter('gerencial_lucamat.parametro',key_parametro = 13),"nome_parametro")
+        RadioSize: =20
+        Size: =12
+        Width: =210
+        X: =17
+        Y: =31
+        ZIndex: =119
+
+    GrupoAgCc As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =119
+
+        Rectangle11_2 As rectangle:
+            BorderThickness: =5
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =400
+            Visible: =MenuAgCc
+            Width: =469
+            X: =380
+            Y: =145
+            ZIndex: =87
+
+        AgenciaConta_AgCc_input As text:
+            Default: =""
+            Height: =30
+            HintText: ="Insira os dados de Agência e Conta corrente"
+            OnChange: =
+            Visible: =MenuAgCc
+            Width: =300
+            X: =465
+            Y: =217
+            ZIndex: =88
+
+        codParametro_AgCc As text:
+            Default: ="Agência e Conta"
+            HintText: ="Insira o CNPJ do Fornecedor"
+            OnChange: |-
+                =Set(Valor, codParametro_AgCc.Text); 
+                Set(varConfig, 
+                    Text( 
+                        Mid(Valor,1,1) & 
+                        Mid(Valor,2,1) & 
+                        "." & 
+                        Mid(Valor,3,1) & 
+                        Mid(Valor,4,1) & 
+                        Mid(Valor,5,1) & 
+                        "." &  
+                        Mid(Valor,6,1) & 
+                        Mid(Valor,7,1) & 
+                        Mid(Valor,8,1) & 
+                        "/" & 
+                        Mid(Valor,9,1) & 
+                        Mid(Valor,10,1) & 
+                        Mid(Valor,11,1) & 
+                        Mid(Valor,12,1) &
+                        "-" & 
+                        Mid(Valor,13,1) & 
+                        Mid(Valor,14,1) & 
+                        Mid(Valor,15,1) 
+                        ) 
+                    ); 
+                Set(varCNPJ, Text(varConfig))
+            Visible: =false
+            Width: =284
+            X: =499
+            Y: =485
+            ZIndex: =89
+
+        Cancelar_button_2 As icon.Cancel:
+            Height: =30
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({MenuAgCc: false});
+                Reset(RazaoSocial_Input);
+                Reset(CNPJ_Input_Fornecedor)
+            Visible: =MenuAgCc
+            Width: =30
+            X: =798
+            Y: =155
+            ZIndex: =90
+
+        add_icon_bttn_2 As icon.AddLibrary:
+            Height: =30
+            Icon: =Icon.AddLibrary
+            OnSelect: |-
+                =If(
+                    IsBlank(codParametro_AgCc),
+                    Notify(
+                        "Codigo de Parametro está inválido, entre em contato com o Suporte",
+                        NotificationType.Error
+                    ),
+                    If(
+                        IsBlank(AgenciaConta_AgCc_input),
+                        Notify(
+                            "Insira um numero de Agencia e Conta, no campo informado!",
+                            NotificationType.Error
+                        ),
+                        Patch(
+                            'gerencial_lucamat.parametro',
+                            Defaults('gerencial_lucamat.parametro'),
+                            {
+                                ID: Max(
+                                    'gerencial_lucamat.parametro',
+                                    ID
+                                ) + 1
+                            },
+                            {cod_parametro: codParametro_AgCc.Text},
+                            {nome_parametro: AgenciaConta_AgCc_input.Text},
+                            {key_parametro:Value(keyParametro_AgCc.Text)}
+                        );
+                        Reset(AgenciaConta_AgCc_input);
+                        Notify(
+                            "Agencia e Conta adicionada com SUCESSO",
+                            NotificationType.Success
+                        )
+                    )
+                )
+            Tooltip: ="Adicione novo Grupo"
+            Visible: =MenuAgCc
+            Width: =30
+            X: =430
+            Y: =217
+            ZIndex: =91
+
+        delete_icon_bttn_2 As icon.Erase:
+            Height: =30
+            Icon: =Icon.Erase
+            OnSelect: =Remove('gerencial_lucamat.parametro',TabAgCcAdd.Selected)
+            Tooltip: ="Delete o Grupo selecionado"
+            Visible: =MenuAgCc
+            Width: =30
+            X: =772
+            Y: =217
+            ZIndex: =92
+
+        Titulo_banco_lbl As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Size: =18
+            Text: ="Inclusão de Contas"
+            Visible: =MenuAgCc
+            Width: =344
+            X: =443
+            Y: =161
+            ZIndex: =94
+
+        TabAgCcAdd As dataTable.datatable:
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =3
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =249
+            Items: |-
+                =Filter(
+                    'gerencial_lucamat.parametro',
+                    cod_parametro = "Agência e Conta"
+                )
+            Visible: =MenuAgCc
+            Width: =372
+            X: =430
+            Y: =255
+            ZIndex: =116
+
+            ID_Column5 As dataTableColumn.numberColumn:
+                AutoWidth: =false
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="ID"
+                FieldName: ="ID"
+                FieldVariantName: ="numberColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =1
+                Text: =ThisItem.ID
+                Width: =76
+                X: =0
+                Y: =0
+                ZIndex: =29
+
+            nome_parametro_Column2 As dataTableColumn.textualColumn:
+                DisplayMode: =DisplayMode.Edit
+                FieldDisplayName: ="Ag / Cc"
+                FieldName: ="nome_parametro"
+                FieldVariantName: ="textualColumn"
+                Height: =Parent.Height
+                LayoutHeight: =Parent.Height
+                Order: =2
+                Text: =ThisItem.nome_parametro
+                Width: =100
+                X: =0
+                Y: =0
+                ZIndex: =30
+
+        keyParametro_AgCc As text:
+            Default: ="5"
+            HintText: ="Insira o CNPJ do Fornecedor"
+            OnChange: |-
+                =Set(Valor, keyParametro_AgCc.Text); 
+                Set(varConfig, 
+                    Text( 
+                        Mid(Valor,1,1) & 
+                        Mid(Valor,2,1) & 
+                        "." & 
+                        Mid(Valor,3,1) & 
+                        Mid(Valor,4,1) & 
+                        Mid(Valor,5,1) & 
+                        "." &  
+                        Mid(Valor,6,1) & 
+                        Mid(Valor,7,1) & 
+                        Mid(Valor,8,1) & 
+                        "/" & 
+                        Mid(Valor,9,1) & 
+                        Mid(Valor,10,1) & 
+                        Mid(Valor,11,1) & 
+                        Mid(Valor,12,1) &
+                        "-" & 
+                        Mid(Valor,13,1) & 
+                        Mid(Valor,14,1) & 
+                        Mid(Valor,15,1) 
+                        ) 
+                    ); 
+                Set(varCNPJ, Text(varConfig))
+            Visible: =false
+            Width: =284
+            X: =539
+            Y: =525
+            ZIndex: =118
+

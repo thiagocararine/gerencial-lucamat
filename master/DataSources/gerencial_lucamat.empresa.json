@@ -1,0 +1,31 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2023-03-13T16:45:02.1030000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "cep_filial": "cep_filial",
+      "cidade_filial": "cidade_filial",
+      "cnpj_filial": "cnpj_filial",
+      "complement_filial": "complement_filial",
+      "email_filial": "email_filial",
+      "endereç_filial": "endereç_filial",
+      "fantasia_filial": "fantasia_filial",
+      "ID": "ID",
+      "inscest_filial": "inscest_filial",
+      "numero_filial": "numero_filial",
+      "razao_filial": "razao_filial",
+      "telefone_filial": "telefone_filial",
+      "uf_filial": "uf_filial"
+    },
+    "DatasetName": "default",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "gerencial_lucamat.empresa",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]
