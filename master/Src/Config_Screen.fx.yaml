@@ -962,9 +962,10 @@
         cidade_input_empresa As combobox:
             DisplayFields: =["Município"]
             Height: =25
+            IsSearchable: =false
             Items: ='gerencial_lucamat.padrao'
             SearchFields: =["Município"]
-            SearchItems: =Search('gerencial_lucamat.padrao',cidade_input_empresa.SearchText,"Município")
+            SearchItems: =[]
             SelectMultiple: =false
             Visible: =MenuAddEmpresa
             Width: =191

@@ -1,0 +1,30 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2023-09-26T16:14:46.1950000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "dataabst_cmb": "dataabst_cmb",
+      "filial_cmb": "filial_cmb",
+      "id": "id",
+      "km_cmb": "km_cmb",
+      "motorist_cmb": "motorist_cmb",
+      "obs_cmb": "obs_cmb",
+      "placaveiculo_cmb": "placaveiculo_cmb",
+      "posto_cmb": "posto_cmb",
+      "qntlitro_cmb": "qntlitro_cmb",
+      "tipocomb_cmb": "tipocomb_cmb",
+      "valorabs_cmb": "valorabs_cmb",
+      "valorcomb_cmb": "valorcomb_cmb"
+    },
+    "DatasetName": "default",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "gerencial_lucamat.combustivel",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

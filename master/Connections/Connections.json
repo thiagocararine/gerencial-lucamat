@@ -16,17 +16,29 @@
     "dependents": [],
     "id": "55bf40bc-9cee-4cae-bd1a-7eb3bbb76a7c"
   },
-  "55e9a210-b8b5-484d-99b8-96a335343bd2": {
+  "691a2da7-3acf-4e4f-91cb-25dc06e9e412": {
     "connectionRef": {
-      "apiTier": "Premium",
-      "displayName": "MySQL",
-      "gatewayObjectIdHint": "9abf6258-e139-4fee-8a8c-867f5364b0cb",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1629/1.0.1629.3253/mysql/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_mysql",
-      "isOnPremiseConnection": true,
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1626/1.0.1626.3238/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
       "parameterHints": {},
-      "parameterHintsV2": {},
-      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_mysql/connections/6956b5ceac2443d5b1c37582dce8d239"
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "691a2da7-3acf-4e4f-91cb-25dc06e9e412"
+  },
+  "c3a89521-859e-4304-897f-45b9d48da665": {
+    "connectionRef": {
+      "displayName": "MySQL",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1654/1.0.1654.3414/mysql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_mysql",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_mysql/connections/03f67d48ffa84419b68c044a00118cd3"
     },
     "datasets": {
       "default": {
@@ -36,6 +48,9 @@
           },
           "gerencial_lucamat.cheques": {
             "tableName": "[gerencial_lucamat].[cheques]"
+          },
+          "gerencial_lucamat.combustivel": {
+            "tableName": "[gerencial_lucamat].[combustivel]"
           },
           "gerencial_lucamat.compras": {
             "tableName": "[gerencial_lucamat].[compras]"
@@ -62,35 +77,19 @@
       }
     },
     "dataSources": [
-      "gerencial_lucamat.pagamento_fin",
       "gerencial_lucamat.cad_user",
-      "gerencial_lucamat.movimento_fin",
-      "gerencial_lucamat.fornecedores",
-      "gerencial_lucamat.compras",
       "gerencial_lucamat.cheques",
-      "gerencial_lucamat.parametro",
+      "gerencial_lucamat.combustivel",
+      "gerencial_lucamat.compras",
       "gerencial_lucamat.empresa",
-      "gerencial_lucamat.padrao"
+      "gerencial_lucamat.fornecedores",
+      "gerencial_lucamat.movimento_fin",
+      "gerencial_lucamat.padrao",
+      "gerencial_lucamat.pagamento_fin",
+      "gerencial_lucamat.parametro"
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "55e9a210-b8b5-484d-99b8-96a335343bd2"
-  },
-  "691a2da7-3acf-4e4f-91cb-25dc06e9e412": {
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Office 365 Outlook",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1626/1.0.1626.3238/office365/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {},
-    "dataSources": [
-      "Office365Outlook"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "691a2da7-3acf-4e4f-91cb-25dc06e9e412"
+    "id": "c3a89521-859e-4304-897f-45b9d48da665"
   }
 }

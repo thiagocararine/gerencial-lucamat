@@ -31,11 +31,12 @@
         DisplayFields: =["nome_parametro"]
         Font: =Font.'Segoe UI'
         Height: =25
+        IsSearchable: =false
         Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Banco")
         PaddingRight: =4.5
         PaddingTop: =4.5
         SearchFields: =["nome_parametro"]
-        SearchItems: =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Banco"),FiltroBanco_chq.SearchText,"nome_parametro")
+        SearchItems: =[]
         SelectMultiple: =false
         Size: =11.7
         Width: =190
@@ -86,11 +87,12 @@
         DisplayFields: =["nome_parametro"]
         Font: =Font.'Segoe UI'
         Height: =25
+        IsSearchable: =false
         Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Agência e Conta")
         PaddingRight: =4.5
         PaddingTop: =4.5
         SearchFields: =["nome_parametro"]
-        SearchItems: =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Agência e Conta"),FiltroAgCc_chq.SearchText,"nome_parametro")
+        SearchItems: =[]
         SelectMultiple: =false
         Size: =11.7
         Width: =190
@@ -701,11 +703,12 @@
         DisplayFields: =["nome_fornc"]
         Font: =Font.'Segoe UI'
         Height: =26
+        IsSearchable: =false
         Items: ='gerencial_lucamat.fornecedores'
         PaddingRight: =4.5
         PaddingTop: =4.5
         SearchFields: =["nome_fornc"]
-        SearchItems: =Search('gerencial_lucamat.fornecedores',FiltroFornecedor_chq.SearchText,"nome_fornc")
+        SearchItems: =[]
         SelectMultiple: =false
         Size: =11.7
         Width: =307
@@ -1683,9 +1686,10 @@
             DisplayFields: =["nome_fornc"]
             Font: =Font.'Segoe UI'
             Height: =30
+            IsSearchable: =false
             Items: ='gerencial_lucamat.fornecedores'
             SearchFields: =["nome_fornc"]
-            SearchItems: =Search('gerencial_lucamat.fornecedores',FornecedorInput_chq.SearchText,"nome_fornc")
+            SearchItems: =[]
             SelectMultiple: =false
             Size: =10
             Tooltip: ="Localize o Fornecedor"
@@ -1776,12 +1780,11 @@
             DisplayFields: =["nome_parametro"]
             Font: =Font.'Segoe UI'
             Height: =30
+            IsSearchable: =false
             Items: |
                 =Filter('gerencial_lucamat.parametro',cod_parametro = "Banco")
             SearchFields: =["nome_parametro"]
-            SearchItems: |-
-                =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Banco")
-                ,Banco_input_chq.SearchText,"nome_parametro")
+            SearchItems: =[]
             SelectMultiple: =false
             Size: =10
             Tooltip: ="Localize o Fornecedor"
@@ -1795,12 +1798,11 @@
             DisplayFields: =["nome_parametro"]
             Font: =Font.'Segoe UI'
             Height: =30
+            IsSearchable: =false
             Items: |
                 =Filter('gerencial_lucamat.parametro',cod_parametro = "Agência e Conta")
             SearchFields: =["nome_parametro"]
-            SearchItems: |-
-                =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Agência e Conta")
-                ,AgCc_input_chq.SearchText,"nome_parametro")
+            SearchItems: =[]
             SelectMultiple: =false
             Size: =10
             Tooltip: ="Localize o Fornecedor"

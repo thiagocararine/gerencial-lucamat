@@ -681,9 +681,10 @@ CadCompras_screenForm As screen:
     Fornecedor_Input As combobox:
         DisplayFields: =["nome_fornc"]
         Height: =30
+        IsSearchable: =false
         Items: ='gerencial_lucamat.fornecedores'
         SearchFields: =["nome_fornc"]
-        SearchItems: =Search('gerencial_lucamat.fornecedores',Fornecedor_Input.SearchText,"nome_fornc")
+        SearchItems: =[]
         SelectMultiple: =false
         Width: =390
         X: =495

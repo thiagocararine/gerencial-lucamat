@@ -232,11 +232,12 @@ cad_screen As screen:
         BorderThickness: =1
         ChevronBackground: =RGBA(204, 204, 204, 1)
         DisplayFields: =["nome_parametro"]
+        IsSearchable: =false
         Items: =Filter('gerencial_lucamat.parametro',key_parametro = 3)
         PaddingRight: =4.5
         PaddingTop: =4.5
         SearchFields: =["nome_parametro"]
-        SearchItems: =Search(Filter('gerencial_lucamat.parametro',key_parametro = 3),Input_depart.SearchText,"nome_parametro")
+        SearchItems: =[]
         SelectMultiple: =false
         TabIndex: =5
         Width: =215.93
@@ -249,11 +250,12 @@ cad_screen As screen:
         BorderThickness: =1
         ChevronBackground: =RGBA(204, 204, 204, 1)
         DisplayFields: =["nome_parametro"]
+        IsSearchable: =false
         Items: =Filter('gerencial_lucamat.parametro',key_parametro = 2)
         PaddingRight: =4.5
         PaddingTop: =4.5
         SearchFields: =["nome_parametro"]
-        SearchItems: =Search(Filter('gerencial_lucamat.parametro',key_parametro = 2),Input_cargo.SearchText,"nome_parametro")
+        SearchItems: =[]
         SelectMultiple: =false
         TabIndex: =6
         Width: =215.93
