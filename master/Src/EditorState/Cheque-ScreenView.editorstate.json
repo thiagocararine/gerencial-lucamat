@@ -3159,7 +3159,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "agenciaconta_chq_Column2",
-      "ParentIndex": 0,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4227,7 +4227,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "banco_chq_Column2",
-      "ParentIndex": 1,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14729,7 +14729,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "dtbaix_chq_Column2",
-      "ParentIndex": 3,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15202,7 +15202,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "dtlanc_chq_Column2",
-      "ParentIndex": 4,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15303,7 +15303,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "dtvenc_chq_Column2",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15729,7 +15729,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "empresa_chq_Column2",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22545,7 +22545,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "fornecedor_chq_Column2",
-      "ParentIndex": 7,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24287,7 +24287,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ID_Column3",
-      "ParentIndex": 8,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -27327,7 +27327,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "numero_chq_Column2",
-      "ParentIndex": 9,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31764,7 +31764,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "status_chq_Column2",
-      "ParentIndex": 10,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -35265,7 +35265,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "userbaixa_chq_Column2",
-      "ParentIndex": 11,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -35950,7 +35950,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "userlanc_chq_Column2",
-      "ParentIndex": 12,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -36353,7 +36353,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "valor_chq_Column2",
-      "ParentIndex": 13,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

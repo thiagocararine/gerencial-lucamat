@@ -26256,19 +26256,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.DatePicker1.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.dtAbastecimento_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.DatePicker1.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.dtAbastecimento_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.DatePicker1"
+                "type": "Combustivel_ScreenForm.dtAbastecimento_cmb_input"
               }
             }
           ],
@@ -26286,19 +26286,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.vlrTotal_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.vlrTotal_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.TextInput3"
+                "type": "Combustivel_ScreenForm.vlrTotal_cmb_input"
               }
             }
           ],
@@ -26316,19 +26316,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.DatePicker1_1.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.dtLancamento_input_cmb.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.DatePicker1_1.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.dtLancamento_input_cmb.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.DatePicker1_1"
+                "type": "Combustivel_ScreenForm.dtLancamento_input_cmb"
               }
             }
           ],
@@ -26346,19 +26346,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.Dropdown1_3.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.placaveiculo_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.Dropdown1_3.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.placaveiculo_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.Dropdown1_3"
+                "type": "Combustivel_ScreenForm.placaveiculo_cmb_input"
               }
             }
           ],
@@ -26376,19 +26376,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.Dropdown1_2.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.filial_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.Dropdown1_2.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.filial_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.Dropdown1_2"
+                "type": "Combustivel_ScreenForm.filial_cmb_input"
               }
             }
           ],
@@ -26406,19 +26406,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.Dropdown1_1.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.tpCombustivel_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.Dropdown1_1.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.tpCombustivel_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.Dropdown1_1"
+                "type": "Combustivel_ScreenForm.tpCombustivel_cmb_input"
               }
             }
           ],
@@ -26436,19 +26436,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.Dropdown1.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.posto_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.Dropdown1.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.posto_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.Dropdown1"
+                "type": "Combustivel_ScreenForm.posto_cmb_input"
               }
             }
           ],
@@ -26466,19 +26466,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_1.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.vlrCombustivel_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_1.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.vlrCombustivel_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.TextInput3_1"
+                "type": "Combustivel_ScreenForm.vlrCombustivel_cmb_input"
               }
             }
           ],
@@ -26496,19 +26496,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_2.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.qtlitros_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_2.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.qtlitros_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.TextInput3_2"
+                "type": "Combustivel_ScreenForm.qtlitros_cmb_input"
               }
             }
           ],
@@ -26526,19 +26526,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_3.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.KMveiculo_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_3.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.KMveiculo_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.TextInput3_3"
+                "type": "Combustivel_ScreenForm.KMveiculo_cmb_input"
               }
             }
           ],
@@ -26556,19 +26556,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_4.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.userlanc_input_cmb.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_4.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.userlanc_input_cmb.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.TextInput3_4"
+                "type": "Combustivel_ScreenForm.userlanc_input_cmb"
               }
             }
           ],
@@ -26586,19 +26586,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_5.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.obs_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_5.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.obs_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.TextInput3_5"
+                "type": "Combustivel_ScreenForm.obs_cmb_input"
               }
             }
           ],
@@ -26616,19 +26616,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_6.AccessibleLabel"
+                  "fullyQualifiedName": "Combustivel_ScreenForm.motorista_cmb_input.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Combustivel_ScreenForm.TextInput3_6.AccessibleLabel",
+                  "fullyQualifiedName": "Combustivel_ScreenForm.motorista_cmb_input.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Combustivel_ScreenForm",
-                "type": "Combustivel_ScreenForm.TextInput3_6"
+                "type": "Combustivel_ScreenForm.motorista_cmb_input"
               }
             }
           ],
@@ -29688,6 +29688,36 @@
                 "member": "Default",
                 "module": "Financeiro_PDF2",
                 "type": "Financeiro_PDF2.Container2_2.RetSocioPDF_SC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 13
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Combustivel_ScreenForm.userlanc_input_cmb.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Combustivel_ScreenForm.userlanc_input_cmb.Default",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Combustivel_ScreenForm",
+                "type": "Combustivel_ScreenForm.userlanc_input_cmb"
               }
             }
           ],
