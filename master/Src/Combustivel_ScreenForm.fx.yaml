@@ -5,7 +5,7 @@ Combustivel_ScreenForm As screen:
         Height: =30
         Width: =200
         X: =300
-        Y: =345
+        Y: =303
         ZIndex: =1
 
     dtLancamento_input_cmb As datepicker:
@@ -25,7 +25,7 @@ Combustivel_ScreenForm As screen:
         Items: =Filter('gerencial_lucamat.parametro',key_parametro = 16)
         Width: =200
         X: =753
-        Y: =165
+        Y: =123
         ZIndex: =3
 
     tpCombustivel_cmb_input As dropdown:
@@ -34,7 +34,7 @@ Combustivel_ScreenForm As screen:
         Items: =Filter('gerencial_lucamat.parametro',key_parametro = 14)
         Width: =200
         X: =300
-        Y: =285
+        Y: =243
         ZIndex: =4
 
     filial_cmb_input As dropdown:
@@ -43,7 +43,7 @@ Combustivel_ScreenForm As screen:
         Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
         Width: =200
         X: =300
-        Y: =105
+        Y: =63
         ZIndex: =5
 
     placaveiculo_cmb_input As dropdown:
@@ -52,7 +52,7 @@ Combustivel_ScreenForm As screen:
         Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
         Width: =200
         X: =753
-        Y: =105
+        Y: =63
         ZIndex: =6
 
     placaveiculo_cmb_lbl As label:
@@ -62,7 +62,7 @@ Combustivel_ScreenForm As screen:
             ="Placa Veículo :"
         Width: =155
         X: =585
-        Y: =105
+        Y: =63
         ZIndex: =7
 
     filial_cmb_lbl As label:
@@ -72,7 +72,7 @@ Combustivel_ScreenForm As screen:
             ="Filial :"
         Width: =155
         X: =135
-        Y: =105
+        Y: =63
         ZIndex: =8
 
     tpCombustivel_cmb_lbl As label:
@@ -82,7 +82,7 @@ Combustivel_ScreenForm As screen:
             ="Tipo Combustivel :"
         Width: =155
         X: =135
-        Y: =285
+        Y: =243
         ZIndex: =9
 
     posto_cmb_lbl As label:
@@ -92,7 +92,7 @@ Combustivel_ScreenForm As screen:
             ="Posto :"
         Width: =155
         X: =585
-        Y: =165
+        Y: =123
         ZIndex: =10
 
     DtAbastecimento_cmb_lbl As label:
@@ -102,7 +102,7 @@ Combustivel_ScreenForm As screen:
             ="Dt. Abastecimento:"
         Width: =155
         X: =135
-        Y: =345
+        Y: =303
         ZIndex: =11
 
     Label9_5 As label:
@@ -123,7 +123,7 @@ Combustivel_ScreenForm As screen:
         Height: =30
         Width: =200
         X: =753
-        Y: =345
+        Y: =303
         ZIndex: =13
 
     vlrCombustivel_cmb_input As text:
@@ -132,7 +132,7 @@ Combustivel_ScreenForm As screen:
         Height: =30
         Width: =200
         X: =753
-        Y: =285
+        Y: =243
         ZIndex: =14
 
     qtlitros_cmb_input As text:
@@ -142,7 +142,7 @@ Combustivel_ScreenForm As screen:
         Height: =30
         Width: =200
         X: =753
-        Y: =225
+        Y: =183
         ZIndex: =15
 
     KMveiculo_cmb_input As text:
@@ -151,7 +151,7 @@ Combustivel_ScreenForm As screen:
         Height: =30
         Width: =200
         X: =300
-        Y: =225
+        Y: =183
         ZIndex: =16
 
     userlanc_input_cmb As text:
@@ -184,7 +184,7 @@ Combustivel_ScreenForm As screen:
             ="Qnt. Litros :"
         Width: =155
         X: =585
-        Y: =225
+        Y: =183
         ZIndex: =19
 
     vlrTotal_cmb_lbl As label:
@@ -194,7 +194,7 @@ Combustivel_ScreenForm As screen:
             ="Valor Total :"
         Width: =155
         X: =585
-        Y: =345
+        Y: =303
         ZIndex: =20
 
     vlrCombustivel_cmb_lbl As label:
@@ -204,7 +204,7 @@ Combustivel_ScreenForm As screen:
             ="Valor Combustivel:"
         Width: =155
         X: =585
-        Y: =285
+        Y: =243
         ZIndex: =21
 
     KM_cmb_lbl As label:
@@ -215,7 +215,7 @@ Combustivel_ScreenForm As screen:
             "
         Width: =155
         X: =135
-        Y: =225
+        Y: =183
         ZIndex: =22
 
     Label9_10 As label:
@@ -246,7 +246,7 @@ Combustivel_ScreenForm As screen:
         Height: =30
         Width: =200
         X: =300
-        Y: =165
+        Y: =123
         ZIndex: =25
 
     motorista_cmb_lbl As label:
@@ -256,7 +256,7 @@ Combustivel_ScreenForm As screen:
             ="Motorista :"
         Width: =155
         X: =135
-        Y: =165
+        Y: =123
         ZIndex: =26
 
     Button4_1 As button:
@@ -325,6 +325,13 @@ Combustivel_ScreenForm As screen:
                                                         "O Campo VALOR TOTAL está em branco.",
                                                         NotificationType.Error
                                                     ),
+                                                    If(
+                                                        IsBlank(NumNFe_cmb_input),
+                                                        Notify(
+                                                            "O Campo NÚMERO NFe está em branco.!",
+                                                            NotificationType.Error
+                                                        )
+                                                    ),
                                                     Patch(
                                                         'gerencial_lucamat.combustivel',
                                                         Defaults('gerencial_lucamat.combustivel'),
@@ -346,7 +353,8 @@ Combustivel_ScreenForm As screen:
                                                         {tipocomb_cmb: tpCombustivel_cmb_input.Selected.nome_parametro},
                                                         {obs_cmb: obs_cmb_input.Text},
                                                         {datalanc_cmb: dtLancamento_input_cmb.SelectedDate},
-                                                        {userlanc_cmb: userlanc_input_cmb.Text}
+                                                        {userlanc_cmb: userlanc_input_cmb.Text},
+                                                        {numeronf_cmb: Value(NumNFe_cmb_input.Text)}
                                                     );
                                                     Reset(filial_cmb_input);
                                                     Reset(dtAbastecimento_cmb_input);
@@ -410,4 +418,23 @@ Combustivel_ScreenForm As screen:
         X: =753
         Y: =491
         ZIndex: =29
+
+    NumNFe_cmb_input As text:
+        Default: =
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Width: =200
+        X: =300
+        Y: =356
+        ZIndex: =30
+
+    numNFe_cmb_lbl As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Número NFe :"
+        Width: =155
+        X: =135
+        Y: =356
+        ZIndex: =31
 

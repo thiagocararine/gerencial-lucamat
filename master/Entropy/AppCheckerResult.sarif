@@ -26646,6 +26646,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Combustivel_ScreenForm.NumNFe_cmb_input.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Combustivel_ScreenForm.NumNFe_cmb_input.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Combustivel_ScreenForm",
+                "type": "Combustivel_ScreenForm.NumNFe_cmb_input"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App._selectedUser"
                 }
               ],
