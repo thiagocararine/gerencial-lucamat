@@ -480,7 +480,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cep_filial_Column1",
-      "ParentIndex": 7,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1199,7 +1199,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cidade_filial_Column1",
-      "ParentIndex": 11,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2902,7 +2902,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "complement_filial_Column1",
-      "ParentIndex": 10,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3930,7 +3930,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "email_filial_Column1",
-      "ParentIndex": 6,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4649,7 +4649,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "endereç_filial_Column1",
-      "ParentIndex": 8,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5654,7 +5654,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "fantasia_filial_Column1",
-      "ParentIndex": 1,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6950,7 +6950,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ID_Column7",
-      "ParentIndex": 0,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7667,7 +7667,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "inscest_filial_Column1",
-      "ParentIndex": 3,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10833,7 +10833,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "razao_filial_Column1",
-      "ParentIndex": 4,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11816,7 +11816,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "telefone_filial_Column1",
-      "ParentIndex": 5,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

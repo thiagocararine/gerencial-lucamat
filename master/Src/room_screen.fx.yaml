@@ -114,6 +114,10 @@
                             If(
                                 Departamentolbl1.Text = "Expedição",
                                 DisplayMode.Disabled,
+                                If(
+                                    Departamentolbl1.Text = "Administrativo",
+                                    DisplayMode.Edit
+                                ),
                                 DisplayMode.Disabled
                             )
                         )

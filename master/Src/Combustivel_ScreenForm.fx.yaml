@@ -1,12 +1,23 @@
 Combustivel_ScreenForm As screen:
 
+    Rectangle23 As rectangle:
+        BorderThickness: =5
+        Fill: =RGBA(241, 244, 249, 1)
+        Height: =625
+        Visible: =MenuCombustivel
+        Width: =905
+        X: =162
+        Y: =25
+        ZIndex: =1
+
     dtAbastecimento_cmb_input As datepicker:
         Font: =Font.'Segoe UI'
         Height: =30
+        Visible: =MenuCombustivel
         Width: =200
-        X: =300
-        Y: =303
-        ZIndex: =1
+        X: =370
+        Y: =297
+        ZIndex: =2
 
     dtLancamento_input_cmb As datepicker:
         DisplayMode: =DisplayMode.View
@@ -14,96 +25,106 @@ Combustivel_ScreenForm As screen:
         Height: =30
         Italic: =true
         Size: =12
+        Visible: =MenuCombustivel
         Width: =117
-        X: =836
-        Y: =594
-        ZIndex: =2
+        X: =906
+        Y: =588
+        ZIndex: =3
 
     posto_cmb_input As dropdown:
         Font: =Font.'Segoe UI'
         Height: =30
         Items: =Filter('gerencial_lucamat.parametro',key_parametro = 16)
+        Visible: =MenuCombustivel
         Width: =200
-        X: =753
-        Y: =123
-        ZIndex: =3
+        X: =823
+        Y: =117
+        ZIndex: =4
 
     tpCombustivel_cmb_input As dropdown:
         Font: =Font.'Segoe UI'
         Height: =30
         Items: =Filter('gerencial_lucamat.parametro',key_parametro = 14)
+        Visible: =MenuCombustivel
         Width: =200
-        X: =300
-        Y: =243
-        ZIndex: =4
+        X: =370
+        Y: =237
+        ZIndex: =5
 
     filial_cmb_input As dropdown:
         Font: =Font.'Segoe UI'
         Height: =30
         Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+        Visible: =MenuCombustivel
         Width: =200
-        X: =300
-        Y: =63
-        ZIndex: =5
+        X: =370
+        Y: =57
+        ZIndex: =6
 
     placaveiculo_cmb_input As dropdown:
         Font: =Font.'Segoe UI'
         Height: =30
         Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
+        Visible: =MenuCombustivel
         Width: =200
-        X: =753
-        Y: =63
-        ZIndex: =6
+        X: =823
+        Y: =57
+        ZIndex: =7
 
     placaveiculo_cmb_lbl As label:
         Font: =Font.'Segoe UI'
         Height: =30
         Text: |-
             ="Placa Veículo :"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =585
-        Y: =63
-        ZIndex: =7
+        X: =655
+        Y: =57
+        ZIndex: =8
 
     filial_cmb_lbl As label:
         Font: =Font.'Segoe UI'
         Height: =30
         Text: |-
             ="Filial :"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =135
-        Y: =63
-        ZIndex: =8
+        X: =205
+        Y: =57
+        ZIndex: =9
 
     tpCombustivel_cmb_lbl As label:
         Font: =Font.'Segoe UI'
         Height: =30
         Text: |-
             ="Tipo Combustivel :"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =135
-        Y: =243
-        ZIndex: =9
+        X: =205
+        Y: =237
+        ZIndex: =10
 
     posto_cmb_lbl As label:
         Font: =Font.'Segoe UI'
         Height: =30
         Text: |-
             ="Posto :"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =585
-        Y: =123
-        ZIndex: =10
+        X: =655
+        Y: =117
+        ZIndex: =11
 
     DtAbastecimento_cmb_lbl As label:
         Font: =Font.'Segoe UI'
         Height: =30
         Text: |-
             ="Dt. Abastecimento:"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =135
-        Y: =303
-        ZIndex: =11
+        X: =205
+        Y: =297
+        ZIndex: =12
 
     Label9_5 As label:
         Font: =Font.'Segoe UI'
@@ -112,47 +133,52 @@ Combustivel_ScreenForm As screen:
         Size: =12
         Text: |-
             ="Dt. Lançamento :"
+        Visible: =MenuCombustivel
         Width: =135
-        X: =701
-        Y: =594
-        ZIndex: =12
+        X: =771
+        Y: =588
+        ZIndex: =13
 
     vlrTotal_cmb_input As text:
         Default: =qtlitros_cmb_input * vlrCombustivel_cmb_input
         Font: =Font.'Segoe UI'
         Height: =30
+        Visible: =MenuCombustivel
         Width: =200
-        X: =753
-        Y: =303
-        ZIndex: =13
+        X: =823
+        Y: =297
+        ZIndex: =14
 
     vlrCombustivel_cmb_input As text:
         Default: =Value(0)
         Font: =Font.'Segoe UI'
         Height: =30
+        Visible: =MenuCombustivel
         Width: =200
-        X: =753
-        Y: =243
-        ZIndex: =14
+        X: =823
+        Y: =237
+        ZIndex: =15
 
     qtlitros_cmb_input As text:
         Default: =
         Font: =Font.'Segoe UI'
         Format: =TextFormat.Number
         Height: =30
+        Visible: =MenuCombustivel
         Width: =200
-        X: =753
-        Y: =183
-        ZIndex: =15
+        X: =823
+        Y: =177
+        ZIndex: =16
 
     KMveiculo_cmb_input As text:
         Default: =""
         Font: =Font.'Segoe UI'
         Height: =30
+        Visible: =MenuCombustivel
         Width: =200
-        X: =300
-        Y: =183
-        ZIndex: =16
+        X: =370
+        Y: =177
+        ZIndex: =17
 
     userlanc_input_cmb As text:
         Default: |
@@ -162,50 +188,55 @@ Combustivel_ScreenForm As screen:
         Height: =30
         Italic: =true
         Size: =12
+        Visible: =MenuCombustivel
         Width: =200
-        X: =213
-        Y: =594
-        ZIndex: =17
+        X: =283
+        Y: =588
+        ZIndex: =18
 
     obs_cmb_input As text:
         Default: =""
         Font: =Font.'Segoe UI'
         Height: =150
         Mode: =TextMode.MultiLine
+        Visible: =MenuCombustivel
         Width: =400
-        X: =300
-        Y: =410
-        ZIndex: =18
+        X: =370
+        Y: =404
+        ZIndex: =19
 
     litros_cmb_lbl As label:
         Font: =Font.'Segoe UI'
         Height: =30
         Text: |-
             ="Qnt. Litros :"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =585
-        Y: =183
-        ZIndex: =19
+        X: =655
+        Y: =177
+        ZIndex: =20
 
     vlrTotal_cmb_lbl As label:
         Font: =Font.'Segoe UI'
         Height: =30
         Text: |-
             ="Valor Total :"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =585
-        Y: =303
-        ZIndex: =20
+        X: =655
+        Y: =297
+        ZIndex: =21
 
     vlrCombustivel_cmb_lbl As label:
         Font: =Font.'Segoe UI'
         Height: =30
         Text: |-
             ="Valor Combustivel:"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =585
-        Y: =243
-        ZIndex: =21
+        X: =655
+        Y: =237
+        ZIndex: =22
 
     KM_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -213,10 +244,11 @@ Combustivel_ScreenForm As screen:
         Text: |-
             ="KM Veículo :
             "
+        Visible: =MenuCombustivel
         Width: =155
-        X: =135
-        Y: =183
-        ZIndex: =22
+        X: =205
+        Y: =177
+        ZIndex: =23
 
     Label9_10 As label:
         Font: =Font.'Segoe UI'
@@ -225,39 +257,43 @@ Combustivel_ScreenForm As screen:
         Size: =12
         Text: |-
             ="Usuário :"
+        Visible: =MenuCombustivel
         Width: =78
-        X: =135
-        Y: =594
-        ZIndex: =23
+        X: =205
+        Y: =588
+        ZIndex: =24
 
     OBS_cmb_lbl As label:
         Font: =Font.'Segoe UI'
         Height: =150
         Text: |-
             ="Observação :"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =135
-        Y: =410
-        ZIndex: =24
+        X: =205
+        Y: =404
+        ZIndex: =25
 
     motorista_cmb_input As text:
         Default: =""
         Font: =Font.'Segoe UI'
         Height: =30
+        Visible: =MenuCombustivel
         Width: =200
-        X: =300
-        Y: =123
-        ZIndex: =25
+        X: =370
+        Y: =117
+        ZIndex: =26
 
     motorista_cmb_lbl As label:
         Font: =Font.'Segoe UI'
         Height: =30
         Text: |-
             ="Motorista :"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =135
-        Y: =123
-        ZIndex: =26
+        X: =205
+        Y: =117
+        ZIndex: =27
 
     Button4_1 As button:
         Fill: =RGBA(141, 198, 63, 1)
@@ -386,9 +422,10 @@ Combustivel_ScreenForm As screen:
         PressedBorderColor: =RGBA(141, 198, 63, 1)
         PressedFill: =
         Text: ="Salvar"
+        Visible: =MenuCombustivel
         Width: =200
-        X: =753
-        Y: =437
+        X: =823
+        Y: =431
         ZIndex: =28
 
     Button4_2 As button:
@@ -396,10 +433,7 @@ Combustivel_ScreenForm As screen:
         Height: =42
         HoverFill: =RGBA(220, 153, 153, 1)
         OnSelect: |
-            =Navigate(
-                room_screen,
-                ScreenTransition.UnCover
-            );
+            =UpdateContext({MenuCombustivel:false});
             Reset(filial_cmb_input);
             Reset(dtAbastecimento_cmb_input);
             Reset(placaveiculo_cmb_input);
@@ -414,18 +448,20 @@ Combustivel_ScreenForm As screen:
             Reset(dtLancamento_input_cmb);
             Reset(userlanc_input_cmb);
         Text: ="Cancelar"
+        Visible: =MenuCombustivel
         Width: =200
-        X: =753
-        Y: =491
+        X: =823
+        Y: =485
         ZIndex: =29
 
     NumNFe_cmb_input As text:
         Default: =
         Font: =Font.'Segoe UI'
         Height: =30
+        Visible: =MenuCombustivel
         Width: =200
-        X: =300
-        Y: =356
+        X: =370
+        Y: =350
         ZIndex: =30
 
     numNFe_cmb_lbl As label:
@@ -433,8 +469,30 @@ Combustivel_ScreenForm As screen:
         Height: =30
         Text: |-
             ="Número NFe :"
+        Visible: =MenuCombustivel
         Width: =155
-        X: =135
-        Y: =356
+        X: =205
+        Y: =350
         ZIndex: =31
+
+    Button4 As button:
+        DisplayMode: =If(MenuCombustivel = true,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =50
+        OnSelect: |-
+            =UpdateContext({MenuCombustivel:true})
+        Text: ="Incluir Lançamento"
+        X: =995
+        Y: =660
+        ZIndex: =32
+
+    DataTable2 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =500
+        Items: ='gerencial_lucamat.combustivel'
+        Width: =1185
+        X: =10
+        Y: =88
+        ZIndex: =33
 
