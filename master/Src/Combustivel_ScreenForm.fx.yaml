@@ -127,7 +127,7 @@ Combustivel_ScreenForm As screen:
         ZIndex: =13
 
     vlrCombustivel_cmb_input As text:
-        Default: =
+        Default: =Value(0)
         Font: =Font.'Segoe UI'
         Height: =30
         Width: =200
