@@ -118,8 +118,7 @@ Combustivel_ScreenForm As screen:
         ZIndex: =12
 
     vlrTotal_cmb_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: =qtlitros_cmb_input * vlrCombustivel_cmb_input
         Font: =Font.'Segoe UI'
         Height: =30
         Width: =200
@@ -128,8 +127,7 @@ Combustivel_ScreenForm As screen:
         ZIndex: =13
 
     vlrCombustivel_cmb_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: =
         Font: =Font.'Segoe UI'
         Height: =30
         Width: =200
@@ -389,6 +387,24 @@ Combustivel_ScreenForm As screen:
         Fill: =RGBA(255, 0, 0, 1)
         Height: =42
         HoverFill: =RGBA(220, 153, 153, 1)
+        OnSelect: |
+            =Navigate(
+                room_screen,
+                ScreenTransition.UnCover
+            );
+            Reset(filial_cmb_input);
+            Reset(dtAbastecimento_cmb_input);
+            Reset(placaveiculo_cmb_input);
+            Reset(KMveiculo_cmb_input);
+            Reset(vlrTotal_cmb_input);
+            Reset(motorista_cmb_input);
+            Reset(posto_cmb_input);
+            Reset(vlrCombustivel_cmb_input);
+            Reset(qtlitros_cmb_input);
+            Reset(tpCombustivel_cmb_input);
+            Reset(obs_cmb_input);
+            Reset(dtLancamento_input_cmb);
+            Reset(userlanc_input_cmb);
         Text: ="Cancelar"
         Width: =200
         X: =753

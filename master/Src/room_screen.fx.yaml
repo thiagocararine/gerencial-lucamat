@@ -107,13 +107,13 @@
                     DisplayMode.Edit,
                     If(
                         Departamentolbl1.Text = "Vendas",
-                        DisplayMode.Edit,
+                        DisplayMode.Disabled,
                         If(
                             Departamentolbl1.Text = "Financeiro",
                             DisplayMode.Edit,
                             If(
                                 Departamentolbl1.Text = "Expedição",
-                                DisplayMode.Edit,
+                                DisplayMode.Disabled,
                                 DisplayMode.Disabled
                             )
                         )
@@ -126,7 +126,7 @@
         Height: =120
         HoverBorderColor: =ColorFade(Self.BorderColor, 40%)
         HoverFill: =ColorFade(RGBA(56, 96, 178, 1), 20%)
-        OnSelect: =
+        OnSelect: =Navigate(Combustivel_ScreenForm,ScreenTransition.CoverRight)
         PaddingRight: =4.5
         PaddingTop: =4.5
         RadiusBottomLeft: =25
