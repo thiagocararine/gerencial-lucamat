@@ -1,5 +1,236 @@
 Combustivel_ScreenForm As screen:
 
+    Button4 As button:
+        DisplayMode: =If(MenuCombustivel = true,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =50
+        OnSelect: |-
+            =UpdateContext({MenuCombustivel:true})
+        Text: ="Incluir Lançamento"
+        X: =995
+        Y: =660
+        ZIndex: =1
+
+    DataTable2 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =500
+        Items: ='gerencial_lucamat.combustivel'
+        Width: =1185
+        X: =10
+        Y: =88
+        ZIndex: =2
+
+        id_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="id"
+            FieldName: ="id"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.id
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        filial_cmb_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="filial_cmb"
+            FieldName: ="filial_cmb"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.filial_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        datalanc_cmb_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="datalanc_cmb"
+            FieldName: ="datalanc_cmb"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.datalanc_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        dataabst_cmb_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="dataabst_cmb"
+            FieldName: ="dataabst_cmb"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.dataabst_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        motorist_cmb_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="motorist_cmb"
+            FieldName: ="motorist_cmb"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.motorist_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        numeronf_cmb_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="numeronf_cmb"
+            FieldName: ="numeronf_cmb"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.numeronf_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        obs_cmb_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="obs_cmb"
+            FieldName: ="obs_cmb"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.obs_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+        placaveiculo_cmb_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="placaveiculo_cmb"
+            FieldName: ="placaveiculo_cmb"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.placaveiculo_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =8
+
+        posto_cmb_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="posto_cmb"
+            FieldName: ="posto_cmb"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.posto_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =9
+
+        qntlitro_cmb_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="qntlitro_cmb"
+            FieldName: ="qntlitro_cmb"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.qntlitro_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =10
+
+        tipocomb_cmb_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="tipocomb_cmb"
+            FieldName: ="tipocomb_cmb"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.tipocomb_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =11
+
+        userlanc_cmb_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="userlanc_cmb"
+            FieldName: ="userlanc_cmb"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =12
+            Text: =ThisItem.userlanc_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =12
+
+        valorabs_cmb_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="valorabs_cmb"
+            FieldName: ="valorabs_cmb"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =13
+            Text: =ThisItem.valorabs_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =13
+
+        valorcomb_cmb_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="valorcomb_cmb"
+            FieldName: ="valorcomb_cmb"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =14
+            Text: =ThisItem.valorcomb_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =14
+
+        km_cmb_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="km_cmb"
+            FieldName: ="km_cmb"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =15
+            Text: =ThisItem.km_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =15
+
     Rectangle23 As rectangle:
         BorderThickness: =5
         Fill: =RGBA(241, 244, 249, 1)
@@ -8,7 +239,7 @@ Combustivel_ScreenForm As screen:
         Width: =905
         X: =162
         Y: =25
-        ZIndex: =1
+        ZIndex: =3
 
     dtAbastecimento_cmb_input As datepicker:
         Font: =Font.'Segoe UI'
@@ -17,7 +248,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =370
         Y: =297
-        ZIndex: =2
+        ZIndex: =4
 
     dtLancamento_input_cmb As datepicker:
         DisplayMode: =DisplayMode.View
@@ -29,7 +260,7 @@ Combustivel_ScreenForm As screen:
         Width: =117
         X: =906
         Y: =588
-        ZIndex: =3
+        ZIndex: =5
 
     posto_cmb_input As dropdown:
         Font: =Font.'Segoe UI'
@@ -39,7 +270,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =823
         Y: =117
-        ZIndex: =4
+        ZIndex: =6
 
     tpCombustivel_cmb_input As dropdown:
         Font: =Font.'Segoe UI'
@@ -49,7 +280,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =370
         Y: =237
-        ZIndex: =5
+        ZIndex: =7
 
     filial_cmb_input As dropdown:
         Font: =Font.'Segoe UI'
@@ -59,7 +290,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =370
         Y: =57
-        ZIndex: =6
+        ZIndex: =8
 
     placaveiculo_cmb_input As dropdown:
         Font: =Font.'Segoe UI'
@@ -69,7 +300,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =823
         Y: =57
-        ZIndex: =7
+        ZIndex: =9
 
     placaveiculo_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -80,7 +311,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =655
         Y: =57
-        ZIndex: =8
+        ZIndex: =10
 
     filial_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -91,7 +322,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =205
         Y: =57
-        ZIndex: =9
+        ZIndex: =11
 
     tpCombustivel_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -102,7 +333,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =205
         Y: =237
-        ZIndex: =10
+        ZIndex: =12
 
     posto_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -113,7 +344,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =655
         Y: =117
-        ZIndex: =11
+        ZIndex: =13
 
     DtAbastecimento_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -124,7 +355,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =205
         Y: =297
-        ZIndex: =12
+        ZIndex: =14
 
     Label9_5 As label:
         Font: =Font.'Segoe UI'
@@ -137,7 +368,7 @@ Combustivel_ScreenForm As screen:
         Width: =135
         X: =771
         Y: =588
-        ZIndex: =13
+        ZIndex: =15
 
     vlrTotal_cmb_input As text:
         Default: =qtlitros_cmb_input * vlrCombustivel_cmb_input
@@ -147,7 +378,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =823
         Y: =297
-        ZIndex: =14
+        ZIndex: =16
 
     vlrCombustivel_cmb_input As text:
         Default: =Value(0)
@@ -157,7 +388,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =823
         Y: =237
-        ZIndex: =15
+        ZIndex: =17
 
     qtlitros_cmb_input As text:
         Default: =
@@ -168,7 +399,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =823
         Y: =177
-        ZIndex: =16
+        ZIndex: =18
 
     KMveiculo_cmb_input As text:
         Default: =""
@@ -178,7 +409,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =370
         Y: =177
-        ZIndex: =17
+        ZIndex: =19
 
     userlanc_input_cmb As text:
         Default: |
@@ -192,7 +423,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =283
         Y: =588
-        ZIndex: =18
+        ZIndex: =20
 
     obs_cmb_input As text:
         Default: =""
@@ -203,7 +434,7 @@ Combustivel_ScreenForm As screen:
         Width: =400
         X: =370
         Y: =404
-        ZIndex: =19
+        ZIndex: =21
 
     litros_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -214,7 +445,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =655
         Y: =177
-        ZIndex: =20
+        ZIndex: =22
 
     vlrTotal_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -225,7 +456,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =655
         Y: =297
-        ZIndex: =21
+        ZIndex: =23
 
     vlrCombustivel_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -236,7 +467,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =655
         Y: =237
-        ZIndex: =22
+        ZIndex: =24
 
     KM_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -248,7 +479,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =205
         Y: =177
-        ZIndex: =23
+        ZIndex: =25
 
     Label9_10 As label:
         Font: =Font.'Segoe UI'
@@ -261,7 +492,7 @@ Combustivel_ScreenForm As screen:
         Width: =78
         X: =205
         Y: =588
-        ZIndex: =24
+        ZIndex: =26
 
     OBS_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -272,7 +503,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =205
         Y: =404
-        ZIndex: =25
+        ZIndex: =27
 
     motorista_cmb_input As text:
         Default: =""
@@ -282,7 +513,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =370
         Y: =117
-        ZIndex: =26
+        ZIndex: =28
 
     motorista_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -293,7 +524,7 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =205
         Y: =117
-        ZIndex: =27
+        ZIndex: =29
 
     Button4_1 As button:
         Fill: =RGBA(141, 198, 63, 1)
@@ -426,7 +657,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =823
         Y: =431
-        ZIndex: =28
+        ZIndex: =30
 
     Button4_2 As button:
         Fill: =RGBA(255, 0, 0, 1)
@@ -452,7 +683,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =823
         Y: =485
-        ZIndex: =29
+        ZIndex: =31
 
     NumNFe_cmb_input As text:
         Default: =
@@ -462,7 +693,7 @@ Combustivel_ScreenForm As screen:
         Width: =200
         X: =370
         Y: =350
-        ZIndex: =30
+        ZIndex: =32
 
     numNFe_cmb_lbl As label:
         Font: =Font.'Segoe UI'
@@ -473,26 +704,5 @@ Combustivel_ScreenForm As screen:
         Width: =155
         X: =205
         Y: =350
-        ZIndex: =31
-
-    Button4 As button:
-        DisplayMode: =If(MenuCombustivel = true,DisplayMode.Disabled,DisplayMode.Edit)
-        Height: =50
-        OnSelect: |-
-            =UpdateContext({MenuCombustivel:true})
-        Text: ="Incluir Lançamento"
-        X: =995
-        Y: =660
-        ZIndex: =32
-
-    DataTable2 As dataTable.datatable:
-        BorderStyle: =BorderStyle.Solid
-        DisplayMode: =DisplayMode.Edit
-        Fill: =RGBA(0, 0, 0, 0)
-        Height: =500
-        Items: ='gerencial_lucamat.combustivel'
-        Width: =1185
-        X: =10
-        Y: =88
         ZIndex: =33
 
