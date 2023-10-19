@@ -238,7 +238,7 @@ CadCompras_screenForm As screen:
         ZIndex: =22
 
     CNPJ_Loja_Input As text:
-        Default: =Loja_input.Selected.cnpj_loja
+        Default: =Loja_input.Selected.
         DisplayMode: =DisplayMode.View
         Height: =30
         Size: =12

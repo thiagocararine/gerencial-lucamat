@@ -64,12 +64,12 @@
 
     param_radio_opçoes As radio:
         Font: =Font.'Segoe UI'
-        Height: =500
+        Height: =512
         Items: =Distinct('gerencial_lucamat.parametro',cod_parametro)
         RadioSize: =30
         Width: =233
         X: =76
-        Y: =205
+        Y: =193
         ZIndex: =4
 
     parametro_config_input As text:
@@ -277,7 +277,7 @@
             ="Tipos de Parametro:"
         Width: =233
         X: =76
-        Y: =165
+        Y: =153
         ZIndex: =13
 
     Button2 As button:

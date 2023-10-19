@@ -1,0 +1,260 @@
+Combustivel_ScreenForm As screen:
+
+    DatePicker1 As datepicker:
+        Height: =30
+        Width: =200
+        X: =300
+        Y: =345
+        ZIndex: =1
+
+    DatePicker1_1 As datepicker:
+        Height: =30
+        Width: =200
+        X: =981
+        Y: =659
+        ZIndex: =2
+
+    Dropdown1 As dropdown:
+        Height: =30
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 16)
+        Width: =200
+        X: =753
+        Y: =165
+        ZIndex: =3
+
+    Dropdown1_1 As dropdown:
+        Height: =30
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 14)
+        Width: =200
+        X: =300
+        Y: =285
+        ZIndex: =4
+
+    Dropdown1_2 As dropdown:
+        Height: =30
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+        Width: =200
+        X: =300
+        Y: =105
+        ZIndex: =5
+
+    Dropdown1_3 As dropdown:
+        Height: =30
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
+        Width: =200
+        X: =753
+        Y: =105
+        ZIndex: =6
+
+    Label9 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Placa Veículo :"
+        Width: =155
+        X: =585
+        Y: =105
+        ZIndex: =7
+
+    Label9_1 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Filial :"
+        Width: =155
+        X: =135
+        Y: =105
+        ZIndex: =8
+
+    Label9_2 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Tipo Combustivel :"
+        Width: =155
+        X: =135
+        Y: =285
+        ZIndex: =9
+
+    Label9_3 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Posto :"
+        Width: =155
+        X: =585
+        Y: =165
+        ZIndex: =10
+
+    Label9_4 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Dt. Abastecimento:"
+        Width: =155
+        X: =135
+        Y: =345
+        ZIndex: =11
+
+    Label9_5 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =14
+        Text: |-
+            ="Dt. Lançamento :"
+        Width: =155
+        X: =820
+        Y: =659
+        ZIndex: =12
+
+    TextInput3 As text:
+        Default: ="Entrada de texto"
+        Height: =30
+        Width: =200
+        X: =753
+        Y: =345
+        ZIndex: =13
+
+    TextInput3_1 As text:
+        Default: ="Entrada de texto"
+        Height: =30
+        Width: =200
+        X: =753
+        Y: =285
+        ZIndex: =14
+
+    TextInput3_2 As text:
+        Default: ="Entrada de texto"
+        Height: =30
+        Width: =200
+        X: =753
+        Y: =225
+        ZIndex: =15
+
+    TextInput3_3 As text:
+        Default: ="Entrada de texto"
+        Height: =30
+        Width: =200
+        X: =300
+        Y: =225
+        ZIndex: =16
+
+    TextInput3_4 As text:
+        Default: ="Entrada de texto"
+        Height: =30
+        Width: =200
+        X: =981
+        Y: =600
+        ZIndex: =17
+
+    TextInput3_5 As text:
+        Default: ="Entrada de texto"
+        Height: =150
+        Width: =400
+        X: =300
+        Y: =410
+        ZIndex: =18
+
+    Label9_6 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Qnt. Litros :"
+        Width: =155
+        X: =585
+        Y: =225
+        ZIndex: =19
+
+    Label9_7 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Valor Total :"
+        Width: =155
+        X: =585
+        Y: =345
+        ZIndex: =20
+
+    Label9_8 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Valor Combustivel:"
+        Width: =155
+        X: =585
+        Y: =285
+        ZIndex: =21
+
+    Label9_9 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="KM Veículo :
+            "
+        Width: =155
+        X: =135
+        Y: =225
+        ZIndex: =22
+
+    Label9_10 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =14
+        Text: |-
+            ="Usuário :"
+        Width: =155
+        X: =820
+        Y: =600
+        ZIndex: =23
+
+    Label9_11 As label:
+        Font: =Font.'Segoe UI'
+        Height: =150
+        Text: |-
+            ="Observação :"
+        Width: =155
+        X: =135
+        Y: =410
+        ZIndex: =24
+
+    TextInput3_6 As text:
+        Default: ="Entrada de texto"
+        Height: =30
+        Width: =200
+        X: =300
+        Y: =165
+        ZIndex: =25
+
+    Label9_12 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Motorista :"
+        Width: =155
+        X: =135
+        Y: =165
+        ZIndex: =26
+
+    Button4_1 As button:
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =42
+        HoverBorderColor: =RGBA(141, 198, 63, 1)
+        HoverFill: =RGBA(209, 232, 178, 1)
+        PressedBorderColor: =RGBA(141, 198, 63, 1)
+        PressedFill: =
+        Text: ="Salvar"
+        Width: =200
+        X: =753
+        Y: =437
+        ZIndex: =28
+
+    Button4_2 As button:
+        Fill: =RGBA(255, 0, 0, 1)
+        Height: =42
+        HoverFill: =RGBA(220, 153, 153, 1)
+        Text: ="Cancelar"
+        Width: =200
+        X: =753
+        Y: =491
+        ZIndex: =29
+
