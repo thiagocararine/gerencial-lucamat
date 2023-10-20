@@ -1,10 +1,12 @@
 Combustivel_ScreenForm As screen:
 
     Label9 As label:
+        Align: =Align.Center
         Font: =Font.'Segoe UI'
         Height: =35
+        Size: =18
         Text: ="Data de Abastecimento"
-        Width: =205
+        Width: =407
         X: =20
         Y: =25
         ZIndex: =1
@@ -13,7 +15,7 @@ Combustivel_ScreenForm As screen:
         Font: =Font.'Segoe UI'
         Height: =35
         Text: ="Nº da NFe"
-        X: =270
+        X: =465
         Y: =25
         ZIndex: =2
 
@@ -21,7 +23,7 @@ Combustivel_ScreenForm As screen:
         Font: =Font.'Segoe UI'
         Height: =35
         Text: ="Nº Placa"
-        X: =466
+        X: =640
         Y: =25
         ZIndex: =3
 
@@ -29,7 +31,7 @@ Combustivel_ScreenForm As screen:
         Font: =Font.'Segoe UI'
         Height: =35
         Text: ="Motorista"
-        X: =661
+        X: =822
         Y: =25
         ZIndex: =4
 
@@ -37,20 +39,23 @@ Combustivel_ScreenForm As screen:
         Font: =Font.'Segoe UI'
         Height: =35
         Text: ="Filial"
-        X: =858
+        X: =1005
         Y: =25
         ZIndex: =5
 
-    dtabast_filtro_cmb As datepicker:
+    dtabast1_filtro_cmb As datepicker:
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+        Font: =Font.'Segoe UI'
         Height: =35
         Size: =11
-        Width: =205
+        Width: =185
         X: =20
         Y: =60
         ZIndex: =6
 
     numNF_filtro_cmb As combobox:
         DisplayFields: =["filial_cmb"]
+        Font: =Font.'Segoe UI'
         Height: =35
         IsSearchable: =false
         Items: =Distinct('gerencial_lucamat.combustivel',numeronf_cmb_Column1)
@@ -58,7 +63,49 @@ Combustivel_ScreenForm As screen:
         SearchItems: =[]
         Size: =11
         Width: =150
-        X: =270
+        X: =465
+        Y: =60
+        ZIndex: =7
+
+    placa_filtro_cmb As combobox:
+        DisplayFields: =["nome_parametro"]
+        Font: =Font.'Segoe UI'
+        Height: =35
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        Size: =11
+        Width: =150
+        X: =640
+        Y: =60
+        ZIndex: =8
+
+    motorista_filtro_cmb As combobox:
+        DisplayFields: =["nome_parametro"]
+        Font: =Font.'Segoe UI'
+        Height: =35
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        Size: =11
+        Width: =150
+        X: =822
+        Y: =60
+        ZIndex: =9
+
+    filial_filtro_cmb As combobox:
+        DisplayFields: =["nome_parametro"]
+        Font: =Font.'Segoe UI'
+        Height: =35
+        IsSearchable: =false
+        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+        SearchFields: =["nome_parametro"]
+        SearchItems: =[]
+        Size: =11
+        Width: =150
+        X: =1005
         Y: =60
         ZIndex: =10
 
@@ -76,11 +123,29 @@ Combustivel_ScreenForm As screen:
 
     DataTable2 As dataTable.datatable:
         BorderStyle: =BorderStyle.Solid
+        BorderThickness: =3
         DisplayMode: =DisplayMode.Edit
         Fill: =RGBA(0, 0, 0, 0)
         Font: =Font.'Segoe UI'
+        HeadingFill: =RGBA(39, 113, 194, 1)
+        HeadingFont: =Font.'Segoe UI'
+        HeadingSize: =11
         Height: =518
-        Items: ='gerencial_lucamat.combustivel'
+        Items: |-
+            =Sort(
+                Filter(
+                    'gerencial_lucamat.combustivel',
+                    dataabst_cmb >= dtabast1_filtro_cmb.SelectedDate && dataabst_cmb <= dtabast2_filtro_cmb.SelectedDate || IsBlank(dtabast1_filtro_cmb.SelectedDate) && IsBlank(dtabast2_filtro_cmb.SelectedDate),
+                    numeronf_cmb_Column1 = numNF_filtro_cmb.Selected.Value || IsBlank(numNF_filtro_cmb.Selected.Value),
+                    placaveiculo_cmb = placa_filtro_cmb.Selected.nome_parametro || IsBlank(placa_filtro_cmb.Selected.nome_parametro),
+                    motorist_cmb = motorista_filtro_cmb.Selected.nome_parametro || IsBlank(motorista_filtro_cmb.Selected.nome_parametro),
+                    filial_cmb = filial_filtro_cmb.Selected.nome_parametro || IsBlank(filial_filtro_cmb.Selected.nome_parametro)
+                ),
+                id,
+                SortOrder.Descending
+            )
+        NoDataText: ="Não há resultados!"
+        SelectedFill: =RGBA(227, 234, 243, 1)
         Size: =11
         Width: =1185
         X: =20
@@ -776,47 +841,19 @@ Combustivel_ScreenForm As screen:
         Fill: =RGBA(255, 191, 0, 1)
         Height: =50
         HoverFill: =RGBA(250, 155, 112, 1)
-        Text: ="Botão"
+        OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
+        Text: ="Retornar"
         X: =822
         Y: =660
         ZIndex: =44
 
-    placa_filtro_cmb As combobox:
-        DisplayFields: =["nome_parametro"]
+    dtabast2_filtro_cmb As datepicker:
+        DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
+        Font: =Font.'Segoe UI'
         Height: =35
-        IsSearchable: =false
-        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
-        SearchFields: =["nome_parametro"]
-        SearchItems: =[]
         Size: =11
-        Width: =150
-        X: =466
+        Width: =185
+        X: =242
         Y: =60
         ZIndex: =45
-
-    motorista_filtro_cmb As combobox:
-        DisplayFields: =["nome_parametro"]
-        Height: =35
-        IsSearchable: =false
-        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
-        SearchFields: =["nome_parametro"]
-        SearchItems: =[]
-        Size: =11
-        Width: =150
-        X: =661
-        Y: =60
-        ZIndex: =46
-
-    filial_filtro_cmb As combobox:
-        DisplayFields: =["nome_parametro"]
-        Height: =35
-        IsSearchable: =false
-        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
-        SearchFields: =["nome_parametro"]
-        SearchItems: =[]
-        Size: =11
-        Width: =150
-        X: =858
-        Y: =60
-        ZIndex: =47
 
