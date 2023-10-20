@@ -857,7 +857,7 @@ Combustivel_ScreenForm As screen:
             ZIndex: =42
 
         NumNFe_cmb_input As text:
-            Default: =
+            Default: =""
             Font: =Font.'Segoe UI'
             Format: =TextFormat.Number
             Height: =30
