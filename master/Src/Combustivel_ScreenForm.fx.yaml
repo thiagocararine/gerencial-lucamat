@@ -1,114 +1,5 @@
 Combustivel_ScreenForm As screen:
 
-    Label9 As label:
-        Align: =Align.Center
-        Font: =Font.'Segoe UI'
-        Height: =35
-        Size: =18
-        Text: ="Data de Abastecimento"
-        Width: =407
-        X: =20
-        Y: =25
-        ZIndex: =1
-
-    Label10 As label:
-        Font: =Font.'Segoe UI'
-        Height: =35
-        Text: ="Nº da NFe"
-        X: =465
-        Y: =25
-        ZIndex: =2
-
-    Label13 As label:
-        Font: =Font.'Segoe UI'
-        Height: =35
-        Text: ="Nº Placa"
-        X: =640
-        Y: =25
-        ZIndex: =3
-
-    Label14 As label:
-        Font: =Font.'Segoe UI'
-        Height: =35
-        Text: ="Motorista"
-        X: =822
-        Y: =25
-        ZIndex: =4
-
-    Label14_1 As label:
-        Font: =Font.'Segoe UI'
-        Height: =35
-        Text: ="Filial"
-        X: =1005
-        Y: =25
-        ZIndex: =5
-
-    dtabast1_filtro_cmb As datepicker:
-        DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
-        Font: =Font.'Segoe UI'
-        Height: =35
-        Size: =11
-        Width: =185
-        X: =20
-        Y: =60
-        ZIndex: =6
-
-    numNF_filtro_cmb As combobox:
-        DisplayFields: =["filial_cmb"]
-        Font: =Font.'Segoe UI'
-        Height: =35
-        IsSearchable: =false
-        Items: =Distinct('gerencial_lucamat.combustivel',numeronf_cmb_Column1)
-        SearchFields: =["filial_cmb"]
-        SearchItems: =[]
-        Size: =11
-        Width: =150
-        X: =465
-        Y: =60
-        ZIndex: =7
-
-    placa_filtro_cmb As combobox:
-        DisplayFields: =["nome_parametro"]
-        Font: =Font.'Segoe UI'
-        Height: =35
-        IsSearchable: =false
-        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
-        SearchFields: =["nome_parametro"]
-        SearchItems: =[]
-        Size: =11
-        Width: =150
-        X: =640
-        Y: =60
-        ZIndex: =8
-
-    motorista_filtro_cmb As combobox:
-        DisplayFields: =["nome_parametro"]
-        Font: =Font.'Segoe UI'
-        Height: =35
-        IsSearchable: =false
-        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
-        SearchFields: =["nome_parametro"]
-        SearchItems: =[]
-        Size: =11
-        Width: =150
-        X: =822
-        Y: =60
-        ZIndex: =9
-
-    filial_filtro_cmb As combobox:
-        DisplayFields: =["nome_parametro"]
-        Font: =Font.'Segoe UI'
-        Height: =35
-        IsSearchable: =false
-        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
-        SearchFields: =["nome_parametro"]
-        SearchItems: =[]
-        Size: =11
-        Width: =150
-        X: =1005
-        Y: =60
-        ZIndex: =10
-
     Button4 As button:
         DisplayMode: =If(MenuCombustivel = true,DisplayMode.Disabled,DisplayMode.Edit)
         Fill: =RGBA(102, 182, 227, 1)
@@ -119,7 +10,7 @@ Combustivel_ScreenForm As screen:
         Text: ="Incluir Lançamento"
         X: =995
         Y: =660
-        ZIndex: =11
+        ZIndex: =12
 
     DataTable2 As dataTable.datatable:
         BorderStyle: =BorderStyle.Solid
@@ -150,7 +41,7 @@ Combustivel_ScreenForm As screen:
         Width: =1185
         X: =20
         Y: =115
-        ZIndex: =12
+        ZIndex: =13
 
         id_Column1 As dataTableColumn.numberColumn:
             DisplayMode: =DisplayMode.Edit
@@ -362,414 +253,562 @@ Combustivel_ScreenForm As screen:
             Y: =0
             ZIndex: =15
 
-    Rectangle23 As rectangle:
-        BorderThickness: =5
-        Fill: =RGBA(241, 244, 249, 1)
-        Height: =625
-        Visible: =MenuCombustivel
-        Width: =905
-        X: =162
-        Y: =25
-        ZIndex: =13
+    Button5 As button:
+        Fill: =RGBA(255, 191, 0, 1)
+        Height: =50
+        HoverFill: =RGBA(250, 155, 112, 1)
+        OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
+        Text: ="Retornar"
+        X: =822
+        Y: =660
+        ZIndex: =45
 
-    dtAbastecimento_cmb_input As datepicker:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =370
-        Y: =297
-        ZIndex: =14
+    FiltroCombustivel As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =46
 
-    dtLancamento_input_cmb As datepicker:
-        DisplayMode: =DisplayMode.View
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Italic: =true
-        Size: =12
-        Visible: =MenuCombustivel
-        Width: =117
-        X: =906
-        Y: =588
-        ZIndex: =15
+        numNF_filtro_cmb As dropdown:
+            Height: =35
+            Items: =Distinct('gerencial_lucamat.combustivel',numeronf_cmb)
+            Width: =150
+            X: =465
+            Y: =60
+            ZIndex: =1
 
-    posto_cmb_input As dropdown:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 16)
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =823
-        Y: =117
-        ZIndex: =16
+        Label9 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            Size: =18
+            Text: ="Data de Abastecimento"
+            Width: =407
+            X: =20
+            Y: =19
+            ZIndex: =2
 
-    tpCombustivel_cmb_input As dropdown:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 14)
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =370
-        Y: =237
-        ZIndex: =17
+        Label10 As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            Text: ="Nº da NFe"
+            X: =465
+            Y: =25
+            ZIndex: =3
 
-    filial_cmb_input As dropdown:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =370
-        Y: =57
-        ZIndex: =18
+        Label13 As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            Text: ="Nº Placa"
+            X: =640
+            Y: =25
+            ZIndex: =4
 
-    placaveiculo_cmb_input As dropdown:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =823
-        Y: =57
-        ZIndex: =19
+        Label14 As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            Text: ="Motorista"
+            X: =822
+            Y: =25
+            ZIndex: =5
 
-    placaveiculo_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Placa Veículo :"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =655
-        Y: =57
-        ZIndex: =20
+        Label14_1 As label:
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =35
+            Text: ="Filial"
+            X: =1005
+            Y: =25
+            ZIndex: =6
 
-    filial_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Filial :"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =205
-        Y: =57
-        ZIndex: =21
+        dtabast1_filtro_cmb As datepicker:
+            DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+            Font: =Font.'Segoe UI'
+            Height: =35
+            Size: =11
+            Width: =185
+            X: =20
+            Y: =60
+            ZIndex: =7
 
-    tpCombustivel_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Tipo Combustivel :"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =205
-        Y: =237
-        ZIndex: =22
+        placa_filtro_cmb As combobox:
+            DisplayFields: =["nome_parametro"]
+            Font: =Font.'Segoe UI'
+            Height: =35
+            IsSearchable: =false
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
+            SearchFields: =["nome_parametro"]
+            SearchItems: =[]
+            Size: =11
+            Width: =150
+            X: =640
+            Y: =60
+            ZIndex: =8
 
-    posto_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Posto :"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =655
-        Y: =117
-        ZIndex: =23
+        motorista_filtro_cmb As combobox:
+            DisplayFields: =["nome_parametro"]
+            Font: =Font.'Segoe UI'
+            Height: =35
+            IsSearchable: =false
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
+            SearchFields: =["nome_parametro"]
+            SearchItems: =[]
+            Size: =11
+            Width: =150
+            X: =822
+            Y: =60
+            ZIndex: =9
 
-    DtAbastecimento_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Dt. Abastecimento:"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =205
-        Y: =297
-        ZIndex: =24
+        filial_filtro_cmb As combobox:
+            DisplayFields: =["nome_parametro"]
+            Font: =Font.'Segoe UI'
+            Height: =35
+            IsSearchable: =false
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+            SearchFields: =["nome_parametro"]
+            SearchItems: =[]
+            Size: =11
+            Width: =150
+            X: =1005
+            Y: =60
+            ZIndex: =10
 
-    Label9_5 As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Italic: =true
-        Size: =12
-        Text: |-
-            ="Dt. Lançamento :"
-        Visible: =MenuCombustivel
-        Width: =135
-        X: =771
-        Y: =588
-        ZIndex: =25
+        dtabast2_filtro_cmb As datepicker:
+            DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
+            Font: =Font.'Segoe UI'
+            Height: =35
+            Size: =11
+            Width: =185
+            X: =242
+            Y: =60
+            ZIndex: =11
 
-    vlrTotal_cmb_input As text:
-        Default: =qtlitros_cmb_input * vlrCombustivel_cmb_input
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =823
-        Y: =297
-        ZIndex: =26
+    InserirCombustivel As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =46
 
-    vlrCombustivel_cmb_input As text:
-        Default: =Value(0)
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =823
-        Y: =237
-        ZIndex: =27
+        Rectangle23 As rectangle:
+            BorderThickness: =5
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =625
+            Visible: =MenuCombustivel
+            Width: =905
+            X: =162
+            Y: =25
+            ZIndex: =14
 
-    qtlitros_cmb_input As text:
-        Default: =
-        Font: =Font.'Segoe UI'
-        Format: =TextFormat.Number
-        Height: =30
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =823
-        Y: =177
-        ZIndex: =28
+        dtAbastecimento_cmb_input As datepicker:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =370
+            Y: =297
+            ZIndex: =15
 
-    KMveiculo_cmb_input As text:
-        Default: =""
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =370
-        Y: =177
-        ZIndex: =29
+        dtLancamento_input_cmb As datepicker:
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Italic: =true
+            Size: =12
+            Visible: =MenuCombustivel
+            Width: =117
+            X: =925
+            Y: =606
+            ZIndex: =16
 
-    userlanc_input_cmb As text:
-        Default: |
-            =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
-        DisplayMode: =DisplayMode.View
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Italic: =true
-        Size: =12
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =283
-        Y: =588
-        ZIndex: =30
+        posto_cmb_input As dropdown:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 16)
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =823
+            Y: =117
+            ZIndex: =17
 
-    obs_cmb_input As text:
-        Default: =""
-        Font: =Font.'Segoe UI'
-        Height: =150
-        Mode: =TextMode.MultiLine
-        Visible: =MenuCombustivel
-        Width: =400
-        X: =370
-        Y: =404
-        ZIndex: =31
+        tpCombustivel_cmb_input As dropdown:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 14)
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =370
+            Y: =237
+            ZIndex: =18
 
-    litros_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Qnt. Litros :"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =655
-        Y: =177
-        ZIndex: =32
+        filial_cmb_input As dropdown:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =370
+            Y: =57
+            ZIndex: =19
 
-    vlrTotal_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Valor Total :"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =655
-        Y: =297
-        ZIndex: =33
+        placaveiculo_cmb_input As dropdown:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =823
+            Y: =57
+            ZIndex: =20
 
-    vlrCombustivel_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Valor Combustivel:"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =655
-        Y: =237
-        ZIndex: =34
+        placaveiculo_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Placa Veículo :"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =655
+            Y: =57
+            ZIndex: =21
 
-    KM_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="KM Veículo :
-            "
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =205
-        Y: =177
-        ZIndex: =35
+        filial_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Filial :"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =205
+            Y: =57
+            ZIndex: =22
 
-    Label9_10 As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Italic: =true
-        Size: =12
-        Text: |-
-            ="Usuário :"
-        Visible: =MenuCombustivel
-        Width: =78
-        X: =205
-        Y: =588
-        ZIndex: =36
+        tpCombustivel_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Tipo Combustivel :"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =205
+            Y: =237
+            ZIndex: =23
 
-    OBS_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =150
-        Text: |-
-            ="Observação :"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =205
-        Y: =404
-        ZIndex: =37
+        posto_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Posto :"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =655
+            Y: =117
+            ZIndex: =24
 
-    motorista_cmb_input As text:
-        Default: =""
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =370
-        Y: =117
-        ZIndex: =38
+        DtAbastecimento_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Dt. Abastecimento:"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =205
+            Y: =297
+            ZIndex: =25
 
-    motorista_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Motorista :"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =205
-        Y: =117
-        ZIndex: =39
+        Label9_5 As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Italic: =true
+            Size: =12
+            Text: |-
+                ="Dt. Lançamento :"
+            Visible: =MenuCombustivel
+            Width: =135
+            X: =790
+            Y: =606
+            ZIndex: =26
 
-    Button4_1 As button:
-        Fill: =RGBA(141, 198, 63, 1)
-        Height: =42
-        HoverBorderColor: =RGBA(141, 198, 63, 1)
-        HoverFill: =RGBA(209, 232, 178, 1)
-        OnSelect: |-
-            =If(
-                IsBlank(filial_cmb_input),
-                Notify(
-                    "O Campo FILIAL está em branco.",
-                    NotificationType.Error
-                ),
-                If(
-                    IsBlank(placaveiculo_cmb_input),
+        vlrTotal_cmb_input As text:
+            Default: =qtlitros_cmb_input * vlrCombustivel_cmb_input
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =30
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =823
+            Y: =297
+            ZIndex: =27
+
+        vlrCombustivel_cmb_input As text:
+            Default: =Value(0)
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =30
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =823
+            Y: =237
+            ZIndex: =28
+
+        qtlitros_cmb_input As text:
+            Default: =
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =30
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =823
+            Y: =177
+            ZIndex: =29
+
+        KMveiculo_cmb_input As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =30
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =370
+            Y: =177
+            ZIndex: =30
+
+        userlanc_input_cmb As text:
+            Default: |
+                =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Italic: =true
+            Size: =12
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =259
+            Y: =606
+            ZIndex: =31
+
+        obs_cmb_input As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =150
+            Mode: =TextMode.MultiLine
+            Visible: =MenuCombustivel
+            Width: =400
+            X: =370
+            Y: =404
+            ZIndex: =32
+
+        litros_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Qnt. Litros :"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =655
+            Y: =177
+            ZIndex: =33
+
+        vlrTotal_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Valor Total :"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =655
+            Y: =297
+            ZIndex: =34
+
+        vlrCombustivel_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Valor Combustivel:"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =655
+            Y: =237
+            ZIndex: =35
+
+        KM_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="KM Veículo :
+                "
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =205
+            Y: =177
+            ZIndex: =36
+
+        Label9_10 As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Italic: =true
+            Size: =12
+            Text: |-
+                ="Usuário :"
+            Visible: =MenuCombustivel
+            Width: =78
+            X: =181
+            Y: =606
+            ZIndex: =37
+
+        OBS_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =150
+            Text: |-
+                ="Observação :"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =205
+            Y: =404
+            ZIndex: =38
+
+        motorista_cmb_input As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =370
+            Y: =117
+            ZIndex: =39
+
+        motorista_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Motorista :"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =205
+            Y: =117
+            ZIndex: =40
+
+        Button4_1 As button:
+            Fill: =RGBA(141, 198, 63, 1)
+            Font: =Font.Verdana
+            Height: =42
+            HoverBorderColor: =RGBA(141, 198, 63, 1)
+            HoverFill: =RGBA(209, 232, 178, 1)
+            OnSelect: |-
+                =If(
+                    IsBlank(filial_cmb_input),
                     Notify(
-                        "O Campo PLACA DO VEÍCULO está em branco.",
+                        "O Campo FILIAL está em branco.",
                         NotificationType.Error
                     ),
                     If(
-                        IsBlank(motorista_cmb_input),
+                        IsBlank(placaveiculo_cmb_input),
                         Notify(
-                            "O Campo MOTORISTA está em branco.",
+                            "O Campo PLACA DO VEÍCULO está em branco.",
                             NotificationType.Error
                         ),
                         If(
-                            IsBlank(posto_cmb_input),
+                            IsBlank(motorista_cmb_input),
                             Notify(
-                                "O Campo POSTO está em branco.",
+                                "O Campo MOTORISTA está em branco.",
                                 NotificationType.Error
                             ),
                             If(
-                                IsBlank(KMveiculo_cmb_input),
+                                IsBlank(posto_cmb_input),
                                 Notify(
-                                    "O Campo KM VEÍCULO está em branco.",
+                                    "O Campo POSTO está em branco.",
                                     NotificationType.Error
                                 ),
                                 If(
-                                    IsBlank(qtlitros_cmb_input),
+                                    IsBlank(KMveiculo_cmb_input),
                                     Notify(
-                                        "O Campo QUANTIDADE DE LITROS está em branco.",
+                                        "O Campo KM VEÍCULO está em branco.",
                                         NotificationType.Error
                                     ),
                                     If(
-                                        IsBlank(tpCombustivel_cmb_input),
+                                        IsBlank(qtlitros_cmb_input),
                                         Notify(
-                                            "O Campo TIPO DE COMBUSTIVEL está em branco.",
+                                            "O Campo QUANTIDADE DE LITROS está em branco.",
                                             NotificationType.Error
                                         ),
                                         If(
-                                            IsBlank(vlrCombustivel_cmb_input),
+                                            IsBlank(tpCombustivel_cmb_input),
                                             Notify(
-                                                "O Campo VALOR DO COMBUSTIVEL está em branco.",
+                                                "O Campo TIPO DE COMBUSTIVEL está em branco.",
                                                 NotificationType.Error
                                             ),
                                             If(
-                                                IsBlank(DtAbastecimento_cmb_lbl),
+                                                IsBlank(vlrCombustivel_cmb_input),
                                                 Notify(
-                                                    "O Campo DATA DE ABASTECIMENTO está em branco.",
+                                                    "O Campo VALOR DO COMBUSTIVEL está em branco.",
                                                     NotificationType.Error
                                                 ),
                                                 If(
-                                                    IsBlank(vlrTotal_cmb_input),
+                                                    IsBlank(DtAbastecimento_cmb_lbl),
                                                     Notify(
-                                                        "O Campo VALOR TOTAL está em branco.",
+                                                        "O Campo DATA DE ABASTECIMENTO está em branco.",
                                                         NotificationType.Error
                                                     ),
                                                     If(
-                                                        IsBlank(NumNFe_cmb_input),
+                                                        IsBlank(vlrTotal_cmb_input),
                                                         Notify(
-                                                            "O Campo NÚMERO NFe está em branco.!",
+                                                            "O Campo VALOR TOTAL está em branco.",
                                                             NotificationType.Error
-                                                        )
-                                                    ),
-                                                    Patch(
-                                                        'gerencial_lucamat.combustivel',
-                                                        Defaults('gerencial_lucamat.combustivel'),
-                                                        {
-                                                            id: Max(
-                                                                'gerencial_lucamat.combustivel',
-                                                                id
-                                                            ) + 1
-                                                        },
-                                                        {filial_cmb: filial_cmb_input.Selected.nome_parametro},
-                                                        {dataabst_cmb: dtAbastecimento_cmb_input.SelectedDate},
-                                                        {placaveiculo_cmb: placaveiculo_cmb_input.Selected.nome_parametro},
-                                                        {km_cmb: Value(KMveiculo_cmb_input.Text)},
-                                                        {valorabs_cmb: Value(vlrTotal_cmb_input.Text)},
-                                                        {motorist_cmb: motorista_cmb_input.Text},
-                                                        {posto_cmb: posto_cmb_input.Selected.nome_parametro},
-                                                        {valorcomb_cmb: Value(vlrCombustivel_cmb_input.Text)},
-                                                        {qntlitro_cmb: Value(qtlitros_cmb_input.Text)},
-                                                        {tipocomb_cmb: tpCombustivel_cmb_input.Selected.nome_parametro},
-                                                        {obs_cmb: obs_cmb_input.Text},
-                                                        {datalanc_cmb: dtLancamento_input_cmb.SelectedDate},
-                                                        {userlanc_cmb: userlanc_input_cmb.Text},
-                                                        {numeronf_cmb: Value(NumNFe_cmb_input.Text)}
-                                                    );
-                                                    Reset(filial_cmb_input);
-                                                    Reset(dtAbastecimento_cmb_input);
-                                                    Reset(placaveiculo_cmb_input);
-                                                    Reset(KMveiculo_cmb_input);
-                                                    Reset(vlrTotal_cmb_input);
-                                                    Reset(motorista_cmb_input);
-                                                    Reset(posto_cmb_input);
-                                                    Reset(vlrCombustivel_cmb_input);
-                                                    Reset(qtlitros_cmb_input);
-                                                    Reset(tpCombustivel_cmb_input);
-                                                    Reset(obs_cmb_input);
-                                                    Reset(dtLancamento_input_cmb);
-                                                    Reset(userlanc_input_cmb);
-                                                    Notify(
-                                                        "Todas informações foram registradas com SUCESSO!",
-                                                        NotificationType.Success
+                                                        ),
+                                                        If(
+                                                            IsBlank(NumNFe_cmb_input),
+                                                            Notify(
+                                                                "O Campo NÚMERO NFe está em branco.!",
+                                                                NotificationType.Error
+                                                            )
+                                                        ),
+                                                        Patch(
+                                                            'gerencial_lucamat.combustivel',
+                                                            Defaults('gerencial_lucamat.combustivel'),
+                                                            {
+                                                                id: Max(
+                                                                    'gerencial_lucamat.combustivel',
+                                                                    id
+                                                                ) + 1
+                                                            },
+                                                            {numeronf_cmb: Value(NumNFe_cmb_input.Text)},
+                                                            {filial_cmb: filial_cmb_input.Selected.nome_parametro},
+                                                            {dataabst_cmb: dtAbastecimento_cmb_input.SelectedDate},
+                                                            {placaveiculo_cmb: placaveiculo_cmb_input.Selected.nome_parametro},
+                                                            {km_cmb: Value(KMveiculo_cmb_input.Text)},
+                                                            {valorabs_cmb: Value(vlrTotal_cmb_input.Text)},
+                                                            {motorist_cmb: motorista_cmb_input.Text},
+                                                            {posto_cmb: posto_cmb_input.Selected.nome_parametro},
+                                                            {valorcomb_cmb: Value(vlrCombustivel_cmb_input.Text)},
+                                                            {qntlitro_cmb: Value(qtlitros_cmb_input.Text)},
+                                                            {tipocomb_cmb: tpCombustivel_cmb_input.Selected.nome_parametro},
+                                                            {obs_cmb: obs_cmb_input.Text},
+                                                            {datalanc_cmb: dtLancamento_input_cmb.SelectedDate},
+                                                            {userlanc_cmb: userlanc_input_cmb.Text}
+                                                        );
+                                                        Reset(filial_cmb_input);
+                                                        Reset(dtAbastecimento_cmb_input);
+                                                        Reset(placaveiculo_cmb_input);
+                                                        Reset(KMveiculo_cmb_input);
+                                                        Reset(vlrTotal_cmb_input);
+                                                        Reset(motorista_cmb_input);
+                                                        Reset(posto_cmb_input);
+                                                        Reset(vlrCombustivel_cmb_input);
+                                                        Reset(qtlitros_cmb_input);
+                                                        Reset(tpCombustivel_cmb_input);
+                                                        Reset(obs_cmb_input);
+                                                        Reset(dtLancamento_input_cmb);
+                                                        Reset(userlanc_input_cmb);
+                                                        Reset(NumNFe_cmb_input);
+                                                        Notify(
+                                                            "Todas informações foram registradas com SUCESSO!",
+                                                            NotificationType.Success
+                                                        );
                                                     )
                                                 )
                                             )
@@ -780,80 +819,62 @@ Combustivel_ScreenForm As screen:
                         )
                     )
                 )
-            )
-        PressedBorderColor: =RGBA(141, 198, 63, 1)
-        PressedFill: =
-        Text: ="Salvar"
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =823
-        Y: =431
-        ZIndex: =40
+            PressedBorderColor: =RGBA(141, 198, 63, 1)
+            PressedFill: =
+            Text: ="Salvar"
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =823
+            Y: =431
+            ZIndex: =41
 
-    Button4_2 As button:
-        Fill: =RGBA(255, 0, 0, 1)
-        Height: =42
-        HoverFill: =RGBA(220, 153, 153, 1)
-        OnSelect: |
-            =UpdateContext({MenuCombustivel:false});
-            Reset(filial_cmb_input);
-            Reset(dtAbastecimento_cmb_input);
-            Reset(placaveiculo_cmb_input);
-            Reset(KMveiculo_cmb_input);
-            Reset(vlrTotal_cmb_input);
-            Reset(motorista_cmb_input);
-            Reset(posto_cmb_input);
-            Reset(vlrCombustivel_cmb_input);
-            Reset(qtlitros_cmb_input);
-            Reset(tpCombustivel_cmb_input);
-            Reset(obs_cmb_input);
-            Reset(dtLancamento_input_cmb);
-            Reset(userlanc_input_cmb);
-        Text: ="Cancelar"
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =823
-        Y: =485
-        ZIndex: =41
+        Button4_2 As button:
+            Fill: =RGBA(255, 0, 0, 1)
+            Font: =Font.Verdana
+            Height: =42
+            HoverFill: =RGBA(220, 153, 153, 1)
+            OnSelect: |-
+                =UpdateContext({MenuCombustivel:false});
+                Reset(filial_cmb_input);
+                Reset(dtAbastecimento_cmb_input);
+                Reset(placaveiculo_cmb_input);
+                Reset(KMveiculo_cmb_input);
+                Reset(vlrTotal_cmb_input);
+                Reset(motorista_cmb_input);
+                Reset(posto_cmb_input);
+                Reset(vlrCombustivel_cmb_input);
+                Reset(qtlitros_cmb_input);
+                Reset(tpCombustivel_cmb_input);
+                Reset(obs_cmb_input);
+                Reset(dtLancamento_input_cmb);
+                Reset(userlanc_input_cmb);
+                Reset(NumNFe_cmb_input);
+            Text: ="Cancelar"
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =823
+            Y: =485
+            ZIndex: =42
 
-    NumNFe_cmb_input As text:
-        Default: =
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Visible: =MenuCombustivel
-        Width: =200
-        X: =370
-        Y: =350
-        ZIndex: =42
+        NumNFe_cmb_input As text:
+            Default: =
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =30
+            Visible: =MenuCombustivel
+            Width: =200
+            X: =370
+            Y: =350
+            ZIndex: =43
 
-    numNFe_cmb_lbl As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Número NFe :"
-        Visible: =MenuCombustivel
-        Width: =155
-        X: =205
-        Y: =350
-        ZIndex: =43
-
-    Button5 As button:
-        Fill: =RGBA(255, 191, 0, 1)
-        Height: =50
-        HoverFill: =RGBA(250, 155, 112, 1)
-        OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
-        Text: ="Retornar"
-        X: =822
-        Y: =660
-        ZIndex: =44
-
-    dtabast2_filtro_cmb As datepicker:
-        DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
-        Font: =Font.'Segoe UI'
-        Height: =35
-        Size: =11
-        Width: =185
-        X: =242
-        Y: =60
-        ZIndex: =45
+        numNFe_cmb_lbl As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Número NFe :"
+            Visible: =MenuCombustivel
+            Width: =155
+            X: =205
+            Y: =350
+            ZIndex: =44
 

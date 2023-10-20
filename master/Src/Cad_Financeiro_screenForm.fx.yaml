@@ -30,7 +30,7 @@ Cad_Financeiro_screenForm As screen:
             =If(
                 IsBlank(hist_input),
                 Notify(
-                    "O Campo FILIAL está em branco.",
+                    "O Campo HISTORICO está em branco.",
                     NotificationType.Error
                 ),
                 If(
