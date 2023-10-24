@@ -274,7 +274,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cnpjfor_cmp_Column1_2",
-      "ParentIndex": 9,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -380,7 +380,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cnpjloja_cmp_Column1_2",
-      "ParentIndex": 8,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -486,7 +486,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "dataped_cmp_Column1_2",
-      "ParentIndex": 7,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -592,7 +592,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "dtlanc_cmp_Column1_2",
-      "ParentIndex": 6,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -698,7 +698,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "formapag_cmp_Column1_2",
-      "ParentIndex": 5,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -804,7 +804,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "fornec_cmp_Column1_2",
-      "ParentIndex": 10,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4132,7 +4132,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "loja_cmp_Column1_2",
-      "ParentIndex": 1,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4245,7 +4245,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "preventr_cmp_Column1_2",
-      "ParentIndex": 2,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5180,7 +5180,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "userlanc_cmp_Column1_2",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5286,7 +5286,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "valort_cmp_Column1_2",
-      "ParentIndex": 4,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

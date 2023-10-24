@@ -1,18 +1,28 @@
 Combustivel_ScreenForm As screen:
 
     Button4 As button:
-        DisplayMode: =If(MenuCombustivel = true,DisplayMode.Disabled,DisplayMode.Edit)
-        Fill: =RGBA(102, 182, 227, 1)
+        DisplayMode: |-
+            =If(
+                MenuCombustivel = true,
+                DisplayMode.Disabled,
+                If(
+                    MenuEdit = true,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            )
+        Fill: =RGBA(39, 67, 125, 1)
         Height: =50
         HoverFill: =RGBA(204, 231, 246, 1)
         OnSelect: |-
-            =UpdateContext({MenuCombustivel:true})
-        Text: ="Incluir Lançamento"
-        X: =995
-        Y: =660
-        ZIndex: =12
+            =UpdateContext({MenuEdit: true})
+        Text: ="Editar Lançamento"
+        Width: =140
+        X: =902
+        Y: =625
+        ZIndex: =36
 
-    DataTable2 As dataTable.datatable:
+    TabCombustivel As dataTable.datatable:
         BorderStyle: =BorderStyle.Solid
         BorderThickness: =3
         DisplayMode: =DisplayMode.Edit
@@ -21,7 +31,7 @@ Combustivel_ScreenForm As screen:
         HeadingFill: =RGBA(39, 113, 194, 1)
         HeadingFont: =Font.'Segoe UI'
         HeadingSize: =11
-        Height: =518
+        Height: =519
         Items: |-
             =Sort(
                 Filter(
@@ -39,8 +49,8 @@ Combustivel_ScreenForm As screen:
         Size: =11
         Width: =1185
         X: =21
-        Y: =105
-        ZIndex: =13
+        Y: =93
+        ZIndex: =37
 
         id_Column1 As dataTableColumn.numberColumn:
             DisplayMode: =DisplayMode.Edit
@@ -241,23 +251,68 @@ Combustivel_ScreenForm As screen:
             ZIndex: =15
 
     Button5 As button:
+        DisplayMode: |-
+            =If(
+                MenuCombustivel = true,
+                DisplayMode.Disabled,
+                If(
+                    MenuEdit = true,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            )
+        Fill: =RGBA(255, 0, 0, 1)
+        Height: =50
+        HoverFill: =RGBA(250, 155, 112, 1)
+        OnSelect: =Remove('gerencial_lucamat.combustivel',TabCombustivel.Selected)
+        Text: ="Excluir Lançamento"
+        Width: =140
+        X: =902
+        Y: =695
+        ZIndex: =38
+
+    Button4_3 As button:
+        DisplayMode: |-
+            =If(
+                MenuCombustivel = true,
+                DisplayMode.Disabled,
+                If(
+                    MenuEdit = true,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            )
+        Fill: =RGBA(102, 182, 227, 1)
+        Height: =50
+        HoverFill: =RGBA(204, 231, 246, 1)
+        OnSelect: |-
+            =UpdateContext({MenuCombustivel:true})
+        Text: ="Incluir Lançamento"
+        Width: =140
+        X: =1062
+        Y: =625
+        ZIndex: =39
+
+    Button5_1 As button:
+        DisplayMode: |-
+            =If(
+                MenuCombustivel = true,
+                DisplayMode.Disabled,
+                If(
+                    MenuEdit = true,
+                    DisplayMode.Disabled,
+                    DisplayMode.Edit
+                )
+            )
         Fill: =RGBA(255, 191, 0, 1)
         Height: =50
         HoverFill: =RGBA(250, 155, 112, 1)
         OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
         Text: ="Retornar"
-        X: =822
-        Y: =660
-        ZIndex: =45
-
-    Label10 As label:
-        Align: =Align.Center
-        Height: =30
-        Text: ="Total Mês"
-        Width: =180
-        X: =21
-        Y: =632
-        ZIndex: =46
+        Width: =140
+        X: =1062
+        Y: =695
+        ZIndex: =40
 
     FiltroCombustivel As group:
         Height: =5
@@ -273,50 +328,50 @@ Combustivel_ScreenForm As screen:
             Height: =35
             Size: =18
             Text: ="Data de Abastecimento"
-            Width: =407
+            Width: =423
             X: =20
-            Y: =13
-            ZIndex: =2
+            Y: =7
+            ZIndex: =27
 
         Label13 As label:
             Font: =Font.'Segoe UI'
             FontWeight: =FontWeight.Bold
             Height: =35
             Text: ="Nº Placa"
-            Width: =164
-            X: =460
-            Y: =19
-            ZIndex: =4
+            Width: =110
+            X: =477
+            Y: =13
+            ZIndex: =28
 
         Label14 As label:
             Font: =Font.'Segoe UI'
             FontWeight: =FontWeight.Bold
             Height: =35
             Text: ="Motorista"
-            Width: =173
-            X: =672
-            Y: =19
-            ZIndex: =5
+            Width: =134
+            X: =596
+            Y: =13
+            ZIndex: =29
 
         Label14_1 As label:
             Font: =Font.'Segoe UI'
             FontWeight: =FontWeight.Bold
             Height: =35
             Text: ="Filial"
-            Width: =170
-            X: =897
-            Y: =19
-            ZIndex: =6
+            Width: =163
+            X: =739
+            Y: =13
+            ZIndex: =30
 
         dtabast1_filtro_cmb As datepicker:
             DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
             Font: =Font.'Segoe UI'
             Height: =35
             Size: =11
-            Width: =185
+            Width: =215
             X: =20
-            Y: =54
-            ZIndex: =7
+            Y: =48
+            ZIndex: =31
 
         placa_filtro_cmb As combobox:
             DisplayFields: =["nome_parametro"]
@@ -327,24 +382,24 @@ Combustivel_ScreenForm As screen:
             SearchFields: =["nome_parametro"]
             SearchItems: =[]
             Size: =11
-            Width: =164
-            X: =460
-            Y: =54
-            ZIndex: =8
+            Width: =110
+            X: =477
+            Y: =48
+            ZIndex: =32
 
         motorista_filtro_cmb As combobox:
-            DisplayFields: =["filial_cmb"]
+            DisplayFields: =["Value"]
             Font: =Font.'Segoe UI'
             Height: =35
             IsSearchable: =false
             Items: =Distinct('gerencial_lucamat.combustivel',motorist_cmb)
-            SearchFields: =["filial_cmb"]
+            SearchFields: =["Value"]
             SearchItems: =[]
             Size: =11
-            Width: =173
-            X: =672
-            Y: =54
-            ZIndex: =9
+            Width: =134
+            X: =596
+            Y: =48
+            ZIndex: =33
 
         filial_filtro_cmb As combobox:
             DisplayFields: =["nome_parametro"]
@@ -355,37 +410,462 @@ Combustivel_ScreenForm As screen:
             SearchFields: =["nome_parametro"]
             SearchItems: =[]
             Size: =11
-            Width: =170
-            X: =897
-            Y: =54
-            ZIndex: =10
+            Width: =163
+            X: =739
+            Y: =48
+            ZIndex: =34
 
         dtabast2_filtro_cmb As datepicker:
             DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
             Font: =Font.'Segoe UI'
             Height: =35
             Size: =11
-            Width: =185
-            X: =242
-            Y: =54
-            ZIndex: =11
+            Width: =215
+            X: =248
+            Y: =48
+            ZIndex: =35
 
-    InserirCombustivel As group:
+    ResumoGrupo As group:
         Height: =5
         Width: =5
         X: =40
         Y: =40
-        ZIndex: =46
+        ZIndex: =70
+
+        Rectangle25 As rectangle:
+            BorderColor: =RGBA(99, 139, 44, 1)
+            BorderThickness: =3
+            Fill: =RGBA(209, 232, 178, 1)
+            Height: =134
+            Width: =659
+            X: =221
+            Y: =618
+            ZIndex: =1
+
+        Rectangle24 As rectangle:
+            BorderColor: =RGBA(116, 116, 116, 1)
+            BorderThickness: =3
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: =134
+            Width: =181
+            X: =20
+            Y: =618
+            ZIndex: =2
+
+        Label10 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =16
+            Text: ="Total Mês"
+            Underline: =true
+            Width: =180
+            X: =21
+            Y: =622
+            ZIndex: =3
+
+        Label10_1 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Italic: =true
+            Size: =14
+            Text: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.combustivel',
+                                Month(dataabst_cmb) = Month(Today())
+                            ),
+                            valorabs_cmb
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            Width: =180
+            X: =21
+            Y: =652
+            ZIndex: =4
+
+        Label10_2 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =16
+            Text: ="Total Período"
+            Underline: =true
+            Width: =180
+            X: =21
+            Y: =692
+            ZIndex: =5
+
+        Label10_3 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Italic: =true
+            Size: =14
+            Text: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                        'gerencial_lucamat.combustivel',
+                        Value(dataabst_cmb) >= dtabast1_filtro_cmb.SelectedDate && Value(dataabst_cmb) <= dtabast2_filtro_cmb.SelectedDate || IsBlank(dtabast1_filtro_cmb.SelectedDate) && IsBlank(dtabast2_filtro_cmb.SelectedDate),
+                        placaveiculo_cmb = placa_filtro_cmb.Selected.nome_parametro || IsBlank(placa_filtro_cmb.Selected.nome_parametro),
+                        motorist_cmb = motorista_filtro_cmb.Selected.Value || IsBlank(motorista_filtro_cmb.Selected.Value),
+                        filial_cmb = filial_filtro_cmb.Selected.nome_parametro || IsBlank(filial_filtro_cmb.Selected.nome_parametro)
+                    ),
+                    valorabs_cmb)
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            Width: =180
+            X: =21
+            Y: =722
+            ZIndex: =6
+
+        Label15 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Italic: =true
+            Text: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.combustivel',
+                                Month(dataabst_cmb) = Month(Today()),
+                                filial_cmb = "Parada Angélica"
+                            ),
+                            valorabs_cmb
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            X: =220
+            Y: =670
+            ZIndex: =7
+
+        Label15_1 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Italic: =true
+            Text: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                        'gerencial_lucamat.combustivel',
+                        Value(dataabst_cmb) >= dtabast1_filtro_cmb.SelectedDate && Value(dataabst_cmb) <= dtabast2_filtro_cmb.SelectedDate || IsBlank(dtabast1_filtro_cmb.SelectedDate) && IsBlank(dtabast2_filtro_cmb.SelectedDate),
+                        placaveiculo_cmb = placa_filtro_cmb.Selected.nome_parametro || IsBlank(placa_filtro_cmb.Selected.nome_parametro),
+                        motorist_cmb = motorista_filtro_cmb.Selected.Value || IsBlank(motorista_filtro_cmb.Selected.Value),
+                        filial_cmb = "Parada Angélica"
+                    ),
+                    valorabs_cmb)
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            X: =220
+            Y: =723
+            ZIndex: =8
+
+        Label16 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Text: ="Parada Angélica"
+            Underline: =true
+            X: =220
+            Y: =617
+            ZIndex: =9
+
+        Label15_2 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Italic: =true
+            Text: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.combustivel',
+                                Month(dataabst_cmb) = Month(Today()),
+                                filial_cmb = "Nova Campinas"
+                            ),
+                            valorabs_cmb
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            X: =390
+            Y: =670
+            ZIndex: =10
+
+        Label15_3 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Italic: =true
+            Text: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                        'gerencial_lucamat.combustivel',
+                        Value(dataabst_cmb) >= dtabast1_filtro_cmb.SelectedDate && Value(dataabst_cmb) <= dtabast2_filtro_cmb.SelectedDate || IsBlank(dtabast1_filtro_cmb.SelectedDate) && IsBlank(dtabast2_filtro_cmb.SelectedDate),
+                        placaveiculo_cmb = placa_filtro_cmb.Selected.nome_parametro || IsBlank(placa_filtro_cmb.Selected.nome_parametro),
+                        motorist_cmb = motorista_filtro_cmb.Selected.Value || IsBlank(motorista_filtro_cmb.Selected.Value),
+                        filial_cmb = "Nova Campinas"
+                    ),
+                    valorabs_cmb)
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            X: =390
+            Y: =723
+            ZIndex: =11
+
+        Label16_1 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Text: ="Nova Campinas"
+            Underline: =true
+            X: =390
+            Y: =617
+            ZIndex: =12
+
+        Label15_4 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Italic: =true
+            Text: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.combustivel',
+                                Month(dataabst_cmb) = Month(Today()),
+                                filial_cmb = "Santa Cruz"
+                            ),
+                            valorabs_cmb
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            X: =560
+            Y: =670
+            ZIndex: =13
+
+        Label15_5 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Italic: =true
+            Text: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                        'gerencial_lucamat.combustivel',
+                        Value(dataabst_cmb) >= dtabast1_filtro_cmb.SelectedDate && Value(dataabst_cmb) <= dtabast2_filtro_cmb.SelectedDate || IsBlank(dtabast1_filtro_cmb.SelectedDate) && IsBlank(dtabast2_filtro_cmb.SelectedDate),
+                        placaveiculo_cmb = placa_filtro_cmb.Selected.nome_parametro || IsBlank(placa_filtro_cmb.Selected.nome_parametro),
+                        motorist_cmb = motorista_filtro_cmb.Selected.Value || IsBlank(motorista_filtro_cmb.Selected.Value),
+                        filial_cmb = "Santa Cruz"
+                    ),
+                    valorabs_cmb)
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            X: =560
+            Y: =723
+            ZIndex: =14
+
+        Label16_2 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Text: ="Santa Cruz"
+            Underline: =true
+            X: =560
+            Y: =617
+            ZIndex: =15
+
+        Label15_6 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Italic: =true
+            Text: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                                'gerencial_lucamat.combustivel',
+                                Month(dataabst_cmb) = Month(Today()),
+                                filial_cmb = "Piabetá"
+                            ),
+                            valorabs_cmb
+                        )
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            X: =730
+            Y: =670
+            ZIndex: =16
+
+        Label15_7 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Italic: =true
+            Text: |-
+                =Text(
+                    Value(
+                        Sum(
+                            Filter(
+                        'gerencial_lucamat.combustivel',
+                        Value(dataabst_cmb) >= dtabast1_filtro_cmb.SelectedDate && Value(dataabst_cmb) <= dtabast2_filtro_cmb.SelectedDate || IsBlank(dtabast1_filtro_cmb.SelectedDate) && IsBlank(dtabast2_filtro_cmb.SelectedDate),
+                        placaveiculo_cmb = placa_filtro_cmb.Selected.nome_parametro || IsBlank(placa_filtro_cmb.Selected.nome_parametro),
+                        motorist_cmb = motorista_filtro_cmb.Selected.Value || IsBlank(motorista_filtro_cmb.Selected.Value),
+                        filial_cmb = "Piabetá"
+                    ),
+                    valorabs_cmb)
+                    ),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            X: =730
+            Y: =723
+            ZIndex: =17
+
+        Label16_3 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Text: ="Piabetá"
+            Underline: =true
+            X: =730
+            Y: =617
+            ZIndex: =18
+
+        Label15_8 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Text: ="Total Mês"
+            X: =220
+            Y: =647
+            ZIndex: =19
+
+        Label15_9 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Text: ="Total Mês"
+            X: =390
+            Y: =647
+            ZIndex: =20
+
+        Label15_10 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Text: ="Total Mês"
+            X: =560
+            Y: =647
+            ZIndex: =21
+
+        Label15_11 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Text: ="Total Mês"
+            X: =730
+            Y: =647
+            ZIndex: =22
+
+        Label15_12 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Text: ="Total Período"
+            X: =221
+            Y: =700
+            ZIndex: =23
+
+        Label15_13 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Text: ="Total Período"
+            X: =391
+            Y: =700
+            ZIndex: =24
+
+        Label15_14 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Text: ="Total Período"
+            X: =561
+            Y: =700
+            ZIndex: =25
+
+        Label15_15 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Text: ="Total Período"
+            X: =731
+            Y: =700
+            ZIndex: =26
+
+    InserirCombustivel_Group As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =71
 
         Rectangle23 As rectangle:
             BorderThickness: =5
             Fill: =RGBA(241, 244, 249, 1)
-            Height: =516
+            Height: =557
             Visible: =MenuCombustivel
             Width: =905
             X: =162
-            Y: =25
-            ZIndex: =14
+            Y: =106
+            ZIndex: =41
 
         dtAbastecimento_cmb_input As datepicker:
             Font: =Font.'Segoe UI'
@@ -393,8 +873,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =370
-            Y: =277
-            ZIndex: =15
+            Y: =411
+            ZIndex: =42
 
         dtLancamento_input_cmb As datepicker:
             DisplayMode: =DisplayMode.View
@@ -405,8 +885,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =117
             X: =925
-            Y: =500
-            ZIndex: =16
+            Y: =622
+            ZIndex: =43
 
         posto_cmb_input As dropdown:
             Font: =Font.'Segoe UI'
@@ -415,8 +895,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =823
-            Y: =110
-            ZIndex: =17
+            Y: =244
+            ZIndex: =44
 
         tpCombustivel_cmb_input As dropdown:
             Font: =Font.'Segoe UI'
@@ -425,8 +905,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =370
-            Y: =221
-            ZIndex: =18
+            Y: =355
+            ZIndex: =45
 
         filial_cmb_input As dropdown:
             Font: =Font.'Segoe UI'
@@ -435,8 +915,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =370
-            Y: =54
-            ZIndex: =19
+            Y: =188
+            ZIndex: =46
 
         placaveiculo_cmb_input As dropdown:
             Font: =Font.'Segoe UI'
@@ -445,8 +925,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =823
-            Y: =54
-            ZIndex: =20
+            Y: =188
+            ZIndex: =47
 
         placaveiculo_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -456,8 +936,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =655
-            Y: =54
-            ZIndex: =21
+            Y: =188
+            ZIndex: =48
 
         filial_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -467,8 +947,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =205
-            Y: =54
-            ZIndex: =22
+            Y: =188
+            ZIndex: =49
 
         tpCombustivel_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -478,8 +958,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =205
-            Y: =221
-            ZIndex: =23
+            Y: =355
+            ZIndex: =50
 
         posto_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -489,8 +969,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =655
-            Y: =110
-            ZIndex: =24
+            Y: =244
+            ZIndex: =51
 
         DtAbastecimento_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -500,8 +980,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =205
-            Y: =277
-            ZIndex: =25
+            Y: =411
+            ZIndex: =52
 
         Label9_5 As label:
             Font: =Font.'Segoe UI'
@@ -513,8 +993,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =135
             X: =790
-            Y: =500
-            ZIndex: =26
+            Y: =622
+            ZIndex: =53
 
         vlrTotal_cmb_input As text:
             Default: =qtlitros_cmb_input * vlrCombustivel_cmb_input
@@ -524,8 +1004,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =823
-            Y: =277
-            ZIndex: =27
+            Y: =411
+            ZIndex: =54
 
         vlrCombustivel_cmb_input As text:
             Default: =Value(0)
@@ -535,8 +1015,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =823
-            Y: =221
-            ZIndex: =28
+            Y: =355
+            ZIndex: =55
 
         qtlitros_cmb_input As text:
             Default: =
@@ -546,8 +1026,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =823
-            Y: =166
-            ZIndex: =29
+            Y: =300
+            ZIndex: =56
 
         KMveiculo_cmb_input As text:
             Default: =""
@@ -557,8 +1037,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =370
-            Y: =166
-            ZIndex: =30
+            Y: =300
+            ZIndex: =57
 
         userlanc_input_cmb As text:
             Default: |
@@ -571,8 +1051,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =259
-            Y: =500
-            ZIndex: =31
+            Y: =622
+            ZIndex: =58
 
         obs_cmb_input As text:
             Default: =""
@@ -582,8 +1062,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =400
             X: =370
-            Y: =326
-            ZIndex: =32
+            Y: =460
+            ZIndex: =59
 
         litros_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -593,8 +1073,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =655
-            Y: =166
-            ZIndex: =33
+            Y: =300
+            ZIndex: =60
 
         vlrTotal_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -604,8 +1084,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =655
-            Y: =277
-            ZIndex: =34
+            Y: =411
+            ZIndex: =61
 
         vlrCombustivel_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -615,8 +1095,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =655
-            Y: =221
-            ZIndex: =35
+            Y: =355
+            ZIndex: =62
 
         KM_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -627,8 +1107,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =205
-            Y: =166
-            ZIndex: =36
+            Y: =300
+            ZIndex: =63
 
         Label9_10 As label:
             Font: =Font.'Segoe UI'
@@ -640,8 +1120,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =78
             X: =181
-            Y: =500
-            ZIndex: =37
+            Y: =622
+            ZIndex: =64
 
         OBS_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -651,8 +1131,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =205
-            Y: =326
-            ZIndex: =38
+            Y: =460
+            ZIndex: =65
 
         motorista_cmb_input As text:
             Default: =""
@@ -661,8 +1141,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =370
-            Y: =110
-            ZIndex: =39
+            Y: =244
+            ZIndex: =66
 
         motorista_cmb_lbl As label:
             Font: =Font.'Segoe UI'
@@ -672,8 +1152,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =155
             X: =205
-            Y: =110
-            ZIndex: =40
+            Y: =244
+            ZIndex: =67
 
         Button4_1 As button:
             Fill: =RGBA(141, 198, 63, 1)
@@ -763,7 +1243,8 @@ Combustivel_ScreenForm As screen:
                                                             {tipocomb_cmb: tpCombustivel_cmb_input.Selected.nome_parametro},
                                                             {obs_cmb: obs_cmb_input.Text},
                                                             {datalanc_cmb: dtLancamento_input_cmb.SelectedDate},
-                                                            {userlanc_cmb: userlanc_input_cmb.Text}
+                                                            {userlanc_cmb: userlanc_input_cmb.Text},
+                                                            {tipolanc_cmb: "Confirmado"}
                                                         );
                                                         Reset(filial_cmb_input);
                                                         Reset(dtAbastecimento_cmb_input);
@@ -798,8 +1279,8 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =822
-            Y: =376
-            ZIndex: =41
+            Y: =510
+            ZIndex: =68
 
         Button4_2 As button:
             Fill: =RGBA(255, 0, 0, 1)
@@ -825,48 +1306,527 @@ Combustivel_ScreenForm As screen:
             Visible: =MenuCombustivel
             Width: =200
             X: =822
-            Y: =425
-            ZIndex: =42
+            Y: =559
+            ZIndex: =69
 
-    Label10_1 As label:
-        Align: =Align.Center
-        Height: =30
-        Size: =14
-        Text: |-
-            =Text(
-                Value(
-                    Sum(
-                        Filter(
-                            'gerencial_lucamat.combustivel',
-                            Month(dataabst_cmb) = Month(Today())
+        Label9_11 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =50
+            Italic: =true
+            Size: =20
+            Text: ="Inclusão de Lançamento"
+            Visible: =MenuCombustivel
+            Width: =300
+            X: =476
+            Y: =122
+            ZIndex: =70
+
+    Button6 As button:
+        Fill: =RGBA(109, 49, 162, 1)
+        Font: =Font.'Segoe UI'
+        Height: =69
+        OnSelect: |
+            =Reset(dtabast1_filtro_cmb);
+            Reset(dtabast2_filtro_cmb);
+            Reset(placa_filtro_cmb);
+            Reset(motorista_filtro_cmb);
+            Reset(filial_filtro_cmb);
+        Size: =16
+        Text: ="Reset Filtro"
+        Width: =86
+        X: =1120
+        Y: =13
+        ZIndex: =101
+
+    EditCombustivel_Group As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =101
+
+        Rectangle23_1 As rectangle:
+            BorderThickness: =5
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =557
+            Visible: =MenuEdit
+            Width: =905
+            X: =162
+            Y: =106
+            ZIndex: =71
+
+        dtAbastecimento_cmb_input_1 As datepicker:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Visible: =MenuEdit
+            Width: =200
+            X: =370
+            Y: =411
+            ZIndex: =72
+
+        dtLancamento_input_cmb_1 As datepicker:
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Italic: =true
+            Size: =12
+            Visible: =MenuEdit
+            Width: =117
+            X: =925
+            Y: =622
+            ZIndex: =73
+
+        posto_cmb_input_1 As dropdown:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 16)
+            Visible: =MenuEdit
+            Width: =200
+            X: =823
+            Y: =244
+            ZIndex: =74
+
+        tpCombustivel_cmb_input_1 As dropdown:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 14)
+            Visible: =MenuEdit
+            Width: =200
+            X: =370
+            Y: =355
+            ZIndex: =75
+
+        filial_cmb_input_1 As dropdown:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+            Visible: =MenuEdit
+            Width: =200
+            X: =370
+            Y: =188
+            ZIndex: =76
+
+        placaveiculo_cmb_input_1 As dropdown:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 15)
+            Visible: =MenuEdit
+            Width: =200
+            X: =823
+            Y: =188
+            ZIndex: =77
+
+        placaveiculo_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Text: |-
+                ="Placa Veículo :"
+            Visible: =MenuEdit
+            Width: =155
+            X: =655
+            Y: =188
+            ZIndex: =78
+
+        filial_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Text: |-
+                ="Filial :"
+            Visible: =MenuEdit
+            Width: =155
+            X: =205
+            Y: =188
+            ZIndex: =79
+
+        tpCombustivel_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Text: |-
+                ="Tipo Combustivel :"
+            Visible: =MenuEdit
+            Width: =155
+            X: =205
+            Y: =355
+            ZIndex: =80
+
+        posto_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Text: |-
+                ="Posto :"
+            Visible: =MenuEdit
+            Width: =155
+            X: =655
+            Y: =244
+            ZIndex: =81
+
+        DtAbastecimento_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Text: |-
+                ="Dt. Abastecimento:"
+            Visible: =MenuEdit
+            Width: =155
+            X: =205
+            Y: =411
+            ZIndex: =82
+
+        Label9_6 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Italic: =true
+            Size: =12
+            Text: |-
+                ="Dt. Lançamento :"
+            Visible: =MenuEdit
+            Width: =135
+            X: =790
+            Y: =622
+            ZIndex: =83
+
+        vlrTotal_cmb_input_1 As text:
+            Default: =qtlitros_cmb_input_1 * vlrCombustivel_cmb_input_1
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =27
+            Visible: =MenuEdit
+            Width: =200
+            X: =823
+            Y: =411
+            ZIndex: =84
+
+        vlrCombustivel_cmb_input_1 As text:
+            Default: =Value(0)
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =27
+            Visible: =MenuEdit
+            Width: =200
+            X: =823
+            Y: =355
+            ZIndex: =85
+
+        qtlitros_cmb_input_1 As text:
+            Default: =
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =27
+            Visible: =MenuEdit
+            Width: =200
+            X: =823
+            Y: =300
+            ZIndex: =86
+
+        KMveiculo_cmb_input_1 As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Format: =TextFormat.Number
+            Height: =27
+            Visible: =MenuEdit
+            Width: =200
+            X: =370
+            Y: =300
+            ZIndex: =87
+
+        userlanc_input_cmb_1 As text:
+            Default: |
+                =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Italic: =true
+            Size: =12
+            Visible: =MenuEdit
+            Width: =200
+            X: =259
+            Y: =622
+            ZIndex: =88
+
+        obs_cmb_input_1 As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =139
+            Mode: =TextMode.MultiLine
+            Visible: =MenuEdit
+            Width: =400
+            X: =370
+            Y: =460
+            ZIndex: =89
+
+        litros_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Text: |-
+                ="Qnt. Litros :"
+            Visible: =MenuEdit
+            Width: =155
+            X: =655
+            Y: =300
+            ZIndex: =90
+
+        vlrTotal_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Text: |-
+                ="Valor Total :"
+            Visible: =MenuEdit
+            Width: =155
+            X: =655
+            Y: =411
+            ZIndex: =91
+
+        vlrCombustivel_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Text: |-
+                ="Valor Combustivel:"
+            Visible: =MenuEdit
+            Width: =155
+            X: =655
+            Y: =355
+            ZIndex: =92
+
+        KM_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Text: |-
+                ="KM Veículo :
+                "
+            Visible: =MenuEdit
+            Width: =155
+            X: =205
+            Y: =300
+            ZIndex: =93
+
+        Label9_13 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Italic: =true
+            Size: =12
+            Text: |-
+                ="Usuário :"
+            Visible: =MenuEdit
+            Width: =78
+            X: =181
+            Y: =622
+            ZIndex: =94
+
+        OBS_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =139
+            Text: |-
+                ="Observação :"
+            Visible: =MenuEdit
+            Width: =155
+            X: =205
+            Y: =460
+            ZIndex: =95
+
+        motorista_cmb_input_1 As text:
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Visible: =MenuEdit
+            Width: =200
+            X: =370
+            Y: =244
+            ZIndex: =96
+
+        motorista_cmb_lbl_1 As label:
+            Font: =Font.'Segoe UI'
+            Height: =27
+            Text: |-
+                ="Motorista :"
+            Visible: =MenuEdit
+            Width: =155
+            X: =205
+            Y: =244
+            ZIndex: =97
+
+        Button4_5 As button:
+            Fill: =RGBA(141, 198, 63, 1)
+            Font: =Font.Verdana
+            Height: =39
+            HoverBorderColor: =RGBA(141, 198, 63, 1)
+            HoverFill: =RGBA(209, 232, 178, 1)
+            OnSelect: |-
+                =If(
+                    IsBlank(filial_cmb_input_1),
+                    Notify(
+                        "O Campo FILIAL está em branco.",
+                        NotificationType.Error
+                    ),
+                    If(
+                        IsBlank(placaveiculo_cmb_input_1),
+                        Notify(
+                            "O Campo PLACA DO VEÍCULO está em branco.",
+                            NotificationType.Error
                         ),
-                        valorabs_cmb
+                        If(
+                            IsBlank(motorista_cmb_input_1),
+                            Notify(
+                                "O Campo MOTORISTA está em branco.",
+                                NotificationType.Error
+                            ),
+                            If(
+                                IsBlank(posto_cmb_input_1),
+                                Notify(
+                                    "O Campo POSTO está em branco.",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    IsBlank(KMveiculo_cmb_input_1),
+                                    Notify(
+                                        "O Campo KM VEÍCULO está em branco.",
+                                        NotificationType.Error
+                                    ),
+                                    If(
+                                        IsBlank(qtlitros_cmb_input_1),
+                                        Notify(
+                                            "O Campo QUANTIDADE DE LITROS está em branco.",
+                                            NotificationType.Error
+                                        ),
+                                        If(
+                                            IsBlank(tpCombustivel_cmb_input_1),
+                                            Notify(
+                                                "O Campo TIPO DE COMBUSTIVEL está em branco.",
+                                                NotificationType.Error
+                                            ),
+                                            If(
+                                                IsBlank(vlrCombustivel_cmb_input_1),
+                                                Notify(
+                                                    "O Campo VALOR DO COMBUSTIVEL está em branco.",
+                                                    NotificationType.Error
+                                                ),
+                                                If(
+                                                    IsBlank(DtAbastecimento_cmb_lbl_1),
+                                                    Notify(
+                                                        "O Campo DATA DE ABASTECIMENTO está em branco.",
+                                                        NotificationType.Error
+                                                    ),
+                                                    If(
+                                                        IsBlank(vlrTotal_cmb_input_1),
+                                                        Notify(
+                                                            "O Campo VALOR TOTAL está em branco.",
+                                                            NotificationType.Error
+                                                        ),
+                                                        Patch(
+                                                            'gerencial_lucamat.combustivel',
+                                                            Defaults('gerencial_lucamat.combustivel'),
+                                                            {
+                                                                id: Max(
+                                                                    'gerencial_lucamat.combustivel',
+                                                                    id
+                                                                ) + 1
+                                                            },
+                                                            {filial_cmb: filial_cmb_input_1.Selected.nome_parametro},
+                                                            {dataabst_cmb: dtAbastecimento_cmb_input_1.SelectedDate},
+                                                            {placaveiculo_cmb: placaveiculo_cmb_input_1.Selected.nome_parametro},
+                                                            {km_cmb: Value(KMveiculo_cmb_input_1.Text)},
+                                                            {valorabs_cmb: Value(vlrTotal_cmb_input_1.Text)},
+                                                            {motorist_cmb: motorista_cmb_input_1.Text},
+                                                            {posto_cmb: posto_cmb_input_1.Selected.nome_parametro},
+                                                            {valorcomb_cmb: Value(vlrCombustivel_cmb_input_1.Text)},
+                                                            {qntlitro_cmb: Value(qtlitros_cmb_input_1.Text)},
+                                                            {tipocomb_cmb: tpCombustivel_cmb_input_1.Selected.nome_parametro},
+                                                            {obs_cmb: obs_cmb_input_1.Text},
+                                                            {datalanc_cmb: dtLancamento_input_cmb_1.SelectedDate},
+                                                            {userlanc_cmb: userlanc_input_cmb_1.Text}
+                                                        );
+                                                        Reset(filial_cmb_input_1);
+                                                        Reset(dtAbastecimento_cmb_input_1);
+                                                        Reset(placaveiculo_cmb_input_1);
+                                                        Reset(KMveiculo_cmb_input_1);
+                                                        Reset(vlrTotal_cmb_input_1);
+                                                        Reset(motorista_cmb_input_1);
+                                                        Reset(posto_cmb_input_1);
+                                                        Reset(vlrCombustivel_cmb_input_1);
+                                                        Reset(qtlitros_cmb_input_1);
+                                                        Reset(tpCombustivel_cmb_input_1);
+                                                        Reset(obs_cmb_input_1);
+                                                        Reset(dtLancamento_input_cmb_1);
+                                                        Reset(userlanc_input_cmb_1);
+                                                        Notify(
+                                                            "Todas informações foram registradas com SUCESSO!",
+                                                            NotificationType.Success
+                                                        );
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
                     )
-                ),
-                "$ #,##0.00",
-                "pt-BR"
-            )
-        Width: =180
-        X: =21
-        Y: =662
-        ZIndex: =47
+                )
+            PressedBorderColor: =RGBA(141, 198, 63, 1)
+            PressedFill: =
+            Text: ="Salvar"
+            Visible: =MenuEdit
+            Width: =200
+            X: =822
+            Y: =510
+            ZIndex: =98
 
-    Label10_2 As label:
-        Align: =Align.Center
-        Height: =30
-        Text: ="Total Período"
-        Width: =180
-        X: =21
-        Y: =692
-        ZIndex: =48
+        Button4_4 As button:
+            Fill: =RGBA(255, 0, 0, 1)
+            Font: =Font.Verdana
+            Height: =39
+            HoverFill: =RGBA(220, 153, 153, 1)
+            OnSelect: |-
+                =UpdateContext({MenuEdit:false});
+                Reset(filial_cmb_input_1);
+                Reset(dtAbastecimento_cmb_input_1);
+                Reset(placaveiculo_cmb_input_1);
+                Reset(KMveiculo_cmb_input_1);
+                Reset(vlrTotal_cmb_input_1);
+                Reset(motorista_cmb_input_1);
+                Reset(posto_cmb_input_1);
+                Reset(vlrCombustivel_cmb_input_1);
+                Reset(qtlitros_cmb_input_1);
+                Reset(tpCombustivel_cmb_input_1);
+                Reset(obs_cmb_input_1);
+                Reset(dtLancamento_input_cmb_1);
+                Reset(userlanc_input_cmb_1);
+            Text: ="Cancelar"
+            Visible: =MenuEdit
+            Width: =200
+            X: =822
+            Y: =559
+            ZIndex: =99
 
-    Label10_3 As label:
-        Align: =Align.Center
-        Height: =30
-        Size: =14
-        Text: =
-        Width: =180
-        X: =21
-        Y: =722
-        ZIndex: =49
+        Label9_12 As label:
+            Align: =Align.Center
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =50
+            Italic: =true
+            Size: =20
+            Text: ="Edição de Lançamento"
+            Visible: =MenuEdit
+            Width: =300
+            X: =476
+            Y: =122
+            ZIndex: =100
+
+    Label14_2 As label:
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =35
+        Text: ="Tipo Lançamento"
+        Width: =163
+        X: =918
+        Y: =13
+        ZIndex: =102
+
+    Dropdown1 As dropdown:
+        Height: =35
+        Items: =Distinct('gerencial_lucamat.combustivel',tipolanc_cmb)
+        Width: =163
+        X: =918
+        Y: =48
+        ZIndex: =104
 

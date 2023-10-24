@@ -8,6 +8,7 @@
     },
     "ConnectedDataSourceInfoNameMapping": {
       "dataabst_cmb": "dataabst_cmb",
+      "datacanc_cmb": "datacanc_cmb",
       "datalanc_cmb": "datalanc_cmb",
       "filial_cmb": "filial_cmb",
       "id": "id",
@@ -19,6 +20,8 @@
       "posto_cmb": "posto_cmb",
       "qntlitro_cmb": "qntlitro_cmb",
       "tipocomb_cmb": "tipocomb_cmb",
+      "tipolanc_cmb": "tipolanc_cmb",
+      "usercanc_cmb": "usercanc_cmb",
       "userlanc_cmb": "userlanc_cmb",
       "valorabs_cmb": "valorabs_cmb",
       "valorcomb_cmb": "valorcomb_cmb"
