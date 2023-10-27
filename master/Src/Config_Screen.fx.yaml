@@ -163,7 +163,19 @@
                                                         If(
                                                             param_radio_opçoes.Selected.Value = "Departamento",
                                                             "Departamento",
-                                                            0
+                                                            If(
+                                                                param_radio_opçoes.Selected.Value = "Tipo Combustível",
+                                                                "Tipo Combustível",
+                                                                If(
+                                                                    param_radio_opçoes.Selected.Value = "Placa Veículo",
+                                                                    "Placa Veículo",
+                                                                    If(
+                                                                        param_radio_opçoes.Selected.Value = "Posto",
+                                                                        "Posto",
+                                                                        0
+                                                                    )
+                                                                )
+                                                            )
                                                         )
                                                     )
                                                 )
@@ -178,8 +190,8 @@
             )
         Visible: =false
         Width: =100
-        X: =25
-        Y: =670
+        X: =845
+        Y: =452
         ZIndex: =8
 
     key_param_input_config As text:
@@ -220,7 +232,19 @@
                                                         If(
                                                             param_radio_opçoes.Selected.Value = "Departamento",
                                                             "3",
-                                                            0
+                                                            If(
+                                                                param_radio_opçoes.Selected.Value = "Tipo Combustível",
+                                                                "14",
+                                                                If(
+                                                                    param_radio_opçoes.Selected.Value = "Placa Veículo",
+                                                                    "15",
+                                                                    If(
+                                                                        param_radio_opçoes.Selected.Value = "Posto",
+                                                                        "16",
+                                                                        0
+                                                                    )
+                                                                )
+                                                            )
                                                         )
                                                     )
                                                 )
@@ -235,8 +259,8 @@
             )
         Visible: =false
         Width: =100
-        X: =25
-        Y: =710
+        X: =848
+        Y: =499
         ZIndex: =9
 
     Titulo_label As label:
