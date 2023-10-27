@@ -76,7 +76,7 @@ Combustivel_ScreenForm As screen:
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
-            Order: =13
+            Order: =14
             Text: =ThisItem.datalanc_cmb
             Width: =100
             X: =0
@@ -118,7 +118,7 @@ Combustivel_ScreenForm As screen:
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
-            Order: =15
+            Order: =16
             Text: =ThisItem.obs_cmb
             Width: =100
             X: =0
@@ -146,7 +146,7 @@ Combustivel_ScreenForm As screen:
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
-            Order: =12
+            Order: =13
             Text: =ThisItem.posto_cmb
             Width: =100
             X: =0
@@ -161,7 +161,7 @@ Combustivel_ScreenForm As screen:
             FieldVariantName: ="numberColumn"
             Height: =518
             LayoutHeight: =Parent.Height
-            Order: =10
+            Order: =11
             Text: =ThisItem.qntlitro_cmb
             Width: =92
             X: =0
@@ -189,7 +189,7 @@ Combustivel_ScreenForm As screen:
             FieldVariantName: ="textualColumn"
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
-            Order: =14
+            Order: =15
             Text: =ThisItem.userlanc_cmb
             Width: =100
             X: =0
@@ -204,7 +204,7 @@ Combustivel_ScreenForm As screen:
             FieldVariantName: ="numberColumn"
             Height: =518
             LayoutHeight: =Parent.Height
-            Order: =11
+            Order: =12
             Text: =ThisItem.valorabs_cmb
             Width: =108
             X: =0
@@ -218,7 +218,7 @@ Combustivel_ScreenForm As screen:
             FieldVariantName: ="numberColumn"
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
-            Order: =9
+            Order: =10
             Text: =ThisItem.valorcomb_cmb
             Width: =100
             X: =0
@@ -238,6 +238,20 @@ Combustivel_ScreenForm As screen:
             X: =0
             Y: =0
             ZIndex: =15
+
+        numeronf_cmb_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Nº NFe"
+            FieldName: ="numeronf_cmb"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.numeronf_cmb
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =16
 
     InserirCombustivel_Group As group:
         Height: =5
