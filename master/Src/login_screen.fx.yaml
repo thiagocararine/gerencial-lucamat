@@ -66,6 +66,7 @@ login_screen As screen:
                 UpdateContext({MostrarMenasgem: true});
                 Reset(login_input);
                 Reset(senha_input);
+                
             );
         PaddingRight: =4.05
         PaddingTop: =4.05
