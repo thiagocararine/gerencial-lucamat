@@ -400,7 +400,8 @@ Combustivel_ScreenForm As screen:
             ZIndex: =59
 
         vlrTotal_cmb_input As text:
-            Default: =qtlitros_cmb_input * vlrCombustivel_cmb_input
+            Default: |
+                =Value(0)
             Font: =Font.'Segoe UI'
             Format: =TextFormat.Number
             Height: =27
