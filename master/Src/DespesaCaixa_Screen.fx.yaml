@@ -11,3 +11,303 @@ DespesaCaixa_Screen As screen:
         Y: =685
         ZIndex: =1
 
+    Label17 As label:
+        Text: ="Texto"
+        X: =40
+        Y: =40
+        ZIndex: =2
+
+    TextInput3 As text:
+        Default: ="Entrada de texto"
+        X: =190
+        Y: =40
+        ZIndex: =3
+
+    Label17_1 As label:
+        Text: ="Texto"
+        X: =40
+        Y: =80
+        ZIndex: =4
+
+    TextInput3_1 As text:
+        Default: ="Entrada de texto"
+        X: =190
+        Y: =80
+        ZIndex: =5
+
+    Label17_2 As label:
+        Text: ="Texto"
+        X: =40
+        Y: =120
+        ZIndex: =6
+
+    TextInput3_2 As text:
+        Default: ="Entrada de texto"
+        X: =190
+        Y: =120
+        ZIndex: =7
+
+    Label17_3 As label:
+        Text: ="Texto"
+        X: =40
+        Y: =160
+        ZIndex: =8
+
+    TextInput3_3 As text:
+        Default: ="Entrada de texto"
+        X: =190
+        Y: =160
+        ZIndex: =9
+
+    Label17_4 As label:
+        Text: ="Texto"
+        X: =40
+        Y: =200
+        ZIndex: =10
+
+    TextInput3_4 As text:
+        Default: ="Entrada de texto"
+        X: =190
+        Y: =200
+        ZIndex: =11
+
+    Label17_5 As label:
+        Text: ="Texto"
+        X: =40
+        Y: =240
+        ZIndex: =12
+
+    TextInput3_5 As text:
+        Default: ="Entrada de texto"
+        X: =190
+        Y: =240
+        ZIndex: =13
+
+    Label17_6 As label:
+        Text: ="Texto"
+        X: =40
+        Y: =280
+        ZIndex: =14
+
+    TextInput3_6 As text:
+        Default: ="Entrada de texto"
+        X: =190
+        Y: =280
+        ZIndex: =15
+
+    Label17_7 As label:
+        Text: ="Texto"
+        X: =40
+        Y: =320
+        ZIndex: =16
+
+    TextInput3_7 As text:
+        Default: ="Entrada de texto"
+        X: =190
+        Y: =320
+        ZIndex: =17
+
+    Label17_8 As label:
+        Text: ="Texto"
+        X: =40
+        Y: =360
+        ZIndex: =18
+
+    TextInput3_8 As text:
+        Default: ="Entrada de texto"
+        X: =190
+        Y: =360
+        ZIndex: =19
+
+    Label17_9 As label:
+        Text: ="Texto"
+        X: =40
+        Y: =400
+        ZIndex: =20
+
+    TextInput3_9 As text:
+        Default: ="Entrada de texto"
+        X: =190
+        Y: =400
+        ZIndex: =21
+
+    Label17_10 As label:
+        Text: ="Texto"
+        X: =510
+        Y: =40
+        ZIndex: =22
+
+    TextInput3_10 As text:
+        Default: ="Entrada de texto"
+        X: =660
+        Y: =40
+        ZIndex: =23
+
+    Label17_11 As label:
+        Text: ="Texto"
+        X: =510
+        Y: =80
+        ZIndex: =24
+
+    TextInput3_11 As text:
+        Default: ="Entrada de texto"
+        X: =660
+        Y: =80
+        ZIndex: =25
+
+    Label17_12 As label:
+        Text: ="Texto"
+        X: =510
+        Y: =120
+        ZIndex: =26
+
+    TextInput3_12 As text:
+        Default: ="Entrada de texto"
+        X: =660
+        Y: =120
+        ZIndex: =27
+
+    Label17_13 As label:
+        Text: ="Texto"
+        X: =510
+        Y: =160
+        ZIndex: =28
+
+    TextInput3_13 As text:
+        Default: ="Entrada de texto"
+        X: =660
+        Y: =160
+        ZIndex: =29
+
+    Label17_14 As label:
+        Text: ="Texto"
+        X: =510
+        Y: =200
+        ZIndex: =30
+
+    TextInput3_14 As text:
+        Default: ="Entrada de texto"
+        X: =660
+        Y: =200
+        ZIndex: =31
+
+    Label17_15 As label:
+        Text: ="Texto"
+        X: =510
+        Y: =240
+        ZIndex: =32
+
+    TextInput3_15 As text:
+        Default: ="Entrada de texto"
+        X: =660
+        Y: =240
+        ZIndex: =33
+
+    Label17_16 As label:
+        Text: ="Texto"
+        X: =510
+        Y: =280
+        ZIndex: =34
+
+    TextInput3_16 As text:
+        Default: ="Entrada de texto"
+        X: =660
+        Y: =280
+        ZIndex: =35
+
+    Label17_17 As label:
+        Text: ="Texto"
+        X: =510
+        Y: =320
+        ZIndex: =36
+
+    TextInput3_17 As text:
+        Default: ="Entrada de texto"
+        X: =660
+        Y: =320
+        ZIndex: =37
+
+    Label17_18 As label:
+        Text: ="Texto"
+        X: =510
+        Y: =360
+        ZIndex: =38
+
+    TextInput3_18 As text:
+        Default: ="Entrada de texto"
+        X: =660
+        Y: =360
+        ZIndex: =39
+
+    Label17_19 As label:
+        Text: ="Texto"
+        X: =510
+        Y: =400
+        ZIndex: =40
+
+    TextInput3_19 As text:
+        Default: ="Entrada de texto"
+        X: =660
+        Y: =400
+        ZIndex: =41
+
+    Label17_20 As label:
+        Text: ="Texto"
+        X: =286
+        Y: =442
+        ZIndex: =42
+
+    TextInput3_20 As text:
+        Default: ="Entrada de texto"
+        X: =436
+        Y: =442
+        ZIndex: =43
+
+    Label17_21 As label:
+        Text: ="Texto"
+        X: =286
+        Y: =482
+        ZIndex: =44
+
+    TextInput3_21 As text:
+        Default: ="Entrada de texto"
+        X: =436
+        Y: =482
+        ZIndex: =45
+
+    Label17_22 As label:
+        Text: ="Texto"
+        X: =286
+        Y: =522
+        ZIndex: =46
+
+    TextInput3_22 As text:
+        Default: ="Entrada de texto"
+        X: =436
+        Y: =522
+        ZIndex: =47
+
+    Label17_23 As label:
+        Text: ="Texto"
+        X: =286
+        Y: =562
+        ZIndex: =48
+
+    TextInput3_23 As text:
+        Default: ="Entrada de texto"
+        X: =436
+        Y: =562
+        ZIndex: =49
+
+    Label17_24 As label:
+        Text: ="Texto"
+        X: =286
+        Y: =602
+        ZIndex: =50
+
+    TextInput3_24 As text:
+        Default: ="Entrada de texto"
+        X: =436
+        Y: =602
+        ZIndex: =51
+
