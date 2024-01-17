@@ -52,6 +52,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateAddIcon.ID%",
       "Name": "AddIcon1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -258,7 +259,8 @@
         "Width",
         "Height",
         "ZIndex",
-        "Visible"
+        "Visible",
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate1",
       "HasDynamicProperties": false,
@@ -271,6 +273,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%SelectedUsersGallery.ID%",
       "Name": "EmailPeopleGallery1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -413,6 +416,11 @@
           "Category": "Design",
           "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -433,6 +441,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -460,6 +469,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -563,6 +573,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -765,6 +776,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateIconMail.ID%",
       "Name": "iconMail1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -953,6 +965,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%RemoveUserEmail.ID%",
       "Name": "iconRemove1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1172,6 +1185,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateLblAppName.ID%",
       "Name": "LblAppName1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1386,6 +1400,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateLblEmailMessage.ID%",
       "Name": "LblEmailMessage1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1600,6 +1615,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateLblEmailSubject.ID%",
       "Name": "LblEmailSubject1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1814,6 +1830,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateLblRecipientCount.ID%",
       "Name": "LblRecipientCount1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1997,6 +2014,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "MailMovFin_screen",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2080,7 +2098,8 @@
         "Width",
         "Height",
         "ZIndex",
-        "Visible"
+        "Visible",
+        "MaxTemplateSize"
       ],
       "GalleryTemplateChildName": "galleryTemplate2",
       "HasDynamicProperties": false,
@@ -2093,6 +2112,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%BrowseContainer.ID%",
       "Name": "PeopleBrowseGallery1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2230,6 +2250,11 @@
           "Category": "Design",
           "PropertyName": "Visible",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "MaxTemplateSize",
+          "RuleProviderType": "Unknown"
         }
       ],
       "StyleName": "defaultGalleryStyle",
@@ -2266,6 +2291,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Rectangle6",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2389,6 +2415,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%PeoplePickerRectBkg.ID%",
       "Name": "Rectangle7",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2508,6 +2535,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateRectQuickActionBar.ID%",
       "Name": "RectQuickActionBar1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2629,6 +2657,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateSearchIcon.ID%",
       "Name": "SearchIcon1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2805,6 +2834,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Separator1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2943,6 +2973,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%UserEmailLbl.ID%",
       "Name": "Subtitle1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3247,6 +3278,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTextEmailMessage.ID%",
       "Name": "TextEmailMessage1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3566,6 +3598,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTextEmailSubject.ID%",
       "Name": "TextEmailSubject1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3889,6 +3922,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%TemplateTextSearchBox.ID%",
       "Name": "TextSearchBox1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4154,6 +4188,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%UserName.ID%",
       "Name": "Title1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4379,6 +4414,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%UserNameLbl.ID%",
       "Name": "Title2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [

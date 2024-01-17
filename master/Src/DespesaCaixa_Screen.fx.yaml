@@ -1,0 +1,13 @@
+DespesaCaixa_Screen As screen:
+
+    Button5_2 As button:
+        Fill: =RGBA(255, 191, 0, 1)
+        Height: =50
+        HoverFill: =RGBA(250, 155, 112, 1)
+        OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
+        Text: ="Retornar"
+        Width: =135
+        X: =1071
+        Y: =685
+        ZIndex: =1
+

@@ -19,6 +19,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "AddEmpresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 45,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -122,6 +123,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 43,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -360,6 +362,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cadastro Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -480,6 +483,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cep_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -651,6 +655,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cep_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -959,6 +964,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CEP_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1199,6 +1205,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cidade_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1353,6 +1360,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cidade_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 30,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1681,6 +1689,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Cidade_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 29,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1921,6 +1930,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cnpj_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2092,6 +2102,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cnpj_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2400,6 +2411,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "CNPJ_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2667,6 +2679,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cod_param_input_config",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 41,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2902,6 +2915,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "complement_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3073,6 +3087,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "complemento_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 28,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3381,6 +3396,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Complemento_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 27,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3609,6 +3625,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Config_Screen",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3730,6 +3747,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DataTable1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 40,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3930,6 +3948,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "email_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4101,6 +4120,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "email_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 36,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4409,6 +4429,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Email_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 35,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4649,6 +4670,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "endereç_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4820,6 +4842,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "endereco_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 24,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5128,6 +5151,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Endereço_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 23,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5434,6 +5458,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Excluir_Bttn_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 37,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5654,6 +5679,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "fantasia_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5825,6 +5851,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "fantasia_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6133,6 +6160,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Fantasia_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6447,6 +6475,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Gravar_Bttn_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 39,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6692,6 +6721,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon5",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6851,6 +6881,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ID_Column6",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -6950,6 +6981,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ID_Column7",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7126,6 +7158,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ie_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7427,6 +7460,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "IE_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7667,6 +7701,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "inscest_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -7794,6 +7829,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "key_param_input_config",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 42,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -8063,6 +8099,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label11",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 20,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -8346,6 +8383,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label12",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -8647,6 +8685,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Limpar_Bttn_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 38,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -8868,6 +8907,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "nome_parametro_Column3",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -8973,6 +9013,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "numero_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -9144,6 +9185,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "numero_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 26,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -9452,6 +9494,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Numero_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 25,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -9711,6 +9754,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "param_config_delete_button",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -9890,6 +9934,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "param_config_input_button",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -10082,6 +10127,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "param_radio_opçoes",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 21,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -10363,6 +10409,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "parametro_config_input",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -10638,6 +10685,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ParamTable",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 22,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -10833,6 +10881,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "razao_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -11004,6 +11053,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "razao_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -11312,6 +11362,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Razão_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -11569,6 +11620,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Rectangle19",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -11701,6 +11753,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Rectangle20",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -11816,6 +11869,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "telefone_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -11987,6 +12041,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "telefone_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 34,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -12295,6 +12350,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Telefone_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 33,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -12584,6 +12640,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Título_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -12872,6 +12929,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Titulo_label",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -13107,6 +13165,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "uf_filial_Column1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -13244,6 +13303,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "uf_input_empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 32,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -13558,6 +13618,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "UF_lbl_Empresa",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 31,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -13836,6 +13897,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Voltar_button",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 44,
       "PersistMetaDataIDKey": false,
       "Properties": [

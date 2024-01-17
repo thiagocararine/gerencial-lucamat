@@ -285,3 +285,55 @@
         Y: =46
         ZIndex: =17
 
+    ModuloCombustivel_bttn_1 As button:
+        BorderColor: =RGBA(175, 191, 224, 1)
+        BorderThickness: =3
+        Color: =RGBA(0, 13, 75, 1)
+        DisplayMode: |-
+            =If(
+                Departamentolbl1.Text = "Tec. Informação",
+                DisplayMode.Edit,
+                If(
+                    Departamentolbl1.Text = "Direção",
+                    DisplayMode.Edit,
+                    If(
+                        Departamentolbl1.Text = "Vendas",
+                        DisplayMode.Disabled,
+                        If(
+                            Departamentolbl1.Text = "Financeiro",
+                            DisplayMode.Edit,
+                            If(
+                                Departamentolbl1.Text = "Expedição",
+                                DisplayMode.Disabled,
+                                If(
+                                    Departamentolbl1.Text = "Administrativo",
+                                    DisplayMode.Edit
+                                ),
+                                DisplayMode.Disabled
+                            )
+                        )
+                    )
+                )
+            )
+        Fill: =RGBA(153, 207, 236, 1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        Font: =Font.'Segoe UI'
+        Height: =120
+        HoverBorderColor: =ColorFade(Self.BorderColor, 40%)
+        HoverFill: =ColorFade(RGBA(56, 96, 178, 1), 20%)
+        OnSelect: =Navigate(DespesaCaixa_Screen,ScreenTransition.CoverRight)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        RadiusBottomLeft: =25
+        RadiusBottomRight: =25
+        RadiusTopLeft: =25
+        RadiusTopRight: =25
+        Size: =17.99
+        Text: |-
+            ="Controle de Despesas Caixa
+            "
+        Width: =260
+        X: =405
+        Y: =182
+        ZIndex: =18
+

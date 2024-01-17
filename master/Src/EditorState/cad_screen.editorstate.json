@@ -109,6 +109,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button_Cadastrar",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -413,6 +414,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button_Cancelar",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -636,6 +638,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cad_screen",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -808,6 +811,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ErrorMsg",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1151,6 +1155,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Input_cargo",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1517,6 +1522,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Input_depart",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1859,6 +1865,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Input_dtcad",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2184,6 +2191,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Input_email",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2525,6 +2533,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Input_filial",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2866,6 +2875,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Input_nome",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3200,6 +3210,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Input_senha",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3484,6 +3495,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label_cargo",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -3753,6 +3765,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label_depart",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4022,6 +4035,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label_dtcad",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4291,6 +4305,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label_email",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4560,6 +4575,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label_filial",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -4829,6 +4845,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label_nome",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5098,6 +5115,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label_senha",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5350,6 +5368,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Rectangle2",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -5535,6 +5554,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Título",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [

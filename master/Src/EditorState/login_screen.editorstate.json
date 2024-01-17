@@ -104,6 +104,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "alert-login",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -403,6 +404,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cadastro-button",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -667,6 +669,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -936,6 +939,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label1_1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1207,6 +1211,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "login_input",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1462,6 +1467,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "login_screen",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1601,6 +1607,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "login-button",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -1863,6 +1870,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Rectangle1",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2026,6 +2034,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "senha_input",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
@@ -2333,6 +2342,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "titulo",
+      "OptimizeForDevices": "Off",
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
