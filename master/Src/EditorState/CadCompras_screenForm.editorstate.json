@@ -3332,7 +3332,7 @@
       "MetaDataIDKey": "",
       "Name": "cnpjfor_cmp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 10,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5050,7 +5050,7 @@
       "MetaDataIDKey": "",
       "Name": "dataped_cmp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7295,7 +7295,7 @@
       "MetaDataIDKey": "",
       "Name": "dtlanc_cmp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7603,7 +7603,7 @@
       "MetaDataIDKey": "",
       "Name": "formapag_cmp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7995,7 +7995,7 @@
       "MetaDataIDKey": "",
       "Name": "fornec_cmp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12673,7 +12673,7 @@
       "MetaDataIDKey": "",
       "Name": "loja_cmp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13786,7 +13786,7 @@
       "MetaDataIDKey": "",
       "Name": "preventr_cmp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15272,7 +15272,7 @@
       "MetaDataIDKey": "",
       "Name": "userlanc_cmp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -16240,7 +16240,7 @@
       "MetaDataIDKey": "",
       "Name": "valort_cmp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
