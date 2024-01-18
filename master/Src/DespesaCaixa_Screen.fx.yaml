@@ -7,263 +7,467 @@ DespesaCaixa_Screen As screen:
         OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
         Text: ="Retornar"
         Width: =135
-        X: =1071
-        Y: =685
+        X: =1051
+        Y: =667
         ZIndex: =1
 
-    Label17 As label:
-        Text: ="Férias"
-        X: =94
-        Y: =133
+    Férias_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Férias :"
+        Width: =160
+        X: =84
+        Y: =130
         ZIndex: =2
 
-    TextInput3 As text:
-        Default: ="Entrada de texto"
+    Ferias_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        HintText: =""
+        Width: =180
         X: =244
-        Y: =133
+        Y: =130
         ZIndex: =3
 
-    Label17_1 As label:
-        Text: ="Folha"
-        X: =94
-        Y: =173
+    Folha_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Folha :"
+        Width: =160
+        X: =84
+        Y: =180
         ZIndex: =4
 
-    TextInput3_1 As text:
-        Default: ="Entrada de texto"
+    Folha_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
         X: =244
-        Y: =173
+        Y: =180
         ZIndex: =5
 
-    Label17_2 As label:
-        Text: ="Comissão"
-        X: =94
-        Y: =213
+    Comissão_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Comissão :"
+        Width: =160
+        X: =84
+        Y: =230
         ZIndex: =6
 
-    TextInput3_2 As text:
-        Default: ="Entrada de texto"
+    Comissão_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
         X: =244
-        Y: =213
+        Y: =230
         ZIndex: =7
 
-    Label17_3 As label:
+    DobraPessoal_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
         Text: |-
-            ="Dobra Pessoal
-            "
-        X: =94
-        Y: =253
+            ="Dobra Pessoal :"
+        Width: =160
+        X: =84
+        Y: =280
         ZIndex: =8
 
-    TextInput3_3 As text:
-        Default: ="Entrada de texto"
+    DobraPessoal_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
         X: =244
-        Y: =253
+        Y: =280
         ZIndex: =9
 
-    Label17_4 As label:
-        Text: ="Passagem"
-        X: =94
-        Y: =293
+    Passagem_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Passagem :"
+        Width: =160
+        X: =84
+        Y: =330
         ZIndex: =10
 
-    TextInput3_4 As text:
-        Default: ="Entrada de texto"
+    Passagem_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
         X: =244
-        Y: =293
+        Y: =330
         ZIndex: =11
 
-    Label17_5 As label:
-        Text: ="Uber"
-        X: =94
-        Y: =333
+    Uber_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Uber :"
+        Width: =160
+        X: =440
+        Y: =130
         ZIndex: =12
 
-    TextInput3_5 As text:
-        Default: ="Entrada de texto"
-        X: =244
-        Y: =333
+    Uber_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =600
+        Y: =130
         ZIndex: =13
 
-    Label17_6 As label:
-        Text: ="Cozinha"
-        X: =94
-        Y: =373
+    Cozinha_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Cozinha :"
+        Width: =160
+        X: =440
+        Y: =180
         ZIndex: =14
 
-    TextInput3_6 As text:
-        Default: ="Entrada de texto"
-        X: =244
-        Y: =373
+    Cozinha_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =600
+        Y: =180
         ZIndex: =15
 
-    Label17_7 As label:
-        Text: ="Segurança"
-        X: =94
-        Y: =413
+    Segurança_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Segurança :"
+        Width: =160
+        X: =440
+        Y: =230
         ZIndex: =16
 
-    TextInput3_7 As text:
-        Default: ="Entrada de texto"
-        X: =244
-        Y: =413
+    Segurança_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =600
+        Y: =230
         ZIndex: =17
 
-    Label17_8 As label:
-        Text: ="Frete"
-        X: =94
-        Y: =453
+    Frete_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Frete :"
+        Width: =160
+        X: =84
+        Y: =380
         ZIndex: =18
 
-    TextInput3_8 As text:
-        Default: ="Entrada de texto"
+    Frete_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
         X: =244
-        Y: =453
+        Y: =380
         ZIndex: =19
 
-    Label17_9 As label:
-        Text: ="Pag. Mercadoria"
-        X: =94
-        Y: =493
+    PagMercadoria_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Pag. Mercadoria :"
+        Width: =160
+        X: =440
+        Y: =280
         ZIndex: =20
 
-    TextInput3_9 As text:
-        Default: ="Entrada de texto"
-        X: =244
-        Y: =493
+    PagMercadoria_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =600
+        Y: =280
         ZIndex: =21
 
-    Label17_10 As label:
-        Text: ="Pag. Boleto"
-        X: =564
-        Y: =133
+    PagBoleto_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Pag. Boleto :"
+        Width: =160
+        X: =440
+        Y: =330
         ZIndex: =22
 
-    TextInput3_10 As text:
-        Default: ="Entrada de texto"
-        X: =714
-        Y: =133
+    PagBoleto_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =600
+        Y: =330
         ZIndex: =23
 
-    Label17_11 As label:
+    DespesaLoja_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
         Text: |-
-            ="Despesa Loja
-            "
-        X: =564
-        Y: =173
+            ="Despesa Loja :"
+        Width: =160
+        X: =440
+        Y: =380
         ZIndex: =24
 
-    TextInput3_11 As text:
-        Default: ="Entrada de texto"
-        X: =714
-        Y: =173
+    DespesaLoja_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =600
+        Y: =380
         ZIndex: =25
 
-    Label17_12 As label:
-        Text: ="Despesa Manutenção"
-        X: =564
-        Y: =213
+    DespesaManutencao_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Desp. Manutenção:"
+        Width: =160
+        X: =840
+        Y: =130
         ZIndex: =26
 
-    TextInput3_12 As text:
-        Default: ="Entrada de texto"
-        X: =714
-        Y: =213
+    DespManutencao_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =1000
+        Y: =130
         ZIndex: =27
 
-    Label17_13 As label:
-        Text: ="Depósito"
-        X: =564
-        Y: =253
+    Depósito_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Depósito :"
+        Width: =160
+        X: =840
+        Y: =180
         ZIndex: =28
 
-    TextInput3_13 As text:
-        Default: ="Entrada de texto"
-        X: =714
-        Y: =253
+    Deposito_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =1000
+        Y: =180
         ZIndex: =29
 
-    Label17_14 As label:
-        Text: ="Lucas"
-        X: =564
-        Y: =293
+    Lucas_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Lucas :"
+        Width: =160
+        X: =840
+        Y: =230
         ZIndex: =30
 
-    TextInput3_14 As text:
-        Default: ="Entrada de texto"
-        X: =714
-        Y: =293
+    Lucas_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =1000
+        Y: =230
         ZIndex: =31
 
-    Label17_15 As label:
-        Text: ="David"
-        X: =564
-        Y: =333
+    David_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="David :"
+        Width: =160
+        X: =840
+        Y: =280
         ZIndex: =32
 
-    TextInput3_15 As text:
-        Default: ="Entrada de texto"
-        X: =714
-        Y: =333
+    David_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =1000
+        Y: =280
         ZIndex: =33
 
     Label17_16 As label:
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =20
         Text: ="Total Despesa"
-        X: =564
-        Y: =373
+        Width: =180
+        X: =759
+        Y: =479
         ZIndex: =34
 
     TextInput3_16 As text:
-        Default: ="Entrada de texto"
-        X: =714
-        Y: =373
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Size: =18
+        Width: =180
+        X: =939
+        Y: =479
         ZIndex: =35
 
-    Label17_17 As label:
-        Text: ="Data da Despesa"
-        X: =94
-        Y: =36
+    DataDespesa_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =14
+        Text: |-
+            ="Data da Despesa :"
+        Width: =160
+        X: =74
+        Y: =67
         ZIndex: =36
 
     Label17_18 As label:
-        Text: ="Data Lanç."
-        X: =728
-        Y: =569
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Data Lanç. :"
+        Width: =160
+        X: =846
+        Y: =554
         ZIndex: =38
 
     Label17_19 As label:
-        Text: ="Usuário"
-        X: =728
-        Y: =615
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Usuário :"
+        Width: =160
+        X: =846
+        Y: =600
         ZIndex: =40
 
     TextInput3_19 As text:
-        Default: ="Entrada de texto"
+        Default: =NomeUserlbl_room
         DisplayMode: =DisplayMode.View
-        X: =878
-        Y: =615
+        Height: =30
+        Width: =180
+        X: =1006
+        Y: =599
         ZIndex: =41
 
-    Label17_20 As label:
-        Text: ="Histórico"
-        X: =564
-        Y: =414
+    Historico_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Histórico :"
+        Width: =160
+        X: =84
+        Y: =535
         ZIndex: =42
 
     TextInput3_20 As text:
-        Default: ="Entrada de texto"
-        X: =714
-        Y: =414
+        Default: =
+        Height: =151
+        HintText: ="Insira aqui todas informações que foram somadas..."
+        Mode: =TextMode.MultiLine
+        X: =244
+        Y: =479
         ZIndex: =43
 
     DatePicker1 As datepicker:
-        X: =244
-        Y: =37
+        Height: =30
+        Width: =190
+        X: =234
+        Y: =67
         ZIndex: =52
 
     DatePicker1_1 As datepicker:
         DisplayMode: =DisplayMode.View
-        X: =878
-        Y: =569
+        Height: =30
+        Width: =180
+        X: =1006
+        Y: =553
         ZIndex: =53
+
+    Lucia_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Lúcia :"
+        Width: =160
+        X: =840
+        Y: =330
+        ZIndex: =54
+
+    Lucia_input As text:
+        Default: |-
+            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Height: =30
+        Width: =180
+        X: =1000
+        Y: =330
+        ZIndex: =55
+
+    Filial_lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =14
+        Text: |-
+            ="Filial :"
+        Width: =160
+        X: =440
+        Y: =67
+        ZIndex: =56
+
+    Filial_input As text:
+        Default: =Unidadelbl1
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Width: =180
+        X: =600
+        Y: =67
+        ZIndex: =57
 
