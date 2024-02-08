@@ -1,0 +1,42 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2024-02-08T17:51:55.7960000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "dsp_comissao": "dsp_comissao",
+      "dsp_cozina": "dsp_cozina",
+      "dsp_datadespesa": "dsp_datadespesa",
+      "dsp_datalanc": "dsp_datalanc",
+      "dsp_david": "dsp_david",
+      "dsp_deposito": "dsp_deposito",
+      "dsp_despesaloja": "dsp_despesaloja",
+      "dsp_dobrapessoal": "dsp_dobrapessoal",
+      "dsp_ferias": "dsp_ferias",
+      "dsp_filial": "dsp_filial",
+      "dsp_folha": "dsp_folha",
+      "dsp_frete": "dsp_frete",
+      "dsp_historico": "dsp_historico",
+      "dsp_lucas": "dsp_lucas",
+      "dsp_lucia": "dsp_lucia",
+      "dsp_manutencao": "dsp_manutencao",
+      "dsp_passagem": "dsp_passagem",
+      "dsp_pgboleto": "dsp_pgboleto",
+      "dsp_pgmercadoria": "dsp_pgmercadoria",
+      "dsp_segurança": "dsp_segurança",
+      "dsp_total": "dsp_total",
+      "dsp_uber": "dsp_uber",
+      "dsp_userlanc": "dsp_userlanc",
+      "ID": "ID"
+    },
+    "DatasetName": "default",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "gerencial_lucamat.despesa_caixa",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

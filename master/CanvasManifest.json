@@ -36,6 +36,7 @@
       "enablechatbotfeature": false,
       "enablecomponentnamemaps": false,
       "enablecomponentscopeoldbehavior": false,
+      "enablecopilotanswercontrol": false,
       "enablecopilotcontrol": false,
       "enabledataverseoffline": false,
       "enableeditcacherefreshfrequency": false,
@@ -94,11 +95,12 @@
       "useexperimentalsqlconnector": true,
       "useguiddatatypes": true,
       "usenonblockingonstartrule": false,
+      "userdefinedfunctions": false,
       "webbarcodescanner": true,
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 8,
+    "BindingErrorCount": 27,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 1000,
     "DocumentAppType": "DesktopOrTablet",
@@ -117,7 +119,7 @@
     "ManualOfflineProfileId": "",
     "Name": "Gerencial - Luca Materiais",
     "OriginatingVersion": "1.326",
-    "ParserErrorCount": 1,
+    "ParserErrorCount": 8,
     "ShowStatusBar": false
   },
   "PublishInfo": {

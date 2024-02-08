@@ -39,8 +39,8 @@
       "executionRestrictions": {
         "apiId": "/providers/microsoft.powerapps/apis/shared_mysql",
         "apiVer": 1,
-        "appVer": "3.24012.8",
-        "modifiedOn": "2024-01-18 18:49:29",
+        "appVer": "3.24015.12",
+        "modifiedOn": "2024-02-08 18:45:40",
         "policy": "{\"type\":\"tabular\",\"dataSources\":{\"[gerencial_lucamat].[pagamento_fin]\":[\"post\",\"patch\",\"get\",\"delete\"],\"[gerencial_lucamat].[padrao]\":[\"get\"],\"[gerencial_lucamat].[movimento_fin]\":[\"post\",\"patch\",\"get\",\"delete\"],\"[gerencial_lucamat].[fornecedores]\":[\"post\",\"patch\",\"get\"],\"[gerencial_lucamat].[empresa]\":[\"post\",\"patch\",\"get\"],\"[gerencial_lucamat].[compras]\":[\"post\",\"patch\",\"get\",\"delete\"],\"[gerencial_lucamat].[combustivel]\":[\"post\",\"patch\",\"get\"],\"[gerencial_lucamat].[cheques]\":[\"post\",\"patch\",\"get\",\"delete\"],\"[gerencial_lucamat].[cad_user]\":[\"post\",\"patch\",\"get\"],\"[gerencial_lucamat].[parametro]\":[\"post\",\"patch\",\"get\",\"delete\"]}}",
         "version": 1
       },
@@ -62,6 +62,9 @@
           },
           "gerencial_lucamat.compras": {
             "tableName": "[gerencial_lucamat].[compras]"
+          },
+          "gerencial_lucamat.despesa_caixa": {
+            "tableName": "[gerencial_lucamat].[despesa_caixa]"
           },
           "gerencial_lucamat.empresa": {
             "tableName": "[gerencial_lucamat].[empresa]"
@@ -94,7 +97,8 @@
       "gerencial_lucamat.movimento_fin",
       "gerencial_lucamat.padrao",
       "gerencial_lucamat.pagamento_fin",
-      "gerencial_lucamat.parametro"
+      "gerencial_lucamat.parametro",
+      "gerencial_lucamat.despesa_caixa"
     ],
     "dependencies": {},
     "dependents": [],
