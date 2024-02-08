@@ -585,7 +585,7 @@ DespesaCaixa_Screen As screen:
                                                                                     Notify(
                                                                                         "O Campo HISTORICO está em branco!",
                                                                                         NotificationType.Error
-                                                                                    ),
+                                                                                    );
                                                                                     Patch(
                                                                                         'gerencial_lucamat.despesa_caixa',
                                                                                         Defaults('gerencial_lucamat.despesa_caixa'),
@@ -619,16 +619,29 @@ DespesaCaixa_Screen As screen:
                                                                                         {dsp_uber:Uber_input.Text},
                                                                                         {dsp_userlanc:userlancDesp_input.Text}
                                                                                     ),
-                                                                                    Reset();
-                                                                                    Reset();
-                                                                                    Reset();
-                                                                                    Reset();
-                                                                                    Reset();
-                                                                                    Reset();
-                                                                                    Reset();
-                                                                                    Reset();
-                                                                                    Reset();
-                                                                                    Reset();
+                                                                                    Reset(DataDesp_input);
+                                                                                    Reset(FilialDesp_input);
+                                                                                    Reset(Comissão_input);
+                                                                                    Reset(Cozinha_input);
+                                                                                    Reset(dataLanc_desp_input);
+                                                                                    Reset(David_input);
+                                                                                    Reset(Deposito_input);
+                                                                                    Reset(DespesaLoja_input);
+                                                                                    Reset(DobraPessoal_input);
+                                                                                    Reset(Ferias_input);
+                                                                                    Reset(Folha_input);
+                                                                                    Reset(Frete_input);
+                                                                                    Reset(HistoricoDespesa_input);
+                                                                                    Reset(Lucas_input);
+                                                                                    Reset(Lucia_input);
+                                                                                    Reset(DespManutencao_input);
+                                                                                    Reset(Passagem_input);
+                                                                                    Reset(PagBoleto_input);
+                                                                                    Reset(PagMercadoria_input);
+                                                                                    Reset(Segurança_input);
+                                                                                    Reset(TotalDesp_Input);
+                                                                                    Reset(Uber_input);
+                                                                                    Reset(userlancDesp_input);
                                                                                     Notify(
                                                                                         "As informações foram gravadas com SUCESSO!",
                                                                                         NotificationType.Success
