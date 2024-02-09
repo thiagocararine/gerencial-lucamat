@@ -75,7 +75,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =10
-            Text: =ThisItem.dsp_uber
+            Text: |-
+                =Text(
+                    ThisItem.dsp_uber,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -89,7 +94,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =23
-            Text: =ThisItem.dsp_total
+            Text: |-
+                =Text(
+                    ThisItem.dsp_total,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =593
             Y: =0
@@ -103,7 +113,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =11
-            Text: =ThisItem.dsp_segurança
+            Text: |-
+                =Text(
+                    ThisItem.dsp_segurança,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -117,7 +132,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =13
-            Text: =ThisItem.dsp_pgmercadoria
+            Text: |-
+                =Text(
+                    ThisItem.dsp_pgmercadoria,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -131,7 +151,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =14
-            Text: =ThisItem.dsp_pgboleto
+            Text: |-
+                =Text(
+                    ThisItem.dsp_pgboleto,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -145,7 +170,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =9
-            Text: =ThisItem.dsp_passagem
+            Text: |-
+                =Text(
+                    ThisItem.dsp_passagem,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -159,7 +189,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =15
-            Text: =ThisItem.dsp_manutencao
+            Text: |-
+                =Text(
+                    ThisItem.dsp_manutencao,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -173,7 +208,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =21
-            Text: =ThisItem.dsp_lucia
+            Text: |-
+                =Text(
+                    ThisItem.dsp_lucia,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -187,7 +227,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =22
-            Text: =ThisItem.dsp_lucas
+            Text: |-
+                =Text(
+                    ThisItem.dsp_lucas,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -215,7 +260,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =12
-            Text: =ThisItem.dsp_frete
+            Text: |-
+                =Text(
+                    ThisItem.dsp_frete,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -229,7 +279,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =5
-            Text: =ThisItem.dsp_folhafora
+            Text: |-
+                =Text(
+                    ThisItem.dsp_folhafora,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -243,7 +298,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =4
-            Text: =ThisItem.dsp_folha
+            Text: |-
+                =Text(
+                    ThisItem.dsp_folha,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -271,7 +331,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =7
-            Text: =ThisItem.dsp_ferias
+            Text: |-
+                =Text(
+                    ThisItem.dsp_ferias,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -285,7 +350,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =8
-            Text: =ThisItem.dsp_dobrapessoal
+            Text: |-
+                =Text(
+                    ThisItem.dsp_dobrapessoal,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -299,7 +369,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =17
-            Text: =ThisItem.dsp_despesaloja
+            Text: |-
+                =Text(
+                    ThisItem.dsp_despesaloja,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -313,7 +388,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =19
-            Text: =ThisItem.dsp_deposito
+            Text: |-
+                =Text(
+                    ThisItem.dsp_deposito,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -327,7 +407,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =20
-            Text: =ThisItem.dsp_david
+            Text: |-
+                =Text(
+                    ThisItem.dsp_david,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -369,7 +454,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =16
-            Text: =ThisItem.dsp_cozina
+            Text: |-
+                =Text(
+                    ThisItem.dsp_cozina,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -383,7 +473,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =6
-            Text: =ThisItem.dsp_comissao
+            Text: |-
+                =Text(
+                    ThisItem.dsp_comissao,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -397,7 +492,12 @@ DespesaCaixa_Screen As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =18
-            Text: =ThisItem.dsp_combustivel
+            Text: |-
+                =Text(
+                    ThisItem.dsp_combustivel,
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
             Width: =100
             X: =0
             Y: =0
