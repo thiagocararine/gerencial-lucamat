@@ -44,8 +44,12 @@
         FontWeight: =FontWeight.Semibold
         Height: =55
         Italic: =true
-        Size: =17
-        Text: =DataCompt
+        Size: =16
+        Text: |-
+            =Text(
+                DataCompt,
+                "[$-en-US]dd/mm/yy"
+            )
         Width: =127
         X: =617
         Y: =31

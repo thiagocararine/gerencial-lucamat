@@ -170,7 +170,11 @@ Financeiro_screenDash As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =3
-            Text: =ThisItem.dtlanc_fin
+            Text: |-
+                =Text(
+                    ThisItem.dtlanc_fin,
+                    "[$-en-US]dd/mm/yy"
+                )
             Width: =105.27
             X: =194.34
             Y: =0
@@ -184,7 +188,11 @@ Financeiro_screenDash As screen:
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =9
-            Text: =ThisItem.dtcompt_fin
+            Text: |-
+                =Text(
+                    ThisItem.dtcompt_fin,
+                    "[$-en-US]dd/mm/yy"
+                )
             Width: =143.95
             X: =952.79
             Y: =0
@@ -296,7 +304,11 @@ Financeiro_screenDash As screen:
             ZIndex: =16
 
         DataLanc As datepicker:
-            DefaultDate: =
+            DefaultDate: |-
+                =Text(
+                    "",
+                    "[$-en-US]dd/mm/yy"
+                )
             Font: =Font.'Segoe UI'
             Height: =30
             Size: =11.7
@@ -401,6 +413,11 @@ Financeiro_screenDash As screen:
             ZIndex: =25
 
         DataCompt As datepicker:
+            DefaultDate: |-
+                =Text(
+                    Today(),
+                    "[$-en-US]dd/mm/yy"
+                )
             Font: =Font.'Segoe UI'
             Height: =30
             Size: =11.7
@@ -488,7 +505,11 @@ Financeiro_screenDash As screen:
         ZIndex: =54
 
     dtlanc_edit As datepicker:
-        DefaultDate: =Value(Today())
+        DefaultDate: |-
+            =Text(
+                Value(Today()),
+                "[$-en-US]dd/mm/yy"
+            )
         DisplayMode: =DisplayMode.View
         Height: =35
         OnSelect: =
@@ -701,7 +722,11 @@ Financeiro_screenDash As screen:
             ZIndex: =47
 
         dtcompt_edit As datepicker:
-            DefaultDate: =TabFiltro.Selected.dtcompt_fin
+            DefaultDate: |-
+                =Text(
+                    TabFiltro.Selected.dtcompt_fin,
+                    "[$-en-US]dd/mm/yy"
+                )
             Height: =35
             OnSelect: =
             Size: =11.7

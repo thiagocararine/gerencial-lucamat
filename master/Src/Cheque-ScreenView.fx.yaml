@@ -441,7 +441,11 @@
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =13
-            Text: =ThisItem.dtbaix_chq
+            Text: |-
+                =Text(
+                    ThisItem.dtbaix_chq,
+                    "[$-en-US]dd/mm/yy"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -455,7 +459,11 @@
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =11
-            Text: =ThisItem.dtlanc_chq
+            Text: |-
+                =Text(
+                    ThisItem.dtlanc_chq,
+                    "[$-en-US]dd/mm/yy"
+                )
             Width: =100
             X: =0
             Y: =0
@@ -558,7 +566,11 @@
             Height: =Parent.Height
             LayoutHeight: =Parent.Height
             Order: =14
-            Text: =ThisItem.userbaixa_chq
+            Text: |-
+                =Text(
+                    ThisItem.userbaixa_chq,
+                    "[$-en-US]dd/mm/yy"
+                )
             Width: =146
             X: =0
             Y: =0
@@ -609,7 +621,15 @@
         ZIndex: =16
 
     Filtro_DataLanc_inicio_chq As datepicker:
-        DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+        DefaultDate: |-
+            =Text(
+                Date(
+                    Year(Today()),
+                    Month(Today()),
+                    Day("01")
+                ),
+                "[$-en-US]dd/mm/yy"
+            )
         DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Lançamento", DisplayMode.Edit, DisplayMode.Disabled)
         Font: =Font.'Segoe UI'
         Height: =25
@@ -664,7 +684,15 @@
 
     Filtro_DataVenc_inicio_chq As datepicker:
         ContentLanguage: =
-        DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+        DefaultDate: |-
+            =Text(
+                Date(
+                    Year(Today()),
+                    Month(Today()),
+                    Day("01")
+                ),
+                "[$-en-US]dd/mm/yy"
+            )
         DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Vencimento", DisplayMode.Edit,DisplayMode.Disabled)
         Font: =Font.'Segoe UI'
         Height: =25
@@ -676,7 +704,15 @@
         ZIndex: =21
 
     Filtro_DataLanc_fim_chq As datepicker:
-        DefaultDate: =Date(Year(Today()),Month(Today()),Day(30))
+        DefaultDate: |-
+            =Text(
+                Date(
+                    Year(Today()),
+                    Month(Today()),
+                    Day(30)
+                ),
+                "[$-en-US]dd/mm/yy"
+            )
         DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Lançamento", DisplayMode.Edit, DisplayMode.Disabled)
         Font: =Font.'Segoe UI'
         Height: =25
@@ -688,7 +724,15 @@
         ZIndex: =22
 
     Filtro_DataVenc_fim_chq As datepicker:
-        DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
+        DefaultDate: |-
+            =Text(
+                Date(
+                    Year(Today()),
+                    Month(Today()),
+                    Day(31)
+                ),
+                "[$-en-US]dd/mm/yy"
+            )
         DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Vencimento", DisplayMode.Edit,DisplayMode.Disabled)
         Font: =Font.'Segoe UI'
         Height: =25
@@ -742,7 +786,15 @@
         ZIndex: =26
 
     Filtro_DataPagm_inicio_chq As datepicker:
-        DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+        DefaultDate: |-
+            =Text(
+                Date(
+                    Year(Today()),
+                    Month(Today()),
+                    Day("01")
+                ),
+                "[$-en-US]dd/mm/yy"
+            )
         DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Baixa",DisplayMode.Edit,DisplayMode.Disabled)
         Font: =Font.'Segoe UI'
         Height: =25
@@ -754,7 +806,15 @@
         ZIndex: =27
 
     Filtro_DataPagm_fim_chq As datepicker:
-        DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
+        DefaultDate: |-
+            =Text(
+                Date(
+                    Year(Today()),
+                    Month(Today()),
+                    Day(31)
+                ),
+                "[$-en-US]dd/mm/yy"
+            )
         DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Baixa",DisplayMode.Edit,DisplayMode.Disabled)
         Font: =Font.'Segoe UI'
         Height: =25
@@ -1087,7 +1147,11 @@
             ZIndex: =72
 
         dtcompt_edit_chq As datepicker:
-            DefaultDate: =ChequeTable.Selected.dtvenc_chq
+            DefaultDate: |-
+                =Text(
+                    ChequeTable.Selected.dtvenc_chq,
+                    "[$-en-US]dd/mm/yy"
+                )
             Height: =35
             Size: =11.7
             TabIndex: =2
@@ -1228,7 +1292,11 @@
             ZIndex: =83
 
         data_BaixaAlt_chq As datepicker:
-            DefaultDate: =ChequeTable.Selected.dtbaix_chq
+            DefaultDate: |-
+                =Text(
+                    ChequeTable.Selected.dtbaix_chq,
+                    "[$-en-US]dd/mm/yy"
+                )
             Height: =35
             Size: =11.7
             TabIndex: =2
@@ -1332,7 +1400,7 @@
             ZIndex: =33
 
         DataVencLabel As label:
-            Align: =Align.Right
+            Align: =Align.Center
             Font: =Font.'Segoe UI'
             FontWeight: =FontWeight.Semibold
             Height: =35
@@ -1340,8 +1408,8 @@
                 ="Data de Vencimento: "
             Visible: =MenuAdd
             Width: =124
-            X: =192
-            Y: =390
+            X: =182
+            Y: =392
             ZIndex: =34
 
         NumeroLabel As label:
@@ -1409,11 +1477,16 @@
             ZIndex: =39
 
         DataVencInput_chq As datepicker:
+            DefaultDate: |-
+                =Text(
+                    Today(),
+                    "[$-en-US]dd/mm/yy"
+                )
             Font: =Font.'Segoe UI'
-            Height: =30
+            Height: =38
             Visible: =MenuAdd
             Width: =241
-            X: =316
+            X: =310
             Y: =390
             ZIndex: =40
 

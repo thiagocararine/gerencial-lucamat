@@ -1,648 +1,1083 @@
 DespesaCaixa_Screen As screen:
 
-    Button5_2 As button:
-        Fill: =RGBA(255, 191, 0, 1)
-        Height: =50
-        HoverColor: =RGBA(0, 0, 0, 1)
-        HoverFill: =RGBA(255, 244, 186, 1)
-        OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
-        Text: ="Retornar"
-        Width: =135
-        X: =1051
-        Y: =667
+    Button8 As button:
+        DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =RGBA(127, 178, 57, 1)
+        Height: =63
+        HoverFill: =
+        OnSelect: |-
+            =UpdateContext({MenuDespesa:true})
+        Text: ="Informar Despesa"
+        Width: =130
+        X: =1065
+        Y: =665
         ZIndex: =1
 
-    Férias_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Férias :"
-        Width: =160
-        X: =84
-        Y: =130
+    Button8_1 As button:
+        DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =RGBA(151, 0, 0, 1)
+        Height: =63
+        HoverFill: =
+        OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
+        Text: ="Sair"
+        Width: =130
+        X: =920
+        Y: =665
         ZIndex: =2
 
-    Ferias_input As text:
-        Default: |
-            =
-        Height: =30
-        HintText: =""
-        Width: =180
-        X: =244
-        Y: =130
+    DespesaTable As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =2
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =535
+        Items: ='gerencial_lucamat.despesa_caixa'
+        Size: =11
+        Width: =1154
+        X: =40
+        Y: =116
         ZIndex: =3
 
-    Folha_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Folha :"
-        Width: =160
-        X: =84
-        Y: =180
+        ID_Column8 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.ID
+            Width: =73
+            X: =0
+            Y: =0
+            ZIndex: =55
+
+        dsp_userlanc_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="User Lanç."
+            FieldName: ="dsp_userlanc"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =25
+            Text: =ThisItem.dsp_userlanc
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =56
+
+        dsp_uber_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Uber"
+            FieldName: ="dsp_uber"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.dsp_uber
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =57
+
+        dsp_total_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Total"
+            FieldName: ="dsp_total"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =23
+            Text: =ThisItem.dsp_total
+            Width: =100
+            X: =593
+            Y: =0
+            ZIndex: =58
+
+        dsp_segurança_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Segurança"
+            FieldName: ="dsp_segurança"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.dsp_segurança
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =59
+
+        dsp_pgmercadoria_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Pag. Mercadoria"
+            FieldName: ="dsp_pgmercadoria"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =13
+            Text: =ThisItem.dsp_pgmercadoria
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =60
+
+        dsp_pgboleto_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Pag. Boleto"
+            FieldName: ="dsp_pgboleto"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =14
+            Text: =ThisItem.dsp_pgboleto
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =61
+
+        dsp_passagem_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Passagem"
+            FieldName: ="dsp_passagem"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.dsp_passagem
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =62
+
+        dsp_manutencao_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Manutenção"
+            FieldName: ="dsp_manutencao"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =15
+            Text: =ThisItem.dsp_manutencao
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =63
+
+        dsp_lucia_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Lúcia"
+            FieldName: ="dsp_lucia"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =21
+            Text: =ThisItem.dsp_lucia
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =64
+
+        dsp_lucas_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Lucas"
+            FieldName: ="dsp_lucas"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =22
+            Text: =ThisItem.dsp_lucas
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =65
+
+        dsp_historico_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Histórico"
+            FieldName: ="dsp_historico"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =26
+            Text: =ThisItem.dsp_historico
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =66
+
+        dsp_frete_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Frete"
+            FieldName: ="dsp_frete"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =12
+            Text: =ThisItem.dsp_frete
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =67
+
+        dsp_folhafora_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Folha Fora"
+            FieldName: ="dsp_folhafora"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.dsp_folhafora
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =68
+
+        dsp_folha_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Pag. Folha"
+            FieldName: ="dsp_folha"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.dsp_folha
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =69
+
+        dsp_filial_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Filial"
+            FieldName: ="dsp_filial"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.dsp_filial
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =70
+
+        dsp_ferias_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Férias"
+            FieldName: ="dsp_ferias"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.dsp_ferias
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =71
+
+        dsp_dobrapessoal_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Pag. Dobra"
+            FieldName: ="dsp_dobrapessoal"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.dsp_dobrapessoal
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =72
+
+        dsp_despesaloja_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Despesa Loja"
+            FieldName: ="dsp_despesaloja"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =17
+            Text: =ThisItem.dsp_despesaloja
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =73
+
+        dsp_deposito_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Depósito"
+            FieldName: ="dsp_deposito"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =19
+            Text: =ThisItem.dsp_deposito
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =74
+
+        dsp_david_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="David"
+            FieldName: ="dsp_david"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =20
+            Text: =ThisItem.dsp_david
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =75
+
+        dsp_datalanc_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data Lanc."
+            FieldName: ="dsp_datalanc"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =24
+            Text: =Text(ThisItem.dsp_datalanc, "[$-en-US]dd/mm/yy")
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =76
+
+        dsp_datadespesa_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data Despesa"
+            FieldName: ="dsp_datadespesa"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =Text(ThisItem.dsp_datadespesa, "[$-en-US]dd/mm/yy")
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =77
+
+        dsp_cozina_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Cozinha"
+            FieldName: ="dsp_cozina"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =16
+            Text: =ThisItem.dsp_cozina
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =78
+
+        dsp_comissao_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Comissão"
+            FieldName: ="dsp_comissao"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.dsp_comissao
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =79
+
+        dsp_combustivel_Column1 As dataTableColumn.numberColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Combustivel"
+            FieldName: ="dsp_combustivel"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =18
+            Text: =ThisItem.dsp_combustivel
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =80
+
+    FormDespesaCaixa As groupContainer.manualLayoutContainer:
+        Height: =648
+        Visible: =MenuDespesa
+        Width: =1148
+        X: =35
+        Y: =35
         ZIndex: =4
 
-    Folha_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =244
-        Y: =180
-        ZIndex: =5
+        Rectangle28 As rectangle:
+            BorderThickness: =5
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =648
+            Width: =1148
+            ZIndex: =1
 
-    Comissão_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Comissão :"
-        Width: =160
-        X: =84
-        Y: =230
-        ZIndex: =6
+        Button5_2 As button:
+            Fill: =RGBA(255, 191, 0, 1)
+            Height: =50
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(255, 244, 186, 1)
+            OnSelect: |-
+                =UpdateContext({MenuDespesa:false})
+            Text: ="Retornar"
+            Width: =135
+            X: =971
+            Y: =573
+            ZIndex: =2
 
-    Comissão_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =244
-        Y: =230
-        ZIndex: =7
+        Férias_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Férias :"
+            Width: =160
+            X: =38
+            Y: =97
+            ZIndex: =3
 
-    DobraPessoal_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Dobra Pessoal :"
-        Width: =160
-        X: =84
-        Y: =280
-        ZIndex: =8
+        Ferias_input As text:
+            Default: |
+                =
+            Height: =30
+            HintText: =""
+            Width: =180
+            X: =198
+            Y: =97
+            ZIndex: =4
 
-    DobraPessoal_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =244
-        Y: =280
-        ZIndex: =9
+        Folha_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Folha :"
+            Width: =160
+            X: =38
+            Y: =147
+            ZIndex: =5
 
-    Passagem_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Passagem :"
-        Width: =160
-        X: =84
-        Y: =330
-        ZIndex: =10
+        Folha_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =198
+            Y: =147
+            ZIndex: =6
 
-    Passagem_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =244
-        Y: =330
-        ZIndex: =11
+        Comissão_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Comissão :"
+            Width: =160
+            X: =38
+            Y: =197
+            ZIndex: =7
 
-    Uber_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Uber :"
-        Width: =160
-        X: =440
-        Y: =130
-        ZIndex: =12
+        Comissão_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =198
+            Y: =197
+            ZIndex: =8
 
-    Uber_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =600
-        Y: =130
-        ZIndex: =13
+        DobraPessoal_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Dobra Pessoal :"
+            Width: =160
+            X: =38
+            Y: =247
+            ZIndex: =9
 
-    Cozinha_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Cozinha :"
-        Width: =160
-        X: =440
-        Y: =180
-        ZIndex: =14
+        DobraPessoal_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =198
+            Y: =247
+            ZIndex: =10
 
-    Cozinha_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =600
-        Y: =180
-        ZIndex: =15
+        Passagem_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Passagem :"
+            Width: =160
+            X: =38
+            Y: =297
+            ZIndex: =11
 
-    Segurança_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Segurança :"
-        Width: =160
-        X: =440
-        Y: =230
-        ZIndex: =16
+        Passagem_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =198
+            Y: =297
+            ZIndex: =12
 
-    Segurança_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =600
-        Y: =230
-        ZIndex: =17
+        Uber_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Uber :"
+            Width: =160
+            X: =394
+            Y: =97
+            ZIndex: =13
 
-    Frete_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Frete :"
-        Width: =160
-        X: =440
-        Y: =379
-        ZIndex: =18
+        Uber_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =554
+            Y: =97
+            ZIndex: =14
 
-    Frete_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =600
-        Y: =379
-        ZIndex: =19
+        Cozinha_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Cozinha :"
+            Width: =160
+            X: =394
+            Y: =147
+            ZIndex: =15
 
-    PagMercadoria_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Pag. Mercadoria :"
-        Width: =160
-        X: =440
-        Y: =280
-        ZIndex: =20
+        Cozinha_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =554
+            Y: =147
+            ZIndex: =16
 
-    PagMercadoria_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =600
-        Y: =280
-        ZIndex: =21
+        Segurança_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Segurança :"
+            Width: =160
+            X: =394
+            Y: =197
+            ZIndex: =17
 
-    PagBoleto_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Pag. Boleto :"
-        Width: =160
-        X: =440
-        Y: =330
-        ZIndex: =22
+        Segurança_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =554
+            Y: =197
+            ZIndex: =18
 
-    PagBoleto_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =600
-        Y: =330
-        ZIndex: =23
+        Frete_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Frete :"
+            Width: =160
+            X: =394
+            Y: =347
+            ZIndex: =19
 
-    DespesaLoja_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Despesa Loja :"
-        Width: =160
-        X: =840
-        Y: =379
-        ZIndex: =24
+        Frete_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =554
+            Y: =347
+            ZIndex: =20
 
-    DespesaLoja_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =1000
-        Y: =379
-        ZIndex: =25
+        PagMercadoria_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Pag. Mercadoria :"
+            Width: =160
+            X: =394
+            Y: =247
+            ZIndex: =21
 
-    DespesaManutencao_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Desp. Manutenção:"
-        Width: =160
-        X: =840
-        Y: =130
-        ZIndex: =26
+        PagMercadoria_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =554
+            Y: =247
+            ZIndex: =22
 
-    DespManutencao_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =1000
-        Y: =130
-        ZIndex: =27
+        PagBoleto_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Pag. Boleto :"
+            Width: =160
+            X: =394
+            Y: =297
+            ZIndex: =23
 
-    Depósito_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Depósito :"
-        Width: =160
-        X: =840
-        Y: =180
-        ZIndex: =28
+        PagBoleto_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =554
+            Y: =297
+            ZIndex: =24
 
-    Deposito_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =1000
-        Y: =180
-        ZIndex: =29
+        DespesaLoja_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Despesa Loja :"
+            Width: =160
+            X: =764
+            Y: =347
+            ZIndex: =25
 
-    Lucas_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Lucas :"
-        Width: =160
-        X: =840
-        Y: =230
-        ZIndex: =30
+        DespesaLoja_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =926
+            Y: =347
+            ZIndex: =26
 
-    Lucas_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =1000
-        Y: =230
-        ZIndex: =31
+        DespesaManutencao_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Desp. Manutenção:"
+            Width: =160
+            X: =764
+            Y: =97
+            ZIndex: =27
 
-    David_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="David :"
-        Width: =160
-        X: =840
-        Y: =280
-        ZIndex: =32
+        DespManutencao_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =926
+            Y: =97
+            ZIndex: =28
 
-    David_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =1000
-        Y: =280
-        ZIndex: =33
+        Depósito_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Depósito :"
+            Width: =160
+            X: =764
+            Y: =147
+            ZIndex: =29
 
-    Label17_16 As label:
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Size: =20
-        Text: ="Total Despesa"
-        Width: =180
-        X: =759
-        Y: =491
-        ZIndex: =34
+        Deposito_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =926
+            Y: =147
+            ZIndex: =30
 
-    TotalDesp_Input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
-        Height: =30
-        Size: =18
-        Width: =180
-        X: =939
-        Y: =491
-        ZIndex: =35
+        Lucas_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Lucas :"
+            Width: =160
+            X: =764
+            Y: =197
+            ZIndex: =31
 
-    DataDespesa_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Size: =14
-        Text: |-
-            ="Data da Despesa :"
-        Width: =160
-        X: =74
-        Y: =67
-        ZIndex: =36
+        Lucas_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =926
+            Y: =197
+            ZIndex: =32
 
-    Label17_18 As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Data Lanç. :"
-        Width: =160
-        X: =846
-        Y: =566
-        ZIndex: =38
+        David_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="David :"
+            Width: =160
+            X: =764
+            Y: =247
+            ZIndex: =33
 
-    Label17_19 As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Usuário :"
-        Width: =160
-        X: =846
-        Y: =612
-        ZIndex: =40
+        David_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =926
+            Y: =247
+            ZIndex: =34
 
-    userlancDesp_input As text:
-        Default: =NomeUserlbl_room
-        DisplayMode: =DisplayMode.View
-        Height: =30
-        Width: =180
-        X: =1006
-        Y: =611
-        ZIndex: =41
+        Label17_16 As label:
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =20
+            Text: ="Total Despesa"
+            Width: =180
+            X: =707
+            Y: =397
+            ZIndex: =35
 
-    Historico_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Histórico :"
-        Width: =160
-        X: =84
-        Y: =547
-        ZIndex: =42
+        TotalDesp_Input As text:
+            Default: |-
+                =Text(
+                    Value(DespesaLoja_input + Frete_input + Combustivel_input + PgFuncFora_input + PagBoleto_input + Lucia_input + Lucas_input + David_input + DespManutencao_input + Deposito_input + PagMercadoria_input + Segurança_input + Cozinha_input + Uber_input + Passagem_input + DobraPessoal_input + Comissão_input + Folha_input + Ferias_input),
+                    "$ #,##0.00",
+                    "pt-BR"
+                )
+            Height: =30
+            Size: =18
+            Width: =180
+            X: =887
+            Y: =397
+            ZIndex: =36
 
-    HistoricoDespesa_input As text:
-        Default: =
-        Height: =151
-        HintText: ="Insira aqui todas informações que foram somadas..."
-        Mode: =TextMode.MultiLine
-        X: =244
-        Y: =491
-        ZIndex: =43
+        DataDespesa_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =14
+            Text: |-
+                ="Data da Despesa :"
+            Width: =160
+            X: =28
+            Y: =34
+            ZIndex: =37
 
-    DataDesp_input As datepicker:
-        Height: =30
-        Width: =190
-        X: =234
-        Y: =67
-        ZIndex: =52
+        Label17_18 As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Data Lanç. :"
+            Width: =160
+            X: =794
+            Y: =472
+            ZIndex: =38
 
-    dataLanc_desp_input As datepicker:
-        DisplayMode: =DisplayMode.View
-        Height: =30
-        Width: =180
-        X: =1006
-        Y: =565
-        ZIndex: =53
+        Label17_19 As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Usuário :"
+            Width: =160
+            X: =794
+            Y: =518
+            ZIndex: =39
 
-    Lucia_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Lúcia :"
-        Width: =160
-        X: =840
-        Y: =330
-        ZIndex: =54
+        userlancDesp_input As text:
+            Default: =NomeUserlbl_room
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            Width: =180
+            X: =926
+            Y: =517
+            ZIndex: =40
 
-    Lucia_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =1000
-        Y: =330
-        ZIndex: =55
+        Historico_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Histórico :"
+            Width: =160
+            X: =38
+            Y: =512
+            ZIndex: =41
 
-    Filial_lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Size: =14
-        Text: |-
-            ="Filial :"
-        Width: =160
-        X: =440
-        Y: =67
-        ZIndex: =56
+        HistoricoDespesa_input As text:
+            Default: =
+            Height: =151
+            HintText: ="Insira aqui todas informações que foram somadas..."
+            Mode: =TextMode.MultiLine
+            X: =198
+            Y: =456
+            ZIndex: =42
 
-    FilialDesp_input As text:
-        Default: =Unidadelbl1
-        DisplayMode: =DisplayMode.View
-        Height: =30
-        Width: =180
-        X: =600
-        Y: =67
-        ZIndex: =57
+        DataDesp_input As datepicker:
+            DefaultDate: |-
+                =Text(
+                    Today(),
+                    "[$-en-US]dd/mm/yy"
+                )
+            Height: =30
+            Width: =190
+            X: =188
+            Y: =34
+            ZIndex: =43
 
-    Button5_3 As button:
-        Fill: =RGBA(127, 178, 57, 1)
-        Height: =50
-        HoverColor: =RGBA(0, 0, 0, 1)
-        HoverFill: =RGBA(232, 244, 217, 1)
-        OnSelect: |-
-            =If(
-                IsBlank(Ferias_input),
-                Notify(
-                    "O Campo FÉRIAS está em branco.",
-                    NotificationType.Error
-                ),
-                If(
-                    IsBlank(Uber_input),
+        dataLanc_desp_input As datepicker:
+            DefaultDate: |-
+                =Text(
+                    Today(),
+                    "[$-en-US]dd/mm/yy"
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            Width: =180
+            X: =926
+            Y: =471
+            ZIndex: =44
+
+        Lucia_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Lúcia :"
+            Width: =160
+            X: =764
+            Y: =297
+            ZIndex: =45
+
+        Lucia_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =926
+            Y: =297
+            ZIndex: =46
+
+        Filial_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =14
+            Text: |-
+                ="Filial :"
+            Width: =160
+            X: =394
+            Y: =34
+            ZIndex: =47
+
+        FilialDesp_input As text:
+            Default: =Unidadelbl1
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            Width: =180
+            X: =554
+            Y: =34
+            ZIndex: =48
+
+        Button5_3 As button:
+            Fill: =RGBA(127, 178, 57, 1)
+            Height: =50
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(232, 244, 217, 1)
+            OnSelect: |-
+                =If(
+                    IsBlank(Ferias_input),
                     Notify(
-                        "O Campo UBER está em branco.",
+                        "O Campo FÉRIAS está em branco.",
                         NotificationType.Error
                     ),
                     If(
-                        IsBlank(DespManutencao_input),
+                        IsBlank(Uber_input),
                         Notify(
-                            "O Campo DESPESA MANUTENCAO está em branco!",
+                            "O Campo UBER está em branco.",
                             NotificationType.Error
                         ),
                         If(
-                            IsBlank(Folha_input),
+                            IsBlank(DespManutencao_input),
                             Notify(
-                                "O Campo FOLHA está em branco!",
+                                "O Campo DESPESA MANUTENCAO está em branco!",
                                 NotificationType.Error
                             ),
                             If(
-                                IsBlank(Cozinha_input),
+                                IsBlank(Folha_input),
                                 Notify(
-                                    "O Campo COZINHA está em branco!",
+                                    "O Campo FOLHA está em branco!",
                                     NotificationType.Error
                                 ),
                                 If(
-                                    IsBlank(Deposito_input),
+                                    IsBlank(Cozinha_input),
                                     Notify(
-                                        "O Campo DEPOSITO está em branco!",
+                                        "O Campo COZINHA está em branco!",
                                         NotificationType.Error
                                     ),
                                     If(
-                                        IsBlank(Comissão_input),
+                                        IsBlank(Deposito_input),
                                         Notify(
-                                            "O Campo COMISSÃO está em branco!",
+                                            "O Campo DEPOSITO está em branco!",
                                             NotificationType.Error
                                         ),
                                         If(
-                                            IsBlank(Segurança_input),
+                                            IsBlank(Comissão_input),
                                             Notify(
-                                                "O Campo SEGURANÇA está em branco!",
+                                                "O Campo COMISSÃO está em branco!",
                                                 NotificationType.Error
                                             ),
                                             If(
-                                                IsBlank(Lucas_input),
+                                                IsBlank(Segurança_input),
                                                 Notify(
-                                                    "O Campo LUCAS está em branco!",
+                                                    "O Campo SEGURANÇA está em branco!",
                                                     NotificationType.Error
                                                 ),
                                                 If(
-                                                    IsBlank(DobraPessoal_input),
+                                                    IsBlank(Lucas_input),
                                                     Notify(
-                                                        "O Campo DOBRA PESSOAL está em branco!",
+                                                        "O Campo LUCAS está em branco!",
                                                         NotificationType.Error
                                                     ),
                                                     If(
-                                                        IsBlank(PagMercadoria_input),
+                                                        IsBlank(DobraPessoal_input),
                                                         Notify(
-                                                            "O Campo PAGAMENTO MERCADORIA está em branco!",
+                                                            "O Campo DOBRA PESSOAL está em branco!",
                                                             NotificationType.Error
                                                         ),
                                                         If(
-                                                            IsBlank(David_input),
+                                                            IsBlank(PagMercadoria_input),
                                                             Notify(
-                                                                "O Campo DAVID está em branco!",
+                                                                "O Campo PAGAMENTO MERCADORIA está em branco!",
                                                                 NotificationType.Error
                                                             ),
                                                             If(
-                                                                IsBlank(Passagem_input),
+                                                                IsBlank(David_input),
                                                                 Notify(
-                                                                    "O Campo PASSAGEM está em branco!",
+                                                                    "O Campo DAVID está em branco!",
                                                                     NotificationType.Error
                                                                 ),
                                                                 If(
-                                                                    IsBlank(PagBoleto_input),
+                                                                    IsBlank(Passagem_input),
                                                                     Notify(
-                                                                        "O Campo PAG BOLETO está em branco!",
+                                                                        "O Campo PASSAGEM está em branco!",
                                                                         NotificationType.Error
                                                                     ),
                                                                     If(
-                                                                        IsBlank(Lucia_input),
+                                                                        IsBlank(PagBoleto_input),
                                                                         Notify(
-                                                                            "O Campo LUCIA está em branco!",
+                                                                            "O Campo PAG BOLETO está em branco!",
                                                                             NotificationType.Error
                                                                         ),
                                                                         If(
-                                                                            IsBlank(Frete_input),
+                                                                            IsBlank(Lucia_input),
                                                                             Notify(
-                                                                                "O Campo FRETE está em branco!",
+                                                                                "O Campo LUCIA está em branco!",
                                                                                 NotificationType.Error
                                                                             ),
                                                                             If(
-                                                                                IsBlank(DespesaLoja_input),
+                                                                                IsBlank(Frete_input),
                                                                                 Notify(
-                                                                                    "O Campo DESPESA LOJA está em branco!",
+                                                                                    "O Campo FRETE está em branco!",
                                                                                     NotificationType.Error
                                                                                 ),
-                                                                                Patch(
-                                                                                    'gerencial_lucamat.despesa_caixa',
-                                                                                    Defaults('gerencial_lucamat.despesa_caixa'),
-                                                                                    {
-                                                                                        ID: Max(
-                                                                                            'gerencial_lucamat.despesa_caixa',
-                                                                                            ID
-                                                                                        ) + 1
-                                                                                    },
-                                                                                    {dsp_datadespesa: DataDesp_input.SelectedDate},
-                                                                                    {dsp_filial: FilialDesp_input.Text},
-                                                                                    {dsp_comissao: Value(Comissão_input.Text)},
-                                                                                    {dsp_cozina: Value(Cozinha_input.Text)},
-                                                                                    {dsp_datalanc: dataLanc_desp_input.SelectedDate},
-                                                                                    {dsp_david: Value(David_input.Text)},
-                                                                                    {dsp_deposito: Value(Deposito_input.Text)},
-                                                                                    {dsp_despesaloja: Value(DespesaLoja_input.Text)},
-                                                                                    {dsp_dobrapessoal: Value(DobraPessoal_input.Text)},
-                                                                                    {dsp_ferias: Value(Ferias_input.Text)},
-                                                                                    {dsp_folha: Value(Folha_input.Text)},
-                                                                                    {dsp_frete: Value(Frete_input.Text)},
-                                                                                    {dsp_historico: Value(HistoricoDespesa_input.Text)},
-                                                                                    {dsp_lucas: Value(Lucas_input.Text)},
-                                                                                    {dsp_lucia: Value(Lucia_input.Text)},
-                                                                                    {dsp_manutencao: Value(DespManutencao_input.Text)},
-                                                                                    {dsp_passagem: Value(Passagem_input.Text)},
-                                                                                    {dsp_pgboleto: Value(PagBoleto_input.Text)},
-                                                                                    {dsp_pgmercadoria: Value(PagMercadoria_input.Text)},
-                                                                                    {dsp_segurança: Value(Segurança_input.Text)},
-                                                                                    {dsp_total: Value(TotalDesp_Input.Text)},
-                                                                                    {dsp_uber: Value(Uber_input.Text)},
-                                                                                    {dsp_userlanc: userlancDesp_input.Text},
-                                                                                    {dsp_folhafora: Value(PgFuncFora_input.Text)},
-                                                                                    {dsp_combustivel:Value(Combustivel_input.Text)}
-                                                                                );
-                                                                                Reset(DataDesp_input);
-                                                                                Reset(FilialDesp_input);
-                                                                                Reset(Comissão_input);
-                                                                                Reset(Cozinha_input);
-                                                                                Reset(dataLanc_desp_input);
-                                                                                Reset(David_input);
-                                                                                Reset(Deposito_input);
-                                                                                Reset(DespesaLoja_input);
-                                                                                Reset(DobraPessoal_input);
-                                                                                Reset(Ferias_input);
-                                                                                Reset(Folha_input);
-                                                                                Reset(Frete_input);
-                                                                                Reset(HistoricoDespesa_input);
-                                                                                Reset(Lucas_input);
-                                                                                Reset(Lucia_input);
-                                                                                Reset(DespManutencao_input);
-                                                                                Reset(Passagem_input);
-                                                                                Reset(PagBoleto_input);
-                                                                                Reset(PagMercadoria_input);
-                                                                                Reset(Segurança_input);
-                                                                                Reset(TotalDesp_Input);
-                                                                                Reset(Uber_input);
-                                                                                Reset(userlancDesp_input);
-                                                                                Reset(PgFuncFora_input);
-                                                                                Reset(Combustivel_input);
-                                                                                Notify(
-                                                                                    "As informações foram gravadas com SUCESSO!!",
-                                                                                    NotificationType.Success
+                                                                                If(
+                                                                                    IsBlank(DespesaLoja_input),
+                                                                                    Notify(
+                                                                                        "O Campo DESPESA LOJA está em branco!",
+                                                                                        NotificationType.Error
+                                                                                    ),
+                                                                                    Patch(
+                                                                                        'gerencial_lucamat.despesa_caixa',
+                                                                                        Defaults('gerencial_lucamat.despesa_caixa'),
+                                                                                        {
+                                                                                            ID: Max(
+                                                                                                'gerencial_lucamat.despesa_caixa',
+                                                                                                ID
+                                                                                            ) + 1
+                                                                                        },
+                                                                                        {dsp_datadespesa: DataDesp_input.SelectedDate},
+                                                                                        {dsp_filial: FilialDesp_input.Text},
+                                                                                        {dsp_comissao: Value(Comissão_input.Text)},
+                                                                                        {dsp_cozina: Value(Cozinha_input.Text)},
+                                                                                        {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                                                                        {dsp_david: Value(David_input.Text)},
+                                                                                        {dsp_deposito: Value(Deposito_input.Text)},
+                                                                                        {dsp_despesaloja: Value(DespesaLoja_input.Text)},
+                                                                                        {dsp_dobrapessoal: Value(DobraPessoal_input.Text)},
+                                                                                        {dsp_ferias: Value(Ferias_input.Text)},
+                                                                                        {dsp_folha: Value(Folha_input.Text)},
+                                                                                        {dsp_frete: Value(Frete_input.Text)},
+                                                                                        {dsp_historico: HistoricoDespesa_input.Text},
+                                                                                        {dsp_lucas: Value(Lucas_input.Text)},
+                                                                                        {dsp_lucia: Value(Lucia_input.Text)},
+                                                                                        {dsp_manutencao: Value(DespManutencao_input.Text)},
+                                                                                        {dsp_passagem: Value(Passagem_input.Text)},
+                                                                                        {dsp_pgboleto: Value(PagBoleto_input.Text)},
+                                                                                        {dsp_pgmercadoria: Value(PagMercadoria_input.Text)},
+                                                                                        {dsp_segurança: Value(Segurança_input.Text)},
+                                                                                        {dsp_total: Value(TotalDesp_Input.Text)},
+                                                                                        {dsp_uber: Value(Uber_input.Text)},
+                                                                                        {dsp_userlanc: userlancDesp_input.Text},
+                                                                                        {dsp_folhafora: Value(PgFuncFora_input.Text)},
+                                                                                        {dsp_combustivel: Value(Combustivel_input.Text)},
+                                                                                        {dsp_status: 1}
+                                                                                    );
+                                                                                    Reset(DataDesp_input);
+                                                                                    Reset(FilialDesp_input);
+                                                                                    Reset(Comissão_input);
+                                                                                    Reset(Cozinha_input);
+                                                                                    Reset(dataLanc_desp_input);
+                                                                                    Reset(David_input);
+                                                                                    Reset(Deposito_input);
+                                                                                    Reset(DespesaLoja_input);
+                                                                                    Reset(DobraPessoal_input);
+                                                                                    Reset(Ferias_input);
+                                                                                    Reset(Folha_input);
+                                                                                    Reset(Frete_input);
+                                                                                    Reset(HistoricoDespesa_input);
+                                                                                    Reset(Lucas_input);
+                                                                                    Reset(Lucia_input);
+                                                                                    Reset(DespManutencao_input);
+                                                                                    Reset(Passagem_input);
+                                                                                    Reset(PagBoleto_input);
+                                                                                    Reset(PagMercadoria_input);
+                                                                                    Reset(Segurança_input);
+                                                                                    Reset(TotalDesp_Input);
+                                                                                    Reset(Uber_input);
+                                                                                    Reset(userlancDesp_input);
+                                                                                    Reset(PgFuncFora_input);
+                                                                                    Reset(Combustivel_input);
+                                                                                    Notify(
+                                                                                        "As informações foram gravadas com SUCESSO!!",
+                                                                                        NotificationType.Success
+                                                                                    )
                                                                                 )
                                                                             )
                                                                         )
@@ -660,50 +1095,86 @@ DespesaCaixa_Screen As screen:
                         )
                     )
                 )
-            )
-        Text: ="Gravar"
-        Width: =135
-        X: =895
-        Y: =667
-        ZIndex: =58
+            Text: ="Gravar"
+            Width: =135
+            X: =819
+            Y: =573
+            ZIndex: =49
 
-    PgFuncFora__lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Pg. Folha Fora :"
-        Width: =160
-        X: =84
-        Y: =385
-        ZIndex: =59
+        PgFuncFora__lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Pg. Folha Fora :"
+            Width: =160
+            X: =38
+            Y: =347
+            ZIndex: =50
 
-    PgFuncFora_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =244
-        Y: =385
-        ZIndex: =60
+        PgFuncFora_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =198
+            Y: =347
+            ZIndex: =51
 
-    Combustivel__lbl As label:
-        Align: =Align.Right
-        Font: =Font.'Segoe UI'
-        Height: =30
-        Text: |-
-            ="Combustível :"
-        Width: =160
-        X: =84
-        Y: =435
-        ZIndex: =61
+        Combustivel__lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Text: |-
+                ="Combustível :"
+            Width: =160
+            X: =38
+            Y: =397
+            ZIndex: =52
 
-    Combustivel_input As text:
-        Default: |
-            =
-        Height: =30
-        Width: =180
-        X: =244
-        Y: =435
-        ZIndex: =62
+        Combustivel_input As text:
+            Default: |
+                =
+            Height: =30
+            Width: =180
+            X: =198
+            Y: =397
+            ZIndex: =53
+
+        Button5_4 As button:
+            Fill: =RGBA(221, 79, 14, 1)
+            Height: =50
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(232, 244, 217, 1)
+            OnSelect: |
+                =Reset(DataDesp_input);
+                Reset(FilialDesp_input);
+                Reset(Comissão_input);
+                Reset(Cozinha_input);
+                Reset(dataLanc_desp_input);
+                Reset(David_input);
+                Reset(Deposito_input);
+                Reset(DespesaLoja_input);
+                Reset(DobraPessoal_input);
+                Reset(Ferias_input);
+                Reset(Folha_input);
+                Reset(Frete_input);
+                Reset(HistoricoDespesa_input);
+                Reset(Lucas_input);
+                Reset(Lucia_input);
+                Reset(DespManutencao_input);
+                Reset(Passagem_input);
+                Reset(PagBoleto_input);
+                Reset(PagMercadoria_input);
+                Reset(Segurança_input);
+                Reset(TotalDesp_Input);
+                Reset(Uber_input);
+                Reset(userlancDesp_input);
+                Reset(PgFuncFora_input);
+                Reset(Combustivel_input);
+            Text: ="Reset"
+            Width: =135
+            X: =668
+            Y: =573
+            ZIndex: =54
 

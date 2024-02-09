@@ -338,6 +338,7 @@ Cad_Financeiro_screenForm As screen:
         ZIndex: =18
 
     dtmov_input As datepicker:
+        DefaultDate: =Text(Today(), "[$-en-US]dd/mm/yy")
         Font: =Font.'Segoe UI'
         Height: =30
         Size: =12
@@ -349,6 +350,7 @@ Cad_Financeiro_screenForm As screen:
 
     dtatt_input As datepicker:
         BorderThickness: =5
+        DefaultDate: =Text(Today(), "[$-en-US]dd/mm/yy")
         DisplayMode: =DisplayMode.View
         Font: =Font.'Segoe UI'
         Format: =DateValue(Today())
