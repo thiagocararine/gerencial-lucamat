@@ -180,8 +180,8 @@ DespesaCaixa_Screen As screen:
         Text: |-
             ="Frete :"
         Width: =160
-        X: =84
-        Y: =380
+        X: =440
+        Y: =379
         ZIndex: =18
 
     Frete_input As text:
@@ -189,8 +189,8 @@ DespesaCaixa_Screen As screen:
             =
         Height: =30
         Width: =180
-        X: =244
-        Y: =380
+        X: =600
+        Y: =379
         ZIndex: =19
 
     PagMercadoria_lbl As label:
@@ -240,8 +240,8 @@ DespesaCaixa_Screen As screen:
         Text: |-
             ="Despesa Loja :"
         Width: =160
-        X: =440
-        Y: =380
+        X: =840
+        Y: =379
         ZIndex: =24
 
     DespesaLoja_input As text:
@@ -249,8 +249,8 @@ DespesaCaixa_Screen As screen:
             =
         Height: =30
         Width: =180
-        X: =600
-        Y: =380
+        X: =1000
+        Y: =379
         ZIndex: =25
 
     DespesaManutencao_lbl As label:
@@ -340,7 +340,7 @@ DespesaCaixa_Screen As screen:
         Text: ="Total Despesa"
         Width: =180
         X: =759
-        Y: =479
+        Y: =491
         ZIndex: =34
 
     TotalDesp_Input As text:
@@ -350,7 +350,7 @@ DespesaCaixa_Screen As screen:
         Size: =18
         Width: =180
         X: =939
-        Y: =479
+        Y: =491
         ZIndex: =35
 
     DataDespesa_lbl As label:
@@ -373,7 +373,7 @@ DespesaCaixa_Screen As screen:
             ="Data Lanç. :"
         Width: =160
         X: =846
-        Y: =554
+        Y: =566
         ZIndex: =38
 
     Label17_19 As label:
@@ -384,7 +384,7 @@ DespesaCaixa_Screen As screen:
             ="Usuário :"
         Width: =160
         X: =846
-        Y: =600
+        Y: =612
         ZIndex: =40
 
     userlancDesp_input As text:
@@ -393,7 +393,7 @@ DespesaCaixa_Screen As screen:
         Height: =30
         Width: =180
         X: =1006
-        Y: =599
+        Y: =611
         ZIndex: =41
 
     Historico_lbl As label:
@@ -404,7 +404,7 @@ DespesaCaixa_Screen As screen:
             ="Histórico :"
         Width: =160
         X: =84
-        Y: =535
+        Y: =547
         ZIndex: =42
 
     HistoricoDespesa_input As text:
@@ -413,7 +413,7 @@ DespesaCaixa_Screen As screen:
         HintText: ="Insira aqui todas informações que foram somadas..."
         Mode: =TextMode.MultiLine
         X: =244
-        Y: =479
+        Y: =491
         ZIndex: =43
 
     DataDesp_input As datepicker:
@@ -428,7 +428,7 @@ DespesaCaixa_Screen As screen:
         Height: =30
         Width: =180
         X: =1006
-        Y: =553
+        Y: =565
         ZIndex: =53
 
     Lucia_lbl As label:
@@ -611,7 +611,9 @@ DespesaCaixa_Screen As screen:
                                                                                     {dsp_segurança: Value(Segurança_input.Text)},
                                                                                     {dsp_total: Value(TotalDesp_Input.Text)},
                                                                                     {dsp_uber: Value(Uber_input.Text)},
-                                                                                    {dsp_userlanc: userlancDesp_input.Text}
+                                                                                    {dsp_userlanc: userlancDesp_input.Text},
+                                                                                    {dsp_folhafora: Value(PgFuncFora_input.Text)},
+                                                                                    {dsp_combustivel:Value(Combustivel_input.Text)}
                                                                                 );
                                                                                 Reset(DataDesp_input);
                                                                                 Reset(FilialDesp_input);
@@ -636,6 +638,8 @@ DespesaCaixa_Screen As screen:
                                                                                 Reset(TotalDesp_Input);
                                                                                 Reset(Uber_input);
                                                                                 Reset(userlancDesp_input);
+                                                                                Reset(PgFuncFora_input);
+                                                                                Reset(Combustivel_input);
                                                                                 Notify(
                                                                                     "As informações foram gravadas com SUCESSO!!",
                                                                                     NotificationType.Success
@@ -662,4 +666,44 @@ DespesaCaixa_Screen As screen:
         X: =895
         Y: =667
         ZIndex: =58
+
+    PgFuncFora__lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Pg. Folha Fora :"
+        Width: =160
+        X: =84
+        Y: =385
+        ZIndex: =59
+
+    PgFuncFora_input As text:
+        Default: |
+            =
+        Height: =30
+        Width: =180
+        X: =244
+        Y: =385
+        ZIndex: =60
+
+    Combustivel__lbl As label:
+        Align: =Align.Right
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Text: |-
+            ="Combustível :"
+        Width: =160
+        X: =84
+        Y: =435
+        ZIndex: =61
+
+    Combustivel_input As text:
+        Default: |
+            =
+        Height: =30
+        Width: =180
+        X: =244
+        Y: =435
+        ZIndex: =62
 
