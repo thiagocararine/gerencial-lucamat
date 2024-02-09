@@ -24,8 +24,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =2
 
     Ferias_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         HintText: =""
         Width: =180
@@ -45,8 +45,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =4
 
     Folha_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =244
@@ -65,8 +65,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =6
 
     Comissão_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =244
@@ -85,8 +85,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =8
 
     DobraPessoal_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =244
@@ -105,8 +105,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =10
 
     Passagem_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =244
@@ -125,8 +125,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =12
 
     Uber_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =600
@@ -145,8 +145,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =14
 
     Cozinha_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =600
@@ -165,8 +165,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =16
 
     Segurança_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =600
@@ -185,8 +185,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =18
 
     Frete_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =244
@@ -205,8 +205,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =20
 
     PagMercadoria_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =600
@@ -225,8 +225,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =22
 
     PagBoleto_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =600
@@ -245,8 +245,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =24
 
     DespesaLoja_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =600
@@ -265,8 +265,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =26
 
     DespManutencao_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =1000
@@ -285,8 +285,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =28
 
     Deposito_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =1000
@@ -305,8 +305,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =30
 
     Lucas_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =1000
@@ -325,8 +325,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =32
 
     David_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =1000
@@ -443,8 +443,8 @@ DespesaCaixa_Screen As screen:
         ZIndex: =54
 
     Lucia_input As text:
-        Default: |-
-            =Text(Value(0),"$ #,##0.00","pt-BR")
+        Default: |
+            =
         Height: =30
         Width: =180
         X: =1000
@@ -580,72 +580,65 @@ DespesaCaixa_Screen As screen:
                                                                                     "O Campo DESPESA LOJA está em branco!",
                                                                                     NotificationType.Error
                                                                                 ),
-                                                                                If(
-                                                                                    IsBlank(HistoricoDespesa_input),
-                                                                                    Notify(
-                                                                                        "O Campo HISTORICO está em branco!",
-                                                                                        NotificationType.Error
-                                                                                    );
-                                                                                    Patch(
-                                                                                        'gerencial_lucamat.despesa_caixa',
-                                                                                        Defaults('gerencial_lucamat.despesa_caixa'),
-                                                                                        {
-                                                                                            ID: Max(
-                                                                                                'gerencial_lucamat.despesa_caixa',
-                                                                                                ID
-                                                                                            ) + 1
-                                                                                        },
-                                                                                        {dsp_datadespesa: DataDesp_input.SelectedDate},
-                                                                                        {dsp_filial:FilialDesp_input.Text},
-                                                                                        {dsp_comissao:Value(Comissão_input.Text)},
-                                                                                        {dsp_cozina:Cozinha_input.Text},
-                                                                                        {dsp_datalanc:dataLanc_desp_input.SelectedDate},
-                                                                                        {dsp_david:David_input.Text},
-                                                                                        {dsp_deposito:Deposito_input.Text},
-                                                                                        {dsp_despesaloja:DespesaLoja_input.Text},
-                                                                                        {dsp_dobrapessoal:DobraPessoal_input.Text},
-                                                                                        {dsp_ferias:Ferias_input.Text},
-                                                                                        {dsp_folha:Folha_input.Text},
-                                                                                        {dsp_frete:Frete_input.Text},
-                                                                                        {dsp_historico:HistoricoDespesa_input.Text},
-                                                                                        {dsp_lucas:Lucas_input.Text},
-                                                                                        {dsp_lucia:Lucia_input.Text},
-                                                                                        {dsp_manutencao:DespManutencao_input.Text},
-                                                                                        {dsp_passagem:Passagem_input.Text},
-                                                                                        {dsp_pgboleto:PagBoleto_input.Text},
-                                                                                        {dsp_pgmercadoria:PagMercadoria_input.Text},
-                                                                                        {dsp_segurança:Segurança_input.Text},
-                                                                                        {dsp_total:TotalDesp_Input.Text},
-                                                                                        {dsp_uber:Uber_input.Text},
-                                                                                        {dsp_userlanc:userlancDesp_input.Text}
-                                                                                    ),
-                                                                                    Reset(DataDesp_input);
-                                                                                    Reset(FilialDesp_input);
-                                                                                    Reset(Comissão_input);
-                                                                                    Reset(Cozinha_input);
-                                                                                    Reset(dataLanc_desp_input);
-                                                                                    Reset(David_input);
-                                                                                    Reset(Deposito_input);
-                                                                                    Reset(DespesaLoja_input);
-                                                                                    Reset(DobraPessoal_input);
-                                                                                    Reset(Ferias_input);
-                                                                                    Reset(Folha_input);
-                                                                                    Reset(Frete_input);
-                                                                                    Reset(HistoricoDespesa_input);
-                                                                                    Reset(Lucas_input);
-                                                                                    Reset(Lucia_input);
-                                                                                    Reset(DespManutencao_input);
-                                                                                    Reset(Passagem_input);
-                                                                                    Reset(PagBoleto_input);
-                                                                                    Reset(PagMercadoria_input);
-                                                                                    Reset(Segurança_input);
-                                                                                    Reset(TotalDesp_Input);
-                                                                                    Reset(Uber_input);
-                                                                                    Reset(userlancDesp_input);
-                                                                                    Notify(
-                                                                                        "As informações foram gravadas com SUCESSO!",
-                                                                                        NotificationType.Success
-                                                                                    )
+                                                                                Patch(
+                                                                                    'gerencial_lucamat.despesa_caixa',
+                                                                                    Defaults('gerencial_lucamat.despesa_caixa'),
+                                                                                    {
+                                                                                        ID: Max(
+                                                                                            'gerencial_lucamat.despesa_caixa',
+                                                                                            ID
+                                                                                        ) + 1
+                                                                                    },
+                                                                                    {dsp_datadespesa: DataDesp_input.SelectedDate},
+                                                                                    {dsp_filial: FilialDesp_input.Text},
+                                                                                    {dsp_comissao: Value(Comissão_input.Text)},
+                                                                                    {dsp_cozina: Value(Cozinha_input.Text)},
+                                                                                    {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                                                                    {dsp_david: Value(David_input.Text)},
+                                                                                    {dsp_deposito: Value(Deposito_input.Text)},
+                                                                                    {dsp_despesaloja: Value(DespesaLoja_input.Text)},
+                                                                                    {dsp_dobrapessoal: Value(DobraPessoal_input.Text)},
+                                                                                    {dsp_ferias: Value(Ferias_input.Text)},
+                                                                                    {dsp_folha: Value(Folha_input.Text)},
+                                                                                    {dsp_frete: Value(Frete_input.Text)},
+                                                                                    {dsp_historico: Value(HistoricoDespesa_input.Text)},
+                                                                                    {dsp_lucas: Value(Lucas_input.Text)},
+                                                                                    {dsp_lucia: Value(Lucia_input.Text)},
+                                                                                    {dsp_manutencao: Value(DespManutencao_input.Text)},
+                                                                                    {dsp_passagem: Value(Passagem_input.Text)},
+                                                                                    {dsp_pgboleto: Value(PagBoleto_input.Text)},
+                                                                                    {dsp_pgmercadoria: Value(PagMercadoria_input.Text)},
+                                                                                    {dsp_segurança: Value(Segurança_input.Text)},
+                                                                                    {dsp_total: Value(TotalDesp_Input.Text)},
+                                                                                    {dsp_uber: Value(Uber_input.Text)},
+                                                                                    {dsp_userlanc: userlancDesp_input.Text}
+                                                                                );
+                                                                                Reset(DataDesp_input);
+                                                                                Reset(FilialDesp_input);
+                                                                                Reset(Comissão_input);
+                                                                                Reset(Cozinha_input);
+                                                                                Reset(dataLanc_desp_input);
+                                                                                Reset(David_input);
+                                                                                Reset(Deposito_input);
+                                                                                Reset(DespesaLoja_input);
+                                                                                Reset(DobraPessoal_input);
+                                                                                Reset(Ferias_input);
+                                                                                Reset(Folha_input);
+                                                                                Reset(Frete_input);
+                                                                                Reset(HistoricoDespesa_input);
+                                                                                Reset(Lucas_input);
+                                                                                Reset(Lucia_input);
+                                                                                Reset(DespManutencao_input);
+                                                                                Reset(Passagem_input);
+                                                                                Reset(PagBoleto_input);
+                                                                                Reset(PagMercadoria_input);
+                                                                                Reset(Segurança_input);
+                                                                                Reset(TotalDesp_Input);
+                                                                                Reset(Uber_input);
+                                                                                Reset(userlancDesp_input);
+                                                                                Notify(
+                                                                                    "As informações foram gravadas com SUCESSO!!",
+                                                                                    NotificationType.Success
                                                                                 )
                                                                             )
                                                                         )
