@@ -149,7 +149,7 @@
                 {
                     userbaixa_chq: LookUp(
                         'gerencial_lucamat.cad_user',
-                        email_user = Text(login_input),
+                        email_user = Text(login_input.Text),
                         nome_user
                     )
                 }
@@ -199,7 +199,7 @@
                 {
                     userbaixa_chq: LookUp(
                         'gerencial_lucamat.cad_user',
-                        email_user = Text(login_input),
+                        email_user = Text(login_input.Text),
                         nome_user
                     )
                 }
@@ -249,7 +249,7 @@
                 {
                     userbaixa_chq: LookUp(
                         'gerencial_lucamat.cad_user',
-                        email_user = Text(login_input),
+                        email_user = Text(login_input.Text),
                         nome_user
                     )
                 }
@@ -900,13 +900,13 @@
             Fill: =RGBA(127, 178, 57, 1)
             OnSelect: |-
                 =If(
-                    IsBlank(RazaoSocial_Input_1),
+                    IsBlank(RazaoSocial_Input_1.Text),
                     Notify(
                         "O Campo Razão Social está em branco!",
                         NotificationType.Error
                     ),
                     If(
-                        IsBlank(CNPJ_Input_1),
+                        IsBlank(CNPJ_Input_1.Text),
                         Notify(
                             "O Campo CNPJ está em branco!",
                             NotificationType.Error
@@ -975,7 +975,7 @@
             Default: |-
                 =LookUp(
                     'gerencial_lucamat.cad_user',
-                    email_user = Text(login_input),
+                    email_user = Text(login_input.Text),
                     nome_user
                 )
             DisplayMode: =DisplayMode.View
@@ -1467,7 +1467,7 @@
             ZIndex: =38
 
         UsuarioLancInput_chq As text:
-            Default: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+            Default: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),nome_user)
             Height: =38
             Size: =11
             Visible: =false
@@ -1521,49 +1521,49 @@
             HoverFill: =ColorFade(Self.Color, -20%)
             OnSelect: |-
                 =If(
-                    IsBlank(EmpresaInput_chq),
+                    IsBlank(EmpresaInput_chq.SelectedText),
                     Notify(
                         "O Campo EMPRESA está em branco!",
                         NotificationType.Error
                     ),
                     If(
-                        IsBlank(FornecedorInput_chq),
+                        IsBlank(FornecedorInput_chq.SelectedItems),
                         Notify(
                             "O Campo FORNECEDOR está em branco!",
                             NotificationType.Error
                         ),
                         If(
-                            IsBlank(DescricaoInput_chq),
+                            IsBlank(DescricaoInput_chq.Text),
                             Notify(
                                 "O Campo DESCRIÇÃO está em branco!",
                                 NotificationType.Error
                             ),
                             If(
-                                IsBlank(Banco_input_chq),
+                                IsBlank(Banco_input_chq.SelectedItems),
                                 Notify(
                                     "O Campo BANCO está em branco!",
                                     NotificationType.Error
                                 ),
                                 If(
-                                    IsBlank(AgCc_input_chq),
+                                    IsBlank(AgCc_input_chq.SelectedItems),
                                     Notify(
                                         "O Campo AGENCIA E CONTA está em branco!",
                                         NotificationType.Error
                                     ),
                                     If(
-                                        IsBlank(DataVencInput_chq),
+                                        IsBlank(DataVencInput_chq.SelectedDate),
                                         Notify(
                                             "O Campo DATA DE VENCIMENTO está em branco!",
                                             NotificationType.Error
                                         ),
                                         If(
-                                            IsBlank(NumeroChqInput_chq),
+                                            IsBlank(NumeroChqInput_chq.Text),
                                             Notify(
                                                 "O Campo NUMERO DO CHEQUE está em branco!",
                                                 NotificationType.Error
                                             ),
                                             If(
-                                                IsBlank(ValorInput_chq),
+                                                IsBlank(ValorInput_chq.Text),
                                                 Notify(
                                                     "O Campo VALOR está em branco!",
                                                     NotificationType.Error
@@ -1966,7 +1966,7 @@
             Icon: =Icon.AddLibrary
             OnSelect: |-
                 =If(
-                    IsBlank(AgenciaConta_Banco_input),
+                    IsBlank(AgenciaConta_Banco_input.Text),
                     Notify(
                         "Por Favor insira o nome do BANCO no campo designado",
                         NotificationType.Error
@@ -2196,13 +2196,13 @@
             Icon: =Icon.AddLibrary
             OnSelect: |-
                 =If(
-                    IsBlank(codParametro_AgCc),
+                    IsBlank(codParametro_AgCc.Text),
                     Notify(
                         "Codigo de Parametro está inválido, entre em contato com o Suporte",
                         NotificationType.Error
                     ),
                     If(
-                        IsBlank(AgenciaConta_AgCc_input),
+                        IsBlank(AgenciaConta_AgCc_input.Text),
                         Notify(
                             "Insira um numero de Agencia e Conta, no campo informado!",
                             NotificationType.Error

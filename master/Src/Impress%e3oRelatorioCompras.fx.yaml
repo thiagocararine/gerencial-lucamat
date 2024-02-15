@@ -299,7 +299,7 @@
         FontWeight: =FontWeight.Semibold
         Height: =25
         Size: =12
-        Text: =Filtro_DataLanc_inicio_cmp
+        Text: =Filtro_DataLanc_inicio_cmp.SelectedDate
         Underline: =true
         Width: =165
         X: =724
@@ -311,7 +311,7 @@
         FontWeight: =FontWeight.Semibold
         Height: =25
         Size: =12
-        Text: =Filtro_DataLanc_fim_cmp
+        Text: =Filtro_DataLanc_fim_cmp.SelectedDate
         Underline: =true
         Width: =165
         X: =936
@@ -358,7 +358,7 @@
         FontWeight: =FontWeight.Semibold
         Height: =30
         Size: =14
-        Text: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+        Text: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),nome_user)
         Width: =266
         X: =832
         Y: =752

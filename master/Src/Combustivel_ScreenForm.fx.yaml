@@ -446,7 +446,7 @@ Combustivel_ScreenForm As screen:
 
         userlanc_input_cmb As text:
             Default: |
-                =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+                =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),nome_user)
             DisplayMode: =DisplayMode.View
             Font: =Font.'Segoe UI'
             Height: =27
@@ -567,67 +567,67 @@ Combustivel_ScreenForm As screen:
             HoverFill: =RGBA(209, 232, 178, 1)
             OnSelect: |-
                 =If(
-                    IsBlank(filial_cmb_input),
+                    IsBlank(filial_cmb_input.SelectedText),
                     Notify(
                         "O Campo FILIAL está em branco.",
                         NotificationType.Error
                     ),
                     If(
-                        IsBlank(placaveiculo_cmb_input),
+                        IsBlank(placaveiculo_cmb_input.SelectedText),
                         Notify(
                             "O Campo PLACA DO VEÍCULO está em branco.",
                             NotificationType.Error
                         ),
                         If(
-                            IsBlank(motorista_cmb_input),
+                            IsBlank(motorista_cmb_input.Text),
                             Notify(
                                 "O Campo MOTORISTA está em branco.",
                                 NotificationType.Error
                             ),
                             If(
-                                IsBlank(posto_cmb_input),
+                                IsBlank(posto_cmb_input.SelectedText),
                                 Notify(
                                     "O Campo POSTO está em branco.",
                                     NotificationType.Error
                                 ),
                                 If(
-                                    IsBlank(KMveiculo_cmb_input),
+                                    IsBlank(KMveiculo_cmb_input.Text),
                                     Notify(
                                         "O Campo KM VEÍCULO está em branco.",
                                         NotificationType.Error
                                     ),
                                     If(
-                                        IsBlank(qtlitros_cmb_input),
+                                        IsBlank(qtlitros_cmb_input.Text),
                                         Notify(
                                             "O Campo QUANTIDADE DE LITROS está em branco.",
                                             NotificationType.Error
                                         ),
                                         If(
-                                            IsBlank(tpCombustivel_cmb_input),
+                                            IsBlank(tpCombustivel_cmb_input.SelectedText),
                                             Notify(
                                                 "O Campo TIPO DE COMBUSTIVEL está em branco.",
                                                 NotificationType.Error
                                             ),
                                             If(
-                                                IsBlank(vlrCombustivel_cmb_input),
+                                                IsBlank(vlrCombustivel_cmb_input.Text),
                                                 Notify(
                                                     "O Campo VALOR DO COMBUSTIVEL está em branco.",
                                                     NotificationType.Error
                                                 ),
                                                 If(
-                                                    IsBlank(DtAbastecimento_cmb_lbl),
+                                                    IsBlank(DtAbastecimento_cmb_lbl.Text),
                                                     Notify(
                                                         "O Campo DATA DE ABASTECIMENTO está em branco.",
                                                         NotificationType.Error
                                                     ),
                                                     If(
-                                                        IsBlank(vlrTotal_cmb_input),
+                                                        IsBlank(vlrTotal_cmb_input.Text),
                                                         Notify(
                                                             "O Campo VALOR TOTAL está em branco.",
                                                             NotificationType.Error
                                                         ),
                                                         If(
-                                                            IsBlank(NFE_cmb_input),
+                                                            IsBlank(NFE_cmb_input.Text),
                                                             Notify(
                                                                 "O Campo Nº NFe Está em branco.",
                                                                 NotificationType.Error
@@ -929,7 +929,7 @@ Combustivel_ScreenForm As screen:
 
         userlanc_input_cmb_1 As text:
             Default: |
-                =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+                =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),nome_user)
             DisplayMode: =DisplayMode.View
             Font: =Font.'Segoe UI'
             Height: =27
@@ -1050,67 +1050,67 @@ Combustivel_ScreenForm As screen:
             HoverFill: =RGBA(209, 232, 178, 1)
             OnSelect: |-
                 =If(
-                    IsBlank(filial_cmb_input_1),
+                    IsBlank(filial_cmb_input_1.SelectedText),
                     Notify(
                         "O Campo FILIAL está em branco.",
                         NotificationType.Error
                     ),
                     If(
-                        IsBlank(placaveiculo_cmb_input_1),
+                        IsBlank(placaveiculo_cmb_input_1.SelectedText),
                         Notify(
                             "O Campo PLACA DO VEÍCULO está em branco.",
                             NotificationType.Error
                         ),
                         If(
-                            IsBlank(motorista_cmb_input_1),
+                            IsBlank(motorista_cmb_input_1.Text),
                             Notify(
                                 "O Campo MOTORISTA está em branco.",
                                 NotificationType.Error
                             ),
                             If(
-                                IsBlank(posto_cmb_input_1),
+                                IsBlank(posto_cmb_input_1.SelectedText),
                                 Notify(
                                     "O Campo POSTO está em branco.",
                                     NotificationType.Error
                                 ),
                                 If(
-                                    IsBlank(KMveiculo_cmb_input_1),
+                                    IsBlank(KMveiculo_cmb_input_1.Text),
                                     Notify(
                                         "O Campo KM VEÍCULO está em branco.",
                                         NotificationType.Error
                                     ),
                                     If(
-                                        IsBlank(qtlitros_cmb_input_1),
+                                        IsBlank(qtlitros_cmb_input_1.Text),
                                         Notify(
                                             "O Campo QUANTIDADE DE LITROS está em branco.",
                                             NotificationType.Error
                                         ),
                                         If(
-                                            IsBlank(tpCombustivel_cmb_input_1),
+                                            IsBlank(tpCombustivel_cmb_input_1.SelectedText),
                                             Notify(
                                                 "O Campo TIPO DE COMBUSTIVEL está em branco.",
                                                 NotificationType.Error
                                             ),
                                             If(
-                                                IsBlank(vlrCombustivel_cmb_input_1),
+                                                IsBlank(vlrCombustivel_cmb_input_1.Text),
                                                 Notify(
                                                     "O Campo VALOR DO COMBUSTIVEL está em branco.",
                                                     NotificationType.Error
                                                 ),
                                                 If(
-                                                    IsBlank(DtAbastecimento_cmb_lbl_1),
+                                                    IsBlank(DtAbastecimento_cmb_lbl_1.Text),
                                                     Notify(
                                                         "O Campo DATA DE ABASTECIMENTO está em branco.",
                                                         NotificationType.Error
                                                     ),
                                                     If(
-                                                        IsBlank(vlrTotal_cmb_input_1),
+                                                        IsBlank(vlrTotal_cmb_input_1.Text),
                                                         Notify(
                                                             "O Campo VALOR TOTAL está em branco.",
                                                             NotificationType.Error
                                                         ),
                                                         If(
-                                                            IsBlank(NFE_cmb_input_2),
+                                                            IsBlank(NFE_cmb_input_2.Text),
                                                             Notify(
                                                                 "O Campo Nº NFe está em branco",
                                                                 NotificationType.Error

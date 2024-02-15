@@ -87,7 +87,7 @@
         Icon: =Icon.AddLibrary
         OnSelect: |-
             =If(
-                IsBlank(parametro_config_input),
+                IsBlank(parametro_config_input.Text),
                 Notify(
                     "Não por favor, insira o nome do PARÂMETRO desejado, no campo.",
                     NotificationType.Error
@@ -843,73 +843,73 @@
             HoverFill: =RGBA(209, 232, 178, 1)
             OnSelect: |-
                 =If(
-                    IsBlank(fantasia_input_empresa),
+                    IsBlank(fantasia_input_empresa.Text),
                     Notify(
                         "NOME FANTASIA está em branco, por favor preencha o campo correspondente!",
                         NotificationType.Error
                     ),
                     If(
-                        IsBlank(razao_input_empresa),
+                        IsBlank(razao_input_empresa.Text),
                         Notify(
                             "RAZÃO SOCIAL está em branco, por favor preencha o campo correspondente!",
                             NotificationType.Error
                         ),
                         If(
-                            IsBlank(cnpj_input_empresa),
+                            IsBlank(cnpj_input_empresa.Text),
                             Notify(
                                 "CNPJ da EMPRESA está em branco, por favor preencha o campo correspondente!",
                                 NotificationType.Error
                             ),
                             If(
-                                IsBlank(ie_input_empresa),
+                                IsBlank(ie_input_empresa.Text),
                                 Notify(
                                     "INSCRIÇÃO ESTADUAL está em branco, por favor preencha o campo correspondente!",
                                     NotificationType.Error
                                 ),
                                 If(
-                                    IsBlank(cep_input_empresa),
+                                    IsBlank(cep_input_empresa.Text),
                                     Notify(
                                         "Campo com nome CEP está em branco, por favor preencha o campo correspondente!",
                                         NotificationType.Error
                                     ),
                                     If(
-                                        IsBlank(endereco_input_empresa),
+                                        IsBlank(endereco_input_empresa.Text),
                                         Notify(
                                             "Preencha por favor o ENDEREÇO está em branco, por favor preencha o campo correspondente!",
                                             NotificationType.Error
                                         ),
                                         If(
-                                            IsBlank(numero_input_empresa),
+                                            IsBlank(numero_input_empresa.Text),
                                             Notify(
                                                 "o campo NUMERO está em branco, por favor preencha o campo correspondente!",
                                                 NotificationType.Error
                                             ),
                                             If(
-                                                IsBlank(complemento_input_empresa),
+                                                IsBlank(complemento_input_empresa.Text),
                                                 Notify(
                                                     "COMPLEMENTO está em branco, por favor preencha o campo correspondente!",
                                                     NotificationType.Error
                                                 ),
                                                 If(
-                                                    IsBlank(cidade_input_empresa),
+                                                    IsBlank(cidade_input_empresa.SelectedItems),
                                                     Notify(
                                                         "O campo CIDADE está em branco, por favor preencha o campo correspondente!",
                                                         NotificationType.Error
                                                     ),
                                                     If(
-                                                        IsBlank(uf_input_empresa),
+                                                        IsBlank(uf_input_empresa.SelectedText),
                                                         Notify(
                                                             "UF está em branco, por favor preencha o campo correspondente!",
                                                             NotificationType.Error
                                                         ),
                                                         If(
-                                                            IsBlank(telefone_input_empresa),
+                                                            IsBlank(telefone_input_empresa.Text),
                                                             Notify(
                                                                 "Prenecha o campo TELEFONE está em branco, por favor preencha-o!",
                                                                 NotificationType.Error
                                                             ),
                                                             If(
-                                                                IsBlank(email_input_empresa),
+                                                                IsBlank(email_input_empresa.Text),
                                                                 Notify(
                                                                     "E-MAIL está em branco, por favor preencha o campo correspondente!",
                                                                     NotificationType.Error

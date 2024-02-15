@@ -5,7 +5,7 @@
       "DataflowAnalysisEnabled": false,
       "DataflowAnalysisFlagStateToggledByUser": false
     },
-    "DocVersion": "1.336",
+    "DocVersion": "1.337",
     "MinVersionToLoad": "1.331",
     "MSAppStructureVersion": "2.0"
   },
@@ -77,7 +77,7 @@
       "pdffunction": true,
       "powerfxdecimal": false,
       "powerfxv1": false,
-      "primaryoutputpropertycoerciondeprecated": false,
+      "primaryoutputpropertycoerciondeprecated": true,
       "projectionmapping": false,
       "reactformulabar": true,
       "reliableconcurrent": true,
@@ -115,15 +115,15 @@
     "FileID": "ca426385-4ed6-4646-be82-04d425c9a415",
     "Id": "49acbeae-a19c-4dab-a1d7-2fe987107989",
     "InstrumentationKey": "",
-    "LocalDatabaseReferences": "{}",
+    "LocalDatabaseReferences": "",
     "ManualOfflineProfileId": "",
-    "Name": "Gerencial - Luca Materiais",
+    "Name": "Gerencial - Luca Materiais1",
     "OriginatingVersion": "1.326",
     "ParserErrorCount": 1,
     "ShowStatusBar": false
   },
   "PublishInfo": {
-    "AppName": "Gerencial - Luca Materiais",
+    "AppName": "Gerencial - Luca Materiais1",
     "BackgroundColor": "rgba(50, 86, 160, 1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "People",

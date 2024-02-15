@@ -28,25 +28,25 @@ Cad_Financeiro_screenForm As screen:
         Height: =27
         OnSelect: |-
             =If(
-                IsBlank(hist_input),
+                IsBlank(hist_input.Text),
                 Notify(
                     "O Campo HISTORICO está em branco.",
                     NotificationType.Error
                 ),
                 If(
-                    IsBlank(tplanc_input),
+                    IsBlank(tplanc_input.SelectedItems),
                     Notify(
                         "O Campo TIPO DE LANÇAMENTO está em branco.",
                         NotificationType.Error
                     ),
                     If(
-                        IsBlank(hist_input),
+                        IsBlank(hist_input.Text),
                         Notify(
                             "O HISTÓRICO DO LANÇAMENTO está em branco!",
                             NotificationType.Error
                         ),
                         If(
-                            IsBlank(valor_input),
+                            IsBlank(valor_input.Text),
                             Notify(
                                 "O Campo VALOR está em branco!",
                                 NotificationType.Error
@@ -325,7 +325,7 @@ Cad_Financeiro_screenForm As screen:
 
     user_input As text:
         BorderThickness: =5
-        Default: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+        Default: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),nome_user)
         DisplayMode: =DisplayMode.View
         Font: =Font.'Segoe UI'
         Height: =30
@@ -462,25 +462,25 @@ Cad_Financeiro_screenForm As screen:
         Height: =27
         OnSelect: |-
             =If(
-                IsBlank(hist_input),
+                IsBlank(hist_input.Text),
                 Notify(
                     "O Campo FILIAL está em branco.",
                     NotificationType.Error
                 ),
                 If(
-                    IsBlank(tplanc_input),
+                    IsBlank(tplanc_input.SelectedItems),
                     Notify(
                         "O Campo TIPO DE LANÇAMENTO está em branco.",
                         NotificationType.Error
                     ),
                     If(
-                        IsBlank(hist_input),
+                        IsBlank(hist_input.Text),
                         Notify(
                             "O HISTÓRICO DO LANÇAMENTO está em branco!",
                             NotificationType.Error
                         ),
                         If(
-                            IsBlank(valor_input),
+                            IsBlank(valor_input.Text),
                             Notify(
                                 "O Campo VALOR está em branco!",
                                 NotificationType.Error

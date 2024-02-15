@@ -1152,7 +1152,7 @@ Compras_screenDash As screen:
             Default: |-
                 =LookUp(
                     'gerencial_lucamat.cad_user',
-                    email_user = Text(login_input),
+                    email_user = Text(login_input.Text),
                     nome_user
                 )
             DisplayMode: =DisplayMode.View

@@ -784,7 +784,7 @@
         TextInput2_18 As text:
             Default: |-
                 =Text(
-                    Sum(TotalEntradaPDF_NC + TotalEmpRecPDF_NC - TotalSaidaPDF_NC - TotalEmpEfetPDF_NC),
+                    Sum(TotalEntradaPDF_NC.Text + TotalEmpRecPDF_NC.Text - TotalSaidaPDF_NC.Text - TotalEmpEfetPDF_NC.Text),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -818,7 +818,7 @@
         TotalEntradaPDF_NC As text:
             Default: |-
                 =Text(
-                    Sum(DinheiroPDF_NC + CartãoPDF_NC + PixPDF_NC + BoletoPDF_NC + EntSocioPDF_NC),
+                    Sum(DinheiroPDF_NC.Text + CartãoPDF_NC.Text + PixPDF_NC.Text + BoletoPDF_NC.Text + EntSocioPDF_NC.Text),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -850,7 +850,7 @@
         TotalSaidaPDF_NC As text:
             Default: |-
                 =Text(
-                    Sum(PagBoletoPDF_NC + PagChequePDF_NC + PagPessoalPDF_NC+ RetiradaSocioPDF_NC+ RetSocioPDF_NC),
+                    Sum(PagBoletoPDF_NC.Text + PagChequePDF_NC.Text + PagPessoalPDF_NC.Text+ RetiradaSocioPDF_NC.Text+ RetSocioPDF_NC.Text),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -882,7 +882,7 @@
         TotalEmpRecPDF_NC As text:
             Default: |-
                 =Text(
-                    Sum(EmpNCRecPDF_NC + EmpPIARecPDF_NC + EmpSCRecPDF_NC + EmpMDRecPDF_NC),
+                    Sum(EmpNCRecPDF_NC.Text + EmpPIARecPDF_NC.Text + EmpSCRecPDF_NC.Text + EmpMDRecPDF_NC.Text),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -916,7 +916,7 @@
         TotalEmpEfetPDF_NC As text:
             Default: |-
                 =Text(
-                    Sum(EmpNCEfetPDF_NC + EmpPIAEfetPDF_NC + EmpSCEfetPDF_NC + EmpMDEfetPDF_NC),
+                    Sum(EmpNCEfetPDF_NC.Text + EmpPIAEfetPDF_NC.Text + EmpSCEfetPDF_NC.Text + EmpMDEfetPDF_NC.Text),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -1804,7 +1804,7 @@
         TextInput2_19 As text:
             Default: |-
                 =Text(
-                    Sum(TotalEntradaPDF_SC + TotalEmpRecPDF_SC - TotalSaidaPDF_SC - TotalEmpEfetPDF_SC),
+                    Sum(TotalEntradaPDF_SC.Text + TotalEmpRecPDF_SC.Text - TotalSaidaPDF_SC.Text - TotalEmpEfetPDF_SC.Text),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -1838,7 +1838,7 @@
         TotalEntradaPDF_SC As text:
             Default: |-
                 =Text(
-                    Sum(DinheiroPDF_SC + CartãoPDF_SC + PixPDF_SC + BoletoPDF_SC + EntSocioPDF_SC),
+                    Sum(DinheiroPDF_SC.Text + CartãoPDF_SC.Text + PixPDF_SC.Text + BoletoPDF_SC.Text + EntSocioPDF_SC.Text),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -1870,7 +1870,7 @@
         TotalSaidaPDF_SC As text:
             Default: |-
                 =Text(
-                    Sum(PagBoletoPDF_SC + PagChequePDF_SC + PagPessoalPDF_SC+ RetiradaSocioPDF_SC+ RetSocioPDF_SC),
+                    Sum(PagBoletoPDF_SC.Text + PagChequePDF_SC.Text + PagPessoalPDF_SC.Text+ RetiradaSocioPDF_SC.Text+ RetSocioPDF_SC.Text),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -1902,7 +1902,7 @@
         TotalEmpRecPDF_SC As text:
             Default: |-
                 =Text(
-                    Sum(EmpNCRecPDF_SC + EmpPIARecPDF_SC + EmpSCRecPDF_SC + EmpMDRecPDF_SC),
+                    Sum(EmpNCRecPDF_SC.Text + EmpPIARecPDF_SC.Text + EmpSCRecPDF_SC.Text + EmpMDRecPDF_SC.Text),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -1936,7 +1936,7 @@
         TotalEmpEfetPDF_SC As text:
             Default: |-
                 =Text(
-                    Sum(EmpNCEfetPDF_SC + EmpPIAEfetPDF_SC + EmpSCEfetPDF_SC + EmpMDEfetPDF_SC),
+                    Sum(EmpNCEfetPDF_SC.Text + EmpPIAEfetPDF_SC.Text + EmpSCEfetPDF_SC.Text + EmpMDEfetPDF_SC.Text),
                     "$ #,##0.00",
                     "pt-BR"
                 )
@@ -2038,7 +2038,7 @@
         Height: =55
         Italic: =true
         Size: =16
-        Text: =Text(DataCompt, "[$-en-US]dd/mm/yy")
+        Text: =Text(DataCompt.SelectedDate, "[$-en-US]dd/mm/yy")
         Width: =127
         X: =637
         Y: =46

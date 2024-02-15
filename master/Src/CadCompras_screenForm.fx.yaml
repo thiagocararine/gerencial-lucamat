@@ -258,7 +258,7 @@ CadCompras_screenForm As screen:
         ZIndex: =24
 
     User_input As text:
-        Default: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+        Default: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),nome_user)
         DisplayMode: =DisplayMode.View
         Height: =30
         Size: =10
@@ -610,7 +610,7 @@ CadCompras_screenForm As screen:
         ZIndex: =35
 
     DataVenc1_Input As datepicker:
-        DefaultDate: =If(Value(vlr_date1.Text) >= 1, DateAdd(DataCompra_Input,vlr_date1,TimeUnit.Days), 0)
+        DefaultDate: =If(Value(vlr_date1.Text) >= 1, DateAdd(DataCompra_Input.SelectedDate,vlr_date1.Text,TimeUnit.Days), 0)
         DisplayMode: =DisplayMode.View
         Height: =25
         Size: =12
@@ -620,7 +620,7 @@ CadCompras_screenForm As screen:
         ZIndex: =36
 
     DataVenc2_Input As datepicker:
-        DefaultDate: =If(Value(vlr_date2.Text) >= 1, DateAdd(Today(),vlr_date2,TimeUnit.Days), 0)
+        DefaultDate: =If(Value(vlr_date2.Text) >= 1, DateAdd(Today(),vlr_date2.Text,TimeUnit.Days), 0)
         DisplayMode: =DisplayMode.View
         Height: =25
         Size: =12
@@ -630,7 +630,7 @@ CadCompras_screenForm As screen:
         ZIndex: =37
 
     DataVenc3_Input As datepicker:
-        DefaultDate: =If(Value(vlr_date3.Text) >= 1, DateAdd(Today(),vlr_date3,TimeUnit.Days), 0)
+        DefaultDate: =If(Value(vlr_date3.Text) >= 1, DateAdd(Today(),vlr_date3.Text,TimeUnit.Days), 0)
         DisplayMode: =DisplayMode.View
         Height: =25
         Size: =12
@@ -640,7 +640,7 @@ CadCompras_screenForm As screen:
         ZIndex: =38
 
     DataVenc4_Input As datepicker:
-        DefaultDate: =If(Value(vlr_date4.Text) >= 1, DateAdd(Today(),vlr_date4,TimeUnit.Days), 0)
+        DefaultDate: =If(Value(vlr_date4.Text) >= 1, DateAdd(Today(),vlr_date4.Text,TimeUnit.Days), 0)
         DisplayMode: =DisplayMode.View
         Height: =25
         Size: =12
@@ -650,7 +650,7 @@ CadCompras_screenForm As screen:
         ZIndex: =39
 
     DataVenc5_Input As datepicker:
-        DefaultDate: =If(Value(vlr_date5.Text) >= 1, DateAdd(Today(),vlr_date5,TimeUnit.Days), 0)
+        DefaultDate: =If(Value(vlr_date5.Text) >= 1, DateAdd(Today(),vlr_date5.Text,TimeUnit.Days), 0)
         DisplayMode: =DisplayMode.View
         Height: =25
         Size: =12
@@ -660,7 +660,7 @@ CadCompras_screenForm As screen:
         ZIndex: =40
 
     DataVenc6_Input As datepicker:
-        DefaultDate: =If(Value(vlr_date6.Text) >= 1, DateAdd(Today(),vlr_date6,TimeUnit.Days), 0)
+        DefaultDate: =If(Value(vlr_date6.Text) >= 1, DateAdd(Today(),vlr_date6.Text,TimeUnit.Days), 0)
         DisplayMode: =DisplayMode.View
         Height: =25
         Size: =12

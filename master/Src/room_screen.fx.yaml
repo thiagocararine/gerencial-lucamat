@@ -166,7 +166,7 @@
         FontWeight: =FontWeight.Bold
         Height: =51
         Size: =25.19
-        Text: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),nome_user)
+        Text: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),nome_user)
         Width: =334.69
         X: =98.07
         Y: =112
@@ -221,7 +221,7 @@
     Cargolbl1 As label:
         Font: =Font.'Segoe UI'
         Size: =10.8
-        Text: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),cargo_user)
+        Text: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),cargo_user)
         Width: =134.96
         X: =1040.96
         Y: =516
@@ -231,7 +231,7 @@
         Font: =Font.'Segoe UI'
         Size: =10.8
         Text: |
-            =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),depart_user)
+            =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),depart_user)
         Width: =134.96
         X: =1040.96
         Y: =556
@@ -241,7 +241,7 @@
         Font: =Font.'Segoe UI'
         Size: =10.8
         Text: |
-            =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input),unidade_user)
+            =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),unidade_user)
         Width: =134.96
         Wrap: =false
         X: =1040.06
