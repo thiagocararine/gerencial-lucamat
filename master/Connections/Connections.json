@@ -38,9 +38,10 @@
       "displayName": "MySQL",
       "executionRestrictions": {
         "apiId": "/providers/microsoft.powerapps/apis/shared_mysql",
-        "appVer": "3.24021.12",
-        "modifiedOn": "2024-02-16 12:37:59",
-        "policy": "{\"type\":\"unused\"}",
+        "apiVer": 1,
+        "appVer": "3.24031.20",
+        "modifiedOn": "2024-03-13 13:28:46",
+        "policy": "{\"type\":\"tabular\",\"dataSources\":{\"[gerencial_lucamat].[pagamento_fin]\":[\"post\",\"patch\",\"get\",\"delete\"],\"[gerencial_lucamat].[padrao]\":[\"get\"],\"[gerencial_lucamat].[movimento_fin]\":[\"post\",\"patch\",\"get\",\"delete\"],\"[gerencial_lucamat].[fornecedores]\":[\"post\",\"patch\",\"get\"],\"[gerencial_lucamat].[empresa]\":[\"post\",\"patch\",\"get\"],\"[gerencial_lucamat].[compras]\":[\"post\",\"patch\",\"get\",\"delete\"],\"[gerencial_lucamat].[combustivel]\":[\"post\",\"patch\",\"get\"],\"[gerencial_lucamat].[cheques]\":[\"post\",\"patch\",\"get\",\"delete\"],\"[gerencial_lucamat].[cad_user]\":[\"post\",\"patch\",\"get\"],\"[gerencial_lucamat].[parametro]\":[\"post\",\"patch\",\"get\",\"delete\"],\"[gerencial_lucamat].[despesa_caixa]\":[\"post\",\"patch\",\"get\"]}}",
         "version": 1
       },
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1654/1.0.1654.3414/mysql/icon.png",

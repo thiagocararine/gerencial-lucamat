@@ -504,377 +504,32 @@ DespesaCaixa_Screen As screen:
             ZIndex: =80
 
     FormDespesaCaixa As groupContainer.manualLayoutContainer:
-        Height: =648
+        Height: =461
         Visible: =MenuDespesa
-        Width: =1148
-        X: =35
-        Y: =35
+        Width: =800
+        X: =215
+        Y: =154
         ZIndex: =4
 
         Rectangle28 As rectangle:
             BorderThickness: =5
             Fill: =RGBA(241, 244, 249, 1)
-            Height: =648
-            Width: =1148
+            Height: =461
+            Width: =798
             ZIndex: =1
 
         Button5_2 As button:
             Fill: =RGBA(255, 191, 0, 1)
-            Height: =50
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(255, 244, 186, 1)
             OnSelect: |-
                 =UpdateContext({MenuDespesa:false})
+            Size: =12
             Text: ="Retornar"
-            Width: =135
-            X: =971
-            Y: =573
+            Width: =100
+            X: =443
+            Y: =408
             ZIndex: =2
-
-        Férias_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Férias :"
-            Width: =160
-            X: =38
-            Y: =97
-            ZIndex: =3
-
-        Ferias_input As text:
-            Default: |
-                =
-            Height: =30
-            HintText: =""
-            Width: =180
-            X: =198
-            Y: =97
-            ZIndex: =4
-
-        Folha_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Folha :"
-            Width: =160
-            X: =38
-            Y: =147
-            ZIndex: =5
-
-        Folha_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =198
-            Y: =147
-            ZIndex: =6
-
-        Comissão_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Comissão :"
-            Width: =160
-            X: =38
-            Y: =197
-            ZIndex: =7
-
-        Comissão_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =198
-            Y: =197
-            ZIndex: =8
-
-        DobraPessoal_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Dobra Pessoal :"
-            Width: =160
-            X: =38
-            Y: =247
-            ZIndex: =9
-
-        DobraPessoal_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =198
-            Y: =247
-            ZIndex: =10
-
-        Passagem_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Passagem :"
-            Width: =160
-            X: =38
-            Y: =297
-            ZIndex: =11
-
-        Passagem_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =198
-            Y: =297
-            ZIndex: =12
-
-        Uber_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Uber :"
-            Width: =160
-            X: =394
-            Y: =97
-            ZIndex: =13
-
-        Uber_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =554
-            Y: =97
-            ZIndex: =14
-
-        Cozinha_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Cozinha :"
-            Width: =160
-            X: =394
-            Y: =147
-            ZIndex: =15
-
-        Cozinha_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =554
-            Y: =147
-            ZIndex: =16
-
-        Segurança_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Segurança :"
-            Width: =160
-            X: =394
-            Y: =197
-            ZIndex: =17
-
-        Segurança_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =554
-            Y: =197
-            ZIndex: =18
-
-        Frete_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Frete :"
-            Width: =160
-            X: =394
-            Y: =347
-            ZIndex: =19
-
-        Frete_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =554
-            Y: =347
-            ZIndex: =20
-
-        PagMercadoria_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Pag. Mercadoria :"
-            Width: =160
-            X: =394
-            Y: =247
-            ZIndex: =21
-
-        PagMercadoria_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =554
-            Y: =247
-            ZIndex: =22
-
-        PagBoleto_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Pag. Boleto :"
-            Width: =160
-            X: =394
-            Y: =297
-            ZIndex: =23
-
-        PagBoleto_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =554
-            Y: =297
-            ZIndex: =24
-
-        DespesaLoja_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Despesa Loja :"
-            Width: =160
-            X: =764
-            Y: =347
-            ZIndex: =25
-
-        DespesaLoja_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =926
-            Y: =347
-            ZIndex: =26
-
-        DespesaManutencao_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Desp. Manutenção:"
-            Width: =160
-            X: =764
-            Y: =97
-            ZIndex: =27
-
-        DespManutencao_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =926
-            Y: =97
-            ZIndex: =28
-
-        Depósito_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Depósito :"
-            Width: =160
-            X: =764
-            Y: =147
-            ZIndex: =29
-
-        Deposito_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =926
-            Y: =147
-            ZIndex: =30
-
-        Lucas_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Lucas :"
-            Width: =160
-            X: =764
-            Y: =197
-            ZIndex: =31
-
-        Lucas_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =926
-            Y: =197
-            ZIndex: =32
-
-        David_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="David :"
-            Width: =160
-            X: =764
-            Y: =247
-            ZIndex: =33
-
-        David_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =926
-            Y: =247
-            ZIndex: =34
-
-        Label17_16 As label:
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Size: =20
-            Text: ="Total Despesa"
-            Width: =180
-            X: =707
-            Y: =397
-            ZIndex: =35
-
-        TotalDesp_Input As text:
-            Default: |-
-                =Text(
-                    Value(DespesaLoja_input.Text + Frete_input.Text + Combustivel_input.Text + PgFuncFora_input.Text + PagBoleto_input.Text + Lucia_input.Text + Lucas_input.Text + David_input.Text + DespManutencao_input.Text + Deposito_input.Text + PagMercadoria_input.Text + Segurança_input.Text + Cozinha_input.Text + Uber_input.Text + Passagem_input.Text + DobraPessoal_input.Text + Comissão_input.Text + Folha_input.Text + Ferias_input.Text),
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Height: =30
-            Size: =18
-            Width: =180
-            X: =887
-            Y: =397
-            ZIndex: =36
 
         DataDespesa_lbl As label:
             Align: =Align.Right
@@ -884,8 +539,8 @@ DespesaCaixa_Screen As screen:
             Text: |-
                 ="Data da Despesa :"
             Width: =160
-            X: =28
-            Y: =34
+            X: =50
+            Y: =32
             ZIndex: =37
 
         Label17_18 As label:
@@ -894,20 +549,20 @@ DespesaCaixa_Screen As screen:
             Height: =30
             Text: |-
                 ="Data Lanç. :"
-            Width: =160
-            X: =794
-            Y: =472
+            Width: =132
+            X: =466
+            Y: =305
             ZIndex: =38
 
         Label17_19 As label:
             Align: =Align.Right
             Font: =Font.'Segoe UI'
-            Height: =30
+            Height: =31
             Text: |-
                 ="Usuário :"
-            Width: =160
-            X: =794
-            Y: =518
+            Width: =132
+            X: =466
+            Y: =351
             ZIndex: =39
 
         userlancDesp_input As text:
@@ -915,29 +570,9 @@ DespesaCaixa_Screen As screen:
             DisplayMode: =DisplayMode.View
             Height: =30
             Width: =180
-            X: =926
-            Y: =517
+            X: =598
+            Y: =351
             ZIndex: =40
-
-        Historico_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Histórico :"
-            Width: =160
-            X: =38
-            Y: =512
-            ZIndex: =41
-
-        HistoricoDespesa_input As text:
-            Default: =
-            Height: =151
-            HintText: ="Insira aqui todas informações que foram somadas..."
-            Mode: =TextMode.MultiLine
-            X: =198
-            Y: =456
-            ZIndex: =42
 
         DataDesp_input As datepicker:
             DefaultDate: |-
@@ -947,8 +582,8 @@ DespesaCaixa_Screen As screen:
                 )
             Height: =30
             Width: =190
-            X: =188
-            Y: =34
+            X: =210
+            Y: =32
             ZIndex: =43
 
         dataLanc_desp_input As datepicker:
@@ -960,29 +595,9 @@ DespesaCaixa_Screen As screen:
             DisplayMode: =DisplayMode.View
             Height: =30
             Width: =180
-            X: =926
-            Y: =471
+            X: =598
+            Y: =305
             ZIndex: =44
-
-        Lucia_lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Lúcia :"
-            Width: =160
-            X: =764
-            Y: =297
-            ZIndex: =45
-
-        Lucia_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =926
-            Y: =297
-            ZIndex: =46
 
         Filial_lbl As label:
             Align: =Align.Right
@@ -992,8 +607,8 @@ DespesaCaixa_Screen As screen:
             Text: |-
                 ="Filial :"
             Width: =160
-            X: =394
-            Y: =34
+            X: =400
+            Y: =32
             ZIndex: =47
 
         FilialDesp_input As text:
@@ -1001,13 +616,12 @@ DespesaCaixa_Screen As screen:
             DisplayMode: =DisplayMode.View
             Height: =30
             Width: =180
-            X: =554
-            Y: =34
+            X: =560
+            Y: =32
             ZIndex: =48
 
         Button5_3 As button:
             Fill: =RGBA(127, 178, 57, 1)
-            Height: =50
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(232, 244, 217, 1)
             OnSelect: |-
@@ -1195,55 +809,15 @@ DespesaCaixa_Screen As screen:
                         )
                     )
                 )
+            Size: =12
             Text: ="Gravar"
-            Width: =135
-            X: =819
-            Y: =573
+            Width: =100
+            X: =312
+            Y: =408
             ZIndex: =49
-
-        PgFuncFora__lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Pg. Folha Fora :"
-            Width: =160
-            X: =38
-            Y: =347
-            ZIndex: =50
-
-        PgFuncFora_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =198
-            Y: =347
-            ZIndex: =51
-
-        Combustivel__lbl As label:
-            Align: =Align.Right
-            Font: =Font.'Segoe UI'
-            Height: =30
-            Text: |-
-                ="Combustível :"
-            Width: =160
-            X: =38
-            Y: =397
-            ZIndex: =52
-
-        Combustivel_input As text:
-            Default: |
-                =
-            Height: =30
-            Width: =180
-            X: =198
-            Y: =397
-            ZIndex: =53
 
         Button5_4 As button:
             Fill: =RGBA(221, 79, 14, 1)
-            Height: =50
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(232, 244, 217, 1)
             OnSelect: |
@@ -1272,9 +846,58 @@ DespesaCaixa_Screen As screen:
                 Reset(userlancDesp_input);
                 Reset(PgFuncFora_input);
                 Reset(Combustivel_input);
+            Size: =12
             Text: ="Reset"
-            Width: =135
-            X: =668
-            Y: =573
+            Width: =100
+            X: =184
+            Y: =408
             ZIndex: =54
+
+        Grupo_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =14
+            Text: |-
+                ="Grupo :"
+            Width: =160
+            X: =98
+            Y: =102
+            ZIndex: =55
+
+        Tipo_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =14
+            Text: |-
+                ="Tipo de Despesa :"
+            Width: =160
+            X: =98
+            Y: =151
+            ZIndex: =56
+
+        Descricao_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =14
+            Text: |-
+                ="Descrição :"
+            Width: =160
+            X: =98
+            Y: =198
+            ZIndex: =57
+
+        ValorDespesa_lbl As label:
+            Align: =Align.Right
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =14
+            Text: |-
+                ="Valor :"
+            Width: =160
+            X: =98
+            Y: =245
+            ZIndex: =58
 
