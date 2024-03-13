@@ -3,13 +3,14 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2023-09-26T16:14:46.1950000Z",
+      "LastChangedTimeString": "2024-02-08T17:51:55.7960000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
       "cod_parametro": "cod_parametro",
       "ID": "ID",
       "key_parametro": "key_parametro",
+      "key_vinculacao": "key_vinculacao",
       "nome_parametro": "nome_parametro"
     },
     "DatasetName": "default",

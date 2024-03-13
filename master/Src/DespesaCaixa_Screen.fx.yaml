@@ -25,484 +25,6 @@ DespesaCaixa_Screen As screen:
         Y: =665
         ZIndex: =2
 
-    DespesaTable As dataTable.datatable:
-        BorderStyle: =BorderStyle.Solid
-        BorderThickness: =2
-        DisplayMode: =DisplayMode.Edit
-        Fill: =RGBA(0, 0, 0, 0)
-        Height: =535
-        Items: ='gerencial_lucamat.despesa_caixa'
-        Size: =11
-        Width: =1154
-        X: =40
-        Y: =116
-        ZIndex: =3
-
-        ID_Column8 As dataTableColumn.numberColumn:
-            AutoWidth: =false
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="ID"
-            FieldName: ="ID"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =1
-            Text: =ThisItem.ID
-            Width: =73
-            X: =0
-            Y: =0
-            ZIndex: =55
-
-        dsp_userlanc_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="User Lanç."
-            FieldName: ="dsp_userlanc"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =25
-            Text: =ThisItem.dsp_userlanc
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =56
-
-        dsp_uber_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Uber"
-            FieldName: ="dsp_uber"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =10
-            Text: |-
-                =Text(
-                    ThisItem.dsp_uber,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =57
-
-        dsp_total_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Total"
-            FieldName: ="dsp_total"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =23
-            Text: |-
-                =Text(
-                    ThisItem.dsp_total,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =593
-            Y: =0
-            ZIndex: =58
-
-        dsp_segurança_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Segurança"
-            FieldName: ="dsp_segurança"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =11
-            Text: |-
-                =Text(
-                    ThisItem.dsp_segurança,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =59
-
-        dsp_pgmercadoria_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Pag. Mercadoria"
-            FieldName: ="dsp_pgmercadoria"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =13
-            Text: |-
-                =Text(
-                    ThisItem.dsp_pgmercadoria,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =60
-
-        dsp_pgboleto_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Pag. Boleto"
-            FieldName: ="dsp_pgboleto"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =14
-            Text: |-
-                =Text(
-                    ThisItem.dsp_pgboleto,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =61
-
-        dsp_passagem_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Passagem"
-            FieldName: ="dsp_passagem"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =9
-            Text: |-
-                =Text(
-                    ThisItem.dsp_passagem,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =62
-
-        dsp_manutencao_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Manutenção"
-            FieldName: ="dsp_manutencao"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =15
-            Text: |-
-                =Text(
-                    ThisItem.dsp_manutencao,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =63
-
-        dsp_lucia_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Lúcia"
-            FieldName: ="dsp_lucia"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =21
-            Text: |-
-                =Text(
-                    ThisItem.dsp_lucia,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =64
-
-        dsp_lucas_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Lucas"
-            FieldName: ="dsp_lucas"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =22
-            Text: |-
-                =Text(
-                    ThisItem.dsp_lucas,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =65
-
-        dsp_historico_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Histórico"
-            FieldName: ="dsp_historico"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =26
-            Text: =ThisItem.dsp_historico
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =66
-
-        dsp_frete_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Frete"
-            FieldName: ="dsp_frete"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =12
-            Text: |-
-                =Text(
-                    ThisItem.dsp_frete,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =67
-
-        dsp_folhafora_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Folha Fora"
-            FieldName: ="dsp_folhafora"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =5
-            Text: |-
-                =Text(
-                    ThisItem.dsp_folhafora,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =68
-
-        dsp_folha_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Pag. Folha"
-            FieldName: ="dsp_folha"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =4
-            Text: |-
-                =Text(
-                    ThisItem.dsp_folha,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =69
-
-        dsp_filial_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Filial"
-            FieldName: ="dsp_filial"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =2
-            Text: =ThisItem.dsp_filial
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =70
-
-        dsp_ferias_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Férias"
-            FieldName: ="dsp_ferias"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =7
-            Text: |-
-                =Text(
-                    ThisItem.dsp_ferias,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =71
-
-        dsp_dobrapessoal_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Pag. Dobra"
-            FieldName: ="dsp_dobrapessoal"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =8
-            Text: |-
-                =Text(
-                    ThisItem.dsp_dobrapessoal,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =72
-
-        dsp_despesaloja_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Despesa Loja"
-            FieldName: ="dsp_despesaloja"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =17
-            Text: |-
-                =Text(
-                    ThisItem.dsp_despesaloja,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =73
-
-        dsp_deposito_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Depósito"
-            FieldName: ="dsp_deposito"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =19
-            Text: |-
-                =Text(
-                    ThisItem.dsp_deposito,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =74
-
-        dsp_david_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="David"
-            FieldName: ="dsp_david"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =20
-            Text: |-
-                =Text(
-                    ThisItem.dsp_david,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =75
-
-        dsp_datalanc_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Data Lanc."
-            FieldName: ="dsp_datalanc"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =24
-            Text: =Text(ThisItem.dsp_datalanc, "[$-en-US]dd/mm/yy")
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =76
-
-        dsp_datadespesa_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Data Despesa"
-            FieldName: ="dsp_datadespesa"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =3
-            Text: =Text(ThisItem.dsp_datadespesa, "[$-en-US]dd/mm/yy")
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =77
-
-        dsp_cozina_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Cozinha"
-            FieldName: ="dsp_cozina"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =16
-            Text: |-
-                =Text(
-                    ThisItem.dsp_cozina,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =78
-
-        dsp_comissao_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Comissão"
-            FieldName: ="dsp_comissao"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =6
-            Text: |-
-                =Text(
-                    ThisItem.dsp_comissao,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =79
-
-        dsp_combustivel_Column1 As dataTableColumn.numberColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Combustivel"
-            FieldName: ="dsp_combustivel"
-            FieldVariantName: ="numberColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =18
-            Text: |-
-                =Text(
-                    ThisItem.dsp_combustivel,
-                    "$ #,##0.00",
-                    "pt-BR"
-                )
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =80
-
     FormDespesaCaixa As groupContainer.manualLayoutContainer:
         Height: =461
         Visible: =MenuDespesa
@@ -820,32 +342,12 @@ DespesaCaixa_Screen As screen:
             Fill: =RGBA(221, 79, 14, 1)
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(232, 244, 217, 1)
-            OnSelect: |
+            OnSelect: |+
                 =Reset(DataDesp_input);
                 Reset(FilialDesp_input);
-                Reset(Comissão_input);
-                Reset(Cozinha_input);
                 Reset(dataLanc_desp_input);
-                Reset(David_input);
-                Reset(Deposito_input);
-                Reset(DespesaLoja_input);
-                Reset(DobraPessoal_input);
-                Reset(Ferias_input);
-                Reset(Folha_input);
-                Reset(Frete_input);
-                Reset(HistoricoDespesa_input);
-                Reset(Lucas_input);
-                Reset(Lucia_input);
-                Reset(DespManutencao_input);
-                Reset(Passagem_input);
-                Reset(PagBoleto_input);
-                Reset(PagMercadoria_input);
-                Reset(Segurança_input);
-                Reset(TotalDesp_Input);
-                Reset(Uber_input);
                 Reset(userlancDesp_input);
-                Reset(PgFuncFora_input);
-                Reset(Combustivel_input);
+                
             Size: =12
             Text: ="Reset"
             Width: =100
@@ -900,4 +402,86 @@ DespesaCaixa_Screen As screen:
             X: =98
             Y: =245
             ZIndex: =58
+
+        GrupoDespesa_input As combobox:
+            DisplayFields: =["nome_parametro"]
+            DisplayMode: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", DisplayMode.Edit, DisplayMode.Disabled)
+            Height: =30
+            Items: =Filter(Filter('gerencial_lucamat.parametro';cod_parametro = "Grupo Despesa"), key_vinculacao = TipoDespesa_input_1.Selected.key_vinculacao)
+            SearchFields: =["nome_parametro"]
+            SearchItems: =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Grupo Despesa"),GrupoDespesa_input.SearchText,"nome_parametro")
+            SelectMultiple: =false
+            Visible: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", true, false)
+            Width: =190
+            X: =267
+            Y: =102
+            ZIndex: =59
+
+        TipoDespesa_input As combobox:
+            DisplayFields: =["nome_parametro"]
+            Height: =30
+            Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Tipo Despesa")
+            SearchFields: =["nome_parametro"]
+            SearchItems: =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Tipo Despesa"),TipoDespesa_input.SearchText,"nome_parametro")
+            SelectMultiple: =false
+            Width: =190
+            X: =267
+            Y: =151
+            ZIndex: =60
+
+        GrupoDespesa_input_1 As text:
+            Default: |-
+                =If(
+                    TipoDespesa_input.Selected.key_vinculacao = "1",
+                    "Pessoal",
+                    If(
+                        TipoDespesa_input.Selected.key_vinculacao = "2",
+                        "Segurança",
+                        If(
+                            TipoDespesa_input.Selected.key_vinculacao = "3",
+                            "Manutenção",
+                            If(
+                                TipoDespesa_input.Selected.key_vinculacao = "4",
+                                "Sócios",
+                                If(
+                                    TipoDespesa_input.Selected.key_vinculacao = "5",
+                                    "Combustivel",
+                                    If(
+                                        TipoDespesa_input.Selected.key_vinculacao = "6",
+                                        "Despesa",
+                                        If(
+                                            TipoDespesa_input.Selected.key_vinculacao = "7",
+                                            "Transporte Pessoal",
+                                            If(
+                                                TipoDespesa_input.Selected.key_vinculacao = "8",
+                                                "Frete",
+                                                If(
+                                                    TipoDespesa_input.Selected.key_vinculacao = "9",
+                                                    "Pag. Boleto",
+                                                    If(
+                                                        TipoDespesa_input.Selected.key_vinculacao = "10",
+                                                        "Cozinha",
+                                                        0
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            DisplayMode: =DisplayMode.View
+            Height: =30
+            Width: =190
+            X: =457
+            Y: =102
+            ZIndex: =61
+
+        TipoDespesa_input_1 As dropdown:
+            Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Tipo Despesa")
+            X: =388
+            Y: =215
+            ZIndex: =62
 

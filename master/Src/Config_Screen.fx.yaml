@@ -172,7 +172,15 @@
                                                                     If(
                                                                         param_radio_opçoes.Selected.Value = "Posto",
                                                                         "Posto",
-                                                                        0
+                                                                        If(
+                                                                            param_radio_opçoes.Selected.Value = "Grupo Despesa",
+                                                                            "Grupo Despesa",
+                                                                            If(
+                                                                                param_radio_opçoes.Selected.Value = "Tipo Despesa",
+                                                                                "Tipo Despesa",
+                                                                                0
+                                                                            )
+                                                                        )
                                                                     )
                                                                 )
                                                             )
@@ -239,9 +247,13 @@
                                                                     param_radio_opçoes.Selected.Value = "Placa Veículo",
                                                                     "15",
                                                                     If(
-                                                                        param_radio_opçoes.Selected.Value = "Posto",
-                                                                        "16",
-                                                                        0
+                                                                        param_radio_opçoes.Selected.Value = "Grupo Despesa",
+                                                                        "18",
+                                                                        If(
+                                                                            param_radio_opçoes.Selected.Value = "Tipo Despesa",
+                                                                            "17",
+                                                                            0
+                                                                        )
                                                                     )
                                                                 )
                                                             )
