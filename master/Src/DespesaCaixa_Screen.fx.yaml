@@ -1,35 +1,199 @@
 DespesaCaixa_Screen As screen:
 
+    DataTable2 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =524
+        Items: ='gerencial_lucamat.despesa_caixa'
+        Size: =11
+        Width: =1152
+        X: =35
+        Y: =131
+        ZIndex: =1
+
+        ID_Column8 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.ID
+            Width: =60
+            X: =0
+            Y: =0
+            ZIndex: =65
+
+        dsp_datadesp_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data Desp"
+            FieldName: ="dsp_datadesp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.dsp_datadesp
+            Width: =128
+            X: =0
+            Y: =0
+            ZIndex: =66
+
+        dsp_datalanc_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Lançamento"
+            FieldName: ="dsp_datalanc"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.dsp_datalanc
+            Width: =137
+            X: =0
+            Y: =0
+            ZIndex: =67
+
+        dsp_descricao_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Descrição"
+            FieldName: ="dsp_descricao"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.dsp_descricao
+            Width: =170
+            X: =0
+            Y: =0
+            ZIndex: =68
+
+        dsp_filial_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Filial"
+            FieldName: ="dsp_filial"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.dsp_filial
+            Width: =126
+            X: =0
+            Y: =0
+            ZIndex: =69
+
+        dsp_grupo_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Grupo"
+            FieldName: ="dsp_grupo"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.dsp_grupo
+            Width: =102
+            X: =0
+            Y: =0
+            ZIndex: =70
+
+        dsp_status_Column1 As dataTableColumn.numberColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Status"
+            FieldName: ="dsp_status"
+            FieldVariantName: ="numberColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.dsp_status
+            Width: =67
+            X: =0
+            Y: =0
+            ZIndex: =71
+
+        dsp_tipo_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Tipo Despesa"
+            FieldName: ="dsp_tipo"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.dsp_tipo
+            Width: =144
+            X: =0
+            Y: =0
+            ZIndex: =72
+
+        dsp_userlanc_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Usuário"
+            FieldName: ="dsp_userlanc"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.dsp_userlanc
+            Width: =130
+            X: =0
+            Y: =0
+            ZIndex: =73
+
+        dsp_valordsp_Column1 As dataTableColumn.textualColumn:
+            AutoWidth: =false
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Valor"
+            FieldName: ="dsp_valordsp"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.dsp_valordsp
+            Width: =92
+            X: =0
+            Y: =0
+            ZIndex: =74
+
     Button8 As button:
         DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
         Fill: =RGBA(127, 178, 57, 1)
-        Height: =63
+        Height: =50
         HoverFill: =
         OnSelect: |-
             =UpdateContext({MenuDespesa:true})
+        Size: =14
         Text: ="Informar Despesa"
         Width: =130
-        X: =1065
-        Y: =665
-        ZIndex: =1
+        X: =1062
+        Y: =688
+        ZIndex: =2
 
     Button8_1 As button:
         DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
         Fill: =RGBA(151, 0, 0, 1)
-        Height: =63
+        Height: =50
         HoverFill: =
         OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
+        Size: =14
         Text: ="Sair"
         Width: =130
-        X: =920
-        Y: =665
-        ZIndex: =2
+        X: =917
+        Y: =688
+        ZIndex: =3
 
     FormDespesaCaixa As groupContainer.manualLayoutContainer:
         Height: =461
         Visible: =MenuDespesa
-        Width: =800
-        X: =215
+        Width: =705
+        X: =262
         Y: =154
         ZIndex: =4
 
@@ -37,7 +201,8 @@ DespesaCaixa_Screen As screen:
             BorderThickness: =5
             Fill: =RGBA(241, 244, 249, 1)
             Height: =461
-            Width: =798
+            Width: =702
+            X: =2
             ZIndex: =1
 
         Button5_2 As button:
@@ -49,8 +214,8 @@ DespesaCaixa_Screen As screen:
             Size: =12
             Text: ="Retornar"
             Width: =100
-            X: =443
-            Y: =408
+            X: =397
+            Y: =406
             ZIndex: =2
 
         DataDespesa_lbl As label:
@@ -70,10 +235,10 @@ DespesaCaixa_Screen As screen:
             Font: =Font.'Segoe UI'
             Height: =30
             Text: |-
-                ="Data Lanç. :"
-            Width: =132
-            X: =466
-            Y: =305
+                ="Data Lançamento :"
+            Width: =155
+            X: =353
+            Y: =303
             ZIndex: =38
 
         Label17_19 As label:
@@ -83,8 +248,8 @@ DespesaCaixa_Screen As screen:
             Text: |-
                 ="Usuário :"
             Width: =132
-            X: =466
-            Y: =351
+            X: =376
+            Y: =349
             ZIndex: =39
 
         userlancDesp_input As text:
@@ -92,8 +257,8 @@ DespesaCaixa_Screen As screen:
             DisplayMode: =DisplayMode.View
             Height: =30
             Width: =180
-            X: =598
-            Y: =351
+            X: =508
+            Y: =349
             ZIndex: =40
 
         DataDesp_input As datepicker:
@@ -117,8 +282,8 @@ DespesaCaixa_Screen As screen:
             DisplayMode: =DisplayMode.View
             Height: =30
             Width: =180
-            X: =598
-            Y: =305
+            X: =508
+            Y: =303
             ZIndex: =44
 
         Filial_lbl As label:
@@ -128,8 +293,8 @@ DespesaCaixa_Screen As screen:
             Size: =14
             Text: |-
                 ="Filial :"
-            Width: =160
-            X: =400
+            Width: =75
+            X: =432
             Y: =32
             ZIndex: =47
 
@@ -138,7 +303,7 @@ DespesaCaixa_Screen As screen:
             DisplayMode: =DisplayMode.View
             Height: =30
             Width: =180
-            X: =560
+            X: =508
             Y: =32
             ZIndex: =48
 
@@ -148,182 +313,133 @@ DespesaCaixa_Screen As screen:
             HoverFill: =RGBA(232, 244, 217, 1)
             OnSelect: |-
                 =If(
-                    IsBlank(Ferias_input.Text),
-                    Notify(
-                        "O Campo FÉRIAS está em branco.",
-                        NotificationType.Error
-                    ),
+                    TipoDespesa_input.Selected.nome_parametro = "Não Classificado",
                     If(
-                        IsBlank(Uber_input.Text),
+                        IsBlank(GrupoDespesa_input.SelectedItems),
                         Notify(
-                            "O Campo UBER está em branco.",
+                            "O Campo GRUPO DE DESPESA está em branco.",
                             NotificationType.Error
                         ),
                         If(
-                            IsBlank(DespManutencao_input.Text),
+                            IsBlank(TipoDespesa_input.SelectedItems),
                             Notify(
-                                "O Campo DESPESA MANUTENCAO está em branco!",
+                                "O Campo TIPO DE DESPESA está em branco.",
                                 NotificationType.Error
                             ),
                             If(
-                                IsBlank(Folha_input.Text),
+                                IsBlank(DescricaoDespesa_input.Text),
                                 Notify(
-                                    "O Campo FOLHA está em branco!",
+                                    "O Campo DESCRIÇÂO está em branco!",
                                     NotificationType.Error
                                 ),
                                 If(
-                                    IsBlank(Cozinha_input.Text),
+                                    IsBlank(ValorDespesa_input.Text),
                                     Notify(
-                                        "O Campo COZINHA está em branco!",
+                                        "O Campo VALOR está em branco!",
                                         NotificationType.Error
                                     ),
                                     If(
-                                        IsBlank(Deposito_input.Text),
+                                        IsBlank(DataDesp_input.SelectedDate),
                                         Notify(
-                                            "O Campo DEPOSITO está em branco!",
+                                            "O Campo DATA DE DESPESA está em branco!",
                                             NotificationType.Error
                                         ),
-                                        If(
-                                            IsBlank(Comissão_input.Text),
-                                            Notify(
-                                                "O Campo COMISSÃO está em branco!",
-                                                NotificationType.Error
-                                            ),
-                                            If(
-                                                IsBlank(Segurança_input.Text),
-                                                Notify(
-                                                    "O Campo SEGURANÇA está em branco!",
-                                                    NotificationType.Error
-                                                ),
-                                                If(
-                                                    IsBlank(Lucas_input.Text),
-                                                    Notify(
-                                                        "O Campo LUCAS está em branco!",
-                                                        NotificationType.Error
-                                                    ),
-                                                    If(
-                                                        IsBlank(DobraPessoal_input.Text),
-                                                        Notify(
-                                                            "O Campo DOBRA PESSOAL está em branco!",
-                                                            NotificationType.Error
-                                                        ),
-                                                        If(
-                                                            IsBlank(PagMercadoria_input.Text),
-                                                            Notify(
-                                                                "O Campo PAGAMENTO MERCADORIA está em branco!",
-                                                                NotificationType.Error
-                                                            ),
-                                                            If(
-                                                                IsBlank(David_input.Text),
-                                                                Notify(
-                                                                    "O Campo DAVID está em branco!",
-                                                                    NotificationType.Error
-                                                                ),
-                                                                If(
-                                                                    IsBlank(Passagem_input.Text),
-                                                                    Notify(
-                                                                        "O Campo PASSAGEM está em branco!",
-                                                                        NotificationType.Error
-                                                                    ),
-                                                                    If(
-                                                                        IsBlank(PagBoleto_input.Text),
-                                                                        Notify(
-                                                                            "O Campo PAG BOLETO está em branco!",
-                                                                            NotificationType.Error
-                                                                        ),
-                                                                        If(
-                                                                            IsBlank(Lucia_input.Text),
-                                                                            Notify(
-                                                                                "O Campo LUCIA está em branco!",
-                                                                                NotificationType.Error
-                                                                            ),
-                                                                            If(
-                                                                                IsBlank(Frete_input.Text),
-                                                                                Notify(
-                                                                                    "O Campo FRETE está em branco!",
-                                                                                    NotificationType.Error
-                                                                                ),
-                                                                                If(
-                                                                                    IsBlank(DespesaLoja_input.Text),
-                                                                                    Notify(
-                                                                                        "O Campo DESPESA LOJA está em branco!",
-                                                                                        NotificationType.Error
-                                                                                    ),
-                                                                                    Patch(
-                                                                                        'gerencial_lucamat.despesa_caixa',
-                                                                                        Defaults('gerencial_lucamat.despesa_caixa'),
-                                                                                        {
-                                                                                            ID: Max(
-                                                                                                'gerencial_lucamat.despesa_caixa',
-                                                                                                ID
-                                                                                            ) + 1
-                                                                                        },
-                                                                                        {dsp_datadespesa: DataDesp_input.SelectedDate},
-                                                                                        {dsp_filial: FilialDesp_input.Text},
-                                                                                        {dsp_comissao: Value(Comissão_input.Text)},
-                                                                                        {dsp_cozina: Value(Cozinha_input.Text)},
-                                                                                        {dsp_datalanc: dataLanc_desp_input.SelectedDate},
-                                                                                        {dsp_david: Value(David_input.Text)},
-                                                                                        {dsp_deposito: Value(Deposito_input.Text)},
-                                                                                        {dsp_despesaloja: Value(DespesaLoja_input.Text)},
-                                                                                        {dsp_dobrapessoal: Value(DobraPessoal_input.Text)},
-                                                                                        {dsp_ferias: Value(Ferias_input.Text)},
-                                                                                        {dsp_folha: Value(Folha_input.Text)},
-                                                                                        {dsp_frete: Value(Frete_input.Text)},
-                                                                                        {dsp_historico: HistoricoDespesa_input.Text},
-                                                                                        {dsp_lucas: Value(Lucas_input.Text)},
-                                                                                        {dsp_lucia: Value(Lucia_input.Text)},
-                                                                                        {dsp_manutencao: Value(DespManutencao_input.Text)},
-                                                                                        {dsp_passagem: Value(Passagem_input.Text)},
-                                                                                        {dsp_pgboleto: Value(PagBoleto_input.Text)},
-                                                                                        {dsp_pgmercadoria: Value(PagMercadoria_input.Text)},
-                                                                                        {dsp_segurança: Value(Segurança_input.Text)},
-                                                                                        {dsp_total: Value(TotalDesp_Input.Text)},
-                                                                                        {dsp_uber: Value(Uber_input.Text)},
-                                                                                        {dsp_userlanc: userlancDesp_input.Text},
-                                                                                        {dsp_folhafora: Value(PgFuncFora_input.Text)},
-                                                                                        {dsp_combustivel: Value(Combustivel_input.Text)},
-                                                                                        {dsp_status: 1}
-                                                                                    );
-                                                                                    Reset(DataDesp_input);
-                                                                                    Reset(FilialDesp_input);
-                                                                                    Reset(Comissão_input);
-                                                                                    Reset(Cozinha_input);
-                                                                                    Reset(dataLanc_desp_input);
-                                                                                    Reset(David_input);
-                                                                                    Reset(Deposito_input);
-                                                                                    Reset(DespesaLoja_input);
-                                                                                    Reset(DobraPessoal_input);
-                                                                                    Reset(Ferias_input);
-                                                                                    Reset(Folha_input);
-                                                                                    Reset(Frete_input);
-                                                                                    Reset(HistoricoDespesa_input);
-                                                                                    Reset(Lucas_input);
-                                                                                    Reset(Lucia_input);
-                                                                                    Reset(DespManutencao_input);
-                                                                                    Reset(Passagem_input);
-                                                                                    Reset(PagBoleto_input);
-                                                                                    Reset(PagMercadoria_input);
-                                                                                    Reset(Segurança_input);
-                                                                                    Reset(TotalDesp_Input);
-                                                                                    Reset(Uber_input);
-                                                                                    Reset(userlancDesp_input);
-                                                                                    Reset(PgFuncFora_input);
-                                                                                    Reset(Combustivel_input);
-                                                                                    Notify(
-                                                                                        "As informações foram gravadas com SUCESSO!!",
-                                                                                        NotificationType.Success
-                                                                                    )
-                                                                                )
-                                                                            )
-                                                                        )
-                                                                    )
-                                                                )
-                                                            )
-                                                        )
-                                                    )
-                                                )
-                                            )
+                                        Patch(
+                                            'gerencial_lucamat.despesa_caixa',
+                                            Defaults('gerencial_lucamat.despesa_caixa'),
+                                            {
+                                                ID: Max(
+                                                    'gerencial_lucamat.despesa_caixa',
+                                                    ID
+                                                ) + 1
+                                            },
+                                            {dsp_status: 1},
+                                            {dsp_datadesp: DataDesp_input.SelectedDate},
+                                            {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                            {dsp_descricao: DescricaoDespesa_input.Text},
+                                            {dsp_filial: FilialDesp_input.Text},
+                                            {dsp_grupo: GrupoDespesa_input.Selected.nome_parametro},
+                                            {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
+                                            {dsp_userlanc: userlancDesp_input.Text},
+                                            {dsp_valordsp: Value(ValorDespesa_input.Text)}
+                                        );
+                                        Reset(DataDesp_input);
+                                        Reset(FilialDesp_input);
+                                        Reset(GrupoDespesa_input);
+                                        Reset(TipoDespesa_input);
+                                        Reset(DescricaoDespesa_input);
+                                        Reset(ValorDespesa_input);
+                                        Reset(dataLanc_desp_input);
+                                        Reset(userlancDesp_input);
+                                        Notify(
+                                            "As informações foram gravadas com SUCESSO!!",
+                                            NotificationType.Success
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    If(
+                        IsBlank(GrupoDespesa_input_1.Text),
+                        Notify(
+                            "O Campo GRUPO DE DESPESA está em branco.",
+                            NotificationType.Error
+                        ),
+                        If(
+                            IsBlank(TipoDespesa_input.SelectedItems),
+                            Notify(
+                                "O Campo TIPO DE DESPESA está em branco.",
+                                NotificationType.Error
+                            ),
+                            If(
+                                IsBlank(DescricaoDespesa_input.Text),
+                                Notify(
+                                    "O Campo DESCRIÇÂO está em branco!",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    IsBlank(ValorDespesa_input.Text),
+                                    Notify(
+                                        "O Campo VALOR está em branco!",
+                                        NotificationType.Error
+                                    ),
+                                    If(
+                                        IsBlank(DataDesp_input.SelectedDate),
+                                        Notify(
+                                            "O Campo DATA DE DESPESA está em branco!",
+                                            NotificationType.Error
+                                        ),
+                                        Patch(
+                                            'gerencial_lucamat.despesa_caixa',
+                                            Defaults('gerencial_lucamat.despesa_caixa'),
+                                            {
+                                                ID: Max(
+                                                    'gerencial_lucamat.despesa_caixa',
+                                                    ID
+                                                ) + 1
+                                            },
+                                            {dsp_status: 1},
+                                            {dsp_datadesp: DataDesp_input.SelectedDate},
+                                            {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                            {dsp_descricao: DescricaoDespesa_input.Text},
+                                            {dsp_filial: FilialDesp_input.Text},
+                                            {dsp_grupo: GrupoDespesa_input_1.Text},
+                                            {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
+                                            {dsp_userlanc: userlancDesp_input.Text},
+                                            {dsp_valordsp: Value(ValorDespesa_input.Text)}
+                                        );
+                                        Reset(DataDesp_input);
+                                        Reset(FilialDesp_input);
+                                        Reset(GrupoDespesa_input_1);
+                                        Reset(TipoDespesa_input);
+                                        Reset(DescricaoDespesa_input);
+                                        Reset(ValorDespesa_input);
+                                        Reset(dataLanc_desp_input);
+                                        Reset(userlancDesp_input);
+                                        Notify(
+                                            "As informações foram gravadas com SUCESSO!!",
+                                            NotificationType.Success
                                         )
                                     )
                                 )
@@ -334,8 +450,8 @@ DespesaCaixa_Screen As screen:
             Size: =12
             Text: ="Gravar"
             Width: =100
-            X: =312
-            Y: =408
+            X: =266
+            Y: =406
             ZIndex: =49
 
         Button5_4 As button:
@@ -351,8 +467,8 @@ DespesaCaixa_Screen As screen:
             Size: =12
             Text: ="Reset"
             Width: =100
-            X: =184
-            Y: =408
+            X: =138
+            Y: =406
             ZIndex: =54
 
         Grupo_lbl As label:
@@ -364,7 +480,7 @@ DespesaCaixa_Screen As screen:
                 ="Grupo :"
             Width: =160
             X: =98
-            Y: =102
+            Y: =150
             ZIndex: =55
 
         Tipo_lbl As label:
@@ -376,7 +492,7 @@ DespesaCaixa_Screen As screen:
                 ="Tipo de Despesa :"
             Width: =160
             X: =98
-            Y: =151
+            Y: =102
             ZIndex: =56
 
         Descricao_lbl As label:
@@ -407,59 +523,67 @@ DespesaCaixa_Screen As screen:
             DisplayFields: =["nome_parametro"]
             DisplayMode: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", DisplayMode.Edit, DisplayMode.Disabled)
             Height: =30
-            Items: =Filter(Filter('gerencial_lucamat.parametro';cod_parametro = "Grupo Despesa"), key_vinculacao = TipoDespesa_input_1.Selected.key_vinculacao)
+            Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Grupo Despesa")
             SearchFields: =["nome_parametro"]
             SearchItems: =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Grupo Despesa"),GrupoDespesa_input.SearchText,"nome_parametro")
             SelectMultiple: =false
             Visible: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", true, false)
-            Width: =190
-            X: =267
-            Y: =102
+            Width: =230
+            X: =266
+            Y: =150
             ZIndex: =59
 
         TipoDespesa_input As combobox:
             DisplayFields: =["nome_parametro"]
             Height: =30
-            Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Tipo Despesa")
+            Items: |-
+                =Filter(
+                    'gerencial_lucamat.parametro',
+                    cod_parametro = "Tipo Despesa"
+                )
             SearchFields: =["nome_parametro"]
-            SearchItems: =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Tipo Despesa"),TipoDespesa_input.SearchText,"nome_parametro")
+            SearchItems: |-
+                =Search(Filter(
+                    'gerencial_lucamat.parametro',
+                    cod_parametro = "Tipo Despesa"
+                ),TipoDespesa_input.SearchText,"nome_parametro")
             SelectMultiple: =false
-            Width: =190
+            Width: =230
             X: =267
-            Y: =151
+            Y: =102
             ZIndex: =60
 
         GrupoDespesa_input_1 As text:
             Default: |-
                 =If(
-                    TipoDespesa_input.Selected.key_vinculacao = "1",
+                    TipoDespesa_input.Selected.key_vinculacao = 1,
                     "Pessoal",
                     If(
-                        TipoDespesa_input.Selected.key_vinculacao = "2",
+                        TipoDespesa_input.Selected.key_vinculacao = 2,
                         "Segurança",
                         If(
-                            TipoDespesa_input.Selected.key_vinculacao = "3",
+                            TipoDespesa_input.Selected.key_vinculacao = 3,
                             "Manutenção",
                             If(
-                                TipoDespesa_input.Selected.key_vinculacao = "4",
+                                TipoDespesa_input.Selected.key_vinculacao = 4,
                                 "Sócios",
                                 If(
-                                    TipoDespesa_input.Selected.key_vinculacao = "5",
+                                    TipoDespesa_input.Selected.key_vinculacao = 5,
                                     "Combustivel",
                                     If(
-                                        TipoDespesa_input.Selected.key_vinculacao = "6",
+                                        TipoDespesa_input.Selected.key_vinculacao = 6,
                                         "Despesa",
                                         If(
-                                            TipoDespesa_input.Selected.key_vinculacao = "7",
+                                            TipoDespesa_input.Selected.key_vinculacao = 7,
                                             "Transporte Pessoal",
                                             If(
-                                                TipoDespesa_input.Selected.key_vinculacao = "8",
+                                                TipoDespesa_input.Selected.key_vinculacao = 8,
                                                 "Frete",
                                                 If(
-                                                    TipoDespesa_input.Selected.key_vinculacao = "9",
+                                                    TipoDespesa_input.Selected.key_vinculacao = 9,
                                                     "Pag. Boleto",
                                                     If(
-                                                        TipoDespesa_input.Selected.key_vinculacao = "10",
+                                                        TipoDespesa_input.Selected.key_vinculacao = 10,
                                                         "Cozinha",
                                                         0
                                                     )
@@ -472,16 +596,81 @@ DespesaCaixa_Screen As screen:
                         )
                     )
                 )
-            DisplayMode: =DisplayMode.View
+            DisplayMode: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", DisplayMode.Disabled, DisplayMode.View)
             Height: =30
-            Width: =190
-            X: =457
-            Y: =102
+            Visible: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", false, true)
+            Width: =230
+            X: =267
+            Y: =150
             ZIndex: =61
 
-        TipoDespesa_input_1 As dropdown:
-            Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Tipo Despesa")
-            X: =388
-            Y: =215
+        DescricaoDespesa_input As text:
+            Default: =""
+            Height: =30
+            HintText: ="Descrição do Lançamento"
+            Width: =230
+            X: =267
+            Y: =198
             ZIndex: =62
+
+        ValorDespesa_input As text:
+            Default: =""
+            Format: =TextFormat.Number
+            Height: =30
+            HintText: ="Insira o Valor"
+            Width: =230
+            X: =267
+            Y: =245
+            ZIndex: =63
+
+    Filtro_DataDesp_inicio_desp As datepicker:
+        ContentLanguage: =
+        DefaultDate: |-
+            =Text(
+                Date(
+                    Year(Today()),
+                    Month(Today()),
+                    Day("01")
+                ),
+                "[$-en-US]dd/mm/yy"
+            )
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Vencimento", DisplayMode.Edit,DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =11.7
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Vencimento"
+        Width: =150
+        X: =35
+        Y: =77
+        ZIndex: =5
+
+    Filtro_DataDesp_fim_desp As datepicker:
+        DefaultDate: |-
+            =Text(
+                Date(
+                    Year(Today()),
+                    Month(Today()),
+                    Day(31)
+                ),
+                "[$-en-US]dd/mm/yy"
+            )
+        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Vencimento", DisplayMode.Edit,DisplayMode.Disabled)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Size: =11.7
+        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Vencimento"
+        Width: =150
+        X: =191
+        Y: =77
+        ZIndex: =6
+
+    Label17 As label:
+        Align: =Align.Center
+        Height: =27
+        Text: ="Filtro de Data (Data da Despesa)"
+        Underline: =true
+        Width: =306
+        X: =35
+        Y: =44
+        ZIndex: =7
 

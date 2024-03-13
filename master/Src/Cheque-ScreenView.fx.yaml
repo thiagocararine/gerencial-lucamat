@@ -778,7 +778,7 @@
         FontWeight: =FontWeight.Semibold
         Height: =30
         Size: =12
-        Text: ="Filtro por Pagamento (Baixa)"
+        Text: ="Filtro por Baixa (Pagamento)"
         Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Baixa"
         Width: =539
         X: =17
@@ -2105,9 +2105,12 @@
             ZIndex: =117
 
     RadioDateFilter As radio:
+        BorderStyle: =BorderStyle.None
         Font: =Font.'Segoe UI'
         Height: =84
+        HoverColor: =RGBA(0, 0, 0, 1)
         Items: =ShowColumns(Filter('gerencial_lucamat.parametro',key_parametro = 13),"nome_parametro")
+        RadioBorderColor: =RGBA(0, 0, 0, 1)
         RadioSize: =20
         Size: =12
         Width: =210
