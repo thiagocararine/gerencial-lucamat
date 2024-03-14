@@ -1,15 +1,30 @@
 DespesaCaixa_Screen As screen:
 
     DataTable2 As dataTable.datatable:
+        BorderColor: =RGBA(56, 96, 178, 1)
         BorderStyle: =BorderStyle.Solid
+        BorderThickness: =4
         DisplayMode: =DisplayMode.Edit
         Fill: =RGBA(0, 0, 0, 0)
-        Height: =524
-        Items: ='gerencial_lucamat.despesa_caixa'
+        HeadingFill: =RGBA(50, 86, 160, 1)
+        Height: =532
+        Items: |-
+            =Sort(
+                Filter(
+                    'gerencial_lucamat.despesa_caixa',
+                    Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate),
+                    dsp_status = FiltroStatus_desp.Selected.Value || IsBlank(FiltroStatus_desp.Selected.Value),
+                    dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value)
+                ),
+                ID,
+                SortOrder.Descending
+            )
+        SelectedColor: =RGBA(26, 26, 26, 1)
+        SelectedFill: =RGBA(215, 223, 240, 1)
         Size: =11
-        Width: =1152
+        Width: =1158
         X: =35
-        Y: =131
+        Y: =122
         ZIndex: =1
 
         ID_Column8 As dataTableColumn.numberColumn:
@@ -165,6 +180,7 @@ DespesaCaixa_Screen As screen:
     Button8 As button:
         DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
         Fill: =RGBA(127, 178, 57, 1)
+        Font: =Font.'Segoe UI'
         Height: =50
         HoverFill: =
         OnSelect: |-
@@ -172,20 +188,21 @@ DespesaCaixa_Screen As screen:
         Size: =14
         Text: ="Informar Despesa"
         Width: =130
-        X: =1062
+        X: =1063
         Y: =688
         ZIndex: =2
 
     Button8_1 As button:
         DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
         Fill: =RGBA(151, 0, 0, 1)
+        Font: =Font.'Segoe UI'
         Height: =50
         HoverFill: =
         OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
         Size: =14
         Text: ="Sair"
         Width: =130
-        X: =917
+        X: =903
         Y: =688
         ZIndex: =3
 
@@ -458,12 +475,14 @@ DespesaCaixa_Screen As screen:
             Fill: =RGBA(221, 79, 14, 1)
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(232, 244, 217, 1)
-            OnSelect: |+
+            OnSelect: |
                 =Reset(DataDesp_input);
                 Reset(FilialDesp_input);
                 Reset(dataLanc_desp_input);
-                Reset(userlancDesp_input);
-                
+                Reset(TipoDespesa_input);
+                Reset(GrupoDespesa_input);
+                Reset(DescricaoDespesa_input);
+                Reset(ValorDespesa_input);
             Size: =12
             Text: ="Reset"
             Width: =100
@@ -634,14 +653,12 @@ DespesaCaixa_Screen As screen:
                 ),
                 "[$-en-US]dd/mm/yy"
             )
-        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Vencimento", DisplayMode.Edit,DisplayMode.Disabled)
         Font: =Font.'Segoe UI'
         Height: =30
         Size: =11.7
-        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Vencimento"
         Width: =150
         X: =35
-        Y: =77
+        Y: =59
         ZIndex: =5
 
     Filtro_DataDesp_fim_desp As datepicker:
@@ -654,23 +671,196 @@ DespesaCaixa_Screen As screen:
                 ),
                 "[$-en-US]dd/mm/yy"
             )
-        DisplayMode: =If(RadioDateFilter.Selected.nome_parametro = "Data de Vencimento", DisplayMode.Edit,DisplayMode.Disabled)
         Font: =Font.'Segoe UI'
         Height: =30
         Size: =11.7
-        Visible: =RadioDateFilter.Selected.nome_parametro = "Data de Vencimento"
         Width: =150
         X: =191
-        Y: =77
+        Y: =59
         ZIndex: =6
 
     Label17 As label:
         Align: =Align.Center
-        Height: =27
-        Text: ="Filtro de Data (Data da Despesa)"
-        Underline: =true
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =15
+        Text: ="Data da Despesa"
         Width: =306
         X: =35
-        Y: =44
+        Y: =26
         ZIndex: =7
+
+    FiltroStatus_desp As combobox:
+        DisplayFields: =["dsp_status"]
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Distinct('gerencial_lucamat.despesa_caixa',dsp_status)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =[""]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =86
+        X: =354
+        Y: =59
+        ZIndex: =8
+
+    FiltroStatusDesp_lbl As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =14
+        Text: ="Status da Despesa"
+        Width: =174
+        X: =354
+        Y: =26
+        ZIndex: =9
+
+    FiltroFilial_desp As combobox:
+        DisplayFields: =[""]
+        DisplayMode: =If(Departamentolbl1.Text = "Comercial", DisplayMode.Disabled, DisplayMode.Edit)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Distinct('gerencial_lucamat.despesa_caixa',dsp_filial)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =[""]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11.7
+        Visible: =If(Departamentolbl1.Text = "Comercial", false, true)
+        Width: =180
+        X: =539
+        Y: =59
+        ZIndex: =10
+
+    FiltroFIlialDesp_lbl As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =15
+        Text: ="Filial"
+        Width: =180
+        X: =539
+        Y: =26
+        ZIndex: =11
+
+    FiltroFilial_desp_1 As text:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Default: =Unidadelbl1.Text
+        DisplayMode: =If(Departamentolbl1.Text = "Comercial", DisplayMode.View, DisplayMode.Disabled)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        Visible: =If(Departamentolbl1.Text = "Comercial", true, false)
+        Width: =180
+        X: =539
+        Y: =59
+        ZIndex: =12
+
+    Label18 As label:
+        Font: =Font.'Segoe UI'
+        Height: =15
+        Size: =9
+        Text: ="1 - Efetuada"
+        Width: =85
+        X: =443
+        Y: =56
+        ZIndex: =13
+
+    Label18_1 As label:
+        Font: =Font.'Segoe UI'
+        Height: =15
+        Size: =9
+        Text: ="2 - Cancelada"
+        Width: =85
+        X: =443
+        Y: =74
+        ZIndex: =14
+
+    Button8_2 As button:
+        DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =RGBA(136, 160, 209, 1)
+        Font: =Font.'Segoe UI'
+        HoverFill: =
+        OnSelect: |
+            =Reset(Filtro_DataDesp_inicio_desp);
+            Reset(Filtro_DataDesp_fim_desp);
+            Reset(FiltroStatus_desp);
+            Reset(FiltroFilial_desp);
+            Reset(FiltroFilial_desp_1);
+            Reset(FiltroGrupo_desp);
+            Reset(FiltroTipo_desp);
+        Size: =14
+        Text: ="Reset"
+        Width: =80
+        X: =1113
+        Y: =43
+        ZIndex: =15
+
+    FiltroGrupo_desp As combobox:
+        DisplayFields: =["dsp_descricao"]
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Distinct('gerencial_lucamat.despesa_caixa',dsp_grupo)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =[""]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =170
+        X: =733
+        Y: =59
+        ZIndex: =16
+
+    FiltroTipo_desp As combobox:
+        DisplayFields: =["Value"]
+        Font: =Font.'Segoe UI'
+        Height: =30
+        IsSearchable: =false
+        Items: =Distinct('gerencial_lucamat.despesa_caixa',dsp_tipo)
+        PaddingRight: =4.5
+        PaddingTop: =4.5
+        SearchFields: =[""]
+        SearchItems: =[]
+        SelectMultiple: =false
+        Size: =11.7
+        Width: =170
+        X: =920
+        Y: =59
+        ZIndex: =17
+
+    FiltroGrupoDesp_lbl As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =15
+        Text: |-
+            ="Grupo Despesa
+            "
+        Width: =170
+        X: =733
+        Y: =26
+        ZIndex: =18
+
+    FiltroTipoDesp_lbl As label:
+        Align: =Align.Center
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =15
+        Text: ="Tipo Despesa"
+        Width: =170
+        X: =920
+        Y: =26
+        ZIndex: =19
 
