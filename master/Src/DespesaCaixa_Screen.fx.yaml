@@ -1,6 +1,6 @@
 DespesaCaixa_Screen As screen:
 
-    DataTable2 As dataTable.datatable:
+    DespesaCaixaTable As dataTable.datatable:
         BorderColor: =RGBA(56, 96, 178, 1)
         BorderStyle: =BorderStyle.Solid
         BorderThickness: =4
@@ -816,6 +816,7 @@ DespesaCaixa_Screen As screen:
         DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
         Fill: =RGBA(136, 160, 209, 1)
         Font: =Font.'Segoe UI'
+        Height: =30
         HoverFill: =
         OnSelect: |
             =Reset(Filtro_DataDesp_inicio_desp);
@@ -829,7 +830,7 @@ DespesaCaixa_Screen As screen:
         Text: ="Reset"
         Width: =80
         X: =1113
-        Y: =43
+        Y: =29
         ZIndex: =15
 
     FiltroGrupo_desp As combobox:
@@ -1057,4 +1058,37 @@ DespesaCaixa_Screen As screen:
         X: =320
         Y: =688
         ZIndex: =25
+
+    Button8_3 As button:
+        DisabledFill: =RGBA(168, 0, 0, 1)
+        DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =RGBA(255, 0, 0, 1)
+        Font: =Font.'Segoe UI'
+        Height: =30
+        HoverFill: =
+        OnSelect: |-
+            =ChequeTable.Selected.ID)
+            
+            Patch(
+                despesa_c,
+                LookUp(
+                    'gerencial_lucamat.cheques',
+                    ID = Value(id_edit_chq.Text)
+                ),
+                {status_chq: "Pago"},
+                {dtbaix_chq: Today()},
+                {
+                    userbaixa_chq: LookUp(
+                        'gerencial_lucamat.cad_user',
+                        email_user = Text(login_input.Text),
+                        nome_user
+                    )
+                }
+            )
+        Size: =13
+        Text: ="Cancelar"
+        Width: =80
+        X: =1113
+        Y: =71
+        ZIndex: =26
 

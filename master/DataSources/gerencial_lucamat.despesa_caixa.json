@@ -7,6 +7,7 @@
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
+      "dsp_datacanc": "dsp_datacanc",
       "dsp_datadesp": "dsp_datadesp",
       "dsp_datalanc": "dsp_datalanc",
       "dsp_descricao": "dsp_descricao",
@@ -14,6 +15,7 @@
       "dsp_grupo": "dsp_grupo",
       "dsp_status": "dsp_status",
       "dsp_tipo": "dsp_tipo",
+      "dsp_usercan": "dsp_usercan",
       "dsp_userlanc": "dsp_userlanc",
       "dsp_valordsp": "dsp_valordsp",
       "ID": "ID"
