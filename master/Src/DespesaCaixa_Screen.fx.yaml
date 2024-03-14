@@ -720,6 +720,16 @@ DespesaCaixa_Screen As screen:
         ZIndex: =7
 
     FiltroStatus_desp As combobox:
+        DefaultSelectedItems: |-
+            =First(
+                Distinct(
+                    Sort(
+                        'gerencial_lucamat.despesa_caixa',
+                        dsp_status
+                    ),
+                    dsp_status
+                )
+            )
         DisplayFields: =["dsp_status"]
         Font: =Font.'Segoe UI'
         Height: =30
@@ -1067,21 +1077,22 @@ DespesaCaixa_Screen As screen:
         Height: =30
         HoverFill: =
         OnSelect: |-
-            =ChequeTable.Selected.ID)
-            
-            Patch(
-                despesa_c,
+            =Patch(
+                'gerencial_lucamat.despesa_caixa',
                 LookUp(
-                    'gerencial_lucamat.cheques',
-                    ID = Value(id_edit_chq.Text)
+                    'gerencial_lucamat.despesa_caixa',
+                    ID = DespesaCaixaTable.Selected.ID
                 ),
-                {status_chq: "Pago"},
-                {dtbaix_chq: Today()},
+                {dsp_status: 2},
+                {dsp_usercan: NomeUserlbl_room.Text},
                 {
-                    userbaixa_chq: LookUp(
-                        'gerencial_lucamat.cad_user',
-                        email_user = Text(login_input.Text),
-                        nome_user
+                    dsp_datacanc: DateTime(
+                        Year(Today()),
+                        Month(Today()),
+                        Day(Today()),
+                        Hour(Today()),
+                        Minute(Today()),
+                        Second(Today())
                     )
                 }
             )
