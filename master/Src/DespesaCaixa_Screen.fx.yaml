@@ -260,8 +260,8 @@ DespesaCaixa_Screen As screen:
             Text: |-
                 ="Data da Despesa :"
             Width: =160
-            X: =50
-            Y: =32
+            X: =34
+            Y: =89
             ZIndex: =37
 
         Label17_18 As label:
@@ -272,7 +272,7 @@ DespesaCaixa_Screen As screen:
                 ="Data Lançamento :"
             Width: =155
             X: =353
-            Y: =303
+            Y: =325
             ZIndex: =38
 
         Label17_19 As label:
@@ -283,7 +283,7 @@ DespesaCaixa_Screen As screen:
                 ="Usuário :"
             Width: =132
             X: =376
-            Y: =349
+            Y: =362
             ZIndex: =39
 
         userlancDesp_input As text:
@@ -292,7 +292,7 @@ DespesaCaixa_Screen As screen:
             Height: =30
             Width: =180
             X: =508
-            Y: =349
+            Y: =362
             ZIndex: =40
 
         DataDesp_input As datepicker:
@@ -303,8 +303,8 @@ DespesaCaixa_Screen As screen:
                 )
             Height: =30
             Width: =190
-            X: =210
-            Y: =32
+            X: =194
+            Y: =89
             ZIndex: =43
 
         dataLanc_desp_input As datepicker:
@@ -317,7 +317,7 @@ DespesaCaixa_Screen As screen:
             Height: =30
             Width: =180
             X: =508
-            Y: =303
+            Y: =325
             ZIndex: =44
 
         Filial_lbl As label:
@@ -328,8 +328,8 @@ DespesaCaixa_Screen As screen:
             Text: |-
                 ="Filial :"
             Width: =75
-            X: =432
-            Y: =32
+            X: =416
+            Y: =89
             ZIndex: =47
 
         FilialDesp_input As text:
@@ -337,8 +337,8 @@ DespesaCaixa_Screen As screen:
             DisplayMode: =DisplayMode.View
             Height: =30
             Width: =180
-            X: =508
-            Y: =32
+            X: =492
+            Y: =89
             ZIndex: =48
 
         Button5_3 As button:
@@ -515,8 +515,8 @@ DespesaCaixa_Screen As screen:
             Text: |-
                 ="Grupo :"
             Width: =160
-            X: =98
-            Y: =150
+            X: =116
+            Y: =192
             ZIndex: =55
 
         Tipo_lbl As label:
@@ -527,8 +527,8 @@ DespesaCaixa_Screen As screen:
             Text: |-
                 ="Tipo de Despesa :"
             Width: =160
-            X: =98
-            Y: =102
+            X: =116
+            Y: =144
             ZIndex: =56
 
         Descricao_lbl As label:
@@ -539,8 +539,8 @@ DespesaCaixa_Screen As screen:
             Text: |-
                 ="Descrição :"
             Width: =160
-            X: =98
-            Y: =198
+            X: =116
+            Y: =240
             ZIndex: =57
 
         ValorDespesa_lbl As label:
@@ -551,8 +551,8 @@ DespesaCaixa_Screen As screen:
             Text: |-
                 ="Valor :"
             Width: =160
-            X: =98
-            Y: =245
+            X: =116
+            Y: =287
             ZIndex: =58
 
         GrupoDespesa_input As combobox:
@@ -585,8 +585,8 @@ DespesaCaixa_Screen As screen:
                 ),TipoDespesa_input.SearchText,"nome_parametro")
             SelectMultiple: =false
             Width: =230
-            X: =267
-            Y: =102
+            X: =285
+            Y: =144
             ZIndex: =60
 
         GrupoDespesa_input_1 As text:
@@ -636,8 +636,8 @@ DespesaCaixa_Screen As screen:
             Height: =30
             Visible: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", false, true)
             Width: =230
-            X: =267
-            Y: =150
+            X: =285
+            Y: =192
             ZIndex: =61
 
         DescricaoDespesa_input As text:
@@ -645,8 +645,8 @@ DespesaCaixa_Screen As screen:
             Height: =30
             HintText: ="Descrição do Lançamento"
             Width: =230
-            X: =267
-            Y: =198
+            X: =285
+            Y: =240
             ZIndex: =62
 
         ValorDespesa_input As text:
@@ -655,9 +655,20 @@ DespesaCaixa_Screen As screen:
             Height: =30
             HintText: ="Insira o Valor"
             Width: =230
-            X: =267
-            Y: =245
+            X: =285
+            Y: =287
             ZIndex: =63
+
+        Label21 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            Size: =17
+            Text: ="Lançamento de Despesa"
+            Underline: =true
+            Width: =300
+            X: =203
+            Y: =22
+            ZIndex: =64
 
     Filtro_DataDesp_inicio_desp As datepicker:
         ContentLanguage: =
