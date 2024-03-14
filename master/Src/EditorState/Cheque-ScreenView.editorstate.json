@@ -860,7 +860,7 @@
       "MetaDataIDKey": "",
       "Name": "AddFornec",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 120,
+      "ParentIndex": 118,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1105,7 +1105,7 @@
       "MetaDataIDKey": "",
       "Name": "AddGroup",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 119,
+      "ParentIndex": 120,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3173,7 +3173,7 @@
       "MetaDataIDKey": "",
       "Name": "agenciaconta_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4245,7 +4245,7 @@
       "MetaDataIDKey": "",
       "Name": "banco_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14798,7 +14798,7 @@
       "MetaDataIDKey": "",
       "Name": "dtbaix_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 12,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15280,7 +15280,7 @@
       "MetaDataIDKey": "",
       "Name": "dtlanc_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 10,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15382,7 +15382,7 @@
       "MetaDataIDKey": "",
       "Name": "dtvenc_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -15810,7 +15810,7 @@
       "MetaDataIDKey": "",
       "Name": "empresa_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -22647,7 +22647,7 @@
       "MetaDataIDKey": "",
       "Name": "fornecedor_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24006,7 +24006,7 @@
       "MetaDataIDKey": "",
       "Name": "GroupEdit",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 118,
+      "ParentIndex": 119,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24058,7 +24058,7 @@
       "MetaDataIDKey": "",
       "Name": "GrupoAgCc",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 121,
+      "ParentIndex": 122,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24110,7 +24110,7 @@
       "MetaDataIDKey": "",
       "Name": "GrupoBanco",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 122,
+      "ParentIndex": 121,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -24398,7 +24398,7 @@
       "MetaDataIDKey": "",
       "Name": "ID_Column3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -27451,7 +27451,7 @@
       "MetaDataIDKey": "",
       "Name": "numero_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -31927,7 +31927,7 @@
       "MetaDataIDKey": "",
       "Name": "status_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -35447,7 +35447,7 @@
       "MetaDataIDKey": "",
       "Name": "userbaixa_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 13,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -36135,7 +36135,7 @@
       "MetaDataIDKey": "",
       "Name": "userlanc_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 11,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -36540,7 +36540,7 @@
       "MetaDataIDKey": "",
       "Name": "valor_chq_Column2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

@@ -9,15 +9,32 @@ DespesaCaixa_Screen As screen:
         HeadingFill: =RGBA(50, 86, 160, 1)
         Height: =532
         Items: |-
-            =Sort(
-                Filter(
-                    'gerencial_lucamat.despesa_caixa',
-                    Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate),
-                    dsp_status = FiltroStatus_desp.Selected.Value || IsBlank(FiltroStatus_desp.Selected.Value),
-                    dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value)
+            =If(
+                Departamentolbl1.Text = "Comercial",
+                Sort(
+                    Filter(
+                        'gerencial_lucamat.despesa_caixa',
+                        Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate),
+                        dsp_status = FiltroStatus_desp.Selected.Value || IsBlank(FiltroStatus_desp.Selected.Value),
+                        dsp_filial = FiltroFilial_desp_1.Text || IsBlank(FiltroFilial_desp_1.Text),
+                        dsp_grupo = FiltroGrupo_desp.Selected.Value || IsBlank(FiltroGrupo_desp.Selected.Value),
+                        dsp_tipo = FiltroTipo_desp.Selected.Value || IsBlank(FiltroTipo_desp.Selected.Value)
+                    ),
+                    ID,
+                    SortOrder.Descending
                 ),
-                ID,
-                SortOrder.Descending
+                Sort(
+                    Filter(
+                        'gerencial_lucamat.despesa_caixa',
+                        Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate),
+                        dsp_status = FiltroStatus_desp.Selected.Value || IsBlank(FiltroStatus_desp.Selected.Value),
+                        dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value),
+                        dsp_grupo = FiltroGrupo_desp.Selected.Value || IsBlank(FiltroGrupo_desp.Selected.Value),
+                        dsp_tipo = FiltroTipo_desp.Selected.Value || IsBlank(FiltroTipo_desp.Selected.Value)
+                    ),
+                    ID,
+                    SortOrder.Descending
+                )
             )
         SelectedColor: =RGBA(26, 26, 26, 1)
         SelectedFill: =RGBA(215, 223, 240, 1)
@@ -863,4 +880,170 @@ DespesaCaixa_Screen As screen:
         X: =920
         Y: =26
         ZIndex: =19
+
+    Label19 As label:
+        Align: =Align.Right
+        Height: =25
+        Size: =12
+        Text: |-
+            =If(
+                Departamentolbl1.Text = "Comercial",
+                "R$ " & Text(
+                    Sum(
+                        Filter(
+                            'gerencial_lucamat.despesa_caixa',
+                            Month(dsp_datadesp) = Month(Today()) && Year(dsp_datadesp) = Year(Today()),
+                            dsp_filial = FiltroFilial_desp_1.Text || IsBlank(FiltroFilial_desp_1.Text),
+                            dsp_status = 1
+                        ),
+                        dsp_valordsp
+                    ),
+                    "[$-pt-BR]#.###,00"
+                ),
+                "R$ " & Text(
+                    Sum(
+                        Filter(
+                            'gerencial_lucamat.despesa_caixa',
+                            Month(dsp_datadesp) = Month(Today()) && Year(dsp_datadesp) = Year(Today()),
+                            dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value),
+                            dsp_status = 1
+                        ),
+                        dsp_valordsp
+                    ),
+                    "[$-pt-BR]#.###,00"
+                )
+            )
+        Width: =120
+        X: =35
+        Y: =713
+        ZIndex: =20
+
+    Label19_1 As label:
+        Align: =Align.Right
+        Height: =25
+        Size: =12
+        Text: |-
+            =If(
+                Departamentolbl1.Text = "Comercial",
+                "R$ " & Text(
+                    Sum(
+                        Filter(
+                            'gerencial_lucamat.despesa_caixa',
+                            DateDiff(
+                                dsp_datadesp,
+                                DateAdd(
+                                    Today(),
+                                    -Weekday(
+                                        Today(),
+                                        StartOfWeek.Sunday
+                                    ),
+                                    TimeUnit.Days
+                                ),
+                                TimeUnit.Days
+                            ) < 7,
+                            dsp_filial = FiltroFilial_desp_1.Text || IsBlank(FiltroFilial_desp_1.Text),
+                            dsp_status = 1
+                        ),
+                        dsp_valordsp
+                    ),
+                    "[$-pt-BR]#.##0,00"
+                ),
+                "R$ " & Text(
+                    Sum(
+                        Filter(
+                            'gerencial_lucamat.despesa_caixa',
+                            DateDiff(
+                                dsp_datadesp,
+                                DateAdd(
+                                    Today(),
+                                    -Weekday(
+                                        Today(),
+                                        StartOfWeek.Sunday
+                                    ),
+                                    TimeUnit.Days
+                                ),
+                                TimeUnit.Days
+                            ) < 7,
+                            dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value),
+                            dsp_status = 1
+                        ),
+                        dsp_valordsp
+                    ),
+                    "[$-pt-BR]#.##0,00"
+                )
+            )
+        Width: =120
+        X: =177
+        Y: =713
+        ZIndex: =21
+
+    Label19_2 As label:
+        Align: =Align.Right
+        Height: =25
+        Size: =12
+        Text: |-
+            =If(
+                Departamentolbl1.Text = "Comercial",
+                "R$ " & Text(
+                    Sum(
+                        Filter(
+                            'gerencial_lucamat.despesa_caixa',
+                            Day(dsp_datadesp) = Day(Today()) && Month(dsp_datadesp) = Month(Today()) && Year(dsp_datadesp) = Year(Today()),
+                            dsp_filial = FiltroFilial_desp_1.Text || IsBlank(FiltroFilial_desp_1.Text),
+                            dsp_status = 1
+                        ),
+                        dsp_valordsp
+                    ),
+                    "[$-pt-BR]#.##0,00"
+                ),
+                "R$ " & Text(
+                    Sum(
+                        Filter(
+                            'gerencial_lucamat.despesa_caixa',
+                            Day(dsp_datadesp) = Day(Today()) && Month(dsp_datadesp) = Month(Today()) && Year(dsp_datadesp) = Year(Today()),
+                            dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value),
+                            dsp_status = 1
+                        ),
+                        dsp_valordsp
+                    ),
+                    "[$-pt-BR]#.##0,00"
+                )
+            )
+        Width: =120
+        X: =320
+        Y: =713
+        ZIndex: =22
+
+    Label20 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Size: =12
+        Text: ="Total Mensal"
+        Width: =120
+        X: =35
+        Y: =688
+        ZIndex: =23
+
+    Label20_1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Size: =12
+        Text: ="Total Semanal"
+        Width: =120
+        X: =177
+        Y: =688
+        ZIndex: =24
+
+    Label20_2 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Height: =25
+        Size: =12
+        Text: ="Total Diário"
+        Width: =120
+        X: =320
+        Y: =688
+        ZIndex: =25
 
