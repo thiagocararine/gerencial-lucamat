@@ -3962,7 +3962,7 @@
       "MetaDataIDKey": "",
       "Name": "dsp_datadesp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4069,7 +4069,7 @@
       "MetaDataIDKey": "",
       "Name": "dsp_datalanc_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 9,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4176,7 +4176,7 @@
       "MetaDataIDKey": "",
       "Name": "dsp_descricao_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4283,7 +4283,7 @@
       "MetaDataIDKey": "",
       "Name": "dsp_filial_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4497,7 +4497,7 @@
       "MetaDataIDKey": "",
       "Name": "dsp_status_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4604,7 +4604,7 @@
       "MetaDataIDKey": "",
       "Name": "dsp_tipo_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4818,7 +4818,7 @@
       "MetaDataIDKey": "",
       "Name": "dsp_valordsp_Column1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -12936,7 +12936,7 @@
       "MetaDataIDKey": "",
       "Name": "Label20",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 19,
+      "ParentIndex": 20,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13234,7 +13234,7 @@
       "MetaDataIDKey": "",
       "Name": "Label20_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 20,
+      "ParentIndex": 21,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13844,7 +13844,7 @@
       "MetaDataIDKey": "",
       "Name": "Label20_3",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 21,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
