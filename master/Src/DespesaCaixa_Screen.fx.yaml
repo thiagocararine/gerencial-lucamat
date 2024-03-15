@@ -615,8 +615,8 @@ DespesaCaixa_Screen As screen:
             SelectMultiple: =false
             Visible: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", true, false)
             Width: =230
-            X: =266
-            Y: =150
+            X: =285
+            Y: =192
             ZIndex: =59
 
         TipoDespesa_input As combobox:
