@@ -522,14 +522,14 @@ Financeiro_screenDash As screen:
         ZIndex: =55
 
     filial_edit As combobox:
-        DisplayFields: =["cod_parametro"]
+        DisplayFields: =["nome_parametro"]
         Height: =35
         IsSearchable: =false
         Items: =Filter('gerencial_lucamat.parametro', key_parametro = 1)
         PaddingRight: =4.5
         PaddingTop: =4.5
-        SearchFields: =["cod_parametro"]
-        SearchItems: =[]
+        SearchFields: =["nome_parametro"]
+        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 1),filial_edit.SearchText,"nome_parametro")
         Visible: =MenuEdit
         Width: =143.95
         X: =1043.66
@@ -537,14 +537,14 @@ Financeiro_screenDash As screen:
         ZIndex: =62
 
     tplanc_edit As combobox:
-        DisplayFields: =["cod_parametro"]
+        DisplayFields: =["nome_parametro"]
         Height: =35
         IsSearchable: =false
         Items: =Filter('gerencial_lucamat.parametro', key_parametro = 9)
         PaddingRight: =4.5
         PaddingTop: =4.5
-        SearchFields: =["cod_parametro"]
-        SearchItems: =[]
+        SearchFields: =["nome_parametro"]
+        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 9),tplanc_edit.SearchText,"nome_parametro")
         Visible: =MenuEdit
         Width: =143.95
         X: =1043.66
@@ -552,14 +552,14 @@ Financeiro_screenDash As screen:
         ZIndex: =63
 
     tpsaida_edit As combobox:
-        DisplayFields: =["cod_parametro"]
+        DisplayFields: =["nome_parametro"]
         Height: =35
         IsSearchable: =false
         Items: =Filter('gerencial_lucamat.parametro', key_parametro = 11)
         PaddingRight: =4.5
         PaddingTop: =4.5
-        SearchFields: =["cod_parametro"]
-        SearchItems: =[]
+        SearchFields: =["nome_parametro"]
+        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 11),tpsaida_edit.SearchText,"nome_parametro")
         Visible: =MenuEdit
         Width: =143.95
         X: =1043.66
@@ -821,14 +821,14 @@ Financeiro_screenDash As screen:
             ZIndex: =51
 
     tpentrada_edit As combobox:
-        DisplayFields: =["cod_parametro"]
+        DisplayFields: =["nome_parametro"]
         Height: =35
         IsSearchable: =false
         Items: =Filter('gerencial_lucamat.parametro', key_parametro = 10)
         PaddingRight: =4.5
         PaddingTop: =4.5
-        SearchFields: =["cod_parametro"]
-        SearchItems: =[]
+        SearchFields: =["nome_parametro"]
+        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 10),tpentrada_edit.SearchText,"nome_parametro")
         Visible: =MenuEdit        
         Width: =143.95
         X: =877.21
