@@ -954,7 +954,7 @@ DespesaCaixa_Screen As screen:
         ZIndex: =24
 
     Label19 As label:
-        Align: =Align.Right
+        Align: =Align.Center
         Height: =25
         Size: =12
         Text: |-
@@ -991,7 +991,7 @@ DespesaCaixa_Screen As screen:
         ZIndex: =25
 
     Label19_1 As label:
-        Align: =Align.Right
+        Align: =Align.Center
         Height: =25
         Size: =12
         Text: |-
@@ -1050,7 +1050,7 @@ DespesaCaixa_Screen As screen:
         ZIndex: =26
 
     Label19_2 As label:
-        Align: =Align.Right
+        Align: =Align.Center
         Height: =25
         Size: =12
         Text: |-
@@ -1151,6 +1151,7 @@ DespesaCaixa_Screen As screen:
         ZIndex: =31
 
     TextInput3 As text:
+        Align: =Align.Center
         Default: |-
             =Text(
                 Value(
@@ -1169,6 +1170,7 @@ DespesaCaixa_Screen As screen:
                 "$ #,##0.00",
                 "pt-BR"
             )
+        DisplayMode: =DisplayMode.View
         Width: =220
         X: =523
         Y: =695
