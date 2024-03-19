@@ -38,8 +38,8 @@
       "displayName": "MySQL",
       "executionRestrictions": {
         "apiId": "/providers/microsoft.powerapps/apis/shared_mysql",
-        "appVer": "3.24031.25",
-        "modifiedOn": "2024-03-18 17:23:58",
+        "appVer": "3.24032.23",
+        "modifiedOn": "2024-03-19 14:38:14",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
