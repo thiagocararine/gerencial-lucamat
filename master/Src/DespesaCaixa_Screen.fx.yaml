@@ -244,6 +244,34 @@ DespesaCaixa_Screen As screen:
             Y: =0
             ZIndex: =74
 
+        dsp_datacanc_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Data Canc."
+            FieldName: ="dsp_datacanc"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =11
+            Text: =ThisItem.dsp_datacanc
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =75
+
+        dsp_usercan_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Usuário Canc."
+            FieldName: ="dsp_usercan"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =12
+            Text: =ThisItem.dsp_usercan
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =76
+
     Button8 As button:
         DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
         Fill: =RGBA(127, 178, 57, 1)
@@ -397,67 +425,134 @@ DespesaCaixa_Screen As screen:
             HoverFill: =RGBA(232, 244, 217, 1)
             OnSelect: |-
                 =If(
-                    TipoDespesa_input.Selected.nome_parametro = "Não Classificado",
+                    'Checkbox_Data Despesa'.Value = true,
                     If(
-                        IsBlank(GrupoDespesa_input.SelectedItems),
-                        Notify(
-                            "O Campo GRUPO DE DESPESA está em branco.",
-                            NotificationType.Error
-                        ),
+                        TipoDespesa_input.Selected.nome_parametro = "Não Classificado",
                         If(
-                            IsBlank(TipoDespesa_input.SelectedItems),
+                            IsBlank(GrupoDespesa_input.SelectedItems),
                             Notify(
-                                "O Campo TIPO DE DESPESA está em branco.",
+                                "O Campo GRUPO DE DESPESA está em branco.",
                                 NotificationType.Error
                             ),
                             If(
-                                IsBlank(DescricaoDespesa_input.Text),
+                                IsBlank(TipoDespesa_input.SelectedItems),
                                 Notify(
-                                    "O Campo DESCRIÇÂO está em branco!",
+                                    "O Campo TIPO DE DESPESA está em branco.",
                                     NotificationType.Error
                                 ),
                                 If(
-                                    IsBlank(ValorDespesa_input.Text),
+                                    IsBlank(DescricaoDespesa_input.Text),
                                     Notify(
-                                        "O Campo VALOR está em branco!",
+                                        "O Campo DESCRIÇÂO está em branco!",
                                         NotificationType.Error
                                     ),
                                     If(
-                                        IsBlank(DataDesp_input.SelectedDate),
+                                        IsBlank(ValorDespesa_input.Text),
                                         Notify(
-                                            "O Campo DATA DE DESPESA está em branco!",
+                                            "O Campo VALOR está em branco!",
                                             NotificationType.Error
                                         ),
-                                        Patch(
-                                            'gerencial_lucamat.despesa_caixa',
-                                            Defaults('gerencial_lucamat.despesa_caixa'),
-                                            {
-                                                ID: Max(
-                                                    'gerencial_lucamat.despesa_caixa',
-                                                    ID
-                                                ) + 1
-                                            },
-                                            {dsp_status: 1},
-                                            {dsp_datadesp: DataDesp_input.SelectedDate},
-                                            {dsp_datalanc: dataLanc_desp_input.SelectedDate},
-                                            {dsp_descricao: DescricaoDespesa_input.Text},
-                                            {dsp_filial: FilialDesp_input.Text},
-                                            {dsp_grupo: GrupoDespesa_input.Selected.nome_parametro},
-                                            {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
-                                            {dsp_userlanc: userlancDesp_input.Text},
-                                            {dsp_valordsp: Value(ValorDespesa_input.Text)}
-                                        );
-                                        Reset(DataDesp_input);
-                                        Reset(FilialDesp_input);
-                                        Reset(GrupoDespesa_input);
-                                        Reset(TipoDespesa_input);
-                                        Reset(DescricaoDespesa_input);
-                                        Reset(ValorDespesa_input);
-                                        Reset(dataLanc_desp_input);
-                                        Reset(userlancDesp_input);
+                                        If(
+                                            IsBlank(DataDesp_input.SelectedDate),
+                                            Notify(
+                                                "O Campo DATA DE DESPESA está em branco!",
+                                                NotificationType.Error
+                                            ),
+                                            Patch(
+                                                'gerencial_lucamat.despesa_caixa',
+                                                Defaults('gerencial_lucamat.despesa_caixa'),
+                                                {
+                                                    ID: Max(
+                                                        'gerencial_lucamat.despesa_caixa',
+                                                        ID
+                                                    ) + 1
+                                                },
+                                                {dsp_status: 1},
+                                                {dsp_datadesp: DataDesp_input.SelectedDate},
+                                                {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                                {dsp_descricao: DescricaoDespesa_input.Text},
+                                                {dsp_filial: FilialDesp_input.Text},
+                                                {dsp_grupo: GrupoDespesa_input.Selected.nome_parametro},
+                                                {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
+                                                {dsp_userlanc: userlancDesp_input.Text},
+                                                {dsp_valordsp: Value(ValorDespesa_input.Text)}
+                                            );
+                                            Reset(FilialDesp_input);
+                                            Reset(GrupoDespesa_input);
+                                            Reset(TipoDespesa_input);
+                                            Reset(DescricaoDespesa_input);
+                                            Reset(ValorDespesa_input);
+                                            Reset(dataLanc_desp_input);
+                                            Reset(userlancDesp_input);
+                                            Notify(
+                                                "As informações foram gravadas com SUCESSO!!",
+                                                NotificationType.Success
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        If(
+                            IsBlank(GrupoDespesa_input_1.Text),
+                            Notify(
+                                "O Campo GRUPO DE DESPESA está em branco.",
+                                NotificationType.Error
+                            ),
+                            If(
+                                IsBlank(TipoDespesa_input.SelectedItems),
+                                Notify(
+                                    "O Campo TIPO DE DESPESA está em branco.",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    IsBlank(DescricaoDespesa_input.Text),
+                                    Notify(
+                                        "O Campo DESCRIÇÂO está em branco!",
+                                        NotificationType.Error
+                                    ),
+                                    If(
+                                        IsBlank(ValorDespesa_input.Text),
                                         Notify(
-                                            "As informações foram gravadas com SUCESSO!!",
-                                            NotificationType.Success
+                                            "O Campo VALOR está em branco!",
+                                            NotificationType.Error
+                                        ),
+                                        If(
+                                            IsBlank(DataDesp_input.SelectedDate),
+                                            Notify(
+                                                "O Campo DATA DE DESPESA está em branco!",
+                                                NotificationType.Error
+                                            ),
+                                            Patch(
+                                                'gerencial_lucamat.despesa_caixa',
+                                                Defaults('gerencial_lucamat.despesa_caixa'),
+                                                {
+                                                    ID: Max(
+                                                        'gerencial_lucamat.despesa_caixa',
+                                                        ID
+                                                    ) + 1
+                                                },
+                                                {dsp_status: 1},
+                                                {dsp_datadesp: DataDesp_input.SelectedDate},
+                                                {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                                {dsp_descricao: DescricaoDespesa_input.Text},
+                                                {dsp_filial: FilialDesp_input.Text},
+                                                {dsp_grupo: GrupoDespesa_input_1.Text},
+                                                {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
+                                                {dsp_userlanc: userlancDesp_input.Text},
+                                                {dsp_valordsp: Value(ValorDespesa_input.Text)}
+                                            );
+                                            Reset(FilialDesp_input);
+                                            Reset(GrupoDespesa_input_1);
+                                            Reset(TipoDespesa_input);
+                                            Reset(DescricaoDespesa_input);
+                                            Reset(ValorDespesa_input);
+                                            Reset(dataLanc_desp_input);
+                                            Reset(userlancDesp_input);
+                                            Notify(
+                                                "As informações foram gravadas com SUCESSO!!",
+                                                NotificationType.Success
+                                            )
                                         )
                                     )
                                 )
@@ -465,65 +560,134 @@ DespesaCaixa_Screen As screen:
                         )
                     ),
                     If(
-                        IsBlank(GrupoDespesa_input_1.Text),
-                        Notify(
-                            "O Campo GRUPO DE DESPESA está em branco.",
-                            NotificationType.Error
-                        ),
+                        TipoDespesa_input.Selected.nome_parametro = "Não Classificado",
                         If(
-                            IsBlank(TipoDespesa_input.SelectedItems),
+                            IsBlank(GrupoDespesa_input.SelectedItems),
                             Notify(
-                                "O Campo TIPO DE DESPESA está em branco.",
+                                "O Campo GRUPO DE DESPESA está em branco.",
                                 NotificationType.Error
                             ),
                             If(
-                                IsBlank(DescricaoDespesa_input.Text),
+                                IsBlank(TipoDespesa_input.SelectedItems),
                                 Notify(
-                                    "O Campo DESCRIÇÂO está em branco!",
+                                    "O Campo TIPO DE DESPESA está em branco.",
                                     NotificationType.Error
                                 ),
                                 If(
-                                    IsBlank(ValorDespesa_input.Text),
+                                    IsBlank(DescricaoDespesa_input.Text),
                                     Notify(
-                                        "O Campo VALOR está em branco!",
+                                        "O Campo DESCRIÇÂO está em branco!",
                                         NotificationType.Error
                                     ),
                                     If(
-                                        IsBlank(DataDesp_input.SelectedDate),
+                                        IsBlank(ValorDespesa_input.Text),
                                         Notify(
-                                            "O Campo DATA DE DESPESA está em branco!",
+                                            "O Campo VALOR está em branco!",
                                             NotificationType.Error
                                         ),
-                                        Patch(
-                                            'gerencial_lucamat.despesa_caixa',
-                                            Defaults('gerencial_lucamat.despesa_caixa'),
-                                            {
-                                                ID: Max(
-                                                    'gerencial_lucamat.despesa_caixa',
-                                                    ID
-                                                ) + 1
-                                            },
-                                            {dsp_status: 1},
-                                            {dsp_datadesp: DataDesp_input.SelectedDate},
-                                            {dsp_datalanc: dataLanc_desp_input.SelectedDate},
-                                            {dsp_descricao: DescricaoDespesa_input.Text},
-                                            {dsp_filial: FilialDesp_input.Text},
-                                            {dsp_grupo: GrupoDespesa_input_1.Text},
-                                            {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
-                                            {dsp_userlanc: userlancDesp_input.Text},
-                                            {dsp_valordsp: Value(ValorDespesa_input.Text)}
-                                        );
-                                        Reset(DataDesp_input);
-                                        Reset(FilialDesp_input);
-                                        Reset(GrupoDespesa_input_1);
-                                        Reset(TipoDespesa_input);
-                                        Reset(DescricaoDespesa_input);
-                                        Reset(ValorDespesa_input);
-                                        Reset(dataLanc_desp_input);
-                                        Reset(userlancDesp_input);
+                                        If(
+                                            IsBlank(DataDesp_input.SelectedDate),
+                                            Notify(
+                                                "O Campo DATA DE DESPESA está em branco!",
+                                                NotificationType.Error
+                                            ),
+                                            Patch(
+                                                'gerencial_lucamat.despesa_caixa',
+                                                Defaults('gerencial_lucamat.despesa_caixa'),
+                                                {
+                                                    ID: Max(
+                                                        'gerencial_lucamat.despesa_caixa',
+                                                        ID
+                                                    ) + 1
+                                                },
+                                                {dsp_status: 1},
+                                                {dsp_datadesp: DataDesp_input.SelectedDate},
+                                                {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                                {dsp_descricao: DescricaoDespesa_input.Text},
+                                                {dsp_filial: FilialDesp_input.Text},
+                                                {dsp_grupo: GrupoDespesa_input.Selected.nome_parametro},
+                                                {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
+                                                {dsp_userlanc: userlancDesp_input.Text},
+                                                {dsp_valordsp: Value(ValorDespesa_input.Text)}
+                                            );
+                                            Reset(DataDesp_input);
+                                            Reset(FilialDesp_input);
+                                            Reset(GrupoDespesa_input);
+                                            Reset(TipoDespesa_input);
+                                            Reset(DescricaoDespesa_input);
+                                            Reset(ValorDespesa_input);
+                                            Reset(dataLanc_desp_input);
+                                            Reset(userlancDesp_input);
+                                            Notify(
+                                                "As informações foram gravadas com SUCESSO!!",
+                                                NotificationType.Success
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        If(
+                            IsBlank(GrupoDespesa_input_1.Text),
+                            Notify(
+                                "O Campo GRUPO DE DESPESA está em branco.",
+                                NotificationType.Error
+                            ),
+                            If(
+                                IsBlank(TipoDespesa_input.SelectedItems),
+                                Notify(
+                                    "O Campo TIPO DE DESPESA está em branco.",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    IsBlank(DescricaoDespesa_input.Text),
+                                    Notify(
+                                        "O Campo DESCRIÇÂO está em branco!",
+                                        NotificationType.Error
+                                    ),
+                                    If(
+                                        IsBlank(ValorDespesa_input.Text),
                                         Notify(
-                                            "As informações foram gravadas com SUCESSO!!",
-                                            NotificationType.Success
+                                            "O Campo VALOR está em branco!",
+                                            NotificationType.Error
+                                        ),
+                                        If(
+                                            IsBlank(DataDesp_input.SelectedDate),
+                                            Notify(
+                                                "O Campo DATA DE DESPESA está em branco!",
+                                                NotificationType.Error
+                                            ),
+                                            Patch(
+                                                'gerencial_lucamat.despesa_caixa',
+                                                Defaults('gerencial_lucamat.despesa_caixa'),
+                                                {
+                                                    ID: Max(
+                                                        'gerencial_lucamat.despesa_caixa',
+                                                        ID
+                                                    ) + 1
+                                                },
+                                                {dsp_status: 1},
+                                                {dsp_datadesp: DataDesp_input.SelectedDate},
+                                                {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                                {dsp_descricao: DescricaoDespesa_input.Text},
+                                                {dsp_filial: FilialDesp_input.Text},
+                                                {dsp_grupo: GrupoDespesa_input_1.Text},
+                                                {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
+                                                {dsp_userlanc: userlancDesp_input.Text},
+                                                {dsp_valordsp: Value(ValorDespesa_input.Text)}
+                                            );
+                                            Reset(DataDesp_input);
+                                            Reset(FilialDesp_input);
+                                            Reset(GrupoDespesa_input_1);
+                                            Reset(TipoDespesa_input);
+                                            Reset(DescricaoDespesa_input);
+                                            Reset(ValorDespesa_input);
+                                            Reset(dataLanc_desp_input);
+                                            Reset(userlancDesp_input);
+                                            Notify(
+                                                "As informações foram gravadas com SUCESSO!!",
+                                                NotificationType.Success
+                                            )
                                         )
                                     )
                                 )
