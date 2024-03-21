@@ -720,6 +720,17 @@ DespesaCaixa_Screen As screen:
             Y: =22
             ZIndex: =64
 
+        "'Checkbox_Data Despesa' As checkbox":
+            BorderStyle: =BorderStyle.None
+            CheckboxBorderColor: =RGBA(0, 0, 0, 1)
+            CheckboxSize: =20
+            CheckmarkFill: =RGBA(0, 18, 107, 1)
+            Size: =11
+            Text: ="Não resetar Data da Despesa."
+            X: =508
+            Y: =401
+            ZIndex: =65
+
     Filtro_DataDesp_inicio_desp As datepicker:
         ContentLanguage: =
         DefaultDate: |-
