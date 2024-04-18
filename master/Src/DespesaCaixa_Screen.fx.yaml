@@ -64,7 +64,7 @@ DespesaCaixa_Screen As screen:
                 Sort(
                     Filter(
                         'gerencial_lucamat.despesa_caixa',
-                        Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate),
+                        //Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate);
                         dsp_status = FiltroStatus_desp.Selected.Value || IsBlank(FiltroStatus_desp.Selected.Value),
                         dsp_filial = FiltroFilial_desp_1.Text || IsBlank(FiltroFilial_desp_1.Text),
                         dsp_grupo = FiltroGrupo_desp.Selected.Value || IsBlank(FiltroGrupo_desp.Selected.Value),
@@ -76,7 +76,7 @@ DespesaCaixa_Screen As screen:
                 Sort(
                     Filter(
                         'gerencial_lucamat.despesa_caixa',
-                        Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate),
+                        //Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate);
                         dsp_status = FiltroStatus_desp.Selected.Value || IsBlank(FiltroStatus_desp.Selected.Value),
                         dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value),
                         dsp_grupo = FiltroGrupo_desp.Selected.Value || IsBlank(FiltroGrupo_desp.Selected.Value),
@@ -904,7 +904,7 @@ DespesaCaixa_Screen As screen:
                     Month(Today()),
                     Day(01)
                 ),
-                "[$-en-US]dd/mm/yy"
+                "[$-pt-BR]dd/mm/yy"
             )
         Font: =Font.'Segoe UI'
         Height: =30
@@ -922,7 +922,7 @@ DespesaCaixa_Screen As screen:
                     Month(Today()),
                     Day(30)
                 ),
-                "[$-en-US]dd/mm/yy"
+                "[$-pt-BR]dd/mm/yy"
             )
         Font: =Font.'Segoe UI'
         Height: =30
