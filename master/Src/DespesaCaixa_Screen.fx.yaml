@@ -775,7 +775,7 @@ DespesaCaixa_Screen As screen:
             Height: =30
             Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Grupo Despesa")
             SearchFields: =["nome_parametro"]
-            SearchItems: =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Grupo Despesa"),GrupoDespesa_input.SearchText,"nome_parametro")
+            SearchItems: =Search(Filter('gerencial_lucamat.parametro',cod_parametro = "Grupo Despesa"),GrupoDespesa_input.SearchText,nome_parametro)
             SelectMultiple: =false
             Visible: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", true, false)
             Width: =230
@@ -796,7 +796,7 @@ DespesaCaixa_Screen As screen:
                 =Search(Filter(
                     'gerencial_lucamat.parametro',
                     cod_parametro = "Tipo Despesa"
-                ),TipoDespesa_input.SearchText,"nome_parametro")
+                ),TipoDespesa_input.SearchText,nome_parametro)
             SelectMultiple: =false
             Width: =230
             X: =285
@@ -902,7 +902,7 @@ DespesaCaixa_Screen As screen:
                 Date(
                     Year(Today()),
                     Month(Today()),
-                    Day("01")
+                    Day(01)
                 ),
                 "[$-en-US]dd/mm/yy"
             )
@@ -920,7 +920,7 @@ DespesaCaixa_Screen As screen:
                 Date(
                     Year(Today()),
                     Month(Today()),
-                    Day(31)
+                    Day(30)
                 ),
                 "[$-en-US]dd/mm/yy"
             )

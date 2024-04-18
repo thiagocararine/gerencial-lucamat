@@ -529,7 +529,7 @@ Financeiro_screenDash As screen:
         PaddingRight: =4.5
         PaddingTop: =4.5
         SearchFields: =["nome_parametro"]
-        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 1),filial_edit.SearchText,"nome_parametro")
+        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 1),filial_edit.SearchText,nome_parametro)
         Visible: =MenuEdit
         Width: =143.95
         X: =1043.66
@@ -544,7 +544,7 @@ Financeiro_screenDash As screen:
         PaddingRight: =4.5
         PaddingTop: =4.5
         SearchFields: =["nome_parametro"]
-        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 9),tplanc_edit.SearchText,"nome_parametro")
+        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 9),tplanc_edit.SearchText,nome_parametro)
         Visible: =MenuEdit
         Width: =143.95
         X: =1043.66
@@ -559,7 +559,7 @@ Financeiro_screenDash As screen:
         PaddingRight: =4.5
         PaddingTop: =4.5
         SearchFields: =["nome_parametro"]
-        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 11),tpsaida_edit.SearchText,"nome_parametro")
+        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 11),tpsaida_edit.SearchText,nome_parametro)
         Visible: =MenuEdit
         Width: =143.95
         X: =1043.66
@@ -828,7 +828,7 @@ Financeiro_screenDash As screen:
         PaddingRight: =4.5
         PaddingTop: =4.5
         SearchFields: =["nome_parametro"]
-        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 10),tpentrada_edit.SearchText,"nome_parametro")
+        SearchItems: =Search(Filter('gerencial_lucamat.parametro', key_parametro = 10),tpentrada_edit.SearchText,nome_parametro)
         Visible: =MenuEdit        
         Width: =143.95
         X: =877.21

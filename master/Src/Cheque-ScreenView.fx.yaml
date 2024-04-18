@@ -2109,7 +2109,7 @@
         Font: =Font.'Segoe UI'
         Height: =84
         HoverColor: =RGBA(0, 0, 0, 1)
-        Items: =ShowColumns(Filter('gerencial_lucamat.parametro',key_parametro = 13),"nome_parametro")
+        Items: =ShowColumns(Filter('gerencial_lucamat.parametro',key_parametro = 13),nome_parametro)
         RadioBorderColor: =RGBA(0, 0, 0, 1)
         RadioSize: =20
         Size: =12

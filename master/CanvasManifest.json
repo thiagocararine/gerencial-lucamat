@@ -5,7 +5,7 @@
       "DataflowAnalysisEnabled": false,
       "DataflowAnalysisFlagStateToggledByUser": false
     },
-    "DocVersion": "1.338",
+    "DocVersion": "1.341",
     "MinVersionToLoad": "1.331",
     "MSAppStructureVersion": "2.0"
   },
@@ -88,7 +88,7 @@
       "showclassicthemes": false,
       "smartemaildatacard": false,
       "sqlstoredprocedureenabled": false,
-      "supportcolumnnamesasidentifiers": false,
+      "supportcolumnnamesasidentifiers": true,
       "tabledoesntwraprecords": true,
       "usedisplaynamemetadata": true,
       "useenforcesavedatalimits": true,
@@ -124,7 +124,7 @@
     "ShowStatusBar": false
   },
   "PublishInfo": {
-    "AppName": "Gerencial - Luca Materiais",
+    "AppName": "b2c5c0be-07bd-4b38-a5ac-f8c97c01e099",
     "BackgroundColor": "rgba(50, 86, 160, 1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "People",
