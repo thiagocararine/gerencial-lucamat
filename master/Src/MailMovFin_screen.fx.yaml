@@ -118,6 +118,7 @@
         ZIndex: =7
 
     EmailPeopleGallery1 As gallery.SelectedUsersTabletGallery:
+        '#CopilotOverlayLabel': ="Filtrada"
         AccessibleLabel: ="Pessoas selecionadas do usuário"
         Height: |-
             =/*Height adjusts to number of items in gallery*/
@@ -217,6 +218,7 @@
         ZIndex: =12
 
     PeopleBrowseGallery1 As gallery.PeoplePickerGallerySmallTablet:
+        '#CopilotOverlayLabel': ="Filtrada"
         AccessibleLabel: ="Resultados da pesquisa de usuários"
         BorderThickness: =2
         Fill: =Parent.Fill

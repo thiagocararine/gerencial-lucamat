@@ -276,7 +276,7 @@
     <appMagic:propertyDependency input="DefaultSelectedItems" output="SelectedItems" />
     <appMagic:propertyDependency input="Reset" output="SelectedItems" />
   </appMagic:propertyDependencies>
-  <appMagic:insertMetadata>
+  <appMagic:insertMetadata isDeviceOptimized="true">
     <appMagic:category name="Input" priority="50" />
     <appMagic:category name="ClassicControls" priority="50" />
   </appMagic:insertMetadata>

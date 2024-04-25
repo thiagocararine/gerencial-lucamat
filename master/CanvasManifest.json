@@ -22,6 +22,7 @@
       "blockmovingcontrol": true,
       "cdsdataformatting": false,
       "classiccontrols": false,
+      "commentgeneratedformulas": true,
       "consistentreturnschemafortabularfunctions": true,
       "copyandmerge": true,
       "dataflowanalysisenabled": false,
