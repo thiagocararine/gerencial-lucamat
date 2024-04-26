@@ -70,7 +70,7 @@ DespesaCaixa_Screen As screen:
                         dsp_grupo = FiltroGrupo_desp.Selected.Value || IsBlank(FiltroGrupo_desp.Selected.Value),
                         dsp_tipo = FiltroTipo_desp.Selected.Value || IsBlank(FiltroTipo_desp.Selected.Value)
                     ),
-                    ID,
+                    dsp_datadesp,
                     SortOrder.Descending
                 ),
                 Sort(
@@ -82,7 +82,7 @@ DespesaCaixa_Screen As screen:
                         dsp_grupo = FiltroGrupo_desp.Selected.Value || IsBlank(FiltroGrupo_desp.Selected.Value),
                         dsp_tipo = FiltroTipo_desp.Selected.Value || IsBlank(FiltroTipo_desp.Selected.Value)
                     ),
-                    ID,
+                    dsp_datadesp,
                     SortOrder.Descending
                 )
             )

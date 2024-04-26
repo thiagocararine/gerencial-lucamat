@@ -39,7 +39,7 @@
       "executionRestrictions": {
         "apiId": "/providers/microsoft.powerapps/apis/shared_mysql",
         "appVer": "3.24043.31",
-        "modifiedOn": "2024-04-25 13:04:54",
+        "modifiedOn": "2024-04-26 12:40:30",
         "policy": "{\"type\":\"unused\"}",
         "version": 1
       },
