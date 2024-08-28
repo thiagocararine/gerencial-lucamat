@@ -67,7 +67,7 @@
     "LastModifiedTimestamp": "0",
     "Name": "dataTable",
     "OverridableProperties": {},
-    "Version": "1.0.2"
+    "Version": "1.0.3"
   },
   "dataTableColumn": {
     "CustomGroupControlTemplateName": "",
