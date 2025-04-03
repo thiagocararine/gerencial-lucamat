@@ -86,7 +86,7 @@ Screens:
             HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-            OnSelect: "=If(\n    !IsBlank(\n        LookUp(\n            'gerencial_lucamat.'gerencial_lucamat.cad_user';\n            email_user = login_input.Text And senha_user = Value(senha_input.Text)\n        )\n    ),\n    Navigate(room_screen),\n    UpdateContext({MostrarMensagem: false});\n    UpdateContext({MostrarMenasgem: true});\n    Reset(login_input);\n    Reset(senha_input);\n    \n);\n"
+            OnSelect: "=If(\n    !IsBlank(\n        LookUp(\n            'gerencial_lucamat.cad_user',\n            email_user = login_input.Text And senha_user = Value(senha_input.Text)\n        )\n    ),\n    Navigate(room_screen),\n    UpdateContext({MostrarMensagem: false});\n    UpdateContext({MostrarMenasgem: true});\n    Reset(login_input);\n    Reset(senha_input);\n    \n);\n"
             PaddingRight: =4.05
             PaddingTop: =4.05
             PressedBorderColor: =Self.Fill
