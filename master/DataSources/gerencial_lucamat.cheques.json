@@ -28,7 +28,7 @@
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.cheques_1",
+    "Name": "gerencial_lucamat.cheques",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

@@ -7,17 +7,22 @@
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "cnpj_fornc": "cnpj_fornc",
-      "datacad_fornc": "datacad_fornc",
+      "datacompt_tfin": "datacompt_tfin",
+      "histnc_tfin": "histnc_tfin",
+      "histpa_tfin": "histpa_tfin",
+      "histpia_tfin": "histpia_tfin",
+      "histsc_tfin": "histsc_tfin",
       "ID": "ID",
-      "nome_fornc": "nome_fornc",
-      "usercad_fornc": "usercad_fornc"
+      "saldonc_tfin": "saldonc_tfin",
+      "saldopa_tfin": "saldopa_tfin",
+      "saldopia_tfin": "saldopia_tfin",
+      "saldosc_tfin": "saldosc_tfin"
     },
     "DatasetName": "default",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.fornecedores_1",
+    "Name": "gerencial_lucamat.movimento_fin",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

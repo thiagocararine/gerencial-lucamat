@@ -24,7 +24,7 @@
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.despesa_caixa_1",
+    "Name": "gerencial_lucamat.despesa_caixa",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

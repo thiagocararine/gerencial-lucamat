@@ -57,7 +57,7 @@ login_screen As screen:
             =If(
                 !IsBlank(
                     LookUp(
-                        'gerencial_lucamat.cad_user',
+                        'gerencial_lucamat.'gerencial_lucamat.cad_user_1';
                         email_user = login_input.Text And senha_user = Value(senha_input.Text)
                     )
                 ),

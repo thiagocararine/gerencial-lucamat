@@ -31,7 +31,7 @@
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.compras_1",
+    "Name": "gerencial_lucamat.compras",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

@@ -7,23 +7,17 @@
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "dtcompt_fin": "dtcompt_fin",
-      "dtlanc_fin": "dtlanc_fin",
-      "filial_fin": "filial_fin",
-      "hist_fin": "hist_fin",
+      "cod_parametro": "cod_parametro",
       "ID": "ID",
-      "ljemp_fin": "ljemp_fin",
-      "tpentr_fin": "tpentr_fin",
-      "tplanc_fin": "tplanc_fin",
-      "tpsaida_fin": "tpsaida_fin",
-      "useredit_fin": "useredit_fin",
-      "vlrmov_fin": "vlrmov_fin"
+      "key_parametro": "key_parametro",
+      "key_vinculacao": "key_vinculacao",
+      "nome_parametro": "nome_parametro"
     },
     "DatasetName": "default",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.pagamento_fin_1",
+    "Name": "gerencial_lucamat.parametro",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

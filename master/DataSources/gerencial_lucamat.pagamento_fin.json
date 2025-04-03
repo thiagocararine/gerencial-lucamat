@@ -7,20 +7,23 @@
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "cargo_user": "cargo_user",
-      "datacad_user": "datacad_user",
-      "depart_user": "depart_user",
-      "email_user": "email_user",
+      "dtcompt_fin": "dtcompt_fin",
+      "dtlanc_fin": "dtlanc_fin",
+      "filial_fin": "filial_fin",
+      "hist_fin": "hist_fin",
       "ID": "ID",
-      "nome_user": "nome_user",
-      "senha_user": "senha_user",
-      "unidade_user": "unidade_user"
+      "ljemp_fin": "ljemp_fin",
+      "tpentr_fin": "tpentr_fin",
+      "tplanc_fin": "tplanc_fin",
+      "tpsaida_fin": "tpsaida_fin",
+      "useredit_fin": "useredit_fin",
+      "vlrmov_fin": "vlrmov_fin"
     },
     "DatasetName": "default",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.cad_user_1",
+    "Name": "gerencial_lucamat.pagamento_fin",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

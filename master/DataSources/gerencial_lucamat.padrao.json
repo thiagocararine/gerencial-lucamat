@@ -17,7 +17,7 @@
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": false,
-    "Name": "gerencial_lucamat.padrao_1",
+    "Name": "gerencial_lucamat.padrao",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

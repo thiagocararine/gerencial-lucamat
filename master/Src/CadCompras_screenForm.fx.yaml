@@ -529,7 +529,7 @@ CadCompras_screenForm As screen:
                     {'5venc_cmp': DataVenc5_Input.SelectedDate},
                     {'6venc_cmp': DataVenc6_Input.SelectedDate},
                     //{cnpjloja_cmp: CNPJ_Loja_Input.Text};
-                    {loja_cmp: Loja_input.SelectedText.nome_parametro},
+                    {loja_cmp: Loja_input.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1Bnome_parametro'},
                     {valort_cmp: Valor_input.Text},
                     {dtlanc_cmp: DataLanc_Input.SelectedDate},
                     {userlanc_cmp: User_input.Text},

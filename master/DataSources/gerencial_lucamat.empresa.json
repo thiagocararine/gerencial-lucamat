@@ -25,7 +25,7 @@
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.empresa_1",
+    "Name": "gerencial_lucamat.empresa",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

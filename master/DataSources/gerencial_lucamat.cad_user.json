@@ -7,17 +7,20 @@
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "cod_parametro": "cod_parametro",
+      "cargo_user": "cargo_user",
+      "datacad_user": "datacad_user",
+      "depart_user": "depart_user",
+      "email_user": "email_user",
       "ID": "ID",
-      "key_parametro": "key_parametro",
-      "key_vinculacao": "key_vinculacao",
-      "nome_parametro": "nome_parametro"
+      "nome_user": "nome_user",
+      "senha_user": "senha_user",
+      "unidade_user": "unidade_user"
     },
     "DatasetName": "default",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.parametro_1",
+    "Name": "gerencial_lucamat.cad_user",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

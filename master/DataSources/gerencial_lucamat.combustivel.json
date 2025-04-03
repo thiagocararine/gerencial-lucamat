@@ -30,7 +30,7 @@
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.combustivel_1",
+    "Name": "gerencial_lucamat.combustivel",
     "Type": "ConnectedDataSourceInfo"
   }
 ]
