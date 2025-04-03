@@ -1,0 +1,27 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2024-11-13T18:49:12.8470000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "data_valor_combustivel": "data_valor_combustivel",
+      "ID": "ID",
+      "numero_nf_combustivel": "numero_nf_combustivel",
+      "quantidade_litros_combustivel": "quantidade_litros_combustivel",
+      "tipo_combustivel": "tipo_combustivel",
+      "tipo_lancamento_combustivel": "tipo_lancamento_combustivel",
+      "total_valor_combustivel": "total_valor_combustivel",
+      "user_lanc_combustivel": "user_lanc_combustivel",
+      "valor_combustivel": "valor_combustivel"
+    },
+    "DatasetName": "default",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "gerencial_lucamat.valor_combustivel",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

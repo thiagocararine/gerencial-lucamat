@@ -1,0 +1,1557 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  DespesaCaixa_Screen:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Rectangle29_1:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 13, 75, 1)
+            BorderThickness: =2
+            Fill: =RGBA(255, 191, 0, 1)
+            Height: =96
+            Width: =272
+            X: =498
+            Y: =647
+      - Rectangle29:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 13, 75, 1)
+            BorderThickness: =2
+            Fill: =RGBA(136, 160, 209, 1)
+            Height: =96
+            Width: =434
+            X: =35
+            Y: =647
+      - Rectangle30_1:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =2
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =30
+            Width: =120
+            X: =191
+            Y: =704
+      - Rectangle30_2:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =2
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =30
+            Width: =120
+            X: =337
+            Y: =704
+      - Rectangle30:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =2
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =30
+            Width: =120
+            X: =49
+            Y: =704
+      - DespesaCaixaTable:
+          Control: DataTable@1.0.3
+          Variant: DataTable
+          Properties:
+            BorderColor: =RGBA(56, 96, 178, 1)
+            BorderThickness: =4
+            Font: =Font.'Open Sans'
+            HeadingColor: =RGBA(255, 255, 255, 1)
+            HeadingFill: =RGBA(50, 86, 160, 1)
+            HeadingFont: =Font.'Open Sans'
+            Height: =532
+            HoverFill: =RGBA(186, 202, 226, .2)
+            Items: |-
+              =If(
+                  Departamentolbl1.Text = "Comercial",
+                  Sort(
+                      Filter(
+                          'gerencial_lucamat.despesa_caixa',
+                          //Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate);
+                          dsp_status = FiltroStatus_desp.Selected.Value || IsBlank(FiltroStatus_desp.Selected.Value),
+                          dsp_filial = FiltroFilial_desp_1.Text || IsBlank(FiltroFilial_desp_1.Text),
+                          dsp_grupo = FiltroGrupo_desp.Selected.Value || IsBlank(FiltroGrupo_desp.Selected.Value),
+                          dsp_tipo = FiltroTipo_desp.Selected.Value || IsBlank(FiltroTipo_desp.Selected.Value)
+                      ),
+                      ID,
+                      SortOrder.Descending
+                  ),
+                  Sort(
+                      Filter(
+                          'gerencial_lucamat.despesa_caixa',
+                          //Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate);
+                          dsp_status = FiltroStatus_desp.Selected.Value || IsBlank(FiltroStatus_desp.Selected.Value),
+                          dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value),
+                          dsp_grupo = FiltroGrupo_desp.Selected.Value || IsBlank(FiltroGrupo_desp.Selected.Value),
+                          dsp_tipo = FiltroTipo_desp.Selected.Value || IsBlank(FiltroTipo_desp.Selected.Value)
+                      ),
+                      ID,
+                      SortOrder.Descending
+                  )
+              )
+            SelectedColor: =RGBA(26, 26, 26, 1)
+            SelectedFill: =RGBA(215, 223, 240, 1)
+            Size: =11
+            Width: =1158
+            X: =35
+            Y: =104
+          Children:
+            - ID_Column8:
+                Control: DataTableColumn@1.0.1
+                Variant: Number
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="ID"
+                  FieldName: ="ID"
+                  Order: =1
+                  Text: =ThisItem.ID
+                  Width: =60
+            - dsp_datadesp_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Data Desp"
+                  FieldName: ="dsp_datadesp"
+                  Order: =3
+                  Text: =ThisItem.dsp_datadesp
+                  Width: =128
+            - dsp_datalanc_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Lançamento"
+                  FieldName: ="dsp_datalanc"
+                  Order: =10
+                  Text: =ThisItem.dsp_datalanc
+                  Width: =137
+            - dsp_descricao_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Descrição"
+                  FieldName: ="dsp_descricao"
+                  Order: =5
+                  Text: =ThisItem.dsp_descricao
+                  Width: =170
+            - dsp_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Filial"
+                  FieldName: ="dsp_filial"
+                  Order: =2
+                  Text: =ThisItem.dsp_filial
+                  Width: =126
+            - dsp_grupo_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Grupo"
+                  FieldName: ="dsp_grupo"
+                  Order: =6
+                  Text: =ThisItem.dsp_grupo
+                  Width: =102
+            - dsp_status_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Number
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Status"
+                  FieldName: ="dsp_status"
+                  Order: =8
+                  Text: =ThisItem.dsp_status
+                  Width: =67
+            - dsp_tipo_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Tipo Despesa"
+                  FieldName: ="dsp_tipo"
+                  Order: =4
+                  Text: =ThisItem.dsp_tipo
+                  Width: =144
+            - dsp_userlanc_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Usuário"
+                  FieldName: ="dsp_userlanc"
+                  Order: =9
+                  Text: =ThisItem.dsp_userlanc
+                  Width: =130
+            - dsp_valordsp_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Valor"
+                  FieldName: ="dsp_valordsp"
+                  Order: =7
+                  Text: =ThisItem.dsp_valordsp
+                  Width: =92
+            - dsp_datacanc_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Data Canc."
+                  FieldName: ="dsp_datacanc"
+                  Order: =11
+                  Text: =ThisItem.dsp_datacanc
+            - dsp_usercan_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Usuário Canc."
+                  FieldName: ="dsp_usercan"
+                  Order: =12
+                  Text: =ThisItem.dsp_usercan
+      - Button8:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
+            Fill: =RGBA(127, 178, 57, 1)
+            Font: =Font.'Segoe UI'
+            Height: =50
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =
+            OnSelect: =UpdateContext({MenuDespesa:true})
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =14
+            Text: ="Informar Despesa"
+            Width: =130
+            X: =1063
+            Y: =694
+      - Button8_1:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
+            Fill: =RGBA(151, 0, 0, 1)
+            Font: =Font.'Segoe UI'
+            Height: =50
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =
+            OnSelect: =Navigate(room_screen,ScreenTransition.UnCover)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =14
+            Text: ="Sair"
+            Width: =130
+            X: =903
+            Y: =694
+      - FormDespesaCaixa:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            DropShadow: =DropShadow.None
+            Height: =461
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Visible: =MenuDespesa
+            Width: =705
+            X: =262
+            Y: =154
+          Children:
+            - Rectangle28:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  BorderThickness: =5
+                  Fill: =RGBA(241, 244, 249, 1)
+                  Height: =461
+                  Width: =702
+                  X: =2
+            - Button5_2:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(255, 191, 0, 1)
+                  Font: =Font.'Open Sans'
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(0, 0, 0, 1)
+                  HoverFill: =RGBA(255, 244, 186, 1)
+                  OnSelect: =UpdateContext({MenuDespesa:false})
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Size: =12
+                  Text: ="Retornar"
+                  Width: =100
+                  X: =266
+                  Y: =406
+            - DataDespesa_lbl:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Right
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  Height: =30
+                  Size: =14
+                  Text: ="Data da Despesa :"
+                  Width: =160
+                  X: =34
+                  Y: =89
+            - Label17_18:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Right
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  Height: =30
+                  Text: ="Data Lançamento :"
+                  Width: =155
+                  X: =353
+                  Y: =325
+            - Label17_19:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Right
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  Height: =31
+                  Text: ="Usuário :"
+                  Width: =132
+                  X: =376
+                  Y: =362
+            - userlancDesp_input:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: =NomeUserlbl_room.Text
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  Width: =180
+                  X: =508
+                  Y: =362
+            - DataDesp_input:
+                Control: Classic/DatePicker@2.6.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DefaultDate: |-
+                    =Text(
+                        Today(),
+                        "[$-en-US]dd/mm/yy"
+                    )
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  IconBackground: =RGBA(56, 96, 178, 1)
+                  IconFill: =RGBA(255, 255, 255, 1)
+                  Width: =190
+                  X: =194
+                  Y: =89
+            - dataLanc_desp_input:
+                Control: Classic/DatePicker@2.6.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  DefaultDate: |-
+                    =Text(
+                        Today(),
+                        "[$-en-US]dd/mm/yy"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  IconBackground: =RGBA(56, 96, 178, 1)
+                  IconFill: =RGBA(255, 255, 255, 1)
+                  Width: =180
+                  X: =508
+                  Y: =325
+            - Filial_lbl:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Right
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  Height: =30
+                  Size: =14
+                  Text: ="Filial :"
+                  Width: =75
+                  X: =416
+                  Y: =89
+            - FilialDesp_input:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: =Unidadelbl1.Text
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  Width: =180
+                  X: =492
+                  Y: =89
+            - Button5_3:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(127, 178, 57, 1)
+                  Font: =Font.'Open Sans'
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(0, 0, 0, 1)
+                  HoverFill: =RGBA(232, 244, 217, 1)
+                  OnSelect: |-
+                    =If(
+                        'Checkbox_Data Despesa'.Value = true,
+                        If(
+                            TipoDespesa_input.Selected.nome_parametro = "Não Classificado",
+                            If(
+                                IsBlank(GrupoDespesa_input.SelectedItems),
+                                Notify(
+                                    "O Campo GRUPO DE DESPESA está em branco.",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    IsBlank(TipoDespesa_input.SelectedItems),
+                                    Notify(
+                                        "O Campo TIPO DE DESPESA está em branco.",
+                                        NotificationType.Error
+                                    ),
+                                    If(
+                                        IsBlank(DescricaoDespesa_input.Text),
+                                        Notify(
+                                            "O Campo DESCRIÇÂO está em branco!",
+                                            NotificationType.Error
+                                        ),
+                                        If(
+                                            IsBlank(ValorDespesa_input.Text),
+                                            Notify(
+                                                "O Campo VALOR está em branco!",
+                                                NotificationType.Error
+                                            ),
+                                            If(
+                                                IsBlank(DataDesp_input.SelectedDate),
+                                                Notify(
+                                                    "O Campo DATA DE DESPESA está em branco!",
+                                                    NotificationType.Error
+                                                ),
+                                                Patch(
+                                                    'gerencial_lucamat.despesa_caixa',
+                                                    Defaults('gerencial_lucamat.despesa_caixa'),
+                                                    {
+                                                        ID: Max(
+                                                            'gerencial_lucamat.despesa_caixa',
+                                                            ID
+                                                        ) + 1
+                                                    },
+                                                    {dsp_status: 1},
+                                                    {dsp_datadesp: DataDesp_input.SelectedDate},
+                                                    {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                                    {dsp_descricao: DescricaoDespesa_input.Text},
+                                                    {dsp_filial: FilialDesp_input.Text},
+                                                    {dsp_grupo: GrupoDespesa_input.Selected.nome_parametro},
+                                                    {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
+                                                    {dsp_userlanc: userlancDesp_input.Text},
+                                                    {dsp_valordsp: Value(ValorDespesa_input.Text)}
+                                                );
+                                                Reset(FilialDesp_input);
+                                                Reset(GrupoDespesa_input);
+                                                Reset(TipoDespesa_input);
+                                                Reset(DescricaoDespesa_input);
+                                                Reset(ValorDespesa_input);
+                                                Reset(dataLanc_desp_input);
+                                                Reset(userlancDesp_input);
+                                                Notify(
+                                                    "As informações foram gravadas com SUCESSO!!",
+                                                    NotificationType.Success
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            ),
+                            If(
+                                IsBlank(GrupoDespesa_input_1.Text),
+                                Notify(
+                                    "O Campo GRUPO DE DESPESA está em branco.",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    IsBlank(TipoDespesa_input.SelectedItems),
+                                    Notify(
+                                        "O Campo TIPO DE DESPESA está em branco.",
+                                        NotificationType.Error
+                                    ),
+                                    If(
+                                        IsBlank(DescricaoDespesa_input.Text),
+                                        Notify(
+                                            "O Campo DESCRIÇÂO está em branco!",
+                                            NotificationType.Error
+                                        ),
+                                        If(
+                                            IsBlank(ValorDespesa_input.Text),
+                                            Notify(
+                                                "O Campo VALOR está em branco!",
+                                                NotificationType.Error
+                                            ),
+                                            If(
+                                                IsBlank(DataDesp_input.SelectedDate),
+                                                Notify(
+                                                    "O Campo DATA DE DESPESA está em branco!",
+                                                    NotificationType.Error
+                                                ),
+                                                Patch(
+                                                    'gerencial_lucamat.despesa_caixa',
+                                                    Defaults('gerencial_lucamat.despesa_caixa'),
+                                                    {
+                                                        ID: Max(
+                                                            'gerencial_lucamat.despesa_caixa',
+                                                            ID
+                                                        ) + 1
+                                                    },
+                                                    {dsp_status: 1},
+                                                    {dsp_datadesp: DataDesp_input.SelectedDate},
+                                                    {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                                    {dsp_descricao: DescricaoDespesa_input.Text},
+                                                    {dsp_filial: FilialDesp_input.Text},
+                                                    {dsp_grupo: GrupoDespesa_input_1.Text},
+                                                    {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
+                                                    {dsp_userlanc: userlancDesp_input.Text},
+                                                    {dsp_valordsp: Value(ValorDespesa_input.Text)}
+                                                );
+                                                Reset(FilialDesp_input);
+                                                Reset(GrupoDespesa_input_1);
+                                                Reset(TipoDespesa_input);
+                                                Reset(DescricaoDespesa_input);
+                                                Reset(ValorDespesa_input);
+                                                Reset(dataLanc_desp_input);
+                                                Reset(userlancDesp_input);
+                                                Notify(
+                                                    "As informações foram gravadas com SUCESSO!!",
+                                                    NotificationType.Success
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        If(
+                            TipoDespesa_input.Selected.nome_parametro = "Não Classificado",
+                            If(
+                                IsBlank(GrupoDespesa_input.SelectedItems),
+                                Notify(
+                                    "O Campo GRUPO DE DESPESA está em branco.",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    IsBlank(TipoDespesa_input.SelectedItems),
+                                    Notify(
+                                        "O Campo TIPO DE DESPESA está em branco.",
+                                        NotificationType.Error
+                                    ),
+                                    If(
+                                        IsBlank(DescricaoDespesa_input.Text),
+                                        Notify(
+                                            "O Campo DESCRIÇÂO está em branco!",
+                                            NotificationType.Error
+                                        ),
+                                        If(
+                                            IsBlank(ValorDespesa_input.Text),
+                                            Notify(
+                                                "O Campo VALOR está em branco!",
+                                                NotificationType.Error
+                                            ),
+                                            If(
+                                                IsBlank(DataDesp_input.SelectedDate),
+                                                Notify(
+                                                    "O Campo DATA DE DESPESA está em branco!",
+                                                    NotificationType.Error
+                                                ),
+                                                Patch(
+                                                    'gerencial_lucamat.despesa_caixa',
+                                                    Defaults('gerencial_lucamat.despesa_caixa'),
+                                                    {
+                                                        ID: Max(
+                                                            'gerencial_lucamat.despesa_caixa',
+                                                            ID
+                                                        ) + 1
+                                                    },
+                                                    {dsp_status: 1},
+                                                    {dsp_datadesp: DataDesp_input.SelectedDate},
+                                                    {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                                    {dsp_descricao: DescricaoDespesa_input.Text},
+                                                    {dsp_filial: FilialDesp_input.Text},
+                                                    {dsp_grupo: GrupoDespesa_input.Selected.nome_parametro},
+                                                    {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
+                                                    {dsp_userlanc: userlancDesp_input.Text},
+                                                    {dsp_valordsp: Value(ValorDespesa_input.Text)}
+                                                );
+                                                Reset(DataDesp_input);
+                                                Reset(FilialDesp_input);
+                                                Reset(GrupoDespesa_input);
+                                                Reset(TipoDespesa_input);
+                                                Reset(DescricaoDespesa_input);
+                                                Reset(ValorDespesa_input);
+                                                Reset(dataLanc_desp_input);
+                                                Reset(userlancDesp_input);
+                                                Notify(
+                                                    "As informações foram gravadas com SUCESSO!!",
+                                                    NotificationType.Success
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            ),
+                            If(
+                                IsBlank(GrupoDespesa_input_1.Text),
+                                Notify(
+                                    "O Campo GRUPO DE DESPESA está em branco.",
+                                    NotificationType.Error
+                                ),
+                                If(
+                                    IsBlank(TipoDespesa_input.SelectedItems),
+                                    Notify(
+                                        "O Campo TIPO DE DESPESA está em branco.",
+                                        NotificationType.Error
+                                    ),
+                                    If(
+                                        IsBlank(DescricaoDespesa_input.Text),
+                                        Notify(
+                                            "O Campo DESCRIÇÂO está em branco!",
+                                            NotificationType.Error
+                                        ),
+                                        If(
+                                            IsBlank(ValorDespesa_input.Text),
+                                            Notify(
+                                                "O Campo VALOR está em branco!",
+                                                NotificationType.Error
+                                            ),
+                                            If(
+                                                IsBlank(DataDesp_input.SelectedDate),
+                                                Notify(
+                                                    "O Campo DATA DE DESPESA está em branco!",
+                                                    NotificationType.Error
+                                                ),
+                                                Patch(
+                                                    'gerencial_lucamat.despesa_caixa',
+                                                    Defaults('gerencial_lucamat.despesa_caixa'),
+                                                    {
+                                                        ID: Max(
+                                                            'gerencial_lucamat.despesa_caixa',
+                                                            ID
+                                                        ) + 1
+                                                    },
+                                                    {dsp_status: 1},
+                                                    {dsp_datadesp: DataDesp_input.SelectedDate},
+                                                    {dsp_datalanc: dataLanc_desp_input.SelectedDate},
+                                                    {dsp_descricao: DescricaoDespesa_input.Text},
+                                                    {dsp_filial: FilialDesp_input.Text},
+                                                    {dsp_grupo: GrupoDespesa_input_1.Text},
+                                                    {dsp_tipo: TipoDespesa_input.Selected.nome_parametro},
+                                                    {dsp_userlanc: userlancDesp_input.Text},
+                                                    {dsp_valordsp: Value(ValorDespesa_input.Text)}
+                                                );
+                                                Reset(DataDesp_input);
+                                                Reset(FilialDesp_input);
+                                                Reset(GrupoDespesa_input_1);
+                                                Reset(TipoDespesa_input);
+                                                Reset(DescricaoDespesa_input);
+                                                Reset(ValorDespesa_input);
+                                                Reset(dataLanc_desp_input);
+                                                Reset(userlancDesp_input);
+                                                Notify(
+                                                    "As informações foram gravadas com SUCESSO!!",
+                                                    NotificationType.Success
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Size: =12
+                  Text: ="Gravar"
+                  Width: =100
+                  X: =397
+                  Y: =406
+            - Button5_4:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =ColorFade(Self.Fill, -15%)
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                  Fill: =RGBA(221, 79, 14, 1)
+                  Font: =Font.'Open Sans'
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(0, 0, 0, 1)
+                  HoverFill: =RGBA(232, 244, 217, 1)
+                  OnSelect: |
+                    =Reset(DataDesp_input);
+                    Reset(FilialDesp_input);
+                    Reset(dataLanc_desp_input);
+                    Reset(TipoDespesa_input);
+                    Reset(GrupoDespesa_input);
+                    Reset(DescricaoDespesa_input);
+                    Reset(ValorDespesa_input);
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  Size: =12
+                  Text: ="Reset"
+                  Width: =100
+                  X: =138
+                  Y: =406
+            - Grupo_lbl:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Right
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  Height: =30
+                  Size: =14
+                  Text: ="Grupo :"
+                  Width: =160
+                  X: =116
+                  Y: =192
+            - Tipo_lbl:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Right
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  Height: =30
+                  Size: =14
+                  Text: ="Tipo de Despesa :"
+                  Width: =160
+                  X: =116
+                  Y: =144
+            - Descricao_lbl:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Right
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  Height: =30
+                  Size: =14
+                  Text: ="Descrição :"
+                  Width: =160
+                  X: =116
+                  Y: =240
+            - ValorDespesa_lbl:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Right
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  Height: =30
+                  Size: =14
+                  Text: ="Valor :"
+                  Width: =160
+                  X: =116
+                  Y: =287
+            - GrupoDespesa_input:
+                Control: Classic/ComboBox@2.4.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  ChevronBackground: =RGBA(56, 96, 178, 1)
+                  ChevronFill: =RGBA(255, 255, 255, 1)
+                  ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                  DisplayFields: =["nome_parametro"]
+                  DisplayMode: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", DisplayMode.Edit, DisplayMode.Disabled)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  Items: =Filter('gerencial_lucamat.parametro',cod_parametro = "Grupo Despesa")
+                  PressedColor: =RGBA(255, 255, 255, 1)
+                  PressedFill: =RGBA(0, 18, 107, 1)
+                  SearchFields: =["nome_parametro"]
+                  SelectMultiple: =false
+                  SelectionColor: =RGBA(255, 255, 255, 1)
+                  SelectionFill: =RGBA(56, 96, 178, 1)
+                  Visible: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", true, false)
+                  Width: =230
+                  X: =285
+                  Y: =192
+            - TipoDespesa_input:
+                Control: Classic/ComboBox@2.4.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  ChevronBackground: =RGBA(56, 96, 178, 1)
+                  ChevronFill: =RGBA(255, 255, 255, 1)
+                  ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  ChevronHoverFill: =RGBA(255, 255, 255, 1)
+                  DisplayFields: =["nome_parametro"]
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  Items: |-
+                    =Filter(
+                        'gerencial_lucamat.parametro',
+                        cod_parametro = "Tipo Despesa"
+                    )
+                  PressedColor: =RGBA(255, 255, 255, 1)
+                  PressedFill: =RGBA(0, 18, 107, 1)
+                  SearchFields: =["nome_parametro"]
+                  SelectMultiple: =false
+                  SelectionColor: =RGBA(255, 255, 255, 1)
+                  SelectionFill: =RGBA(56, 96, 178, 1)
+                  Width: =230
+                  X: =285
+                  Y: =144
+            - GrupoDespesa_input_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =If(
+                        TipoDespesa_input.Selected.key_vinculacao = 1,
+                        "Pessoal",
+                        If(
+                            TipoDespesa_input.Selected.key_vinculacao = 2,
+                            "Segurança",
+                            If(
+                                TipoDespesa_input.Selected.key_vinculacao = 3,
+                                "Manutenção",
+                                If(
+                                    TipoDespesa_input.Selected.key_vinculacao = 4,
+                                    "Sócios",
+                                    If(
+                                        TipoDespesa_input.Selected.key_vinculacao = 5,
+                                        "Combustivel",
+                                        If(
+                                            TipoDespesa_input.Selected.key_vinculacao = 6,
+                                            "Despesa",
+                                            If(
+                                                TipoDespesa_input.Selected.key_vinculacao = 7,
+                                                "Transporte Pessoal",
+                                                If(
+                                                    TipoDespesa_input.Selected.key_vinculacao = 8,
+                                                    "Frete",
+                                                    If(
+                                                        TipoDespesa_input.Selected.key_vinculacao = 9,
+                                                        "Pag. Boleto",
+                                                        If(
+                                                            TipoDespesa_input.Selected.key_vinculacao = 10,
+                                                            "Cozinha",
+                                                            0
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                  DisplayMode: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", DisplayMode.Disabled, DisplayMode.View)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  Visible: =If(TipoDespesa_input.Selected.nome_parametro = "Não Classificado", false, true)
+                  Width: =230
+                  X: =285
+                  Y: =192
+            - DescricaoDespesa_input:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: =""
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HintText: ="Descrição do Lançamento"
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  Width: =230
+                  X: =285
+                  Y: =240
+            - ValorDespesa_input:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: =""
+                  Font: =Font.'Open Sans'
+                  Format: =TextFormat.Number
+                  Height: =30
+                  HintText: ="Insira o Valor"
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  Width: =230
+                  X: =285
+                  Y: =287
+            - Label21:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Semibold
+                  Size: =17
+                  Text: ="Lançamento de Despesa"
+                  Underline: =true
+                  Width: =300
+                  X: =203
+                  Y: =22
+            - Checkbox_Data Despesa:
+                Control: Classic/CheckBox@2.1.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  BorderStyle: =BorderStyle.None
+                  CheckboxBorderColor: =RGBA(0, 0, 0, 1)
+                  CheckboxSize: =20
+                  CheckmarkFill: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  HoverColor: =RGBA(0, 18, 107, 1)
+                  Size: =11
+                  Text: ="Não resetar Data da Despesa."
+                  X: =508
+                  Y: =401
+      - Filtro_DataDesp_inicio_desp:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ContentLanguage: =
+            DefaultDate: |-
+              =Text(
+                  Date(
+                      Year(Today()),
+                      Month(Today()),
+                      Day(01)
+                  ),
+                  "[$-pt-BR]dd/mm/yy"
+              )
+            Font: =Font.'Segoe UI'
+            Height: =30
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            Size: =11.7
+            Width: =150
+            X: =35
+            Y: =59
+      - Filtro_DataDesp_fim_desp:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DefaultDate: |-
+              =Text(
+                  Date(
+                      Year(Today()),
+                      Month(Today()),
+                      Day(30)
+                  ),
+                  "[$-pt-BR]dd/mm/yy"
+              )
+            Font: =Font.'Segoe UI'
+            Height: =30
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            Size: =11.7
+            Width: =150
+            X: =191
+            Y: =59
+      - Label17:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =15
+            Text: ="Data da Despesa"
+            Width: =306
+            X: =35
+            Y: =26
+      - FiltroStatus_desp:
+          Control: Classic/ComboBox@2.4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            DefaultSelectedItems: |-
+              =First(
+                  Distinct(
+                      Sort(
+                          'gerencial_lucamat.despesa_caixa',
+                          dsp_status
+                      ),
+                      dsp_status
+                  )
+              )
+            DisplayFields: =["dsp_status"]
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverFill: =RGBA(186, 202, 226, 1)
+            IsSearchable: =false
+            Items: =Distinct('gerencial_lucamat.despesa_caixa',dsp_status)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SearchFields: =[""]
+            SelectMultiple: =false
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Size: =11.7
+            Width: =86
+            X: =354
+            Y: =59
+      - FiltroStatusDesp_lbl:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =14
+            Text: ="Status da Despesa"
+            Width: =174
+            X: =354
+            Y: =26
+      - FiltroFilial_desp:
+          Control: Classic/ComboBox@2.4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            DisplayFields: =[""]
+            DisplayMode: =If(Departamentolbl1.Text = "Comercial", DisplayMode.Disabled, DisplayMode.Edit)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverFill: =RGBA(186, 202, 226, 1)
+            IsSearchable: =false
+            Items: =Distinct('gerencial_lucamat.despesa_caixa',dsp_filial)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SearchFields: =[""]
+            SelectMultiple: =false
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Size: =11.7
+            Visible: =If(Departamentolbl1.Text = "Comercial", false, true)
+            Width: =180
+            X: =539
+            Y: =59
+      - FiltroFIlialDesp_lbl:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =15
+            Text: ="Filial"
+            Width: =180
+            X: =539
+            Y: =26
+      - FiltroFilial_desp_1:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Default: =Unidadelbl1.Text
+            DisplayMode: =If(Departamentolbl1.Text = "Comercial", DisplayMode.View, DisplayMode.Disabled)
+            Fill: =RGBA(0, 0, 0, 0)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Visible: =If(Departamentolbl1.Text = "Comercial", true, false)
+            Width: =180
+            X: =539
+            Y: =59
+      - Label18:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =15
+            Size: =9
+            Text: ="1 - Efetuada"
+            Width: =85
+            X: =443
+            Y: =56
+      - Label18_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =15
+            Size: =9
+            Text: ="2 - Cancelada"
+            Width: =85
+            X: =443
+            Y: =74
+      - Button8_2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
+            Fill: =RGBA(136, 160, 209, 1)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =
+            OnSelect: |
+              =Reset(Filtro_DataDesp_inicio_desp);
+              Reset(Filtro_DataDesp_fim_desp);
+              Reset(FiltroStatus_desp);
+              Reset(FiltroFilial_desp);
+              Reset(FiltroFilial_desp_1);
+              Reset(FiltroGrupo_desp);
+              Reset(FiltroTipo_desp);
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =14
+            Text: ="Reset"
+            Width: =80
+            X: =1113
+            Y: =29
+      - FiltroGrupo_desp:
+          Control: Classic/ComboBox@2.4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            DisplayFields: =["dsp_descricao"]
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverFill: =RGBA(186, 202, 226, 1)
+            IsSearchable: =false
+            Items: =Distinct('gerencial_lucamat.despesa_caixa',dsp_grupo)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SearchFields: =[""]
+            SelectMultiple: =false
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Size: =11.7
+            Width: =170
+            X: =733
+            Y: =59
+      - FiltroTipo_desp:
+          Control: Classic/ComboBox@2.4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            DisplayFields: =["Value"]
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverFill: =RGBA(186, 202, 226, 1)
+            IsSearchable: =false
+            Items: =Distinct('gerencial_lucamat.despesa_caixa',dsp_tipo)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SearchFields: =[""]
+            SelectMultiple: =false
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Size: =11.7
+            Width: =170
+            X: =920
+            Y: =59
+      - FiltroGrupoDesp_lbl:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =15
+            Text: |-
+              ="Grupo Despesa
+              "
+            Width: =170
+            X: =733
+            Y: =26
+      - FiltroTipoDesp_lbl:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =15
+            Text: ="Tipo Despesa"
+            Width: =170
+            X: =920
+            Y: =26
+      - Label19:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Height: =25
+            Size: =12
+            Text: |-
+              =If(
+                  Departamentolbl1.Text = "Comercial",
+                  "R$ " & Text(
+                      Sum(
+                          Filter(
+                              'gerencial_lucamat.despesa_caixa',
+                              Month(dsp_datadesp) = Month(Today()) && Year(dsp_datadesp) = Year(Today()),
+                              dsp_filial = FiltroFilial_desp_1.Text || IsBlank(FiltroFilial_desp_1.Text),
+                              dsp_status = 1
+                          ),
+                          dsp_valordsp
+                      ),
+                      "[$-pt-BR]#.###,00"
+                  ),
+                  "R$ " & Text(
+                      Sum(
+                          Filter(
+                              'gerencial_lucamat.despesa_caixa',
+                              Month(dsp_datadesp) = Month(Today()) && Year(dsp_datadesp) = Year(Today()),
+                              dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value),
+                              dsp_status = 1
+                          ),
+                          dsp_valordsp
+                      ),
+                      "[$-pt-BR]#.###,00"
+                  )
+              )
+            Width: =120
+            X: =49
+            Y: =710
+      - Label19_1:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Height: =25
+            Size: =12
+            Text: |-
+              =If(
+                  Departamentolbl1.Text = "Comercial",
+                  "R$ " & Text(
+                      Sum(
+                          Filter(
+                              'gerencial_lucamat.despesa_caixa',
+                              DateDiff(
+                                  dsp_datadesp,
+                                  DateAdd(
+                                      Today(),
+                                      -Weekday(
+                                          Today(),
+                                          StartOfWeek.Sunday
+                                      ),
+                                      TimeUnit.Days
+                                  ),
+                                  TimeUnit.Days
+                              ) < 7,
+                              dsp_filial = FiltroFilial_desp_1.Text || IsBlank(FiltroFilial_desp_1.Text),
+                              dsp_status = 1
+                          ),
+                          dsp_valordsp
+                      ),
+                      "[$-pt-BR]#.##0,00"
+                  ),
+                  "R$ " & Text(
+                      Sum(
+                          Filter(
+                              'gerencial_lucamat.despesa_caixa',
+                              DateDiff(
+                                  dsp_datadesp,
+                                  DateAdd(
+                                      Today(),
+                                      -Weekday(
+                                          Today(),
+                                          StartOfWeek.Sunday
+                                      ),
+                                      TimeUnit.Days
+                                  ),
+                                  TimeUnit.Days
+                              ) < 7,
+                              dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value),
+                              dsp_status = 1
+                          ),
+                          dsp_valordsp
+                      ),
+                      "[$-pt-BR]#.##0,00"
+                  )
+              )
+            Width: =120
+            X: =191
+            Y: =710
+      - Label19_2:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Height: =25
+            Size: =12
+            Text: |-
+              =If(
+                  Departamentolbl1.Text = "Comercial",
+                  "R$ " & Text(
+                      Sum(
+                          Filter(
+                              'gerencial_lucamat.despesa_caixa',
+                              Day(dsp_datadesp) = Day(Today()) && Month(dsp_datadesp) = Month(Today()) && Year(dsp_datadesp) = Year(Today()),
+                              dsp_filial = FiltroFilial_desp_1.Text || IsBlank(FiltroFilial_desp_1.Text),
+                              dsp_status = 1
+                          ),
+                          dsp_valordsp
+                      ),
+                      "[$-pt-BR]#.##0,00"
+                  ),
+                  "R$ " & Text(
+                      Sum(
+                          Filter(
+                              'gerencial_lucamat.despesa_caixa',
+                              Day(dsp_datadesp) = Day(Today()) && Month(dsp_datadesp) = Month(Today()) && Year(dsp_datadesp) = Year(Today()),
+                              dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value),
+                              dsp_status = 1
+                          ),
+                          dsp_valordsp
+                      ),
+                      "[$-pt-BR]#.##0,00"
+                  )
+              )
+            Width: =120
+            X: =334
+            Y: =710
+      - Label20:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Text: ="Mensal"
+            Width: =120
+            X: =49
+            Y: =679
+      - Label20_1:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Text: ="Semanal"
+            Width: =129
+            X: =185
+            Y: =679
+      - Label20_2:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Text: ="Diário"
+            Width: =120
+            X: =334
+            Y: =679
+      - Button8_3:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(168, 0, 0, 1)
+            DisplayMode: =If(MenuDespesa = true, DisplayMode.Disabled, DisplayMode.Edit)
+            Fill: =RGBA(255, 0, 0, 1)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =
+            OnSelect: |-
+              =Patch(
+                  'gerencial_lucamat.despesa_caixa',
+                  LookUp(
+                      'gerencial_lucamat.despesa_caixa',
+                      ID = DespesaCaixaTable.Selected.ID
+                  ),
+                  {dsp_status: 2},
+                  {dsp_usercan: NomeUserlbl_room.Text},
+                  {
+                      dsp_datacanc: DateTime(
+                          Year(Today()),
+                          Month(Today()),
+                          Day(Today()),
+                          Hour(Today()),
+                          Minute(Today()),
+                          Second(Today())
+                      )
+                  }
+              )
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =13
+            Text: ="Cancelar"
+            Width: =80
+            X: =1113
+            Y: =65
+      - TextInput3:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =If(
+                  Departamentolbl1.Text = "Comercial",
+                  Text(
+                      Value(
+                          Sum(
+                              Filter(
+                                  'gerencial_lucamat.despesa_caixa',
+                                  Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate),
+                                  dsp_status = FiltroStatus_desp.Selected.Value || IsBlank(FiltroStatus_desp.Selected.Value),
+                                  dsp_filial = FiltroFilial_desp_1.Text || IsBlank(FiltroFilial_desp_1.Text),
+                                  dsp_grupo = FiltroGrupo_desp.Selected.Value || IsBlank(FiltroGrupo_desp.Selected.Value),
+                                  dsp_tipo = FiltroTipo_desp.Selected.Value || IsBlank(FiltroTipo_desp.Selected.Value)
+                              ),
+                              dsp_valordsp
+                          )
+                      ),
+                      "$ #,##0.00",
+                      "pt-BR"
+                  ),
+                  Text(
+                      Value(
+                          Sum(
+                              Filter(
+                                  'gerencial_lucamat.despesa_caixa',
+                                  Value(dsp_datadesp) >= Filtro_DataDesp_inicio_desp.SelectedDate && Value(dsp_datadesp) <= Filtro_DataDesp_fim_desp.SelectedDate || IsBlank(Filtro_DataDesp_inicio_desp.SelectedDate) && IsBlank(Filtro_DataDesp_fim_desp.SelectedDate),
+                                  dsp_status = FiltroStatus_desp.Selected.Value || IsBlank(FiltroStatus_desp.Selected.Value),
+                                  dsp_filial = FiltroFilial_desp.Selected.Value || IsBlank(FiltroFilial_desp.Selected.Value),
+                                  dsp_grupo = FiltroGrupo_desp.Selected.Value || IsBlank(FiltroGrupo_desp.Selected.Value),
+                                  dsp_tipo = FiltroTipo_desp.Selected.Value || IsBlank(FiltroTipo_desp.Selected.Value)
+                              ),
+                              dsp_valordsp
+                          )
+                      ),
+                      "$ #,##0.00",
+                      "pt-BR"
+                  )
+              )
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Width: =220
+            X: =523
+            Y: =695
+      - Label20_3:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Text: ="Totalização de Valores"
+            Underline: =true
+            Width: =250
+            X: =128
+            Y: =650
+      - Label20_4:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Size: =15
+            Text: ="Total da Seleção"
+            Underline: =true
+            Width: =250
+            X: =509
+            Y: =651
+      - Label20_5:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Size: =10
+            Text: ="(Tabela)"
+            Underline: =true
+            Width: =250
+            X: =504
+            Y: =670

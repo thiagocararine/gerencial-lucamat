@@ -1,4 +1,81 @@
 {
+  "4ecc5c4b-160a-4af1-aea2-5ef119862290": {
+    "connectionRef": {
+      "displayName": "MySQL",
+      "gatewayObjectIdHint": "1f493e0e-3e4b-4f4e-abe3-fcc519cd8cf1",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1718/1.0.1718.3951/mysql/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_mysql",
+      "isOnPremiseConnection": true,
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_mysql/connections/43fd813137d840319ac23b0df3041b45"
+    },
+    "datasets": {
+      "default": {
+        "dataSources": {
+          "gerencial_lucamat.cad_user_1": {
+            "tableName": "[gerencial_lucamat].[cad_user]"
+          },
+          "gerencial_lucamat.cheques_1": {
+            "tableName": "[gerencial_lucamat].[cheques]"
+          },
+          "gerencial_lucamat.combustivel_1": {
+            "tableName": "[gerencial_lucamat].[combustivel]"
+          },
+          "gerencial_lucamat.compras_1": {
+            "tableName": "[gerencial_lucamat].[compras]"
+          },
+          "gerencial_lucamat.despesa_caixa_1": {
+            "tableName": "[gerencial_lucamat].[despesa_caixa]"
+          },
+          "gerencial_lucamat.empresa_1": {
+            "tableName": "[gerencial_lucamat].[empresa]"
+          },
+          "gerencial_lucamat.fornecedores_1": {
+            "tableName": "[gerencial_lucamat].[fornecedores]"
+          },
+          "gerencial_lucamat.historico_manutencao": {
+            "tableName": "[gerencial_lucamat].[historico_manutencao]"
+          },
+          "gerencial_lucamat.movimento_fin_1": {
+            "tableName": "[gerencial_lucamat].[movimento_fin]"
+          },
+          "gerencial_lucamat.padrao_1": {
+            "tableName": "[gerencial_lucamat].[padrao]"
+          },
+          "gerencial_lucamat.pagamento_fin_1": {
+            "tableName": "[gerencial_lucamat].[pagamento_fin]"
+          },
+          "gerencial_lucamat.parametro_1": {
+            "tableName": "[gerencial_lucamat].[parametro]"
+          },
+          "gerencial_lucamat.valor_combustivel": {
+            "tableName": "[gerencial_lucamat].[valor_combustivel]"
+          },
+          "gerencial_lucamat.veiculos": {
+            "tableName": "[gerencial_lucamat].[veiculos]"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "gerencial_lucamat.cad_user_1",
+      "gerencial_lucamat.cheques_1",
+      "gerencial_lucamat.combustivel_1",
+      "gerencial_lucamat.compras_1",
+      "gerencial_lucamat.despesa_caixa_1",
+      "gerencial_lucamat.empresa_1",
+      "gerencial_lucamat.fornecedores_1",
+      "gerencial_lucamat.movimento_fin_1",
+      "gerencial_lucamat.historico_manutencao",
+      "gerencial_lucamat.padrao_1",
+      "gerencial_lucamat.pagamento_fin_1",
+      "gerencial_lucamat.parametro_1",
+      "gerencial_lucamat.valor_combustivel",
+      "gerencial_lucamat.veiculos"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "4ecc5c4b-160a-4af1-aea2-5ef119862290"
+  },
   "55bf40bc-9cee-4cae-bd1a-7eb3bbb76a7c": {
     "connectionRef": {
       "apiTier": "Standard",
@@ -32,75 +109,5 @@
     "dependencies": {},
     "dependents": [],
     "id": "691a2da7-3acf-4e4f-91cb-25dc06e9e412"
-  },
-  "c3a89521-859e-4304-897f-45b9d48da665": {
-    "connectionRef": {
-      "displayName": "MySQL",
-      "executionRestrictions": {
-        "apiId": "/providers/microsoft.powerapps/apis/shared_mysql",
-        "appVer": "3.24084.21",
-        "modifiedOn": "2024-09-04 13:33:17",
-        "policy": "{\"type\":\"unused\"}",
-        "version": 1
-      },
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1654/1.0.1654.3414/mysql/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_mysql",
-      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_mysql/connections/03f67d48ffa84419b68c044a00118cd3"
-    },
-    "datasets": {
-      "default": {
-        "dataSources": {
-          "gerencial_lucamat.cad_user": {
-            "tableName": "[gerencial_lucamat].[cad_user]"
-          },
-          "gerencial_lucamat.cheques": {
-            "tableName": "[gerencial_lucamat].[cheques]"
-          },
-          "gerencial_lucamat.combustivel": {
-            "tableName": "[gerencial_lucamat].[combustivel]"
-          },
-          "gerencial_lucamat.compras": {
-            "tableName": "[gerencial_lucamat].[compras]"
-          },
-          "gerencial_lucamat.despesa_caixa": {
-            "tableName": "[gerencial_lucamat].[despesa_caixa]"
-          },
-          "gerencial_lucamat.empresa": {
-            "tableName": "[gerencial_lucamat].[empresa]"
-          },
-          "gerencial_lucamat.fornecedores": {
-            "tableName": "[gerencial_lucamat].[fornecedores]"
-          },
-          "gerencial_lucamat.movimento_fin": {
-            "tableName": "[gerencial_lucamat].[movimento_fin]"
-          },
-          "gerencial_lucamat.padrao": {
-            "tableName": "[gerencial_lucamat].[padrao]"
-          },
-          "gerencial_lucamat.pagamento_fin": {
-            "tableName": "[gerencial_lucamat].[pagamento_fin]"
-          },
-          "gerencial_lucamat.parametro": {
-            "tableName": "[gerencial_lucamat].[parametro]"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "gerencial_lucamat.cad_user",
-      "gerencial_lucamat.cheques",
-      "gerencial_lucamat.combustivel",
-      "gerencial_lucamat.compras",
-      "gerencial_lucamat.empresa",
-      "gerencial_lucamat.fornecedores",
-      "gerencial_lucamat.movimento_fin",
-      "gerencial_lucamat.padrao",
-      "gerencial_lucamat.pagamento_fin",
-      "gerencial_lucamat.parametro",
-      "gerencial_lucamat.despesa_caixa"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "c3a89521-859e-4304-897f-45b9d48da665"
   }
 }

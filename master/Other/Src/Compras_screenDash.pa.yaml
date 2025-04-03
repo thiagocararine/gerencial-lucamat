@@ -1,0 +1,1315 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Compras_screenDash:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Rectangle17:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =2
+            Fill: =RGBA(149, 149, 149, 1)
+            Height: =115
+            Width: =483
+            X: =19
+            Y: =640
+      - Rectangle16:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(118, 0, 0, 1)
+            BorderThickness: =2
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(255, 0, 0, 1)
+            Height: =90
+            Width: =365
+            X: =517
+            Y: =653
+      - Rectangle15:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(214, 223, 238, 1)
+            Height: =376
+            Width: =179
+            X: =1034
+            Y: =133
+      - Button3:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(202, 202, 202, 1)
+            Font: =Font.'Segoe UI'
+            Height: =45
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(237, 237, 237, 1)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =16
+            Text: ="Cadastar Loja"
+            Width: =150
+            X: =1048
+            Y: =576
+      - Button3_1:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(255, 191, 0, 1)
+            Font: =Font.'Segoe UI'
+            Height: =45
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(253, 222, 207, 1)
+            OnSelect: |-
+              =UpdateContext({MenuFornec: true})
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =14
+            Text: ="Cadastrar Fornecedor"
+            Width: =150
+            X: =1048
+            Y: =632
+      - Button3_2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(54, 176, 75, 1)
+            Font: =Font.'Segoe UI'
+            Height: =45
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(187, 221, 140, 1)
+            OnSelect: =Navigate(CadCompras_screenForm,ScreenTransition.Fade)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Text: ="Inserir Compra"
+            Width: =150
+            X: =1048
+            Y: =520
+      - Button3_3:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Segoe UI'
+            Height: =45
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: =Navigate(room_screen,ScreenTransition.Fade)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =16
+            Text: ="Retornar"
+            Width: =150
+            X: =1048
+            Y: =688
+      - Excluir_cmp:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -25%)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(255, 0, 0, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =75
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(255, 0, 0, 0.53)
+            OnSelect: =Remove('gerencial_lucamat.compras',ListCompra_Table.Selected)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =13
+            Text: ="Excluir Lanç."
+            Width: =85
+            X: =1128
+            Y: =38
+      - Limpar_select_cmp:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -25%)
+            Color: =RGBA(50, 86, 160, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(215, 223, 240, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =75
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: |
+              =Reset(Filtro_DataLanc_inicio_cmp);
+              Reset(Filtro_DataLanc_fim_cmp);
+              Reset(Filtro_DataPedido_inicio_cmp);
+              Reset(Filtro_DataPedido_fim_cmp);
+              Reset(FiltroFornecedor_cmp);
+              Reset(FiltroLojas_cmp);
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =13
+            Text: ="Limpar Seleção"
+            Width: =85
+            X: =1034
+            Y: =38
+      - FiltroLanc_lbl_cmp1:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Size: =11.7
+            Text: ="Filtro por Lançamento"
+            Width: =270
+            X: =20
+            Y: =11
+      - Filtro_DataLanc_inicio_cmp:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            Size: =11.7
+            Width: =130
+            X: =20
+            Y: =34
+      - FiltroLojas_cmp:
+          Control: Classic/ComboBox@2.4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            DisplayFields: =["nome_parametro"]
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverFill: =RGBA(186, 202, 226, 1)
+            IsSearchable: =false
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 1)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SearchFields: =["nome_parametro"]
+            SelectMultiple: =false
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Size: =11.7
+            Width: =220
+            X: =554
+            Y: =85
+      - FiltroLoja_lbl:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =14
+            Text: ="Loja Resp. pela Compra"
+            Width: =220
+            X: =554
+            Y: =55
+      - FiltroLanc_lbl_cmp2:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Size: =11.7
+            Text: ="Filtro por Pedido"
+            Width: =270
+            X: =20
+            Y: =67
+      - Filtro_DataPedido_inicio_cmp:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ContentLanguage: =
+            DefaultDate: =Date(Year(Today()),Month(Today()),Day("01"))
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            Size: =11.7
+            Width: =130
+            X: =20
+            Y: =90
+      - Filtro_DataLanc_fim_cmp:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            Size: =11.7
+            Width: =130
+            X: =160
+            Y: =34
+      - Filtro_DataPedido_fim_cmp:
+          Control: Classic/DatePicker@2.6.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DefaultDate: =Date(Year(Today()),Month(Today()),Day(31))
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            Size: =11.7
+            Width: =130
+            X: =160
+            Y: =90
+      - FiltroFornecedor_cmp:
+          Control: Classic/ComboBox@2.4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            DisplayFields: =["nome_fornc"]
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverFill: =RGBA(186, 202, 226, 1)
+            IsSearchable: =false
+            Items: ='gerencial_lucamat.fornecedores'
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SearchFields: =["nome_fornc"]
+            SelectMultiple: =false
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Size: =11.7
+            Width: =220
+            X: =316
+            Y: =85
+      - FiltroLoja_lbl_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =14
+            Text: ="Fornecedor"
+            Width: =220
+            X: =316
+            Y: =55
+      - ListCompra_Table:
+          Control: DataTable@1.0.3
+          Variant: DataTable
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =2
+            Font: =Font.'Open Sans'
+            HeadingColor: =RGBA(255, 255, 255, 1)
+            HeadingFill: =RGBA(56, 96, 178, 1)
+            HeadingFont: =Font.'Segoe UI'
+            Height: =493
+            HoverFill: =RGBA(186, 202, 226, .2)
+            Items: |-
+              =Sort(
+                  Filter(
+                      'gerencial_lucamat.compras',
+                      Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                      Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                      fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                      loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro),
+                      grupoprd_cmp = FiltroGrupo_cmp.Selected.nome_parametro || IsBlank(FiltroGrupo_cmp.Selected.nome_parametro)
+                  ),
+                  ID,
+                  SortOrder.Descending
+              )
+            SelectedFill: =RGBA(56, 96, 178, .2)
+            Size: =11
+            Width: =1003
+            X: =19
+            Y: =142
+          Children:
+            - ID_Column2_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Number
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="ID"
+                  FieldName: ="ID"
+                  Order: =1
+                  Text: =ThisItem.ID
+                  Width: =57
+            - loja_cmp_Column1_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Loja da Compra"
+                  FieldName: ="loja_cmp"
+                  Order: =11
+                  Text: =ThisItem.loja_cmp
+            - preventr_cmp_Column1_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Previsão de Entrega"
+                  FieldName: ="preventr_cmp"
+                  Order: =6
+                  Text: =ThisItem.preventr_cmp
+            - userlanc_cmp_Column1_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Usuário"
+                  FieldName: ="userlanc_cmp"
+                  Order: =7
+                  Text: =ThisItem.userlanc_cmp
+                  Width: =143
+            - valort_cmp_Column1_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Valor"
+                  FieldName: ="valort_cmp"
+                  Order: =9
+                  Text: =ThisItem.valort_cmp
+                  Width: =102
+            - fornec_cmp_Column1_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Fornecedor"
+                  FieldName: ="fornec_cmp"
+                  Order: =3
+                  Text: =ThisItem.fornec_cmp
+                  Width: =196
+            - formapag_cmp_Column1_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Forma de Pagamento"
+                  FieldName: ="formapag_cmp"
+                  Order: =10
+                  Text: =ThisItem.formapag_cmp
+            - dtlanc_cmp_Column1_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Data de Lançamento"
+                  FieldName: ="dtlanc_cmp"
+                  Order: =13
+                  Text: =ThisItem.dtlanc_cmp
+            - dataped_cmp_Column1_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Data Pedido"
+                  FieldName: ="dataped_cmp"
+                  Order: =2
+                  Text: =ThisItem.dataped_cmp
+                  Width: =122
+            - cnpjloja_cmp_Column1_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="CNPJ da Loja"
+                  FieldName: ="cnpjloja_cmp"
+                  Order: =12
+                  Text: =ThisItem.cnpjloja_cmp
+            - cnpjfor_cmp_Column1_1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="CNPJ"
+                  FieldName: ="cnpjfor_cmp"
+                  Order: =4
+                  Text: =ThisItem.cnpjfor_cmp
+                  Width: =160
+            - 1venc_cmp_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Parcela 1"
+                  FieldName: ="1venc_cmp"
+                  Order: =14
+                  Text: =ThisItem.'1venc_cmp'
+                  Width: =125
+            - 2venc_cmp_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Parcela 2"
+                  FieldName: ="2venc_cmp"
+                  Order: =15
+                  Text: =ThisItem.'2venc_cmp'
+                  Width: =125
+            - 3venc_cmp_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Parcela 3"
+                  FieldName: ="3venc_cmp"
+                  Order: =16
+                  Text: =ThisItem.'3venc_cmp'
+                  Width: =125
+            - 4venc_cmp_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Parcela 4"
+                  FieldName: ="4venc_cmp"
+                  Order: =17
+                  Text: =ThisItem.'4venc_cmp'
+                  Width: =125
+            - 5venc_cmp_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Parcela 5"
+                  FieldName: ="5venc_cmp"
+                  Order: =18
+                  Text: =ThisItem.'5venc_cmp'
+                  Width: =125
+            - 6venc_cmp_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Parcela 6"
+                  FieldName: ="6venc_cmp"
+                  Order: =19
+                  Text: =ThisItem.'6venc_cmp'
+                  Width: =125
+            - grupoprd_cmp_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Grupo"
+                  FieldName: ="grupoprd_cmp"
+                  Order: =8
+                  Text: =ThisItem.grupoprd_cmp
+      - Parcela1_lbl:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="1º Parcela"
+            X: =1052
+            Y: =140
+      - Parcela2_lbl:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="2º Parcela"
+            X: =1052
+            Y: =200
+      - Parcela3_lbl:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="3º Parcela"
+            X: =1052
+            Y: =260
+      - Parcela4_lbl:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="4º Parcela"
+            X: =1052
+            Y: =320
+      - Parcela5_lbl:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="5º Parcela"
+            X: =1052
+            Y: =380
+      - Parcela6_lbl:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="6º Parcela"
+            X: =1052
+            Y: =440
+      - ParcelaDate1:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =If(Text(ListCompra_Table.Selected.'1venc_cmp') = "01/01/1970", "Sem Data" , ListCompra_Table.Selected.'1venc_cmp')
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =14
+            Width: =150
+            X: =1052
+            Y: =165
+      - ParcelaDate2:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =If(Text(ListCompra_Table.Selected.'2venc_cmp') = "01/01/1970", "Sem Data" , ListCompra_Table.Selected.'2venc_cmp')
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =14
+            Width: =150
+            X: =1052
+            Y: =225
+      - ParcelaDate3:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =If(Text(ListCompra_Table.Selected.'3venc_cmp') = "01/01/1970", Text("Sem Data") , ListCompra_Table.Selected.'3venc_cmp')
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =14
+            Width: =150
+            X: =1052
+            Y: =285
+      - ParcelaDate4:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =If(Text(ListCompra_Table.Selected.'4venc_cmp') = "01/01/1970", "Sem Data" , ListCompra_Table.Selected.'4venc_cmp')
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =14
+            Width: =150
+            X: =1052
+            Y: =345
+      - ParcelaDate5:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =If(Text(ListCompra_Table.Selected.'5venc_cmp') = "01/01/1970", "Sem Data" , ListCompra_Table.Selected.'5venc_cmp')
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =14
+            Width: =150
+            X: =1052
+            Y: =405
+      - ParcelaDate6:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =If(Text(ListCompra_Table.Selected.'6venc_cmp') = "01/01/1970", "Sem Data" , ListCompra_Table.Selected.'6venc_cmp')
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            LineHeight: =
+            Size: =14
+            Width: =150
+            X: =1052
+            Y: =465
+      - Label2:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =15
+            Text: ="TOTAL DE COMPRA"
+            Width: =200
+            X: =525
+            Y: =665
+      - Label2_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =15
+            Text: ="QNTD PEDIDOS"
+            Width: =200
+            X: =525
+            Y: =705
+      - TextInput1:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =Text(
+                  Sum(
+                      Filter(
+                          'gerencial_lucamat.compras',
+                          Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                          Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                          fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                          loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro)
+                      ),
+                      valort_cmp
+                  ),
+                  "$ #,##0.00",
+                  "pt-BR"
+              )
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =14
+            Width: =150
+            X: =725
+            Y: =665
+      - TextInput1_1:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =CountIf(
+                  'gerencial_lucamat.compras',
+                  Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                  Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                  fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                  loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro)
+              )
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =14
+            Width: =150
+            X: =725
+            Y: =705
+      - Label2_2:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =12
+            Text: ="Parada Angélica"
+            Width: =140
+            X: =20
+            Y: =678
+      - TextInput1_2:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =Text(
+                  Sum(
+                      Filter(
+                          'gerencial_lucamat.compras',
+                          Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                          Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                          fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                          loja_cmp = "Parada Angélica"
+                      ),
+                      valort_cmp
+                  ),
+                  "$ #,##0.00",
+                  "pt-BR"
+              )
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =12
+            Width: =120
+            X: =160
+            Y: =678
+      - Label2_3:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =12
+            Text: ="Nova Campinas"
+            Width: =140
+            X: =20
+            Y: =718
+      - TextInput1_3:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =Text(
+                  Sum(
+                      Filter(
+                          'gerencial_lucamat.compras',
+                          Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                          Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                          fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                          loja_cmp = "Nova Campinas"
+                      ),
+                      valort_cmp
+                  ),
+                  "$ #,##0.00",
+                  "pt-BR"
+              )
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =12
+            Width: =120
+            X: =160
+            Y: =718
+      - Label2_4:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =12
+            Text: |-
+              ="Santa Cruz
+              "
+            Width: =97
+            X: =280
+            Y: =678
+      - TextInput1_4:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =Text(
+                  Sum(
+                      Filter(
+                          'gerencial_lucamat.compras',
+                          Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                          Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                          fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                          loja_cmp = "Santa Cruz da Serra"
+                      ),
+                      valort_cmp
+                  ),
+                  "$ #,##0.00",
+                  "pt-BR"
+              )
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =12
+            Width: =120
+            X: =376
+            Y: =678
+      - Label2_5:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =12
+            Text: |-
+              ="Piabetá
+              "
+            Width: =97
+            X: =280
+            Y: =718
+      - TextInput1_5:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =Text(
+                  Sum(
+                      Filter(
+                          'gerencial_lucamat.compras',
+                          Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                          Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                          fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                          loja_cmp = "Piabetá"
+                      ),
+                      valort_cmp
+                  ),
+                  "$ #,##0.00",
+                  "pt-BR"
+              )
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =12
+            Width: =120
+            X: =376
+            Y: =718
+      - Label2_6:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Size: =20
+            Text: ="Compras por Loja"
+            Underline: =true
+            Width: =350
+            X: =74
+            Y: =635
+      - Impressao_Button:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Fill: =RGBA(255, 255, 0, 1)
+            Font: =Font.'Segoe UI'
+            Height: =88
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(253, 222, 207, 1)
+            OnSelect: '=Navigate(ImpressãoRelatorioCompras,ScreenTransition.Fade) '
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =18
+            Text: ="Imprimir Relação"
+            Width: =140
+            X: =896
+            Y: =651
+      - FiltroGrupo_cmp:
+          Control: Classic/ComboBox@2.4.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            DisplayFields: =["nome_parametro"]
+            DisplayMode: =If(MenuFornec = true, DisplayMode.View,DisplayMode.Edit)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverFill: =RGBA(186, 202, 226, 1)
+            IsSearchable: =false
+            Items: =Filter('gerencial_lucamat.parametro',key_parametro = 7)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SearchFields: =["nome_parametro"]
+            SelectMultiple: =false
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Size: =11.7
+            Width: =220
+            X: =794
+            Y: =85
+      - FiltroGrupo_lbl:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =14
+            Text: ="Grupo de Produtos"
+            Width: =220
+            X: =794
+            Y: =55
+      - Rectangle11:
+          Control: Rectangle@2.3.0
+          Group: GrupoFornec
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =5
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =440
+            Visible: =MenuFornec
+            Width: =530
+            X: =352
+            Y: =125
+      - Rectangle12:
+          Control: Rectangle@2.3.0
+          Group: GrupoFornec
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =1
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =104
+            Visible: =MenuFornec
+            Width: =300
+            X: =465
+            Y: =348
+      - Razao_lbl:
+          Control: Label@2.5.1
+          Group: GrupoFornec
+          Properties:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Text: ="Razão Social:"
+            Visible: =MenuFornec
+            Width: =133
+            X: =388
+            Y: =224
+      - CNPJ_lbl:
+          Control: Label@2.5.1
+          Group: GrupoFornec
+          Properties:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Text: ="CNPJ:"
+            Visible: =MenuFornec
+            Width: =133
+            X: =388
+            Y: =284
+      - DataCad_lbl:
+          Control: Label@2.5.1
+          Group: GrupoFornec
+          Properties:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Text: ="Data do Cadastro:"
+            Visible: =MenuFornec
+            Width: =142
+            X: =476
+            Y: =358
+      - UserCad_lbl:
+          Control: Label@2.5.1
+          Group: GrupoFornec
+          Properties:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Text: ="Usuário Atual:"
+            Visible: =MenuFornec
+            Width: =142
+            X: =476
+            Y: =398
+      - Gravar_button:
+          Control: Classic/Button@2.2.0
+          Group: GrupoFornec
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(127, 178, 57, 1)
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: |
+              =Patch(
+                  'gerencial_lucamat.fornecedores',
+                  Defaults('gerencial_lucamat.fornecedores'),
+                  {
+                      ID: Max(
+                          'gerencial_lucamat.fornecedores',
+                          ID
+                      ) + 1
+                  },
+                  {nome_fornc: RazaoSocial_Input.Text},
+                  {cnpj_fornc: CNPJ_Input_Fornecedor.Text},
+                  {datacad_fornc: Value(DataCard_Input.SelectedDate)},
+                  {usercad_fornc: UserEdit_Input.Text}
+              );
+              Navigate(
+                  Compras_screenDash,
+                  ScreenTransition.Cover
+              );
+              Reset(RazaoSocial_Input);
+              Reset(CNPJ_Input_Fornecedor);
+              Reset(DataCard_Input);
+              Reset(UserEdit_Input);
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            TabIndex: =3
+            Text: ="Gravar"
+            Visible: =MenuFornec
+            Width: =142
+            X: =544
+            Y: =485
+      - RazaoSocial_Input:
+          Control: Classic/TextInput@2.3.2
+          Group: GrupoFornec
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Open Sans'
+            HintText: ="Insira o Nome do Fornecedor"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =1
+            Visible: =MenuFornec
+            Width: =284
+            X: =527
+            Y: =224
+      - CNPJ_Input_Fornecedor:
+          Control: Classic/TextInput@2.3.2
+          Group: GrupoFornec
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =varCNPJ
+            Font: =Font.'Open Sans'
+            HintText: ="Insira o CNPJ do Fornecedor"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            MaxLength: =19
+            OnChange: |-
+              =Set(
+                  Valor,
+                  CNPJ_Input_Fornecedor.Text
+              );
+              Set(
+                  varConfig,
+                  Text(
+                      Mid(
+                          Valor,
+                          1,
+                          1
+                      ) & Mid(
+                          Valor,
+                          2,
+                          1
+                      ) & "." & Mid(
+                          Valor,
+                          3,
+                          1
+                      ) & Mid(
+                          Valor,
+                          4,
+                          1
+                      ) & Mid(
+                          Valor,
+                          5,
+                          1
+                      ) & "." & Mid(
+                          Valor,
+                          6,
+                          1
+                      ) & Mid(
+                          Valor,
+                          7,
+                          1
+                      ) & Mid(
+                          Valor,
+                          8,
+                          1
+                      ) & "/" & Mid(
+                          Valor,
+                          9,
+                          1
+                      ) & Mid(
+                          Valor,
+                          10,
+                          1
+                      ) & Mid(
+                          Valor,
+                          11,
+                          1
+                      ) & Mid(
+                          Valor,
+                          12,
+                          1
+                      ) & "-" & Mid(
+                          Valor,
+                          13,
+                          1
+                      ) & Mid(
+                          Valor,
+                          14,
+                          1
+                      ) & Mid(
+                          Valor,
+                          15,
+                          1
+                      )
+                  )
+              );
+              Set(
+                  varCNPJ,
+                  Text(varConfig)
+              )
+            TabIndex: =2
+            Visible: =MenuFornec
+            Width: =284
+            X: =527
+            Y: =284
+      - DataCard_Input:
+          Control: Classic/DatePicker@2.6.0
+          Group: GrupoFornec
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Open Sans'
+            Height: =30
+            IconBackground: =RGBA(56, 96, 178, 1)
+            IconFill: =RGBA(255, 255, 255, 1)
+            Size: =13
+            Visible: =MenuFornec
+            Width: =133
+            X: =618
+            Y: =363
+      - UserEdit_Input:
+          Control: Classic/TextInput@2.3.2
+          Group: GrupoFornec
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =LookUp(
+                  'gerencial_lucamat.cad_user',
+                  email_user = Text(login_input.Text),
+                  nome_user
+              )
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Open Sans'
+            Height: =30
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =11
+            Visible: =MenuFornec
+            Width: =133
+            X: =618
+            Y: =403
+      - Titulo_lbl:
+          Control: Label@2.5.1
+          Group: GrupoFornec
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Size: =20
+            Text: ="Cadastro de Fornecedor"
+            Visible: =MenuFornec
+            Width: =332
+            X: =423
+            Y: =155
+      - Cancelar_button:
+          Control: Classic/Icon@2.5.0
+          Group: GrupoFornec
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            Height: =40
+            Icon: =Icon.Cancel
+            OnSelect: |-
+              =UpdateContext({MenuFornec: false});
+              Reset(RazaoSocial_Input);
+              Reset(CNPJ_Input_Fornecedor)
+            Visible: =MenuFornec
+            Width: =40
+            X: =812
+            Y: =136

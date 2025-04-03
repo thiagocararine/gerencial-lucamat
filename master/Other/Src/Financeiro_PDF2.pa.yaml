@@ -1,0 +1,2388 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Financeiro_PDF2:
+    Properties:
+      Height: =1123
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+      Width: =794
+    Children:
+      - Label4_3:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            Size: =19
+            Text: |-
+              ="Fechamento Diário Financeiro
+              Luca Materiais"
+            Underline: =true
+            Width: =551
+            X: =122
+            Y: =54
+      - Container2_1:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            BorderThickness: =3
+            DropShadow: =DropShadow.None
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =480
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =690.98
+            X: =52
+            Y: =121
+          Children:
+            - Rectangle9_1:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(255, 0, 0, 1)
+                  Height: =42
+                  Width: =161.95
+                  X: =507.43
+                  Y: =403
+            - Rectangle8_5:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  BorderThickness: =1
+                  Fill: =RGBA(232, 244, 217, 1)
+                  Height: =290
+                  Width: =215.93
+                  X: =241.12
+                  Y: =40
+            - Rectangle8_4:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  BorderThickness: =1
+                  Fill: =RGBA(253, 222, 207, 1)
+                  Height: =350
+                  Width: =107.96
+                  X: =127.76
+                  Y: =40
+            - Rectangle8_3:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  BorderThickness: =1
+                  Fill: =RGBA(175, 191, 224, 1)
+                  Height: =350
+                  Width: =116.96
+                  X: =2.7
+                  Y: =40
+            - Label4_5:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Size: =14.4
+                  Text: |-
+                    ="Nova Campinas
+                    "
+                  Width: =163.75
+                  X: =263.61
+            - Label6_3:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =24
+                  Size: =11.7
+                  Text: ="Entradas"
+                  Width: =89.97
+                  X: =13.5
+                  Y: =40
+            - Label6_7:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =25
+                  Size: =11.7
+                  Text: ="Saídas"
+                  Width: =89.97
+                  X: =137.66
+                  Y: =40
+            - Label6_8:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Size: =11.7
+                  Text: |-
+                    ="Empréstimo 
+                    Recebido    /    Efetuado"
+                  Width: =188.94
+                  X: =254.62
+                  Y: =40
+            - Label7_21:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Dinheiro"
+                  Width: =98.97
+                  X: =13.5
+                  Y: =67
+            - DinheiroPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Entrada",
+                                    tpentr_fin = "Dinheiro",
+                                    filial_fin = "Nova Campinas"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =97
+            - Label7_25:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Cartão"
+                  Width: =98.97
+                  X: =13.5
+                  Y: =129
+            - CartãoPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Entrada",
+                                    tpentr_fin = "Cartão",
+                                    filial_fin = "Nova Campinas"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =162
+            - Label7_29:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Pix / Depósito"
+                  Width: =98.97
+                  X: =13.5
+                  Y: =192
+            - PixPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Entrada",
+                                    tpentr_fin = "Pix",
+                                    filial_fin = "Nova Campinas"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =222
+            - Label7_33:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Boleto"
+                  Width: =98.97
+                  X: =13.5
+                  Y: =252
+            - BoletoPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Entrada",
+                                    tpentr_fin = "Boleto",
+                                    filial_fin = "Nova Campinas"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =282
+            - Label7_37:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Text: ="Entrada (Sócio)"
+                  Width: =98.97
+                  X: =13.5
+                  Y: =312
+            - EntSocioPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Entrada",
+                                    tpentr_fin = "Entrada (Sócio)",
+                                    filial_fin = "Nova Campinas"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =344
+            - Label7_22:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Pag. Boleto"
+                  Width: =98.97
+                  X: =132.26
+                  Y: =67
+            - PagBoletoPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Saída",
+                                    filial_fin = "Nova Campinas",
+                                    tpsaida_fin = "Boleto"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132.26
+                  Y: =97
+            - Label7_26:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Pag. Cheque"
+                  Width: =98.97
+                  X: =132.26
+                  Y: =129
+            - PagChequePDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Saída",
+                                    filial_fin = "Nova Campinas",
+                                    tpsaida_fin = "Cheque"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132.26
+                  Y: =162
+            - Label7_30:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Transf. / Pix"
+                  Width: =98.97
+                  X: =132.26
+                  Y: =192
+            - PagPessoalPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Saída",
+                                    filial_fin = "Nova Campinas",
+                                    tpsaida_fin = "Transferência Bancária" || tpsaida_fin = "Pix"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132.26
+                  Y: =222
+            - Label7_34:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Desp. Pessoal"
+                  Width: =98.97
+                  X: =132.26
+                  Y: =252
+            - RetiradaSocioPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Saída",
+                                    filial_fin = "Nova Campinas",
+                                    tpsaida_fin = "Pagamento de Pessoal (Folha)" || tpsaida_fin = "Pagamento de Passagem (RioCard)"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Lighter
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132.26
+                  Y: =283
+            - Label7_23:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =8.8
+                  Text: ="Parada Angélica"
+                  Width: =98.97
+                  X: =245.62
+                  Y: =82
+            - EmpNCRecPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    filial_fin = "Parada Angélica",
+                                    tpsaida_fin = "Empréstimo",
+                                    ljemp_fin = "Nova Campinas"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =245.62
+                  Y: =107
+            - Label7_27:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: |-
+                    ="Piabetá
+                    "
+                  Width: =98.97
+                  X: =245.62
+                  Y: =139
+            - EmpPIARecPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    filial_fin = "Piabetá",
+                                    tpsaida_fin = "Empréstimo",
+                                    ljemp_fin = "Nova Campinas"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =245.62
+                  Y: =167
+            - Label7_31:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Santa Cruz"
+                  Width: =98.97
+                  X: =245.62
+                  Y: =197
+            - EmpSCRecPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    filial_fin = "Santa Cruz",
+                                    tpsaida_fin = "Empréstimo",
+                                    ljemp_fin = "Nova Campinas"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =245.62
+                  Y: =227
+            - Label7_35:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="MD Santos"
+                  Width: =98.97
+                  X: =245.62
+                  Y: =257
+            - EmpMDRecPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    filial_fin = "Mendes dos Santos",
+                                    tpsaida_fin = "Empréstimo",
+                                    ljemp_fin = "Nova Campinas"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =245.62
+                  Y: =287
+            - Label7_24:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =8.8
+                  Text: ="Parada Angélica"
+                  Width: =98.97
+                  X: =352.69
+                  Y: =83
+            - EmpNCEfetPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tpsaida_fin = "Empréstimo",
+                                    filial_fin = "Nova Campinas",
+                                    ljemp_fin = "Parada Angélica"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =352.69
+                  Y: =108
+            - Label7_28:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Piabeta"
+                  Width: =98.97
+                  X: =352.69
+                  Y: =140
+            - EmpPIAEfetPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tpsaida_fin = "Empréstimo",
+                                    filial_fin = "Nova Campinas",
+                                    ljemp_fin = "Piabetá"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =352.69
+                  Y: =168
+            - Label7_32:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Santa Cruz"
+                  Width: =98.97
+                  X: =352.69
+                  Y: =198
+            - EmpSCEfetPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tpsaida_fin = "Empréstimo",
+                                    filial_fin = "Nova Campinas",
+                                    ljemp_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =352.69
+                  Y: =228
+            - Label7_36:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="MD Santos"
+                  Width: =98.97
+                  X: =352.69
+                  Y: =258
+            - EmpMDEfetPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tpsaida_fin = "Empréstimo",
+                                    filial_fin = "Nova Campinas",
+                                    ljemp_fin = "Mendes dos Santos"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =352.69
+                  Y: =288
+            - Label6_6:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =38
+                  Size: =12.6
+                  Text: |
+                    ="Histórico do Dia"
+                  Width: =136.76
+                  X: =507.43
+                  Y: =15
+            - Label6_9:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(255, 255, 255, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =31
+                  Size: =11.7
+                  Text: ="Saldo"
+                  Width: =50.38
+                  X: =513.73
+                  Y: =408
+            - TextInput2_18:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Sum(TotalEntradaPDF_NC.Text + TotalEmpRecPDF_NC.Text - TotalSaidaPDF_NC.Text - TotalEmpEfetPDF_NC.Text),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =11.7
+                  Width: =98.97
+                  X: =564.12
+                  Y: =410
+            - Label7_41:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =30
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Text: |-
+                    ="Total Entradas
+                    "
+                  Width: =98.97
+                  X: =13.5
+                  Y: =392
+            - TotalEntradaPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Sum(DinheiroPDF_NC.Text + CartãoPDF_NC.Text + PixPDF_NC.Text + BoletoPDF_NC.Text + EntSocioPDF_NC.Text),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =424
+            - Label7_38:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =30
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Text: ="Total Saídas"
+                  Width: =98.97
+                  X: =132.26
+                  Y: =392
+            - TotalSaidaPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Sum(PagBoletoPDF_NC.Text + PagChequePDF_NC.Text + PagPessoalPDF_NC.Text+ RetiradaSocioPDF_NC.Text+ RetSocioPDF_NC.Text),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132.26
+                  Y: =424
+            - Label7_39:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =53
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Text: ="Total de Empréstimo Recebido"
+                  Width: =98.97
+                  X: =245.62
+                  Y: =334
+            - TotalEmpRecPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Sum(EmpNCRecPDF_NC.Text + EmpPIARecPDF_NC.Text + EmpSCRecPDF_NC.Text + EmpMDRecPDF_NC.Text),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =245.62
+                  Y: =387
+            - Label7_40:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =53
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Text: |-
+                    ="Total de Empréstimo Efetuado
+                    "
+                  Width: =98.97
+                  X: =352.69
+                  Y: =334
+            - TotalEmpEfetPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Sum(EmpNCEfetPDF_NC.Text + EmpPIAEfetPDF_NC.Text + EmpSCEfetPDF_NC.Text + EmpMDEfetPDF_NC.Text),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =358.08
+                  Y: =387
+            - TextInput4_1:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  BorderThickness: =1
+                  Default: |-
+                    =LookUp(
+                        'gerencial_lucamat.movimento_fin',
+                        Value(datacompt_tfin) = DataCompt.SelectedDate || IsBlank(Value(datacompt_tfin) = DataCompt.SelectedDate),
+                        histnc_tfin
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =312
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  Mode: =TextMode.MultiLine
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                  Size: =10.5
+                  Width: =213.23
+                  X: =468.75
+                  Y: =54
+            - Label7_86:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Retirada Sócio"
+                  Width: =98.97
+                  X: =132
+                  Y: =315
+            - RetSocioPDF_NC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Saída",
+                                    filial_fin = "Nova Campinas",
+                                    tpsaida_fin = "Retirada Sócio"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132
+                  Y: =347
+      - Button1_4:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(221, 79, 14, 1)
+            Fill: =RGBA(246, 88, 16, 1)
+            Font: =Font.'Open Sans'
+            Height: =21
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(251, 188, 159, 1)
+            OnSelect: =Set(PDF_PAGE02,PDF(Financeiro_PDF2))
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =10.8
+            Text: ="Gerar PDF"
+            Visible: =Not(Financeiro_PDF2.Printing)
+            Width: =88.17
+            X: =117.86
+            Y: =10
+      - Button1_3:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Open Sans'
+            Height: =21
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(175, 191, 224, 1)
+            OnSelect: =Print()
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =10.8
+            Text: ="Imprimir"
+            Visible: =Not(Financeiro_PDF2.Printing)
+            Width: =88.17
+            X: =10.8
+            Y: =10
+      - Button1_5:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(221, 79, 14, 1)
+            Fill: =RGBA(255, 0, 0, 1)
+            Font: =Font.'Open Sans'
+            Height: =21
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(251, 188, 159, 1)
+            OnSelect: =Back(ScreenTransition)
+            PaddingRight: =4.5
+            PaddingTop: =4.5
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =10.8
+            Text: ="Fechar"
+            Visible: =Not(Financeiro_PDF2.Printing)
+            Width: =88.17
+            X: =225.83
+            Y: =10
+      - Container2_2:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            BorderThickness: =3
+            DropShadow: =DropShadow.None
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =480
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Width: =690.98
+            X: =52
+            Y: =617
+          Children:
+            - Rectangle9_2:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Fill: =RGBA(255, 0, 0, 1)
+                  Height: =42
+                  Width: =161.95
+                  X: =507.43
+                  Y: =403
+            - Rectangle8_8:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  BorderThickness: =1
+                  Fill: =RGBA(232, 244, 217, 1)
+                  Height: =290
+                  Width: =215.93
+                  X: =241.12
+                  Y: =40
+            - Rectangle8_7:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  BorderThickness: =1
+                  Fill: =RGBA(253, 222, 207, 1)
+                  Height: =350
+                  Width: =107.96
+                  X: =127.76
+                  Y: =40
+            - Rectangle8_6:
+                Control: Rectangle@2.3.0
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  BorderThickness: =1
+                  Fill: =RGBA(175, 191, 224, 1)
+                  Height: =350
+                  Width: =116.96
+                  X: =2.7
+                  Y: =40
+            - Label4_6:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Bold
+                  Size: =14.4
+                  Text: |-
+                    ="Santa Cruz da Serra
+                    "
+                  Width: =199.73
+                  X: =245.62
+            - Label6_11:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =24
+                  Size: =11.7
+                  Text: ="Entradas"
+                  Width: =89.97
+                  X: =13.5
+                  Y: =40
+            - Label6_12:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =25
+                  Size: =11.7
+                  Text: ="Saídas"
+                  Width: =89.97
+                  X: =137.66
+                  Y: =40
+            - Label6_13:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Size: =11.7
+                  Text: |-
+                    ="Empréstimo 
+                    Recebido    /    Efetuado"
+                  Width: =188.94
+                  X: =254.62
+                  Y: =40
+            - Label7_42:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Dinheiro"
+                  Width: =98.97
+                  X: =13.5
+                  Y: =67
+            - DinheiroPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Entrada",
+                                    tpentr_fin = "Dinheiro",
+                                    filial_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =97
+            - Label7_46:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Cartão"
+                  Width: =98.97
+                  X: =13.5
+                  Y: =129
+            - CartãoPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Entrada",
+                                    tpentr_fin = "Cartão",
+                                    filial_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =162
+            - Label7_50:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Pix / Depósito"
+                  Width: =98.97
+                  X: =13.5
+                  Y: =192
+            - PixPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Entrada",
+                                    tpentr_fin = "Pix",
+                                    filial_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =222
+            - Label7_54:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Boleto"
+                  Width: =98.97
+                  X: =13.5
+                  Y: =252
+            - BoletoPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Entrada",
+                                    tpentr_fin = "Boleto",
+                                    filial_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =282
+            - Label7_58:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Text: ="Entrada (Sócio)"
+                  Width: =98.97
+                  X: =13.5
+                  Y: =312
+            - EntSocioPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Entrada",
+                                    tpentr_fin = "Entrada (Sócio)",
+                                    filial_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =344
+            - Label7_43:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Pag. Boleto"
+                  Width: =98.97
+                  X: =132.26
+                  Y: =67
+            - PagBoletoPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Saída",
+                                    filial_fin = "Santa Cruz",
+                                    tpsaida_fin = "Boleto"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132.26
+                  Y: =97
+            - Label7_47:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Pag. Cheque"
+                  Width: =98.97
+                  X: =132.26
+                  Y: =129
+            - PagChequePDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Saída",
+                                    filial_fin = "Santa Cruz",
+                                    tpsaida_fin = "Cheque"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132.26
+                  Y: =162
+            - Label7_51:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Transf. / Pix"
+                  Width: =98.97
+                  X: =132.26
+                  Y: =192
+            - PagPessoalPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Saída",
+                                    filial_fin = "Santa Cruz",
+                                    tpsaida_fin = "Transferência Bancária" || tpsaida_fin = "Pix"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132.26
+                  Y: =222
+            - Label7_55:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Desp. Pessoal"
+                  Width: =98.97
+                  X: =132.26
+                  Y: =252
+            - RetiradaSocioPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Saída",
+                                    filial_fin = "Santa Cruz",
+                                    tpsaida_fin = "Pagamento de Pessoal (Folha)" || tpsaida_fin = "Pagamento de Passagem (RioCard)"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  FontWeight: =FontWeight.Lighter
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132.26
+                  Y: =283
+            - Label7_44:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =8.8
+                  Text: ="Parada Angélica"
+                  Width: =98.97
+                  X: =245.62
+                  Y: =82
+            - EmpNCRecPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    filial_fin = "Parada Angélica",
+                                    tpsaida_fin = "Empréstimo (Lojas)",
+                                    ljemp_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =245.62
+                  Y: =107
+            - Label7_48:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: |-
+                    ="Piabetá
+                    "
+                  Width: =98.97
+                  X: =245.62
+                  Y: =139
+            - EmpPIARecPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    filial_fin = "Piabetá",
+                                    tpsaida_fin = "Empréstimo (Lojas)",
+                                    ljemp_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =245.62
+                  Y: =167
+            - Label7_52:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.18
+                  Text: |-
+                    ="Nova Campinas
+                    "
+                  Width: =98.97
+                  X: =245.62
+                  Y: =197
+            - EmpSCRecPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    filial_fin = "Santa Cruz",
+                                    tpsaida_fin = "Empréstimo (Lojas)",
+                                    ljemp_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =245.62
+                  Y: =227
+            - Label7_56:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="MD Santos"
+                  Width: =98.97
+                  X: =245.62
+                  Y: =257
+            - EmpMDRecPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    filial_fin = "Mendes dos Santos",
+                                    tpsaida_fin = "Empréstimo (Lojas)",
+                                    ljemp_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =245.62
+                  Y: =287
+            - Label7_45:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =8.8
+                  Text: ="Parada Angélica"
+                  Width: =98.97
+                  X: =352.69
+                  Y: =83
+            - EmpNCEfetPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tpsaida_fin = "Empréstimo (Lojas)",
+                                    filial_fin = "Santa Cruz",
+                                    ljemp_fin = "Parada Angélica"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =352.69
+                  Y: =108
+            - Label7_49:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Piabeta"
+                  Width: =98.97
+                  X: =352.69
+                  Y: =140
+            - EmpPIAEfetPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tpsaida_fin = "Empréstimo (Lojas)",
+                                    filial_fin = "Santa Cruz",
+                                    ljemp_fin = "Piabetá"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =352.69
+                  Y: =168
+            - Label7_53:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.18
+                  Text: ="Nova Campinas"
+                  Width: =98.97
+                  X: =352.69
+                  Y: =198
+            - EmpSCEfetPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tpsaida_fin = "Empréstimo (Lojas)",
+                                    filial_fin = "Santa Cruz",
+                                    ljemp_fin = "Santa Cruz"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =352.69
+                  Y: =228
+            - Label7_57:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="MD Santos"
+                  Width: =98.97
+                  X: =352.69
+                  Y: =258
+            - EmpMDEfetPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tpsaida_fin = "Empréstimo (Lojas)",
+                                    filial_fin = "Santa Cruz",
+                                    ljemp_fin = "Mendes dos Santos"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =352.69
+                  Y: =288
+            - Label6_10:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =38
+                  Size: =12.6
+                  Text: ="Histórico do Dia"
+                  Width: =136.76
+                  X: =507.43
+                  Y: =15
+            - Label6_14:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Color: =RGBA(255, 255, 255, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =31
+                  Size: =11.7
+                  Text: ="Saldo"
+                  Width: =50.38
+                  X: =513.73
+                  Y: =408
+            - TextInput2_19:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Sum(TotalEntradaPDF_SC.Text + TotalEmpRecPDF_SC.Text - TotalSaidaPDF_SC.Text - TotalEmpEfetPDF_SC.Text),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =11.7
+                  Width: =98.97
+                  X: =564.12
+                  Y: =410
+            - Label7_62:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =30
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Text: |-
+                    ="Total Entradas
+                    "
+                  Width: =98.97
+                  X: =13.5
+                  Y: =392
+            - TotalEntradaPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Sum(DinheiroPDF_SC.Text + CartãoPDF_SC.Text + PixPDF_SC.Text + BoletoPDF_SC.Text + EntSocioPDF_SC.Text),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =13.5
+                  Y: =424
+            - Label7_59:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =30
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Text: ="Total Saídas"
+                  Width: =98.97
+                  X: =132
+                  Y: =392
+            - TotalSaidaPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Sum(PagBoletoPDF_SC.Text + PagChequePDF_SC.Text + PagPessoalPDF_SC.Text+ RetiradaSocioPDF_SC.Text+ RetSocioPDF_SC.Text),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132
+                  Y: =424
+            - Label7_60:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =53
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Text: ="Total de Empréstimo Recebido"
+                  Width: =98.97
+                  X: =245.62
+                  Y: =334
+            - TotalEmpRecPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Sum(EmpNCRecPDF_SC.Text + EmpPIARecPDF_SC.Text + EmpSCRecPDF_SC.Text + EmpMDRecPDF_SC.Text),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =245.62
+                  Y: =387
+            - Label7_61:
+                Control: Label@2.5.1
+                Properties:
+                  Align: =Align.Center
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Segoe UI'
+                  FontWeight: =FontWeight.Semibold
+                  Height: =53
+                  PaddingLeft: =0
+                  PaddingRight: =0
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Text: |-
+                    ="Total de Empréstimo Efetuado
+                    "
+                  Width: =98.97
+                  X: =352.69
+                  Y: =334
+            - TotalEmpEfetPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Sum(EmpNCEfetPDF_SC.Text + EmpPIAEfetPDF_SC.Text + EmpSCEfetPDF_SC.Text + EmpMDEfetPDF_SC.Text),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =358.08
+                  Y: =387
+            - TextInput4_2:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 0, 0, 1)
+                  BorderThickness: =1
+                  Default: |-
+                    =LookUp(
+                        'gerencial_lucamat.movimento_fin',
+                        Value(datacompt_tfin) = DataCompt.SelectedDate || IsBlank(Value(datacompt_tfin) = DataCompt.SelectedDate),
+                        histsc_tfin
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =312
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  Mode: =TextMode.MultiLine
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  RadiusBottomLeft: =10
+                  RadiusBottomRight: =10
+                  RadiusTopLeft: =10
+                  RadiusTopRight: =10
+                  Size: =10.5
+                  Width: =213.23
+                  X: =468.75
+                  Y: =54
+            - Label7_87:
+                Control: Label@2.5.1
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  Size: =9.9
+                  Text: ="Retirada Sócio"
+                  Width: =98.97
+                  X: =132
+                  Y: =312
+            - RetSocioPDF_SC:
+                Control: Classic/TextInput@2.3.2
+                Properties:
+                  BorderColor: =RGBA(0, 18, 107, 1)
+                  Default: |-
+                    =Text(
+                        Value(
+                            Sum(
+                                Filter(
+                                    'gerencial_lucamat.pagamento_fin',
+                                    Value(dtcompt_fin) = DataCompt.SelectedDate || IsBlank(DataCompt.SelectedDate),
+                                    tplanc_fin = "Saída",
+                                    filial_fin = "Santa Cruz",
+                                    tpsaida_fin = "Retirada Sócio"
+                                ),
+                                vlrmov_fin
+                            )
+                        ),
+                        "$ #,##0.00",
+                        "pt-BR"
+                    )
+                  DisplayMode: =DisplayMode.View
+                  Font: =Font.'Open Sans'
+                  Height: =30
+                  HoverBorderColor: =RGBA(0, 18, 107, 1)
+                  HoverFill: =RGBA(186, 202, 226, 1)
+                  PaddingRight: =4.5
+                  PaddingTop: =4.5
+                  Size: =9.9
+                  Width: =98.97
+                  X: =132
+                  Y: =344
+      - Rectangle21_1:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(237, 237, 237, 1)
+            Height: =76
+            Width: =138
+            X: =631
+            Y: =25
+      - Label4_4:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =37
+            Size: =19
+            Text: ="Data:"
+            Width: =74
+            X: =661
+            Y: =25
+      - DataComptPDF01_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =55
+            Italic: =true
+            Size: =16
+            Text: =Text(DataCompt.SelectedDate, "[$-en-US]dd/mm/yy")
+            Width: =127
+            X: =637
+            Y: =46

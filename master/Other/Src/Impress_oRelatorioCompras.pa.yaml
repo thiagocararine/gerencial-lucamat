@@ -1,0 +1,356 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  ImpressãoRelatorioCompras:
+    Properties:
+      Height: =794
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+      Width: =1123
+    Children:
+      - PrintButton1:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Color: =RGBA(0, 134, 208, 1)
+            Font: =Font.'Open Sans'
+            Height: =32
+            OnSelect: =Print()
+            TabIndex: =0
+            Text: ="Imprimir"
+            Visible: =Not(Parent.Printing)
+            Width: =96
+            X: =509
+            Y: =13
+      - ListCompra_Table_print:
+          Control: DataTable@1.0.3
+          Variant: DataTable
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =3
+            Font: =Font.'Open Sans'
+            HeadingColor: =RGBA(255, 255, 255, 1)
+            HeadingFill: =RGBA(56, 96, 178, 1)
+            HeadingFont: =Font.'Open Sans'
+            HeadingSize: =10
+            Height: =688
+            HoverFill: =RGBA(186, 202, 226, .2)
+            Items: |-
+              =Sort(
+                  Filter(
+                      'gerencial_lucamat.compras',
+                      Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                      Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                      fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                      loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro)
+                  ),
+                  ID,
+                  SortOrder.Descending
+              )
+            SelectedFill: =RGBA(56, 96, 178, .2)
+            Size: =9
+            Width: =1079
+            X: =19
+            Y: =57
+          Children:
+            - ID_Column2_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Number
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="ID"
+                  FieldName: ="ID"
+                  Order: =1
+                  Text: =ThisItem.ID
+                  Width: =33
+            - loja_cmp_Column1_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Loja da Compra"
+                  FieldName: ="loja_cmp"
+                  Order: =10
+                  Text: =ThisItem.loja_cmp
+                  Width: =111
+            - preventr_cmp_Column1_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Previsão de Entrega"
+                  FieldName: ="preventr_cmp"
+                  Order: =6
+                  Text: =ThisItem.preventr_cmp
+                  Width: =77
+            - userlanc_cmp_Column1_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Usuário"
+                  FieldName: ="userlanc_cmp"
+                  Order: =7
+                  Text: =ThisItem.userlanc_cmp
+                  Width: =95
+            - valort_cmp_Column1_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Valor"
+                  FieldName: ="valort_cmp"
+                  Order: =8
+                  Text: =ThisItem.valort_cmp
+                  Width: =88
+            - fornec_cmp_Column1_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Fornecedor"
+                  FieldName: ="fornec_cmp"
+                  Order: =3
+                  Text: =ThisItem.fornec_cmp
+                  Width: =167
+            - formapag_cmp_Column1_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Forma de Pagamento"
+                  FieldName: ="formapag_cmp"
+                  Order: =9
+                  Text: =ThisItem.formapag_cmp
+                  Width: =126
+            - dtlanc_cmp_Column1_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Data de Lançamento"
+                  FieldName: ="dtlanc_cmp"
+                  Order: =12
+                  Text: =ThisItem.dtlanc_cmp
+                  Width: =106
+            - dataped_cmp_Column1_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Data Pedido"
+                  FieldName: ="dataped_cmp"
+                  Order: =2
+                  Text: =ThisItem.dataped_cmp
+                  Width: =73
+            - cnpjloja_cmp_Column1_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="CNPJ da Loja"
+                  FieldName: ="cnpjloja_cmp"
+                  Order: =11
+                  Text: =ThisItem.cnpjloja_cmp
+                  Width: =102
+            - cnpjfor_cmp_Column1_2:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="CNPJ"
+                  FieldName: ="cnpjfor_cmp"
+                  Order: =4
+                  Text: =ThisItem.cnpjfor_cmp
+      - BackButton:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderThickness: =1
+            Color: =RGBA(0, 134, 208, 1)
+            Font: =Font.'Open Sans'
+            Height: =32
+            OnSelect: =Back(ScreenTransition.CoverRight)
+            TabIndex: =0
+            Text: ="Retornar"
+            Visible: =Not(Parent.Printing)
+            Width: =96
+            X: =409
+            Y: =13
+      - Label2_7:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =14
+            Text: |-
+              ="Total em Compras: "
+            Width: =200
+            X: =315
+            Y: =752
+      - Label2_8:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =14
+            Text: |-
+              ="Quantidade de Pedidos: "
+            Width: =233
+            X: =19
+            Y: =752
+      - TextInput1_6:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =Text(Sum(Filter(
+                      'gerencial_lucamat.compras',
+                      Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                      Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                      fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                      loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro)
+                  ),valort_cmp),"$ #,##0.00","pt-BR")
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Courier New'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =16
+            Width: =226
+            X: =515
+            Y: =752
+      - TextInput1_7:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =CountIf(
+                  'gerencial_lucamat.compras',
+                  Value(dataped_cmp) >= Filtro_DataPedido_inicio_cmp.SelectedDate && Value(dataped_cmp) <= Filtro_DataPedido_fim_cmp.SelectedDate || IsBlank(Filtro_DataPedido_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataPedido_fim_cmp.SelectedDate),
+                  Value(dtlanc_cmp) >= Filtro_DataLanc_inicio_cmp.SelectedDate && Value(dtlanc_cmp) <= Filtro_DataLanc_fim_cmp.SelectedDate || IsBlank(Filtro_DataLanc_inicio_cmp.SelectedDate) && IsBlank(Filtro_DataLanc_fim_cmp.SelectedDate),
+                  fornec_cmp = Text(FiltroFornecedor_cmp.Selected.nome_fornc) || IsBlank(FiltroFornecedor_cmp.Selected.nome_fornc),
+                  loja_cmp = FiltroLojas_cmp.Selected.nome_parametro || IsBlank(FiltroLojas_cmp.Selected.nome_parametro)
+              )
+            DisplayMode: =DisplayMode.View
+            Font: =Font.'Courier New'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Size: =16
+            Width: =63
+            X: =252
+            Y: =752
+      - Label2_9:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =51
+            Size: =28
+            Text: ="Relatório de Compras"
+            Underline: =true
+            Width: =389
+            X: =19
+            Y: =1
+      - Label2_10:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Courier New'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Size: =12
+            Text: =Filtro_DataLanc_inicio_cmp.SelectedDate
+            Underline: =true
+            Width: =165
+            X: =724
+            Y: =17
+      - Label2_11:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Courier New'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Size: =12
+            Text: =Filtro_DataLanc_fim_cmp.SelectedDate
+            Underline: =true
+            Width: =165
+            X: =936
+            Y: =17
+      - Label2_12:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Size: =12
+            Text: ="Até"
+            Width: =42
+            X: =894
+            Y: =17
+      - Label2_13:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Size: =12
+            Text: ="Data de Lanç.:"
+            Width: =117
+            X: =607
+            Y: =17
+      - Label2_14:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =14
+            Text: |-
+              ="Usuário: "
+            Width: =88
+            X: =744
+            Y: =752
+      - Label2_15:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Courier New'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            Size: =14
+            Text: =LookUp('gerencial_lucamat.cad_user',email_user=Text(login_input.Text),nome_user)
+            Width: =266
+            X: =832
+            Y: =752

@@ -1,0 +1,37 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2024-11-13T18:49:12.8470000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "ano_carro_hist": "ano_carro_hist",
+      "ano_modelo_carro_hist": "ano_modelo_carro_hist",
+      "ativo_carro_hist": "ativo_carro_hist",
+      "cod_oficina_hist": "cod_oficina_hist",
+      "data_canc_hist": "data_canc_hist",
+      "data_final_hist": "data_final_hist",
+      "data_lanc_hist": "data_lanc_hist",
+      "desc_problema_hist": "desc_problema_hist",
+      "filial_hist": "filial_hist",
+      "id": "id",
+      "modelocarro_hist": "modelocarro_hist",
+      "oficina_hist": "oficina_hist",
+      "placacarro_hist": "placacarro_hist",
+      "status_hist": "status_hist",
+      "tipo_problema_hist": "tipo_problema_hist",
+      "user_alter_hist": "user_alter_hist",
+      "user_canc_hist": "user_canc_hist",
+      "vlr_iten_hist": "vlr_iten_hist",
+      "vlr_mobra_hist": "vlr_mobra_hist"
+    },
+    "DatasetName": "default",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "gerencial_lucamat.historico_manutencao",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

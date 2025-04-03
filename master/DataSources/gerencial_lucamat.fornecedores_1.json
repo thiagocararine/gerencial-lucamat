@@ -3,21 +3,21 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2024-02-08T17:51:55.7960000Z",
+      "LastChangedTimeString": "2024-11-13T18:49:12.8470000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
-      "cod_parametro": "cod_parametro",
+      "cnpj_fornc": "cnpj_fornc",
+      "datacad_fornc": "datacad_fornc",
       "ID": "ID",
-      "key_parametro": "key_parametro",
-      "key_vinculacao": "key_vinculacao",
-      "nome_parametro": "nome_parametro"
+      "nome_fornc": "nome_fornc",
+      "usercad_fornc": "usercad_fornc"
     },
     "DatasetName": "default",
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.parametro",
+    "Name": "gerencial_lucamat.fornecedores_1",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

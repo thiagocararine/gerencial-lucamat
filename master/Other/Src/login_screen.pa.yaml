@@ -1,0 +1,155 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  login_screen:
+    Properties:
+      BackgroundImage: ='1000x444,45'
+      Fill: =RGBA(0, 47, 156, 1)
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Rectangle1:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(56, 96, 178, 1)
+            BorderThickness: =8
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(215, 223, 240, 1)
+            Height: =416
+            TabIndex: =0
+            Width: =477.59
+            X: =370.68
+            Y: =176
+      - Label1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Text: ="E-mail"
+            Width: =70
+            X: =442.66
+            Y: =290
+      - Label1_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Text: ="Senha"
+            Width: =70
+            X: =442.66
+            Y: =350
+      - login_input:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Open Sans'
+            HintText: ="Digite seu e-mail"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            PaddingRight: =4.05
+            PaddingTop: =4.05
+            Width: =259.03
+            X: =516.43
+            Y: =290
+      - senha_input:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Open Sans'
+            HintText: ="Digite sua senha"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Mode: =TextMode.Password
+            PaddingRight: =4.05
+            PaddingTop: =4.05
+            Width: =259.03
+            X: =516.43
+            Y: =350
+      - login-button:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(141, 198, 63, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Open Sans'
+            Height: =60
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: "=If(\n    !IsBlank(\n        LookUp(\n            'gerencial_lucamat.cad_user',\n            email_user = login_input.Text And senha_user = Value(senha_input.Text)\n        )\n    ),\n    Navigate(room_screen),\n    UpdateContext({MostrarMensagem: false});\n    UpdateContext({MostrarMenasgem: true});\n    Reset(login_input);\n    Reset(senha_input);\n    \n);\n"
+            PaddingRight: =4.05
+            PaddingTop: =4.05
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Text: ="Entrar"
+            Width: =137.61
+            X: =442.66
+            Y: =481
+      - cadastro-button:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 191, 0, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Open Sans'
+            Height: =60
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: |-
+              =Navigate(
+                  cad_screen,
+                  ScreenTransition.CoverRight
+              )
+            PaddingRight: =4.05
+            PaddingTop: =4.05
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Text: ="Cadastrar-se"
+            Width: =137.61
+            X: =637.89
+            Y: =481
+      - alert-login:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(255, 0, 0, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =46
+            OnSelect: =
+            Text: ="Login ou Senha Incorreta!"
+            Visible: =MostrarMenasgem
+            Width: =477.59
+            X: =370.68
+            Y: =418
+      - titulo:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Semibold
+            Height: =60
+            Size: =20.23
+            Text: |-
+              ="Sistema Gerencial
+              Luca Materiais"
+            Width: =477.59
+            X: =370.68
+            Y: =202

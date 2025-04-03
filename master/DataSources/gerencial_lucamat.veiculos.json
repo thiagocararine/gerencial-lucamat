@@ -1,0 +1,30 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2024-11-13T18:49:12.8470000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "ano_modelo_veiculo": "ano_modelo_veiculo",
+      "ano_veiculo": "ano_veiculo",
+      "ativo_veiculo": "ativo_veiculo",
+      "datacadastro_veiculo": "datacadastro_veiculo",
+      "datacancelamento_veiculo": "datacancelamento_veiculo",
+      "filiallotado_veiculo": "filiallotado_veiculo",
+      "id": "id",
+      "modelo_veiculo": "modelo_veiculo",
+      "placa_veiculo": "placa_veiculo",
+      "status_veiculo": "status_veiculo",
+      "usuario_cancelamento_veiculo": "usuario_cancelamento_veiculo",
+      "usuario_edit_veiculo": "usuario_edit_veiculo"
+    },
+    "DatasetName": "default",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "gerencial_lucamat.veiculos",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

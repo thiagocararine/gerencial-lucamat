@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_mysql",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2023-09-26T16:14:46.1950000Z",
+      "LastChangedTimeString": "2024-11-13T18:49:12.8470000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -23,7 +23,7 @@
     "EncodeDataset": true,
     "IsSampleData": false,
     "IsWritable": true,
-    "Name": "gerencial_lucamat.pagamento_fin",
+    "Name": "gerencial_lucamat.pagamento_fin_1",
     "Type": "ConnectedDataSourceInfo"
   }
 ]

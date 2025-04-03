@@ -1,0 +1,1126 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Config_Screen:
+    Properties:
+      LoadingSpinnerColor: =RGBA(56, 96, 178, 1)
+    Children:
+      - Rectangle19:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 94, 146, 1)
+            BorderThickness: =5
+            Fill: =RGBA(245, 245, 245, 1)
+            Height: =686
+            Width: =657
+            X: =54
+            Y: =42
+      - Voltar_button:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Segoe UI'
+            Height: =51
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: =Navigate(room_screen,ScreenTransition.UnCoverRight)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Text: ="Voltar"
+            X: =1035
+            Y: =677
+      - ParamTable:
+          Control: DataTable@1.0.3
+          Variant: DataTable
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =3
+            Font: =Font.'Segoe UI'
+            HeadingColor: =RGBA(255, 255, 255, 1)
+            HeadingFill: =RGBA(56, 96, 178, 1)
+            HeadingFont: =Font.'Open Sans'
+            HoverFill: =RGBA(186, 202, 226, .2)
+            Items: =Filter('gerencial_lucamat.parametro',cod_parametro = param_radio_opçoes.Selected.Value)
+            SelectedFill: =RGBA(56, 96, 178, .2)
+            Width: =380
+            X: =309
+            Y: =205
+          Children:
+            - ID_Column6:
+                Control: DataTableColumn@1.0.1
+                Variant: Number
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="ID"
+                  FieldName: ="ID"
+                  Order: =1
+                  Text: =ThisItem.ID
+                  Width: =58
+            - nome_parametro_Column3:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="Parametro Selecionado"
+                  FieldName: ="nome_parametro"
+                  Order: =3
+                  Text: =ThisItem.nome_parametro
+                  Width: =321
+      - param_radio_opçoes:
+          Control: Classic/Radio@2.3.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =512
+            HoverColor: =RGBA(0, 18, 107, 1)
+            Items: =Distinct('gerencial_lucamat.parametro',cod_parametro)
+            RadioBorderColor: =RGBA(0, 18, 107, 1)
+            RadioSelectionFill: =RGBA(0, 0, 0, 1)
+            RadioSize: =30
+            Width: =233
+            X: =76
+            Y: =193
+      - parametro_config_input:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HintText: ="Insira o nome do Parâmetro aqui..."
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Width: =300
+            X: =349
+            Y: =163
+      - param_config_input_button:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            Height: =30
+            Icon: =Icon.AddLibrary
+            OnSelect: |-
+              =If(
+                  IsBlank(parametro_config_input.Text),
+                  Notify(
+                      "Não por favor, insira o nome do PARÂMETRO desejado, no campo.",
+                      NotificationType.Error
+                  ),
+                  Patch(
+                      'gerencial_lucamat.parametro',
+                      Defaults('gerencial_lucamat.parametro'),
+                      {
+                          ID: Max(
+                              'gerencial_lucamat.parametro',
+                              ID
+                          ) + 1
+                      },
+                      {cod_parametro: cod_param_input_config.Text},
+                      {key_parametro: Value(key_param_input_config.Text)},
+                      {nome_parametro: parametro_config_input.Text}
+                  );
+                  Reset(parametro_config_input);
+                  Notify(
+                      "PARÂMETRO cadastrado com sucesso no Banco de Dados!",
+                      NotificationType.Success
+                  )
+              )
+            Width: =30
+            X: =309
+            Y: =163
+      - param_config_delete_button:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            Height: =30
+            Icon: =Icon.Erase
+            OnSelect: =Remove('gerencial_lucamat.parametro',ParamTable.Selected)
+            Width: =30
+            X: =659
+            Y: =163
+      - cod_param_input_config:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =If(
+                  param_radio_opçoes.Selected.Value = "Grupo Prod.",
+                  "Grupo Prod.",
+                  If(
+                      param_radio_opçoes.Selected.Value = "Banco",
+                      "Banco",
+                      If(
+                          param_radio_opçoes.Selected.Value = "Agência e Conta",
+                          "Agência e Conta",
+                          If(
+                              param_radio_opçoes.Selected.Value = "Unidades",
+                              "Unidades",
+                              If(
+                                  param_radio_opçoes.Selected.Value = "Cargos",
+                                  "Cargos",
+                                  If(
+                                      param_radio_opçoes.Selected.Value = "Tempo de Entrega",
+                                      "Tempo de Entrega",
+                                      If(
+                                          param_radio_opçoes.Selected.Value = "Forma de Pagamento (Compras)",
+                                          "Forma de Pagamento (Compras)",
+                                          If(
+                                              param_radio_opçoes.Selected.Value = "Tipo de Lançamento",
+                                              "Tipo de Lançamento",
+                                              If(
+                                                  param_radio_opçoes.Selected.Value = "Tipo de Entrada",
+                                                  "Tipo de Entrada",
+                                                  If(
+                                                      param_radio_opçoes.Selected.Value = "Tipo de Saída",
+                                                      "Tipo de Saída",
+                                                      If(
+                                                          param_radio_opçoes.Selected.Value = "Status Cheque",
+                                                          "Status Cheque",
+                                                          If(
+                                                              param_radio_opçoes.Selected.Value = "Departamento",
+                                                              "Departamento",
+                                                              If(
+                                                                  param_radio_opçoes.Selected.Value = "Tipo Combustível",
+                                                                  "Tipo Combustível",
+                                                                  If(
+                                                                      param_radio_opçoes.Selected.Value = "Placa Veículo",
+                                                                      "Placa Veículo",
+                                                                      If(
+                                                                          param_radio_opçoes.Selected.Value = "Posto",
+                                                                          "Posto",
+                                                                          If(
+                                                                              param_radio_opçoes.Selected.Value = "Grupo Despesa",
+                                                                              "Grupo Despesa",
+                                                                              If(
+                                                                                  param_radio_opçoes.Selected.Value = "Tipo Despesa",
+                                                                                  "Tipo Despesa",
+                                                                                  0
+                                                                              )
+                                                                          )
+                                                                      )
+                                                                  )
+                                                              )
+                                                          )
+                                                      )
+                                                  )
+                                              )
+                                          )
+                                      )
+                                  )
+                              )
+                          )
+                      )
+                  )
+              )
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Visible: =false
+            Width: =100
+            X: =845
+            Y: =452
+      - key_param_input_config:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: |-
+              =If(
+                  param_radio_opçoes.Selected.Value = "Grupo Prod.",
+                  "7",
+                  If(
+                      param_radio_opçoes.Selected.Value = "Banco",
+                      "4",
+                      If(
+                          param_radio_opçoes.Selected.Value = "Agência e Conta",
+                          "5",
+                          If(
+                              param_radio_opçoes.Selected.Value = "Unidades",
+                              "1",
+                              If(
+                                  param_radio_opçoes.Selected.Value = "Cargos",
+                                  "2",
+                                  If(
+                                      param_radio_opçoes.Selected.Value = "Tempo de Entrega",
+                                      "6",
+                                      If(
+                                          param_radio_opçoes.Selected.Value = "Forma de Pagamento (Compras)",
+                                          "8",
+                                          If(
+                                              param_radio_opçoes.Selected.Value = "Tipo de Lançamento",
+                                              "9",
+                                              If(
+                                                  param_radio_opçoes.Selected.Value = "Tipo de Entrada",
+                                                  "10",
+                                                  If(
+                                                      param_radio_opçoes.Selected.Value = "Tipo de Saída",
+                                                      "11",
+                                                      If(
+                                                          param_radio_opçoes.Selected.Value = "Status Cheque",
+                                                          "12",
+                                                          If(
+                                                              param_radio_opçoes.Selected.Value = "Departamento",
+                                                              "3",
+                                                              If(
+                                                                  param_radio_opçoes.Selected.Value = "Tipo Combustível",
+                                                                  "14",
+                                                                  If(
+                                                                      param_radio_opçoes.Selected.Value = "Placa Veículo",
+                                                                      "15",
+                                                                      If(
+                                                                          param_radio_opçoes.Selected.Value = "Grupo Despesa",
+                                                                          "18",
+                                                                          If(
+                                                                              param_radio_opçoes.Selected.Value = "Tipo Despesa",
+                                                                              "17",
+                                                                              0
+                                                                          )
+                                                                      )
+                                                                  )
+                                                              )
+                                                          )
+                                                      )
+                                                  )
+                                              )
+                                          )
+                                      )
+                                  )
+                              )
+                          )
+                      )
+                  )
+              )
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Visible: =false
+            Width: =100
+            X: =848
+            Y: =499
+      - Titulo_label:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =74
+            Size: =25
+            Text: ="Parâmetros do Sistema Gerencial"
+            Width: =539
+            X: =110
+            Y: =60
+      - Rectangle20:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =RGBA(116, 116, 116, 1)
+            BorderThickness: =2
+            Fill: =RGBA(202, 202, 202, 1)
+            Height: =105
+            Width: =347
+            X: =730
+            Y: =163
+      - Label11:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =105
+            Text: |-
+              ="OBS: Selecione sempre o TIPO de parametro que quer inserir, antes de GRAVAR a informação. Tenha atenção SEMPRE."
+            Width: =336
+            X: =741
+            Y: =163
+      - Label12:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Text: ="Tipos de Parametro:"
+            Width: =233
+            X: =76
+            Y: =153
+      - Button2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Open Sans'
+            Height: =50
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: =UpdateContext({MenuAddEmpresa:true})
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Text: ="Cadastro de Filial"
+            X: =1035
+            Y: =600
+      - Cadastro Empresa:
+          Control: Rectangle@2.3.0
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(77, 77, 77, 1)
+            BorderThickness: =5
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: =608
+            Visible: =MenuAddEmpresa
+            Width: =1042
+            X: =94
+            Y: =60
+      - Título_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(202, 202, 202, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =28
+            Size: =15
+            Text: ="Cadastro de Empresa"
+            Visible: =MenuAddEmpresa
+            Width: =238
+            X: =99
+            Y: =65
+      - Fantasia_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="Nome Fantasia"
+            Visible: =MenuAddEmpresa
+            Width: =135
+            X: =115
+            Y: =110
+      - Razão_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="Razão Social"
+            Visible: =MenuAddEmpresa
+            Width: =114
+            X: =580
+            Y: =110
+      - CNPJ_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+              ="CNPJ
+              "
+            Visible: =MenuAddEmpresa
+            Width: =80
+            X: =115
+            Y: =160
+      - IE_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+              ="Inscrição Estadual
+              "
+            Visible: =MenuAddEmpresa
+            Width: =158
+            X: =520
+            Y: =160
+      - CEP_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+              ="CEP
+              "
+            Visible: =MenuAddEmpresa
+            Width: =44
+            X: =880
+            Y: =160
+      - Endereço_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+              ="Endereço
+              "
+            Visible: =MenuAddEmpresa
+            Width: =97
+            X: =115
+            Y: =210
+      - Numero_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+              ="Nº
+              "
+            Visible: =MenuAddEmpresa
+            Width: =35
+            X: =888
+            Y: =210
+      - Complemento_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+              ="Complemento
+              "
+            Visible: =MenuAddEmpresa
+            Width: =135
+            X: =115
+            Y: =260
+      - Cidade_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: ="Cidade"
+            Visible: =MenuAddEmpresa
+            Width: =76
+            X: =663
+            Y: =260
+      - UF_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+              ="UF
+              "
+            Visible: =MenuAddEmpresa
+            Width: =33
+            X: =941
+            Y: =260
+      - Telefone_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+              ="Telefone
+              "
+            Visible: =MenuAddEmpresa
+            Width: =97
+            X: =115
+            Y: =310
+      - Email_lbl_Empresa:
+          Control: Label@2.5.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Segoe UI'
+            Height: =25
+            Size: =14
+            Text: |-
+              ="E-mail
+              "
+            Visible: =MenuAddEmpresa
+            Width: =62
+            X: =414
+            Y: =310
+      - fantasia_input_empresa:
+          Control: Classic/TextInput@2.3.2
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira o nome do estabelecimento..."
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =1
+            Visible: =MenuAddEmpresa
+            X: =250
+            Y: =110
+      - razao_input_empresa:
+          Control: Classic/TextInput@2.3.2
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira a Razão Social..."
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =2
+            Visible: =MenuAddEmpresa
+            Width: =378
+            X: =694
+            Y: =110
+      - cnpj_input_empresa:
+          Control: Classic/TextInput@2.3.2
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira o CNPJ"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =3
+            Visible: =MenuAddEmpresa
+            Width: =287
+            X: =195
+            Y: =160
+      - ie_input_empresa:
+          Control: Classic/TextInput@2.3.2
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Inscrição estadual da empresa..."
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =4
+            Visible: =MenuAddEmpresa
+            Width: =168
+            X: =677
+            Y: =160
+      - cep_input_empresa:
+          Control: Classic/TextInput@2.3.2
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Coloque o CEP"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =5
+            Visible: =MenuAddEmpresa
+            Width: =149
+            X: =925
+            Y: =160
+      - endereco_input_empresa:
+          Control: Classic/TextInput@2.3.2
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira o Endereço completo"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =6
+            Visible: =MenuAddEmpresa
+            Width: =655
+            X: =212
+            Y: =210
+      - numero_input_empresa:
+          Control: Classic/TextInput@2.3.2
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira o Número"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =7
+            Visible: =MenuAddEmpresa
+            Width: =149
+            X: =925
+            Y: =210
+      - complemento_input_empresa:
+          Control: Classic/TextInput@2.3.2
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Insira o Complemento do endereço"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =8
+            Visible: =MenuAddEmpresa
+            Width: =404
+            X: =250
+            Y: =260
+      - telefone_input_empresa:
+          Control: Classic/TextInput@2.3.2
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="(xx)  xxxxx-xxxx"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =11
+            Visible: =MenuAddEmpresa
+            Width: =149
+            X: =211
+            Y: =310
+      - email_input_empresa:
+          Control: Classic/TextInput@2.3.2
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =""
+            Font: =Font.'Segoe UI'
+            Height: =25
+            HintText: ="Coloque aqui, o e-mail"
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            TabIndex: =12
+            Visible: =MenuAddEmpresa
+            Width: =254
+            X: =476
+            Y: =310
+      - DataTable1:
+          Control: DataTable@1.0.3
+          Variant: DataTable
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =2
+            Font: =Font.'Segoe UI'
+            HeadingColor: =RGBA(255, 255, 255, 1)
+            HeadingFill: =RGBA(56, 96, 178, 1)
+            HeadingFont: =Font.'Open Sans'
+            Height: =266
+            HoverFill: =RGBA(186, 202, 226, .2)
+            Items: ='gerencial_lucamat.empresa'
+            SelectedFill: =RGBA(56, 96, 178, .2)
+            Visible: =MenuAddEmpresa
+            Width: =958
+            X: =120
+            Y: =386
+          Children:
+            - cep_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="CEP"
+                  FieldName: ="cep_filial"
+                  Order: =8
+                  Text: =ThisItem.cep_filial
+            - cidade_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Cidade (Município)"
+                  FieldName: ="cidade_filial"
+                  Order: =12
+                  Text: =ThisItem.cidade_filial
+            - cnpj_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="CNPJ"
+                  FieldName: ="cnpj_filial"
+                  Order: =3
+                  Text: =ThisItem.cnpj_filial
+            - complement_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Complemento"
+                  FieldName: ="complement_filial"
+                  Order: =11
+                  Text: =ThisItem.complement_filial
+            - email_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="E-mail"
+                  FieldName: ="email_filial"
+                  Order: =7
+                  Text: =ThisItem.email_filial
+            - endereç_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Endereço"
+                  FieldName: ="endereç_filial"
+                  Order: =9
+                  Text: =ThisItem.endereç_filial
+            - ID_Column7:
+                Control: DataTableColumn@1.0.1
+                Variant: Number
+                IsLocked: true
+                Properties:
+                  AutoWidth: =false
+                  FieldDisplayName: ="ID"
+                  FieldName: ="ID"
+                  Order: =1
+                  Text: =ThisItem.ID
+                  Width: =60
+            - inscest_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="IE"
+                  FieldName: ="inscest_filial"
+                  Order: =4
+                  Text: =ThisItem.inscest_filial
+            - fantasia_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Nome Fantasia"
+                  FieldName: ="fantasia_filial"
+                  Order: =2
+                  Text: =ThisItem.fantasia_filial
+            - numero_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Número"
+                  FieldName: ="numero_filial"
+                  Order: =10
+                  Text: =ThisItem.numero_filial
+            - razao_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Razão Social"
+                  FieldName: ="razao_filial"
+                  Order: =5
+                  Text: =ThisItem.razao_filial
+            - telefone_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="Telefone"
+                  FieldName: ="telefone_filial"
+                  Order: =6
+                  Text: =ThisItem.telefone_filial
+            - uf_filial_Column1:
+                Control: DataTableColumn@1.0.1
+                Variant: Textual
+                IsLocked: true
+                Properties:
+                  FieldDisplayName: ="UF"
+                  FieldName: ="uf_filial"
+                  Order: =13
+                  Text: =ThisItem.uf_filial
+      - Limpar_Bttn_empresa:
+          Control: Classic/Button@2.2.0
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 191, 0, 1)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(255, 233, 168, 1)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =16
+            Text: ="Limpar!"
+            Visible: =MenuAddEmpresa
+            Width: =100
+            X: =864
+            Y: =345
+      - Excluir_Bttn_empresa:
+          Control: Classic/Button@2.2.0
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 0, 0, 1)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(220, 153, 153, 1)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =16
+            Text: ="Excluir"
+            Visible: =MenuAddEmpresa
+            Width: =100
+            X: =751
+            Y: =345
+      - Gravar_Bttn_empresa:
+          Control: Classic/Button@2.2.0
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(152, 208, 70, 1)
+            Fill: =RGBA(152, 208, 70, 1)
+            Font: =Font.'Segoe UI'
+            Height: =30
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(209, 232, 178, 1)
+            OnSelect: |-
+              =If(
+                  IsBlank(fantasia_input_empresa.Text),
+                  Notify(
+                      "NOME FANTASIA está em branco, por favor preencha o campo correspondente!",
+                      NotificationType.Error
+                  ),
+                  If(
+                      IsBlank(razao_input_empresa.Text),
+                      Notify(
+                          "RAZÃO SOCIAL está em branco, por favor preencha o campo correspondente!",
+                          NotificationType.Error
+                      ),
+                      If(
+                          IsBlank(cnpj_input_empresa.Text),
+                          Notify(
+                              "CNPJ da EMPRESA está em branco, por favor preencha o campo correspondente!",
+                              NotificationType.Error
+                          ),
+                          If(
+                              IsBlank(ie_input_empresa.Text),
+                              Notify(
+                                  "INSCRIÇÃO ESTADUAL está em branco, por favor preencha o campo correspondente!",
+                                  NotificationType.Error
+                              ),
+                              If(
+                                  IsBlank(cep_input_empresa.Text),
+                                  Notify(
+                                      "Campo com nome CEP está em branco, por favor preencha o campo correspondente!",
+                                      NotificationType.Error
+                                  ),
+                                  If(
+                                      IsBlank(endereco_input_empresa.Text),
+                                      Notify(
+                                          "Preencha por favor o ENDEREÇO está em branco, por favor preencha o campo correspondente!",
+                                          NotificationType.Error
+                                      ),
+                                      If(
+                                          IsBlank(numero_input_empresa.Text),
+                                          Notify(
+                                              "o campo NUMERO está em branco, por favor preencha o campo correspondente!",
+                                              NotificationType.Error
+                                          ),
+                                          If(
+                                              IsBlank(complemento_input_empresa.Text),
+                                              Notify(
+                                                  "COMPLEMENTO está em branco, por favor preencha o campo correspondente!",
+                                                  NotificationType.Error
+                                              ),
+                                              If(
+                                                  IsBlank(cidade_input_empresa.SelectedItems),
+                                                  Notify(
+                                                      "O campo CIDADE está em branco, por favor preencha o campo correspondente!",
+                                                      NotificationType.Error
+                                                  ),
+                                                  If(
+                                                      IsBlank(uf_input_empresa.SelectedText),
+                                                      Notify(
+                                                          "UF está em branco, por favor preencha o campo correspondente!",
+                                                          NotificationType.Error
+                                                      ),
+                                                      If(
+                                                          IsBlank(telefone_input_empresa.Text),
+                                                          Notify(
+                                                              "Prenecha o campo TELEFONE está em branco, por favor preencha-o!",
+                                                              NotificationType.Error
+                                                          ),
+                                                          If(
+                                                              IsBlank(email_input_empresa.Text),
+                                                              Notify(
+                                                                  "E-MAIL está em branco, por favor preencha o campo correspondente!",
+                                                                  NotificationType.Error
+                                                              ),
+                                                              Patch(
+                                                                  'gerencial_lucamat.empresa',
+                                                                  Defaults('gerencial_lucamat.empresa'),
+                                                                  {
+                                                                      ID: Max(
+                                                                          'gerencial_lucamat.empresa',
+                                                                          ID
+                                                                      ) + 1
+                                                                  },
+                                                                  {fantasia_filial: fantasia_input_empresa.Text},
+                                                                  {razao_filial: razao_input_empresa.Text},
+                                                                  {cnpj_filial: cnpj_input_empresa.Text},
+                                                                  {inscest_filial: ie_input_empresa.Text},
+                                                                  {cep_filial: cep_input_empresa.Text},
+                                                                  {endereç_filial: endereco_input_empresa.Text},
+                                                                  {numero_filial: Value(numero_input_empresa.Text)},
+                                                                  {complement_filial: complemento_input_empresa.Text},
+                                                                  {cidade_filial: cidade_input_empresa.Selected.Município},
+                                                                  {uf_filial: uf_input_empresa.Selected.UF},
+                                                                  {telefone_filial: Value(telefone_input_empresa.Text)},
+                                                                  {email_filial: email_input_empresa.Text}
+                                                              );
+                                                              Reset(fantasia_input_empresa);
+                                                              Reset(razao_input_empresa);
+                                                              Reset(cnpj_input_empresa);
+                                                              Reset(ie_input_empresa);
+                                                              Reset(cep_input_empresa);
+                                                              Reset(endereco_input_empresa);
+                                                              Reset(numero_input_empresa);
+                                                              Reset(complemento_input_empresa);
+                                                              Reset(cidade_input_empresa);
+                                                              Reset(uf_input_empresa);
+                                                              Reset(telefone_input_empresa);
+                                                              Reset(email_input_empresa);
+                                                              Notify(
+                                                                  "As informações da EMPRESA foram gravadas com Sucesso no banco de dados!",
+                                                                  NotificationType.Success
+                                                              )
+                                                          )
+                                                      )
+                                                  )
+                                              )
+                                          )
+                                      )
+                                  )
+                              )
+                          )
+                      )
+                  )
+              )
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Size: =16
+            Text: ="Gravar!"
+            Visible: =MenuAddEmpresa
+            Width: =100
+            X: =974
+            Y: =345
+      - Icon5:
+          Control: Classic/Icon@2.5.0
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            Height: =40
+            Icon: =Icon.Cancel
+            OnSelect: =UpdateContext({MenuAddEmpresa:false})
+            Visible: =MenuAddEmpresa
+            Width: =40
+            X: =1085
+            Y: =70
+      - cidade_input_empresa:
+          Control: Classic/ComboBox@2.4.0
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            DisplayFields: =["Município"]
+            Font: =Font.'Open Sans'
+            Height: =25
+            HoverFill: =RGBA(186, 202, 226, 1)
+            IsSearchable: =false
+            Items: ='gerencial_lucamat.padrao'
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SearchFields: =["Município"]
+            SelectMultiple: =false
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Visible: =MenuAddEmpresa
+            Width: =191
+            X: =740
+            Y: =260
+      - uf_input_empresa:
+          Control: Classic/DropDown@2.3.1
+          Group: AddEmpresa
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            ChevronBackground: =RGBA(56, 96, 178, 1)
+            ChevronFill: =RGBA(255, 255, 255, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            Font: =Font.'Open Sans'
+            Height: =25
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Items: =Filter('gerencial_lucamat.padrao', Município = cidade_input_empresa.Selected.Município)
+            Items.Value: =UF
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(56, 96, 178, 1)
+            Visible: =MenuAddEmpresa
+            Width: =95
+            X: =974
+            Y: =260
